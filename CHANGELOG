@@ -1,0 +1,91 @@
+CoderMe Donation 6.0.1
+---------------------------------
+    # Bugfix: installation bug on MariaDB
+    # Update License.	
+
+
+CoderMe Donation 6.0.0
+---------------------------------
+    # Security: Payza dropped (out of business)
+    # Support: PHP 7.2
+
+
+CoderMe Donation 5.0.2
+---------------------------------
+    # Drop CodeName in favor of guid (for now).
+
+
+
+#CoderMe Donation 5.0.1
+---------------------------------
+    # Adding missing src/inc/plugins/naoardonate/funcs.php
+
+
+
+## New in CoderMe Donation v5.0
+---------------------------------
+    # [REMOVED]: Skrill removed.
+    # [ADDED]:   2checkout has been added.
+    # [ADDED]:   Require MTCN from donors when Western Union is used.
+    # [SECURITY]: Form double submit prevention Added.
+    # [SECURITY]: CSRF Prevention Added.
+    # [PRIVACY]: Option to hide donors emails from top donors page (switched on by default).
+    # [ISO]: ISO 4217 Currency codes(1).
+    # [GENERAL]: Code refactoring/ general cleanups.
+    # [CONFIRMATION]: Require confirmation before uninstallation, to prevent accidental loss of data.
+(1) Some currencies codes picked over the ISO to address the common usage in certain payment processors.
+
+
+
+CoderMe Donation 4.0.1
+---------------------------------
+    # Bugfix: invalid donation amount
+    # Workaround: missing language naoardonate_global.lang.php
+    # Adding admin/modules/coderme_donors to the archive
+
+
+
+CoderMe Donation 4.0.0
+---------------------------------
+    # Add support for mybb 1.8
+    # Remove libertyreserve.
+
+
+
+Naoar Donation 3.0.6
+---------------------------------
+    # Bugfix: yet another upgrade bug (from 1.x to 3.x)
+
+
+
+Naoar Donation 3.0.5
+---------------------------------
+    # Bugfix: upgrade bug (from 1.x to 3.x)
+
+
+
+Naoar Donation 3.0.4
+---------------------------------
+    # Bugfix: upgrade bug
+
+
+
+Naoar Donation 3.0.3
+---------------------------------
+    # Bugfix: upgrade bug
+
+
+
+Naoar Donation  3.0.2
+---------------------------------
+    # Bugfix: donation by Paypal wasn't working
+
+
+
+Naoar Donation 3.0.1
+---------------------------------
+    # Bugfix: Preserve donation bar status when upgrade
+    # Bugfix: currencies select box
+
+
+
