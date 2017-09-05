@@ -1,0 +1,195 @@
+<?php
+
+/**
+ *
+ * CoderMe Donation FREE
+ * Copyright (c) CoderMe.com, All Rights Reserved
+ *
+ * Website: https://coderme.com
+ * Home:    https://coderme.com/mybb-donation-plugin
+ * License: https://coderme.com/mybb-donation-plugin#license
+ * Version: 6.0.0
+ *
+ **/
+
+
+
+
+
+define("IN_MYBB", 1);
+define('THIS_SCRIPT', 'donate.php');
+
+
+
+$templatelist = "naoardonate_redirect_v5,naoardonate_donate_aboutu_v5,naoardonate_donate_captcha_v5,naoardonate_donate_offline_wu_v5,naoardonate_donate_offline_bw_v5,naoardonate_donate_currencies_row_v5,naoardonate_donate_currencies_row_v5,naoardonate_donate_note_v5,naoardonate_donate_v5,naoardonate_top_donation_v5,naoardonate_top_v5,naoardonate_links_unban_v7";
+
+require_once "./global.php";
+require_once  MYBB_ROOT . 'inc/plugins/naoardonate/funcs.php';
+
+
+
+# Load language phrases
+$lang->load("naoardonate_front");
+$lang->load("naoardonate_global");
+
+if(!$db->table_exists('naoardonate')){
+	error($lang->naoardonate_front_error_notinstalled);
+} elseif($mybb->settings['naoardonate_onoff'] == 0) {
+	error($lang->naoardonate_front_error_disabled);
+} elseif((!$mybb->settings['naoardonate_payment_method_2c'] and !$mybb->settings['naoardonate_payment_method_pp']) or strlen($mybb->settings['naoardonate_payment_method']) < 5) {
+	error($lang->naoardonate_front_error_notready);
+} elseif(!mayDonate($mybb->user, $mybb->settings['naoardonate_from'])){
+  	$mybb->user['uid'] != 0 ?
+                       error($lang->naoardonate_front_error_blockedgroups)
+                       : error($lang->naoardonate_front_error_noguests);
+}
+
+
+
+# resetting some variables
+$name = $email = $amount = $currency = $currencies_row = $payment_method = $note = $errors = $js_updatelist = $js_load = $js_funcs = $captcha_valid = $submit_ifvalid = $isvalid_ = $single_currency_text = '';
+ 
+
+# accepted payment processor
+$accepted_payment_methods = explode(',',$mybb->settings['naoardonate_payment_method']);
+$payment_methods_count = count($accepted_payment_methods);
+
+# doonation page text
+if (isBanned($mybb->user)) {
+    $donation_page_title = $lang->naoardonate_front_unban_title;
+    $donationdetails_title = $lang->naoardonate_front_unbandetails;
+} else {
+    $donation_page_title = $lang->naoardonate_front_donate_title;
+    $donationdetails_title = $lang->naoardonate_front_donationdetails;
+}
+
+# amounts array
+$amount_settings = explode(',',$mybb->settings['naoardonate_amount']);
+$amount_array = array();
+foreach($amount_settings as $v)
+{
+    $v = trim($v);
+    if(empty($v) and $v != 0 ) continue;
+    if ( preg_match('#\[(.*?)\]#', $v, $matches)) {
+        $text = trim( htmlspecialchars_uni( $matches[1] ) );
+        if ( preg_match( '#(?:\[.*\])?\s*(\d*\.?\d*)#', $v, $float)) {
+            $v = strpos( $float[1], '.') === False ? (int) $float[1] : number_format( ( float ) $float[1], 2, '.', '');
+        }
+    }
+    else {
+        $text = '';
+        $v = strpos( $v, '.') === False ? (int) $v : number_format( ( float ) $v, 2, '.', '');
+    }
+
+    if(False !== strpos("$v", '.00'))
+	  $v = str_replace('.00', '', (string) $v);
+
+
+	if( ! array_key_exists($v, $amount_array))
+	{
+		$amount_array[ $v ] = $text;
+		$amount_indeces[] = $v;
+	}
+}
+
+ksort($amount_array);
+$amount_0 = array_slice($amount_array, 0, 1 ,1);
+$index_0 = $amount_indeces[0];
+$amount_1 = array_slice($amount_array, 1, 1, 1 );
+$index_1 = $amount_indeces[1];
+
+// currency
+$currencies_lr = array('EUR', 'USD');
+$currencies_2c = getCurrenciesOf(CODERME_2CHECKOUT);
+$currencies_bk = getCurrenciesOf(CODERME_BANK_WIRE);
+$currencies_wu = getCurrenciesOf(CODERME_WESTERN_UNION);
+$currencies_pp = getCurrenciesOf(CODERME_PAYPAL);
+$coderme_post_key = generate_post_check();
+
+
+# validate input
+if($mybb->request_method == 'post') {
+    // post_key check
+    verify_post_check($mybb->input['coderme_post_key']);
+
+	# set working enviroment
+	$name = trim($mybb->input['name']);
+	$email = trim($mybb->input['email']);
+	$payment_method = $mybb->input['payment_method'];
+	$amount = str_replace('.00', '', number_format(floatval(($mybb->input['p_amount'] == 'custom' or !isset($mybb->input['p_amount'])) ? trim($mybb->input['c_amount']) : $mybb->input['p_amount']), 2 , '.', '') );
+	$currency = ( preg_match('@[A-Z]{3}@', $mybb->settings['naoardonate_currency']) ? $mybb->settings['naoardonate_currency'] : $mybb->input['currency'] );
+	$note = trim($mybb->input['note']);
+	$imgstr = trim($mybb->input['imgstr']);
+	$imghash = $mybb->input['imagehash'];
+    $mtcn = trim($mybb->input['mtcn']);
+
+
+
+	# check name and email only if they are required
+	if($mybb->settings['naoardonate_info_required'] and ($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info'] == 2 and $mybb->user['uid'] or $mybb->settings['naoardonate_info'] == 1 and !$mybb->user['uid'])){
+		if(empty($name)){
+			$errors[] = $lang->naoardonate_front_error_namerequired;
+		}
+		elseif(strlen($name) < $mybb->settings['minnamelength']){
+			$errors[] = $lang->sprintf($lang->naoardonate_front_error_nametooshort, $mybb->settings['minnamelength']);
+		}
+		if(empty($email)){
+			$errors[] = $lang->naoardonate_front_error_emailrequired;
+		}
+		elseif(!validate_email_format($email)){
+			$errors[] = $lang->naoardonate_front_error_bademail;
+		}
+	}
+
+
+	if ($amount == 0)
+	{
+		$errors[] = $lang->naoardonate_front_error_minimumzero;
+	}
+
+	elseif ($index_0 == 0 and $amount < $index_1 )
+	{
+		$errors[] = $lang->sprintf($lang->naoardonate_front_error_minimum, $index_1 );
+	}
+
+	elseif ($amount <  $index_0 )
+	{
+		$errors[] = $lang->sprintf($lang->naoardonate_front_error_minimum, $index_0 );
+	}
+
+	if(empty($payment_method))
+	{
+		$errors[] = $lang->naoardonate_front_error_nopayment_method;
+	}
+
+	elseif(!in_array($payment_method, $accepted_payment_methods))
+	{
+		$errors[] = $lang->sprintf($lang->naoardonate_front_error_notsupportedpayment_method,$payment_method);
+	}
+	elseif($mybb->settings['naoardonate_currency'] == '000' and !in_array($currency, array('EUR', 'USD')))
+	{
+		$errors[] = $lang->naoardonate_front_error_onlyusdoreuro;
+	}
+	elseif(!(($currency == $mybb->settings['naoardonate_currency']
+	    or $mybb->settings['naoardonate_currency'] == 'Any')
+	    and (($payment_method == '2checkout' and in_array($currency, $currencies_2c))
+	    or ($payment_method == 'Bank/Wire transfer' and in_array($currency, $currencies_bk))
+	    or ($payment_method == 'Western Union' and in_array($currency, $currencies_wu))
+	    or ($payment_method == 'Paypal' and in_array($currency, $currencies_pp)))) and $mybb->settings['naoardonate_currency'] != '000')
+	{
+		$errors[] = $lang->sprintf($lang->naoardonate_front_error_unsupportedcurency, $payment_method);
+	}
+
+
+    // wu
+    if($payment_method == 'Western Union') {
+        if (!$mtcn) {
+            $errors[] = $lang->naoardonate_front_error_empty_mtcn; 
+        } elseif(!ctype_digit($mtcn) or $mtcn < 5e9) {
+         $errors[] = $lang->naoardonate_front_error_invalid_mtcn; 
+        }
+    } else {
+        // no other payment methods needs it for now
+        $mtcn = '';
+    }
+    
