@@ -193,3 +193,4 @@ if($mybb->request_method == 'post'){
 		flash_message($lang->naoardonate_browse_inline_unconfirmed, 'success');
 		admin_redirect($mybb->input['naoar_referrer']);
 
+
