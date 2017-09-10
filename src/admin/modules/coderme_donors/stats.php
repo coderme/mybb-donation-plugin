@@ -193,3 +193,4 @@ $currencies_array = array(
 'MOP' => $lang->naoardonate_global_currency_mop,
 'MRO' => $lang->naoardonate_global_currency_mro,
 'MUR' => $lang->naoardonate_global_currency_mur,
+'MVR' => $lang->naoardonate_global_currency_mvr,
