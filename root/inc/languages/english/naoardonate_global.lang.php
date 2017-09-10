@@ -1,13 +1,16 @@
 <?php
 
-#  Naoar Donation plugin v3.0 for mybb 1.4x, 1.6x
-#  This file will be used in many files..
-#  Copyright(c) 2015  """ https://coderme.com """
-#
-#  This is a free software, you can redistribute it freely provided that you keep my credits, files of this module and this notice unchanged.
-#
-#  This module released UNDER THE TERMS OF CREATIVE COMMONS - Attribution No Derivatives("cc by-nd"). THIS MODULE IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW. ANY USE OF THIS MODULE OTHER THAN AS AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT LAW IS PROHIBITED
-#  For Details visit: http://creativecommons.org/licenses/by-nd/3.0/legalcode  or http://creativecommons.org/licenses/by-nd/3.0/
+/**
+ *
+ * CoderMe Donation plugin
+ * Copyright 2017 CoderMe.com, All Rights Reserved
+ *
+ * Website: https://coderme.com
+ * Home:    https://red.coderme.com/mybb-donation-plugin
+ * License: https://red.coderme.com/mybb-donation-plugin#license
+ * Version: 4.0.0
+ *
+ **/
 
 
 # Admin: browse.php and stats.php | Front: donate.php
@@ -217,7 +220,7 @@ $l['naoardonate_global_currency_sk_only'] = 'Skrill ONLY';
 $l['naoardonate_global_currency_pp_only'] = 'PayPal ONLY';
 $l['naoardonate_global_currency_ap_only'] = 'Payza ONLY';
 
-# payza paypal libertyreserve skrill wetern union bank/wire transfer
+# payza paypal western union bank/wire transfer
 $l['naoardonate_global_currency_pz_sk_pp_wu_bk'] = 'Payza, Skrill, Paypal, Western Union and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_pz_sk_pp_bk'] = 'Payza, Skrill, Paypal and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_pz_sk_wu_bk'] = 'Payza, Skrill, Western Union and Bank/wire transfer ONLY';
@@ -239,7 +242,6 @@ $l['naoardonate_global_currency_bk'] = 'Bank/wire transfer ONLY';
 
 # Admin: browse.php, stats.php
 $l['naoardonate_global_ogid'] = 'Original Group: ';
-$l['naoardonate_global_notinstalled'] = 'Naoar donation module not installed';
-$l['naoardonate_global_notinstalled_desc'] = '(naoardonate) table not found, to install Tera Donate <a href="index.php?module=config-plugins"> click here </a>';
+$l['naoardonate_global_notinstalled'] = 'CoderMe donation module not installed';
+$l['naoardonate_global_notinstalled_desc'] = 'Main Donation TABLE not found, to install CoderMe Donation plugin <a href="index.php?module=config-plugins"> click here </a>';
 
-?>

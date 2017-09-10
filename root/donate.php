@@ -1,20 +1,22 @@
 <?php
 
-#  Naoar Donation plugin v3.0 for mybb 1.4x, 1.6x
-#  This file will be used for frontend
-#  Copyright(c) 2015  """ https://coderme.com """
-#
-#  This is a free software, you can redistribute it freely provided that you keep my credits, files of this module and this notice unchanged.
-#
-#  This module released UNDER THE TERMS OF CREATIVE COMMONS - Attribution No Derivatives("cc by-nd"). THIS MODULE IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW. ANY USE OF THIS MODULE OTHER THAN AS AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT LAW IS PROHIBITED
-#  For Details visit: http://creativecommons.org/licenses/by-nd/3.0/legalcode  or http://creativecommons.org/licenses/by-nd/3.0/
-
+/**
+ *
+ * CoderMe Donation plugin
+ * Copyright 2017 CoderMe.com, All Rights Reserved
+ *
+ * Website: https://coderme.com
+ * Home:    https://red.coderme.com/mybb-donation-plugin
+ * License: https://red.coderme.com/mybb-donation-plugin#license
+ * Version: 4.0.0
+ *
+ **/
 
 
 define("IN_MYBB", 1);
 define('THIS_SCRIPT', 'donate.php');
 
-$templatelist = "naoardonate_redirect_v3,naoardonate_donate_aboutu_v3,naoardonate_donate_captcha_v3,naoardonate_donate_offline_v3,naoardonate_donate_currencies_row_v3,naoardonate_donate_currencies_row_v3,naoardonate_donate_note_v3,naoardonate_donate_v3,naoardonate_top_donation_v3,naoardonate_top_v3";
+$templatelist = "naoardonate_redirect_v4,naoardonate_donate_aboutu_v4,naoardonate_donate_captcha_v4,naoardonate_donate_offline_v4,naoardonate_donate_currencies_row_v4,naoardonate_donate_currencies_row_v4,naoardonate_donate_note_v4,naoardonate_donate_v4,naoardonate_top_donation_v4,naoardonate_top_v4";
 
 require_once "./global.php";
 
@@ -248,33 +250,10 @@ if($mybb->request_method == 'post')
 
 			break;
 
-			case 'LibertyReserve':
-
-				# found libertyreserve closed the connection specifically when opera do 'post' request
-				if(stripos($_SERVER['HTTP_USER_AGENT'], 'opera') !== false)
-				{
-					$method = 'get';
-				}
-				else
-				{
-					$method ='post';
-				}
-
-				$url = 'https://sci.libertyreserve.com';
-				$currency_name ='lr_currency';
-				$merchant_name = 'lr_acc';
-				$merchant_value =$mybb->settings['naoardonate_payment_method_lr'];
-				$amount_name = 'lr_amnt';
-				$currency = 'LR'.$currency;
-				$return_name = 'lr_success_url';
-				$cancel_name = 'lr_fail_url';
-				$additional = "<input type=\"hidden\" name=\"lr_comments\" value=\"{$lang->naoardonate_front_donation}#$insert_id:$uid | $name\" /><input type=\"hidden\" name=\"lr_success_url_method\" value=\"post\" /><input type=\"hidden\" name=\"lr_fail_url_method\" value=\"post\" />";
-			break;
-
 			case 'Skrill':
-
+            
 				$method = 'post';
-				$url = 'https://www.moneybookers.com/app/payment.pl';
+				$url = 'https://www.skrill.com/app/payment.pl';
 				$currency_name = 'currency';
 				$merchant_name =  'pay_to_email';
 				$merchant_value = $mybb->settings['naoardonate_payment_method_sk'];
@@ -314,7 +293,7 @@ if($mybb->request_method == 'post')
 		my_setcookie('naoardonate', 'd_ip'.$_SERVER['REMOTE_ADDR'],'86400');
 
 		# everything is ready? I hope so ..
-		eval('$naoardonate_redirect = "' . $templates->get('naoardonate_redirect_v3') . '";');
+		eval('$naoardonate_redirect = "' . $templates->get('naoardonate_redirect_v4') . '";');
 		print $naoardonate_redirect;
 		exit;
 	}
@@ -339,7 +318,7 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 		$optional_required = $lang->naoardonate_front_optional;
 	}
 	($name == $lang->naoardonate_global_guest) ? $name='' : false;
-	eval('$aboutyou = "' . $templates->get('naoardonate_donate_aboutu_v3') . '";');
+	eval('$aboutyou = "' . $templates->get('naoardonate_donate_aboutu_v4') . '";');
 } else {
 	$aboutyou ='';
 }
@@ -373,7 +352,7 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 		$db->insert_query("captcha", $imagearray);
 
 
-eval('$captcha = "' . $templates->get('naoardonate_donate_captcha_v3') . '";');
+eval('$captcha = "' . $templates->get('naoardonate_donate_captcha_v4') . '";');
 } elseif($captcha_valid){
 my_setcookie('imgstr', $mybb->input['imgstr'],'159');
 $captcha ='';
@@ -411,7 +390,7 @@ if ( in_array('Western Union', $accepted_payment_methods) ) {
     $payment_offline_id = 'offline_wu';
     $payment_offline = nl2br( htmlspecialchars_uni( $mybb->settings['naoardonate_payment_method_wu']) );
     $pay_to = $lang->sprintf( $lang->naoardonate_front_payfor, 'Western Union');
-    eval('$offline_options = "' . $templates->get('naoardonate_donate_offline_v3') . '";');
+    eval('$offline_options = "' . $templates->get('naoardonate_donate_offline_v4') . '";');
 }
 
 if ( in_array('Bank/Wire transfer', $accepted_payment_methods) ) {
@@ -419,7 +398,7 @@ if ( in_array('Bank/Wire transfer', $accepted_payment_methods) ) {
     $payment_offline_id = 'offline_bk';
     $payment_offline =  nl2br( htmlspecialchars_uni( $mybb->settings['naoardonate_payment_method_bk']) );
     $pay_to = $lang->sprintf( $lang->naoardonate_front_payfor, 'Bank/Wire transfer');
-    eval('$offline_options .= "' . $templates->get('naoardonate_donate_offline_v3') . '";');
+    eval('$offline_options .= "' . $templates->get('naoardonate_donate_offline_v4') . '";');
 
 }
 
@@ -514,7 +493,7 @@ if($mybb->settings['naoardonate_currency'] == '000')
 
 		}
     $currencyselect .= '</select>';
-    eval('$currencies_row ="' . $templates->get('naoardonate_donate_currencies_row_v3') . '";');
+    eval('$currencies_row ="' . $templates->get('naoardonate_donate_currencies_row_v4') . '";');
 
 }
 elseif ($mybb->settings['naoardonate_currency'] == 'Any')
@@ -573,7 +552,7 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 
 
     $currencyselect .= '</select>';
-    eval('$currencies_row ="' . $templates->get('naoardonate_donate_currencies_row_v3') . '";');
+    eval('$currencies_row ="' . $templates->get('naoardonate_donate_currencies_row_v4') . '";');
 
 }
 else
@@ -610,7 +589,7 @@ $minimum = $lang->sprintf($lang->naoardonate_front_minimum,"$minimum_amount" . (
 
 
 if($index_0  == 0 and $countofamount <= 2){
-  $c_amount = "<input type=\"text\" name=\"c_amount\" value=\"" . ($amount >=  $index_1 ? $amount : '') . "\" /> $single_currency_text <em>" . $minimum . " </em>";
+  $c_amount = "<input type=\"number\" min=\"$minimum_amount\" name=\"c_amount\" value=\"" . ($amount >=  $index_1 ? $amount : '') . "\" /> $single_currency_text <em>" . $minimum . " </em>";
 
 
   $p_amount = '';
@@ -637,7 +616,7 @@ elseif($index_0  == 0 and $countofamount > 2){
   }
 
   $p_amount .= "<option value=\"custom\">" .  ($amount_array[0] ? $amount_array[0] : $lang->naoardonate_front_custom ) . " </option></select>";
-  $c_amount = "<div id=\"custom\"><input type=\"text\" name=\"c_amount\" value=\"" . ($amount >= $minimum_amount ? $amount : '' ). "\" /> $single_currency_text <em>" . $minimum . " </em></div>";
+  $c_amount = "<div id=\"custom\"><input type=\"number\" name=\"c_amount\" min=\"$minimum_amount\" value=\"" . ($amount >= $minimum_amount ? $amount : $minimum_amount ). "\" /> $single_currency_text <em>" . $minimum . " </em></div>";
 
 }
 else {
@@ -657,7 +636,7 @@ if($mybb->settings['naoardonate_donormsg'] == 1){
 $js_load .= "t=a.note;if(t.value != ''){shownote();limit()}";
 $js_funcs .= "function shownote(){r=d.getElementById('divnote');r.style.display = 'block';d.getElementById('noteintro').innerHTML =''}function limit(){if(t.value.length > 100){t.value=t.value.substring(0,100)}d.getElementById('max').innerHTML=100 - t.value.length}";
 
-eval('$note_fieldset ="' . $templates->get('naoardonate_donate_note_v3') . '";');
+eval('$note_fieldset ="' . $templates->get('naoardonate_donate_note_v4') . '";');
 
 }else {
 
@@ -678,21 +657,21 @@ endif;
 if($mybb->settings['naoardonate_info_required'] and $aboutyou):
 	$isvalid_ .= " var un = a.name;
 	if(un.value == ''){
-	alert('{$lang->naoardonate_front_error_namerequired}');
+	coderme_alert('{$lang->naoardonate_front_error_namerequired}');
 	un.focus();
 	return false;}
 	else if(un.value.length < " . $mybb->settings['minnamelength'] . " ){
-	alert('" . $lang->sprintf($lang->naoardonate_front_error_nametooshort, $mybb->settings['minnamelength']) . "');
+	coderme_alert('" . $lang->sprintf($lang->naoardonate_front_error_nametooshort, $mybb->settings['minnamelength']) . "');
 	un.focus();
 	return false;}
 	var ue = a.email;
 	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	if(ue.value == ''){
-	alert('{$lang->naoardonate_front_error_emailrequired}');
+	coderme_alert('{$lang->naoardonate_front_error_emailrequired}');
 	ue.focus();
 	return false;}
 	else if(re.test(ue.value) == false){
-	alert('{$lang->naoardonate_front_error_bademail}');
+	coderme_alert('{$lang->naoardonate_front_error_bademail}');
 	ue.focus();
 	return false;}";
 endif;
@@ -702,11 +681,11 @@ if($c_amount and $p_amount){
   $isvalid_ .= " var e= a.c_amount;
   if((parseFloat(e.value) != e.value) && f.value == 'custom'){
   e.value='';e.focus();
-  alert('{$lang->naoardonate_front_error_invalidamount}');
+  coderme_alert('{$lang->naoardonate_front_error_invalidamount}');
   return false;}else if(e.value < $minimum_amount && f.value == 'custom'){
   e.value='';
   e.focus();
-  alert('" . $lang->sprintf($lang->naoardonate_front_error_toosmallamount,"$minimum_amount $single_currency_text") . "');
+  coderme_alert('" . $lang->sprintf($lang->naoardonate_front_error_toosmallamount,"$minimum_amount $single_currency_text") . "');
   return false;}";
 
   $js_funcs .= "function custom(){
@@ -720,25 +699,25 @@ if($c_amount and $p_amount){
 elseif(empty($p_amount)){
   $isvalid_ .= " var e= a.c_amount;
   if(parseFloat(e.value) != e.value){
-  alert('{$lang->naoardonate_front_error_invalidamount}');
+  coderme_alert('{$lang->naoardonate_front_error_invalidamount}');
   e.value='';
   e.focus();
   return false;}
   else if(e.value < $minimum_amount){
   e.value='';
   e.focus();
-  alert('" . $lang->sprintf($lang->naoardonate_front_error_toosmallamount,"$minimum_amount $single_currency_text") . "');
+  coderme_alert('" . $lang->sprintf($lang->naoardonate_front_error_toosmallamount,"$minimum_amount $single_currency_text") . "');
   return false;}";
 }
 
 if($captcha):
 	$isvalid_ .= " var captcha = a.imgstr;
 	if(captcha.value == ''){
-	alert('{$lang->naoardonate_front_error_emptycaptcha}');
+	coderme_alert('{$lang->naoardonate_front_error_emptycaptcha}');
 	captcha.focus();
 	return false;}
 	else if(captcha.value.length < 5){
-	alert('{$lang->naoardonate_front_error_captchatooshort}');
+	coderme_alert('{$lang->naoardonate_front_error_captchatooshort}');
 	captcha.focus();
 	return false;}";
 endif;
@@ -748,7 +727,7 @@ if($isvalid_):
 	$js_funcs .= $isvalid_;
 endif;
 
-eval('$naoardonate_donate = "' . $templates->get('naoardonate_donate_v3') . '";');
+eval('$naoardonate_donate = "' . $templates->get('naoardonate_donate_v4') . '";');
 
 output_page($naoardonate_donate);
 
@@ -791,15 +770,14 @@ elseif($mybb->input['action'] == 'top_donors') {
 			$top_donors['name'] ? True : $top_donors['name'] = $lang->naoardonate_global_guest;
 			$top_donors['email'] ? $top_donors['email'] = "<a href=\"mailto:$top_donors[email]\" title=\"$lang->naoardonate_global_email_donor\">$top_donors[email]</a>" : $top_donors['email'] = '-----';
 			$top_donors['dateline'] = my_date($mybb->settings['dateformat'],$top_donors['dateline']) . ', ' . my_date($mybb->settings['timeformat'], $top_donors['dateline']);
-			eval("\$donations .= \"".$templates->get('naoardonate_top_donation_v3')."\";");
+			eval("\$donations .= \"".$templates->get('naoardonate_top_donation_v4')."\";");
 		}
 
 		empty($donations) ? $donations = "<tr><td align=\"center\" class=\"trow1\" colspan=\"5\">{$lang->naoardonate_global_nothing}</td></tr>" : false;
-		eval("\$naoardonate_top =\"".$templates->get('naoardonate_top_v3')."\";");
+		eval("\$naoardonate_top =\"".$templates->get('naoardonate_top_v4')."\";");
 		output_page($naoardonate_top);
 	}
 }
 
 
 
-?>

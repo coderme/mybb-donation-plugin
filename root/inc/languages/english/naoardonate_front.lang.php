@@ -1,13 +1,16 @@
 <?php
 
-#  Naoar Donation plugin v3.0 for mybb 1.4x, 1.6x
-#  This file will be used in frontend/ donate.php
-#  Copyright(c) 2015  """ https://coderme.com """
-#
-#  This is a free software, you can redistribute it freely provided that you keep my credits, files of this module and this notice unchanged.
-#
-#  This module released UNDER THE TERMS OF CREATIVE COMMONS - Attribution No Derivatives("cc by-nd"). THIS MODULE IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW. ANY USE OF THIS MODULE OTHER THAN AS AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT LAW IS PROHIBITED
-#  For Details visit: http://creativecommons.org/licenses/by-nd/3.0/legalcode  or http://creativecommons.org/licenses/by-nd/3.0/
+/**
+ *
+ * CoderMe Donation plugin
+ * Copyright 2017 CoderMe.com, All Rights Reserved
+ *
+ * Website: https://coderme.com
+ * Home:    https://red.coderme.com/mybb-donation-plugin
+ * License: https://red.coderme.com/mybb-donation-plugin#license
+ * Version: 4.0.0
+ *
+ **/
 
 
 $l['naoardonate_front_top_title'] = "Top Donors";
@@ -15,6 +18,7 @@ $l['naoardonate_front_email'] = "Email";
 $l['naoardonate_front_donate_title'] = "Donate";
 $l['naoardonate_front_custom'] = "Custom amount";
 $l['naoardonate_front_note'] = "Note";
+$l['naoardonate_front_msg'] = "Message";
 $l['naoardonate_front_optional'] = "Optional";
 $l['naoardonate_front_required'] = "Required";
 $l['naoardonate_front_writenote'] = "Write a note";
@@ -86,8 +90,8 @@ $l['naoardonate_front_offline_payment_methods']  = '{1} details';
 
 
 $l['naoardonate_front_unconfirmed_emailsubject'] = '{1} Unconfirmed Donation(s)';
-$l['naoardonate_front_unconfirmed_emailhtmlmessage'] = 'Hello Admin\n <br /> There are {1} Donations waiting your action, please <a href="{2}" target="_blank" title="in a new page">Login to your Admin Control Panel</a> in order to manage these donations\n<br />Sweet Times\n<br />CoderMe.com \n<br /> ---------------------------------------\n<br /> In Order to Stop recieving Alert Emails Regarding Unconfirmed Donations please edit plugins&#39; settings';
-$l['naoardonate_front_unconfirmed_emailtextmessage'] = 'Hello Admin\n There are {1} Donations waiting your action, please Go to {2} in order to manage donations\n Sweet Times\n CoderMe.com\n \n ---------------------------------------\n In Order to Stop recieving Alert Emails Regarding Unconfirmed Donations please edit plugin settings';
+$l['naoardonate_front_unconfirmed_emailhtmlmessage'] = 'Hello Admin\n <br /> There are {1} Donations waiting your action, please <a href="{2}" target="_blank" title="in a new page">Login to your Admin Control Panel</a> in order to manage these donations\n<br />Sweet Times\n<br />Naoar.com \n<br /> ---------------------------------------\n<br /> In Order to Stop recieving Alert Emails Regarding Unconfirmed Donations please edit plugins&#39; settings';
+$l['naoardonate_front_unconfirmed_emailtextmessage'] = 'Hello Admin\n There are {1} Donations waiting your action, please Go to {2} in order to manage donations\n Sweet Times\n Naoar.com\n \n ---------------------------------------\n In Order to Stop recieving Alert Emails Regarding Unconfirmed Donations please edit plugin settings';
 
 
 ?>

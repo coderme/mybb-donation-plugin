@@ -1,14 +1,16 @@
 <?php
 
-#  Naoar Donation plugin v3.0 for mybb 1.4x, 1.6x
-#  This file will be used in settings
-#  Copyright(c) 2015  """ https://coderme.com """
-#
-#  This is a free software, you can redistribute it freely provided that you keep my credits, files of this module and this notice unchanged.
-#
-#  This module released UNDER THE TERMS OF CREATIVE COMMONS - Attribution No Derivatives("cc by-nd"). THIS MODULE IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW. ANY USE OF THIS MODULE OTHER THAN AS AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT LAW IS PROHIBITED
-#  For Details visit: http://creativecommons.org/licenses/by-nd/3.0/legalcode  or http://creativecommons.org/licenses/by-nd/3.0/
-
+/**
+ *
+ * CoderMe Donation plugin
+ * Copyright 2017 CoderMe.com, All Rights Reserved
+ *
+ * Website: https://coderme.com
+ * Home:    https://red.coderme.com/mybb-donation-plugin
+ * License: https://red.coderme.com/mybb-donation-plugin#license
+ * Version: 4.0.0
+ *
+ **/
 
 
 $l['naoardonate_settings_intro'] = 'Personalize Naoar Donation plugin to suit your needs :)';
@@ -29,7 +31,7 @@ $l['naoardonate_settings_amount_desc'] = '<span style="color:#9900FF;font-size:s
 <strong style="color: black; ">0,7,99,301</strong><br />0 value means the users can enter their own amount, the lowest value(not zero) will be the minimum accepted value, for instance the preceding example means the minimum accepted value is 7<br /> if you want to accept custom amount and not less than certain amount enter two values first zero and then the minimum accepted amount like 0,7<br /><br />
 <strong>NEW:</strong> you can enter real numbers with decimal point like <b>9.95</b> also text is supported but must be enclosed with square brackets <b>[ ]</b> character, this text will be displayed as is INSTEAD of the donation amount in the select box, consider the following advanced example:<br /><strong style="color: black; ">0,  [ Basic donation - 70 EUR ] 70.00, [  Gold donation - 700 EUR ] 700.00, [ Platinum donation - 7000 EUR ] 7000.00</strong></span>';
 $l['naoardonate_settings_currency'] = 'Currency:';
-$l['naoardonate_settings_currency_desc'] = '<span style="color:#9900FF;font-size:small">choosing unsupported currency(By certain payment processor) will result in failure of donation process, please select a currency that matches your payment processor..,also note that PayPal allow Malaysian Ringgit (MYR) ONLY for Malaysian users and Brazilian Real (BRL) ONLY for Brazilian users , more information about PayPal Currencies <a href="https://www.paypal.com/us/cgi-bin/?cmd=p/sell/mc/mc_intro-outside" target="_blank" style="color:blue;text-decoration:underline" title="new page" > Here! </a> or see <a href="https://www.payza.com/features/available-currencies" target="_blank" style="color:blue;text-decoration:underline" title="new page"> Payza Currencies </a> however, to ensure compatibility  with all payment processors you may choose
+$l['naoardonate_settings_currency_desc'] = '<span style="color:#9900FF;font-size:small">choosing unsupported currency(By certain payment processor) will result in failure of donation process, please select a currency that matches your payment processor..,also note that PayPal allow Malaysian Ringgit (MYR) ONLY for Malaysian users and Brazilian Real (BRL) ONLY for Brazilian users , more information about PayPal Currencies <a href="https://www.paypal.com/us/cgi-bin/?cmd=p/sell/mc/mc_intro-outside" target="_blank" style="color:blue;text-decoration:underline" title="new page" > Here! </a> or see <a href="https://www.payza.com/features/available-currencies" target="_blank" style="color:blue;text-decoration:underline" title="new page"> Payza Currencies </a> or <a href="http://help.skrill.com/en/Article/business/my-skrill-money/what-currencies-can-customers-pay-in" target="_blank" style="color:blue;text-decoration:underline" title="new page"> Skrill Currencies </a> however, to ensure compatibility  with all payment processors you may choose
 either Euro or US dollar, as these currencies are available all the time</span>';
 $l['naoardonate_settings_payment_method'] = 'Accept donation through:';
 $l['naoardonate_settings_payment_method_desc'] = '<span style="color:#9900FF;font-size:small">your prefered payment processor to accept donations</span>';
@@ -50,7 +52,7 @@ $l['naoardonate_settings_memberonly'] = 'Members Only';
 $l['naoardonate_settings_always'] = 'Always';
 $l['naoardonate_settings_get_payment_method_account'] = 'Sign up with {1} || New Page';
 $l['naoardonate_settings_payment_method_SK'] = 'Skrill Account:';
-$l['naoardonate_settings_payment_method_SK_desc'] = '<span style="color:#9900FF;font-size:small">Donations will sent to this account if Skrill chosen, Don&#39;t have an account? then <a href="https://www.moneybookers.com/app/?rid=19686949" style="color:blue;text-decoration:underline" target="_blank" title="new page">Get your FREE account from Here</a></span>';
+$l['naoardonate_settings_payment_method_SK_desc'] = '<span style="color:#9900FF;font-size:small">Donations will sent to this account if Skrill chosen, Don&#39;t have an account? then <a href="https://www.skrill.com/en/?rid=19686949" style="color:blue;text-decoration:underline" target="_blank" title="new page">Get your FREE account from Here</a></span>';
 
 $l['naoardonate_settings_payment_method_bank'] = 'Bank/Wire tranfser';
 $l['naoardonate_settings_payment_method_bank_desc'] = '<span style="color:#9900FF;font-size:small">Your bank account details including  your name, your account number, bank name, bank address,<a href="http://en.wikipedia.org/wiki/SWIFT">bank SWIFT code</a>. and bank contact info. You may need additional info depending on your bank, please ask your bank</span>';
