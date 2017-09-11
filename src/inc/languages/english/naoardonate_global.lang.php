@@ -193,3 +193,4 @@ $l['naoardonate_global_currency_tzs']    =   'TZS  -  Tanzanian shilling';
 $l['naoardonate_global_currency_uah']    =   'UAH  -  Ukrainian hryvnia';
 $l['naoardonate_global_currency_ugx']    =   'UGX  -  Ugandan shilling';
 $l['naoardonate_global_currency_usd']    =   'USD  -  United States dollar';
+$l['naoardonate_global_currency_uyi']    =   'UYI  -  Uruguay Peso en Unidades Indexadas';
