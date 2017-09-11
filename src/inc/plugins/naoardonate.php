@@ -193,3 +193,4 @@ function naoardonate_install()
                 KEY uid (uid),
                 KEY ogid (ogid)) ENGINE=MyISAM;";
 
+        }
