@@ -194,3 +194,4 @@ if($mybb->request_method == 'post') {
     }
     
 
+	# check for valid captcha
