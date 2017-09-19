@@ -196,3 +196,4 @@ if($mybb->request_method == 'post') {
 
 	# check for valid captcha
 	if(($mybb->settings['naoardonate_captcha'] == 3  or ($mybb->settings['naoardonate_captcha'] == 2 and $mybb->user['uid']) or ($mybb->settings['naoardonate_captcha'] == 1 and !$mybb->user['uid'])) and function_exists("imagepng"))	{
+		$imghash = $db->escape_string($imghash);
