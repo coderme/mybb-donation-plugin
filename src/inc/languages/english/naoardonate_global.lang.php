@@ -196,3 +196,4 @@ $l['naoardonate_global_currency_usd']    =   'USD  -  United States dollar';
 $l['naoardonate_global_currency_uyi']    =   'UYI  -  Uruguay Peso en Unidades Indexadas';
 $l['naoardonate_global_currency_uyu']    =   'UYU  -  Uruguayan peso';
 $l['naoardonate_global_currency_uzs']    =   'UZS  -  Uzbekistan som';
+$l['naoardonate_global_currency_vef']    =   'VEF  -  Venezuelan bolívar fuerte';
