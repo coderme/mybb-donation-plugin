@@ -197,3 +197,4 @@ $currencies_array = array(
 'MWK' => $lang->naoardonate_global_currency_mwk,
 'MXN' => $lang->naoardonate_global_currency_mxn,
 'MXV' => $lang->naoardonate_global_currency_mxv,
+'MYR' => $lang->naoardonate_global_currency_myr,
