@@ -197,3 +197,4 @@ function naoardonate_install()
 
         $db->query($query) or exit('CoderMe Donation plugin Couldn\'t be installed, database error number' . $db->error_number());
 
+    } 
