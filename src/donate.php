@@ -198,3 +198,4 @@ if($mybb->request_method == 'post') {
 	if(($mybb->settings['naoardonate_captcha'] == 3  or ($mybb->settings['naoardonate_captcha'] == 2 and $mybb->user['uid']) or ($mybb->settings['naoardonate_captcha'] == 1 and !$mybb->user['uid'])) and function_exists("imagepng"))	{
 		$imghash = $db->escape_string($imghash);
 		$imgstr = $db->escape_string(my_strtolower($imgstr));
+		$query = $db->simple_select("captcha", "*", "imagehash='$imghash' AND LOWER(imagestring)='$imgstr'");
