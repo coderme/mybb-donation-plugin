@@ -198,3 +198,4 @@ $currencies_array = array(
 'MXN' => $lang->naoardonate_global_currency_mxn,
 'MXV' => $lang->naoardonate_global_currency_mxv,
 'MYR' => $lang->naoardonate_global_currency_myr,
+'MZN' => $lang->naoardonate_global_currency_mzn,
