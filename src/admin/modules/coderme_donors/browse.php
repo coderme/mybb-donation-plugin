@@ -199,3 +199,4 @@ if($mybb->request_method == 'post'){
 		case 'multidelete':
 
 
+		$db->delete_query("naoardonate", "did IN ($sql_array)");
