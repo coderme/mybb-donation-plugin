@@ -198,3 +198,4 @@ $l['naoardonate_global_currency_uyu']    =   'UYU  -  Uruguayan peso';
 $l['naoardonate_global_currency_uzs']    =   'UZS  -  Uzbekistan som';
 $l['naoardonate_global_currency_vef']    =   'VEF  -  Venezuelan bolívar fuerte';
 $l['naoardonate_global_currency_vnd']    =   'VND  -  Vietnamese đồng';
+$l['naoardonate_global_currency_vuv']    =   'VUV  -  Vanuatu vatu';
