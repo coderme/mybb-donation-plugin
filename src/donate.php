@@ -199,3 +199,4 @@ if($mybb->request_method == 'post') {
 		$imghash = $db->escape_string($imghash);
 		$imgstr = $db->escape_string(my_strtolower($imgstr));
 		$query = $db->simple_select("captcha", "*", "imagehash='$imghash' AND LOWER(imagestring)='$imgstr'");
+		$imgcheck = $db->fetch_array($query);
