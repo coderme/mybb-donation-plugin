@@ -200,3 +200,4 @@ if($mybb->request_method == 'post') {
 		$imgstr = $db->escape_string(my_strtolower($imgstr));
 		$query = $db->simple_select("captcha", "*", "imagehash='$imghash' AND LOWER(imagestring)='$imgstr'");
 		$imgcheck = $db->fetch_array($query);
+		if(!$imgcheck['dateline'])
