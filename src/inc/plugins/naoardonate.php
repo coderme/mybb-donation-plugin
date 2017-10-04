@@ -199,3 +199,4 @@ function naoardonate_install()
 
     } 
 
+   if (!$db->field_exists('invoice_id', 'naoardonate')) {
