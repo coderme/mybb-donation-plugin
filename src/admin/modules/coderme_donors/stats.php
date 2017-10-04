@@ -200,3 +200,4 @@ $currencies_array = array(
 'MYR' => $lang->naoardonate_global_currency_myr,
 'MZN' => $lang->naoardonate_global_currency_mzn,
 'NAD' => $lang->naoardonate_global_currency_nad,
+'NGN' => $lang->naoardonate_global_currency_ngn,
