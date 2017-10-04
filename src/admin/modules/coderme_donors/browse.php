@@ -200,3 +200,4 @@ if($mybb->request_method == 'post'){
 
 
 		$db->delete_query("naoardonate", "did IN ($sql_array)");
+
