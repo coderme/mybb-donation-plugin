@@ -201,3 +201,4 @@ $currencies_array = array(
 'MZN' => $lang->naoardonate_global_currency_mzn,
 'NAD' => $lang->naoardonate_global_currency_nad,
 'NGN' => $lang->naoardonate_global_currency_ngn,
+'NIO' => $lang->naoardonate_global_currency_nio,
