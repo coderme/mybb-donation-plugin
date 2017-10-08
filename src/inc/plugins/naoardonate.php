@@ -201,3 +201,4 @@ function naoardonate_install()
 
    if (!$db->field_exists('invoice_id', 'naoardonate')) {
         $db->add_column('naoardonate', 'invoice_id', "VARCHAR(120) NOT NULL DEFAULT ''");
+    } 
