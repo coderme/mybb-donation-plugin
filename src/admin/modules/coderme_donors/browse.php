@@ -202,3 +202,4 @@ if($mybb->request_method == 'post'){
 		$db->delete_query("naoardonate", "did IN ($sql_array)");
 
 		# Revert each member to her/his original group :)
+		if($members_selected and $mybb->settings['naoardonate_donorsgroup'] != 'nochange')
