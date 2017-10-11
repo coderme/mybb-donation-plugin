@@ -8,7 +8,7 @@
  * Website: https://coderme.com
  * Home:    https://red.coderme.com/mybb-donation-plugin
  * License: https://red.coderme.com/mybb-donation-plugin#license
- * Version: 4.0.0
+ * Version: 4.0.1
  *
  **/
 
@@ -589,7 +589,7 @@ $minimum = $lang->sprintf($lang->naoardonate_front_minimum,"$minimum_amount" . (
 
 
 if($index_0  == 0 and $countofamount <= 2){
-  $c_amount = "<input type=\"number\" min=\"$minimum_amount\" name=\"c_amount\" value=\"" . ($amount >=  $index_1 ? $amount : '') . "\" /> $single_currency_text <em>" . $minimum . " </em>";
+  $c_amount = "<input type=\"number\" step=\"0.01\" min=\"$minimum_amount\" name=\"c_amount\" value=\"" . ($amount >=  $index_1 ? $amount : '') . "\" /> $single_currency_text <em>" . $minimum . " </em>";
 
 
   $p_amount = '';
@@ -616,7 +616,7 @@ elseif($index_0  == 0 and $countofamount > 2){
   }
 
   $p_amount .= "<option value=\"custom\">" .  ($amount_array[0] ? $amount_array[0] : $lang->naoardonate_front_custom ) . " </option></select>";
-  $c_amount = "<div id=\"custom\"><input type=\"number\" name=\"c_amount\" min=\"$minimum_amount\" value=\"" . ($amount >= $minimum_amount ? $amount : $minimum_amount ). "\" /> $single_currency_text <em>" . $minimum . " </em></div>";
+  $c_amount = "<div id=\"custom\"><input type=\"number\" step=\"0.01\" name=\"c_amount\" min=\"$minimum_amount\" value=\"" . ($amount >= $minimum_amount ? $amount : $minimum_amount ). "\" /> $single_currency_text <em>" . $minimum . " </em></div>";
 
 }
 else {

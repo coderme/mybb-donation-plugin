@@ -1,4 +1,12 @@
-CoderMe Donation 4.0.0
+CoderMe Donation 4.0.1
+---------------------------------
+    # Bugfix: invalid donation amount
+    # Workaround: missing language naoardonate_global.lang.php
+    # Adding admin/modules/coderme_donors to the archieve
+
+
+
+oderMe Donation 4.0.0
 ---------------------------------
     # Add support for mybb 1.8
     # Remove libertyreserve.

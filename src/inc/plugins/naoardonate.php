@@ -8,7 +8,7 @@
  * Website: https://coderme.com
  * Home:    https://red.coderme.com/mybb-donation-plugin
  * License: https://red.coderme.com/mybb-donation-plugin#license
- * Version: 4.0.0
+ * Version: 4.0.1
  *
  **/
 
@@ -36,8 +36,9 @@ $lang->load('naoardonate_plugin');
         "website"   => "https://red.coderme.com/coderme-mybb-donation-plugin",
         "author"    => "CoderMe.com",
         "authorsite"    => "https://coderme.com",
-        "version"   => "4.0.0",
+        "version"   => "4.0.1",
         "guid"      => "a60331204b57399c66a958398b08e6df",
+	"codename"  => "naoardonate",
         "compatibility" => "18*"
     );
 }

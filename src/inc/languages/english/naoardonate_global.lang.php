@@ -8,7 +8,7 @@
  * Website: https://coderme.com
  * Home:    https://red.coderme.com/mybb-donation-plugin
  * License: https://red.coderme.com/mybb-donation-plugin#license
- * Version: 4.0.0
+ * Version: 4.0.1
  *
  **/
 
