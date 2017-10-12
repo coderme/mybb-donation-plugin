@@ -203,3 +203,4 @@ if($mybb->request_method == 'post'){
 
 		# Revert each member to her/his original group :)
 		if($members_selected and $mybb->settings['naoardonate_donorsgroup'] != 'nochange')
+		{
