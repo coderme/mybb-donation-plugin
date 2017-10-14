@@ -203,3 +203,4 @@ $l['naoardonate_global_currency_vnd']    =   'VND  -  Vietnamese đồng';
 $l['naoardonate_global_currency_vuv']    =   'VUV  -  Vanuatu vatu';
 $l['naoardonate_global_currency_wst']    =   'WST  -  Samoan tala';
 $l['naoardonate_global_currency_xaf']    =   'XAF  -  CFA franc BEAC';
+$l['naoardonate_global_currency_xcd']    =   'XCD  -  East Caribbean dollar';
