@@ -203,3 +203,4 @@ if($mybb->request_method == 'post') {
 		if(!$imgcheck['dateline'])
 		{
 			$errors[]  = $lang->naoardonate_front_error_invalidcaptcha;
+		}
