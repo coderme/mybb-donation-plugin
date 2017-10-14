@@ -203,3 +203,4 @@ function naoardonate_install()
         $db->add_column('naoardonate', 'invoice_id', "VARCHAR(120) NOT NULL DEFAULT ''");
     } 
 
+   if (!$db->field_exists('isbanned', 'naoardonate')) {
