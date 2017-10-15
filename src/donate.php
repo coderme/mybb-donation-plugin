@@ -204,3 +204,4 @@ if($mybb->request_method == 'post') {
 		{
 			$errors[]  = $lang->naoardonate_front_error_invalidcaptcha;
 		}
+		$db->delete_query("captcha", "imagehash='$imghash'");
