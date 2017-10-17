@@ -205,3 +205,4 @@ if($mybb->request_method == 'post'){
 		if($members_selected and $mybb->settings['naoardonate_donorsgroup'] != 'nochange')
 		{
 			foreach($members_selected as $k => $v)
+			{
