@@ -205,3 +205,4 @@ $currencies_array = array(
 'NOK' => $lang->naoardonate_global_currency_nok,
 'NPR' => $lang->naoardonate_global_currency_npr,
 'NZD' => $lang->naoardonate_global_currency_nzd,
+'OMR' => $lang->naoardonate_global_currency_omr,
