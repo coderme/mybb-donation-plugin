@@ -206,3 +206,4 @@ $l['naoardonate_global_currency_xaf']    =   'XAF  -  CFA franc BEAC';
 $l['naoardonate_global_currency_xcd']    =   'XCD  -  East Caribbean dollar';
 $l['naoardonate_global_currency_xof']    =   'XOF  -  CFA Franc BCEAO';
 $l['naoardonate_global_currency_xpf']    =   'XPF  -  CFP franc';
+$l['naoardonate_global_currency_yer']    =   'YER  -  Yemeni rial';
