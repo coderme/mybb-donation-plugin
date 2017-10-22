@@ -206,3 +206,4 @@ function naoardonate_install()
    if (!$db->field_exists('isbanned', 'naoardonate')) {
         $db->add_column('naoardonate', 'isbanned', "SMALLINT NOT NULL DEFAULT '0'");
     }
+
