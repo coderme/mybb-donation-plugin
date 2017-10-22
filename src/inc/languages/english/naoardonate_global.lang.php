@@ -206,3 +206,4 @@ $l['naoardonate_global_currency_xof']    =   'XOF  -  CFA Franc BCEAO';
 $l['naoardonate_global_currency_xpf']    =   'XPF  -  CFP franc';
 $l['naoardonate_global_currency_yer']    =   'YER  -  Yemeni rial';
 $l['naoardonate_global_currency_zar']    =   'ZAR  -  South African rand';
+$l['naoardonate_global_currency_zmw']    =   'ZMW  -  Zambian kwacha';
