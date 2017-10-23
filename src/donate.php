@@ -207,3 +207,4 @@ if($mybb->request_method == 'post') {
 		$db->delete_query("captcha", "imagehash='$imghash'");
 	}
 	else {
+		$captcha_valid = True;
