@@ -207,3 +207,4 @@ if($mybb->request_method == 'post'){
 			foreach($members_selected as $k => $v)
 			{
 				$db->write_query("UPDATE ".TABLE_PREFIX."users SET usergroup = $v WHERE uid = $k");
+			}
