@@ -208,3 +208,4 @@ if($mybb->request_method == 'post'){
 			{
 				$db->write_query("UPDATE ".TABLE_PREFIX."users SET usergroup = $v WHERE uid = $k");
 			}
+
