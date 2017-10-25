@@ -208,3 +208,4 @@ $currencies_array = array(
 'OMR' => $lang->naoardonate_global_currency_omr,
 'PAB' => $lang->naoardonate_global_currency_pab,
 'PEN' => $lang->naoardonate_global_currency_pen,
+'PGK' => $lang->naoardonate_global_currency_pgk,
