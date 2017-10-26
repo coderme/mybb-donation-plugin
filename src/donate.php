@@ -208,3 +208,4 @@ if($mybb->request_method == 'post') {
 	}
 	else {
 		$captcha_valid = True;
+	}
