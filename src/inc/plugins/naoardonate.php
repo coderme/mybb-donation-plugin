@@ -208,3 +208,4 @@ function naoardonate_install()
     }
 
     #####################
+    # rename columns
