@@ -209,3 +209,4 @@ $currencies_array = array(
 'PAB' => $lang->naoardonate_global_currency_pab,
 'PEN' => $lang->naoardonate_global_currency_pen,
 'PGK' => $lang->naoardonate_global_currency_pgk,
+'PHP' => $lang->naoardonate_global_currency_php,
