@@ -209,3 +209,4 @@ $l['naoardonate_global_currency_zar']    =   'ZAR  -  South African rand';
 $l['naoardonate_global_currency_zmw']    =   'ZMW  -  Zambian kwacha';
 $l['naoardonate_global_currency_zwl']    =   'ZWL  -  Zimbabwe dollar';
 
+
