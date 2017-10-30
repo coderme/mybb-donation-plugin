@@ -210,3 +210,4 @@ $currencies_array = array(
 'PEN' => $lang->naoardonate_global_currency_pen,
 'PGK' => $lang->naoardonate_global_currency_pgk,
 'PHP' => $lang->naoardonate_global_currency_php,
+'PKR' => $lang->naoardonate_global_currency_pkr,
