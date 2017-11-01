@@ -210,3 +210,4 @@ function naoardonate_install()
     #####################
     # rename columns
     #####################
+    if ($db->field_exists('ebank', 'naoardonate')) {
