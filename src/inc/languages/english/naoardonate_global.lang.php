@@ -211,3 +211,4 @@ $l['naoardonate_global_currency_zwl']    =   'ZWL  -  Zimbabwe dollar';
 
 
 # Admin and front
+$l['naoardonate_global_currency_all_supported'] = 'Supported by All';
