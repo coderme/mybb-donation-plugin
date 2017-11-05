@@ -212,3 +212,4 @@ if($mybb->request_method == 'post'){
 			$lang->naoardonate_browse_inline_deleted = $lang->sprintf($lang->naoardonate_browse_inline_deletedmove, my_number_format(count($selected)), my_number_format(count($members_selected)));
 		}
 		else
+		{
