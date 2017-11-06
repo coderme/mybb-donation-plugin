@@ -212,3 +212,4 @@ $currencies_array = array(
 'PHP' => $lang->naoardonate_global_currency_php,
 'PKR' => $lang->naoardonate_global_currency_pkr,
 'PLN' => $lang->naoardonate_global_currency_pln,
+'PYG' => $lang->naoardonate_global_currency_pyg,
