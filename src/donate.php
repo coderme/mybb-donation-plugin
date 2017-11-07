@@ -212,3 +212,4 @@ if($mybb->request_method == 'post') {
 
 
 	# further manipulation of post data :)
+	if (!empty($name)) {
