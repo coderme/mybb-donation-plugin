@@ -212,3 +212,4 @@ function naoardonate_install()
     #####################
     if ($db->field_exists('ebank', 'naoardonate')) {
         switch($mybb->config['database']['type']){
+        case 'pgsql':
