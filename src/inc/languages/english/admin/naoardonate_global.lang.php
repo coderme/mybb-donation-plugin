@@ -212,3 +212,4 @@ $l['naoardonate_global_currency_zmw']    =   'ZMW  -  Zambian kwacha';
 $l['naoardonate_global_currency_zwl']    =   'ZWL  -  Zimbabwe dollar';
 
 
+# Admin and front
