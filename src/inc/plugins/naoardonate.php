@@ -213,3 +213,4 @@ function naoardonate_install()
     if ($db->field_exists('ebank', 'naoardonate')) {
         switch($mybb->config['database']['type']){
         case 'pgsql':
+            $db->rename_column('naoardonate', 'ebank', 'payment_method', "VARCHAR", True,  '');
