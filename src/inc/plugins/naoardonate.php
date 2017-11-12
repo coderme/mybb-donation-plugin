@@ -214,3 +214,4 @@ function naoardonate_install()
         switch($mybb->config['database']['type']){
         case 'pgsql':
             $db->rename_column('naoardonate', 'ebank', 'payment_method', "VARCHAR", True,  '');
+        break;
