@@ -214,3 +214,4 @@ $l['naoardonate_global_currency_zwl']    =   'ZWL  -  Zimbabwe dollar';
 $l['naoardonate_global_currency_all_supported'] = 'Supported by All';
 
 $l['naoardonate_global_currency_2cPP'] = '2checkout and PayPal ONLY';
+$l['naoardonate_global_currency_2c_only'] = '2checkout ONLY';
