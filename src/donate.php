@@ -214,3 +214,4 @@ if($mybb->request_method == 'post') {
 	# further manipulation of post data :)
 	if (!empty($name)) {
 		$name = substr($name,0,$mybb->settings['maxnamelength']);
+	} else {
