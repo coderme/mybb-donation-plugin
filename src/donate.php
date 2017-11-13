@@ -215,3 +215,4 @@ if($mybb->request_method == 'post') {
 	if (!empty($name)) {
 		$name = substr($name,0,$mybb->settings['maxnamelength']);
 	} else {
+		$mybb->user['uid'] ? $name = $mybb->user['username'] : 	$name = $lang->naoardonate_global_guest;
