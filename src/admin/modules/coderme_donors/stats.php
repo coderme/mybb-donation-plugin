@@ -216,3 +216,4 @@ $currencies_array = array(
 'QAR' => $lang->naoardonate_global_currency_qar,
 'RON' => $lang->naoardonate_global_currency_ron,
 'RSD' => $lang->naoardonate_global_currency_rsd,
+'RUB' => $lang->naoardonate_global_currency_rub,
