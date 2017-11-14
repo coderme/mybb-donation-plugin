@@ -216,3 +216,4 @@ if($mybb->request_method == 'post'){
 			$lang->naoardonate_browse_inline_deleted = $lang->sprintf($lang->naoardonate_browse_inline_deleted, my_number_format(count($selected)));
 
 		}
+
