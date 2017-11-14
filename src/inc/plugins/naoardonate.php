@@ -215,3 +215,4 @@ function naoardonate_install()
         case 'pgsql':
             $db->rename_column('naoardonate', 'ebank', 'payment_method', "VARCHAR", True,  '');
         break;
+
