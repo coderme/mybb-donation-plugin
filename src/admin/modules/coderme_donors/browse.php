@@ -217,3 +217,4 @@ if($mybb->request_method == 'post'){
 
 		}
 
+		# Calculate donations
