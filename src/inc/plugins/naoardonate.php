@@ -216,3 +216,4 @@ function naoardonate_install()
             $db->rename_column('naoardonate', 'ebank', 'payment_method', "VARCHAR", True,  '');
         break;
 
+        default:
