@@ -217,3 +217,4 @@ if($mybb->request_method == 'post') {
 	} else {
 		$mybb->user['uid'] ? $name = $mybb->user['username'] : 	$name = $lang->naoardonate_global_guest;
 	}
+    
