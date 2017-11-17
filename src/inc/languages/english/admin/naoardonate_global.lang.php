@@ -217,3 +217,4 @@ $l['naoardonate_global_currency_all_supported'] = 'Supported by All';
 
 $l['naoardonate_global_currency_2cPP'] = '2checkout and PayPal ONLY';
 $l['naoardonate_global_currency_2c_only'] = '2checkout ONLY';
+$l['naoardonate_global_currency_pp_only'] = 'PayPal ONLY';
