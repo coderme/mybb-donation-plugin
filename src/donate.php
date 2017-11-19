@@ -218,3 +218,4 @@ if($mybb->request_method == 'post') {
 		$mybb->user['uid'] ? $name = $mybb->user['username'] : 	$name = $lang->naoardonate_global_guest;
 	}
     
+	!empty($note) ? $note = substr($note,0 , 100) : false;
