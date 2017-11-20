@@ -218,3 +218,4 @@ function naoardonate_install()
 
         default:
             $db->rename_column('naoardonate', 'ebank', 'payment_method', "VARCHAR(100) NOT NULL DEFAULT ''");
+        }
