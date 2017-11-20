@@ -219,3 +219,4 @@ $currencies_array = array(
 'RUB' => $lang->naoardonate_global_currency_rub,
 'RWF' => $lang->naoardonate_global_currency_rwf,
 'SAR' => $lang->naoardonate_global_currency_sar,
+'SBD' => $lang->naoardonate_global_currency_sbd,
