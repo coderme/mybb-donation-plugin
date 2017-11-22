@@ -220,3 +220,4 @@ if($mybb->request_method == 'post'){
 		# Calculate donations
 		$total = cal_target();
 
+		# Count Unconfirmed donations if you want
