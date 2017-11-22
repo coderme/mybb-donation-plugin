@@ -220,3 +220,4 @@ $currencies_array = array(
 'RWF' => $lang->naoardonate_global_currency_rwf,
 'SAR' => $lang->naoardonate_global_currency_sar,
 'SBD' => $lang->naoardonate_global_currency_sbd,
+'SCR' => $lang->naoardonate_global_currency_scr,
