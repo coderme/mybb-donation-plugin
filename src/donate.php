@@ -220,3 +220,4 @@ if($mybb->request_method == 'post') {
     
 	!empty($note) ? $note = substr($note,0 , 100) : false;
 
+	# is everything ok?
