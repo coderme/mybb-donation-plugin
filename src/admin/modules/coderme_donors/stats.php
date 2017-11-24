@@ -221,3 +221,4 @@ $currencies_array = array(
 'SAR' => $lang->naoardonate_global_currency_sar,
 'SBD' => $lang->naoardonate_global_currency_sbd,
 'SCR' => $lang->naoardonate_global_currency_scr,
+'SDG' => $lang->naoardonate_global_currency_sdg,
