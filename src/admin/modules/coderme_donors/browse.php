@@ -221,3 +221,4 @@ if($mybb->request_method == 'post'){
 		$total = cal_target();
 
 		# Count Unconfirmed donations if you want
+		count_unconfirmed();
