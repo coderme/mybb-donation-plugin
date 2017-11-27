@@ -222,3 +222,4 @@ if($mybb->request_method == 'post'){
 
 		# Count Unconfirmed donations if you want
 		count_unconfirmed();
+
