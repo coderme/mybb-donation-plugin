@@ -223,3 +223,4 @@ $currencies_array = array(
 'SCR' => $lang->naoardonate_global_currency_scr,
 'SDG' => $lang->naoardonate_global_currency_sdg,
 'SEK' => $lang->naoardonate_global_currency_sek,
+'SGD' => $lang->naoardonate_global_currency_sgd,
