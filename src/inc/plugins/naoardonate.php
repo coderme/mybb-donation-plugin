@@ -223,3 +223,4 @@ function naoardonate_install()
      }
 
     if ($db->field_exists('amount', 'naoardonate')) {
+      switch($mybb->config['database']['type']){
