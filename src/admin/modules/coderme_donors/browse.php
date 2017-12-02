@@ -224,3 +224,4 @@ if($mybb->request_method == 'post'){
 		count_unconfirmed();
 
 		# Update cache
+		$cache->update('naoardonate_goal',$total);
