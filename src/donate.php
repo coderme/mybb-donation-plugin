@@ -224,3 +224,4 @@ if($mybb->request_method == 'post') {
 	if(empty($errors))	{
 		if(!$email and $mybb->user['uid']) $email = $mybb->user['email'];
 
+		# prepare data for database insertion
