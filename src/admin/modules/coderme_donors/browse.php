@@ -225,3 +225,4 @@ if($mybb->request_method == 'post'){
 
 		# Update cache
 		$cache->update('naoardonate_goal',$total);
+
