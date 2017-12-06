@@ -225,3 +225,4 @@ $l['naoardonate_global_currency_2c_bk'] = '2checkout and Bank/wire transfer ONLY
 $l['naoardonate_global_currency_pp_wu_bk'] = 'PayPal, Western Union and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_pp_bk'] = 'PayPal and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_2c_pp_wu_bk'] = '2checkout, PayPal, Western Union and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_2c_pp_bk'] = '2checkout, PayPal and Bank/wire transfer ONLY';
