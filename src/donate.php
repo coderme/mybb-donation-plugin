@@ -225,3 +225,4 @@ if($mybb->request_method == 'post') {
 		if(!$email and $mybb->user['uid']) $email = $mybb->user['email'];
 
 		# prepare data for database insertion
+		if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info'] == 2 and $mybb->user['uid'] or $mybb->settings['naoardonate_info'] == 1 and !$mybb->user['uid']){
