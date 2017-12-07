@@ -226,3 +226,4 @@ $currencies_array = array(
 'SGD' => $lang->naoardonate_global_currency_sgd,
 'SHP' => $lang->naoardonate_global_currency_shp,
 'SLL' => $lang->naoardonate_global_currency_sll,
+'SOS' => $lang->naoardonate_global_currency_sos,
