@@ -225,3 +225,4 @@ function naoardonate_install()
     if ($db->field_exists('amount', 'naoardonate')) {
       switch($mybb->config['database']['type']){
           case 'pgsql':
+          $db->rename_column('naoardonate', 'amount', 'real_amount', "FLOAT", True,  '0.00');
