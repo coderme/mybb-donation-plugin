@@ -226,3 +226,4 @@ if($mybb->request_method == 'post'){
 		# Update cache
 		$cache->update('naoardonate_goal',$total);
 
+		# Action complete, grab stats and show success message - redirect user
