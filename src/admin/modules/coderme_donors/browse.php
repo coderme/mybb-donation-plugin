@@ -227,3 +227,4 @@ if($mybb->request_method == 'post'){
 		$cache->update('naoardonate_goal',$total);
 
 		# Action complete, grab stats and show success message - redirect user
+		log_admin_action($lang->naoardonate_browse_inline_deleted);
