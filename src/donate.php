@@ -227,3 +227,4 @@ if($mybb->request_method == 'post') {
 		# prepare data for database insertion
 		if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info'] == 2 and $mybb->user['uid'] or $mybb->settings['naoardonate_info'] == 1 and !$mybb->user['uid']){
 			$name = $db->escape_string(htmlspecialchars_uni($name));
+			$email = $db->escape_string(htmlspecialchars_uni($email));
