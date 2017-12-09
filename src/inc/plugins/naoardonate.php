@@ -226,3 +226,4 @@ function naoardonate_install()
       switch($mybb->config['database']['type']){
           case 'pgsql':
           $db->rename_column('naoardonate', 'amount', 'real_amount', "FLOAT", True,  '0.00');
+          break;
