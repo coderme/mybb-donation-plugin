@@ -227,3 +227,4 @@ function naoardonate_install()
           case 'pgsql':
           $db->rename_column('naoardonate', 'amount', 'real_amount', "FLOAT", True,  '0.00');
           break;
+
