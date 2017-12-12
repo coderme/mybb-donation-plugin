@@ -228,3 +228,4 @@ function naoardonate_install()
           $db->rename_column('naoardonate', 'amount', 'real_amount', "FLOAT", True,  '0.00');
           break;
 
+          default:
