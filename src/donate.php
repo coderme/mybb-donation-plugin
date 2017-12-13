@@ -229,3 +229,4 @@ if($mybb->request_method == 'post') {
 			$name = $db->escape_string(htmlspecialchars_uni($name));
 			$email = $db->escape_string(htmlspecialchars_uni($email));
 		}
+
