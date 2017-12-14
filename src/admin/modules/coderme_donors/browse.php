@@ -230,3 +230,4 @@ if($mybb->request_method == 'post'){
 		log_admin_action($lang->naoardonate_browse_inline_deleted);
 		my_unsetcookie($mybb->input['naoar_cookie']);
 
+		flash_message($lang->naoardonate_browse_inline_deleted, 'success');
