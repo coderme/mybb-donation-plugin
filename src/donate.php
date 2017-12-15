@@ -230,3 +230,4 @@ if($mybb->request_method == 'post') {
 			$email = $db->escape_string(htmlspecialchars_uni($email));
 		}
 
+		$currency = $db->escape_string($currency);
