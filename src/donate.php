@@ -231,3 +231,4 @@ if($mybb->request_method == 'post') {
 		}
 
 		$currency = $db->escape_string($currency);
+		$payment_method = $db->escape_string($payment_method);
