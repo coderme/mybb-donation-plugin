@@ -231,3 +231,4 @@ $currencies_array = array(
 'SSP' => $lang->naoardonate_global_currency_ssp,
 'STD' => $lang->naoardonate_global_currency_std,
 'SYP' => $lang->naoardonate_global_currency_syp,
+'SZL' => $lang->naoardonate_global_currency_szl,
