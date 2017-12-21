@@ -231,3 +231,4 @@ function naoardonate_install()
           default:
           $db->rename_column('naoardonate', 'amount', 'real_amount', "FLOAT UNSIGNED NOT NULL DEFAULT '0.00'");
 
+      }
