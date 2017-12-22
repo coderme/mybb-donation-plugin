@@ -232,3 +232,4 @@ if($mybb->request_method == 'post') {
 
 		$currency = $db->escape_string($currency);
 		$payment_method = $db->escape_string($payment_method);
+		$note ? $note = $db->escape_string(htmlspecialchars_uni($note)):false;
