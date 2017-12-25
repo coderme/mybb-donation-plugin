@@ -234,3 +234,4 @@ $l['naoardonate_global_currency_pp_wu_bk'] = 'PayPal, Western Union and Bank/wir
 $l['naoardonate_global_currency_pp_bk'] = 'PayPal and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_wu_bk'] = 'Western Union and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_wu_bk'] = 'Wetern Union and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_bk'] = 'Bank/wire transfer ONLY';
