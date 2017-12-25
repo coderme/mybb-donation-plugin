@@ -234,3 +234,4 @@ $currencies_array = array(
 'SZL' => $lang->naoardonate_global_currency_szl,
 'THB' => $lang->naoardonate_global_currency_thb,
 'TJS' => $lang->naoardonate_global_currency_tjs,
+'TMT' => $lang->naoardonate_global_currency_tmt,
