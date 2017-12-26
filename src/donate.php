@@ -235,3 +235,4 @@ if($mybb->request_method == 'post') {
 		$note ? $note = $db->escape_string(htmlspecialchars_uni($note)):false;
 
 		$ip = $db->escape_string($_SERVER['REMOTE_ADDR']);
+		$uid = intval($mybb->user['uid']);
