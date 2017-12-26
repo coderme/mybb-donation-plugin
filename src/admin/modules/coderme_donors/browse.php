@@ -235,3 +235,4 @@ if($mybb->request_method == 'post'){
 
 
 		case 'multiconfirm':
+
