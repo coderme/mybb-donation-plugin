@@ -236,3 +236,4 @@ if($mybb->request_method == 'post'){
 
 		case 'multiconfirm':
 
+		$db->write_query("UPDATE ".TABLE_PREFIX."naoardonate SET confirmed = '1' WHERE did IN ($sql_array)");
