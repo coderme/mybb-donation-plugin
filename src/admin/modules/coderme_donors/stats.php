@@ -236,3 +236,4 @@ $currencies_array = array(
 'TJS' => $lang->naoardonate_global_currency_tjs,
 'TMT' => $lang->naoardonate_global_currency_tmt,
 'TND' => $lang->naoardonate_global_currency_tnd,
+'TOP' => $lang->naoardonate_global_currency_top,
