@@ -236,3 +236,4 @@ if($mybb->request_method == 'post') {
 
 		$ip = $db->escape_string($_SERVER['REMOTE_ADDR']);
 		$uid = intval($mybb->user['uid']);
+		$gid = (int)$mybb->user['usergroup'];
