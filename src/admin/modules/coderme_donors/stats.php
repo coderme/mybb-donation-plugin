@@ -237,3 +237,4 @@ $currencies_array = array(
 'TMT' => $lang->naoardonate_global_currency_tmt,
 'TND' => $lang->naoardonate_global_currency_tnd,
 'TOP' => $lang->naoardonate_global_currency_top,
+'TRY' => $lang->naoardonate_global_currency_try,
