@@ -237,3 +237,4 @@ $l['naoardonate_global_currency_wu_bk'] = 'Wetern Union and Bank/wire transfer O
 $l['naoardonate_global_currency_bk'] = 'Bank/wire transfer ONLY';
 
 
+
