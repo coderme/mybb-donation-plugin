@@ -237,3 +237,4 @@ $l['naoardonate_global_currency_bk'] = 'Bank/wire transfer ONLY';
 
 
 # Admin: browse.php, stats.php
+$l['naoardonate_global_ogid'] = 'Original Group: ';
