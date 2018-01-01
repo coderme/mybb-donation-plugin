@@ -238,3 +238,4 @@ if($mybb->request_method == 'post') {
 		$uid = intval($mybb->user['uid']);
 		$gid = (int)$mybb->user['usergroup'];
 
+		# very well .. lets do it
