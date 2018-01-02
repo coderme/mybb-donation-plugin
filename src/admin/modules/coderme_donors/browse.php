@@ -239,3 +239,4 @@ if($mybb->request_method == 'post'){
 		$db->write_query("UPDATE ".TABLE_PREFIX."naoardonate SET confirmed = '1' WHERE did IN ($sql_array)");
 
 		# Move each member to donors group ONLY if this is the admin's wish :)
+		if($members_selected and $mybb->settings['naoardonate_donorsgroup'] != 'nochange')
