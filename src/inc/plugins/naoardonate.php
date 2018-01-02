@@ -238,3 +238,4 @@ function naoardonate_install()
     # check for previous versions
     $query = $db->simple_select('settinggroups', 'gid', "name='naoardonate' or name='teradonate'");
 
+    if($db->num_rows($query) > 0):
