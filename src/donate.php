@@ -239,3 +239,4 @@ if($mybb->request_method == 'post') {
 		$gid = (int)$mybb->user['usergroup'];
 
 		# very well .. lets do it
+		$insert_id = $db->insert_query('naoardonate',array(
