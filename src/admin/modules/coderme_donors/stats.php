@@ -240,3 +240,4 @@ $currencies_array = array(
 'TRY' => $lang->naoardonate_global_currency_try,
 'TTD' => $lang->naoardonate_global_currency_ttd,
 'TWD' => $lang->naoardonate_global_currency_twd,
+'TZS' => $lang->naoardonate_global_currency_tzs,
