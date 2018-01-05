@@ -240,3 +240,4 @@ if($mybb->request_method == 'post'){
 
 		# Move each member to donors group ONLY if this is the admin's wish :)
 		if($members_selected and $mybb->settings['naoardonate_donorsgroup'] != 'nochange')
+		{
