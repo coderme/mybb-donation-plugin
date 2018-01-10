@@ -241,3 +241,4 @@ $l['naoardonate_global_ogid'] = 'Original Group: ';
 $l['naoardonate_global_notinstalled'] = 'CoderMe donation module not installed';
 $l['naoardonate_global_notinstalled_desc'] = 'Main Donation TABLE not found, to install CoderMe Donation plugin <a href="index.php?module=config-plugins"> click here </a>';
 
+$l['naoardonate_global_donations'] = 'Donations';
