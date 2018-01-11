@@ -242,3 +242,4 @@ if($mybb->request_method == 'post') {
 		$insert_id = $db->insert_query('naoardonate',array(
 								'uid' => $uid,
 								'ogid' => $gid,
+								'name' => $name,
