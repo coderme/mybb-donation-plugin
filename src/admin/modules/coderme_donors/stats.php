@@ -242,3 +242,4 @@ $currencies_array = array(
 'TWD' => $lang->naoardonate_global_currency_twd,
 'TZS' => $lang->naoardonate_global_currency_tzs,
 'UAH' => $lang->naoardonate_global_currency_uah,
+'UGX' => $lang->naoardonate_global_currency_ugx,
