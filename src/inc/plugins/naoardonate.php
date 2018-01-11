@@ -241,3 +241,4 @@ function naoardonate_install()
     if($db->num_rows($query) > 0):
         require_once  MYBB_ROOT . $mybb->config['admin_dir'] .
                      '/inc/functions.php';
+        change_admin_permission('coderme_donors', "", -1);
