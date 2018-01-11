@@ -242,3 +242,4 @@ if($mybb->request_method == 'post'){
 		if($members_selected and $mybb->settings['naoardonate_donorsgroup'] != 'nochange')
 		{
 			$members_selected_sql = implode(',',array_keys($members_selected));
+
