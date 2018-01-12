@@ -242,3 +242,4 @@ function naoardonate_install()
         require_once  MYBB_ROOT . $mybb->config['admin_dir'] .
                      '/inc/functions.php';
         change_admin_permission('coderme_donors', "", -1);
+        $gid = (int)$db->fetch_field($query, 'gid');
