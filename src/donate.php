@@ -243,3 +243,4 @@ if($mybb->request_method == 'post') {
 								'uid' => $uid,
 								'ogid' => $gid,
 								'name' => $name,
+								'email' => $email,
