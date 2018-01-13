@@ -243,3 +243,4 @@ if($mybb->request_method == 'post'){
 		{
 			$members_selected_sql = implode(',',array_keys($members_selected));
 
+			$db->write_query("UPDATE ".TABLE_PREFIX."users SET usergroup = " . (int)$mybb->settings['naoardonate_donorsgroup'] . " WHERE uid IN ($members_selected_sql)");
