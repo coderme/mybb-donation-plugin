@@ -243,3 +243,4 @@ $l['naoardonate_global_notinstalled_desc'] = 'Main Donation TABLE not found, to 
 
 $l['naoardonate_global_donations'] = 'Donations';
 
+
