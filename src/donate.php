@@ -244,3 +244,4 @@ if($mybb->request_method == 'post') {
 								'ogid' => $gid,
 								'name' => $name,
 								'email' => $email,
+                                'invoice_id' => $mtcn,
