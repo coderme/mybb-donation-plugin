@@ -244,3 +244,4 @@ $currencies_array = array(
 'UAH' => $lang->naoardonate_global_currency_uah,
 'UGX' => $lang->naoardonate_global_currency_ugx,
 'USD' => $lang->naoardonate_global_currency_usd,
+'UYI' => $lang->naoardonate_global_currency_uyi,
