@@ -244,3 +244,4 @@ function naoardonate_install()
         change_admin_permission('coderme_donors', "", -1);
         $gid = (int)$db->fetch_field($query, 'gid');
         $db->update_query('settinggroups', array('title' => 'CoderMe Donation FREE', 'name' => 'naoardonate'), "gid='{$gid}'");
+    else:
