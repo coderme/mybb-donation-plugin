@@ -245,3 +245,4 @@ if($mybb->request_method == 'post') {
 								'name' => $name,
 								'email' => $email,
                                 'invoice_id' => $mtcn,
+								'payment_method' => $payment_method,
