@@ -246,3 +246,4 @@ $l['naoardonate_global_notinstalled_desc'] = 'Main Donation TABLE not found, to 
 $l['naoardonate_global_donations'] = 'Donations';
 
 
+$l['naoardonate_global_invoice_mtcn'] = 'Invoice ID/MTCN';
