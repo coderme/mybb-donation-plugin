@@ -246,3 +246,4 @@ if($mybb->request_method == 'post'){
 			$db->write_query("UPDATE ".TABLE_PREFIX."users SET usergroup = " . (int)$mybb->settings['naoardonate_donorsgroup'] . " WHERE uid IN ($members_selected_sql)");
 
 			$lang->naoardonate_browse_inline_confirmed = $lang->sprintf($lang->naoardonate_browse_inline_confirmedmove, my_number_format(count($selected)), my_number_format(count($members_selected)));
+		}
