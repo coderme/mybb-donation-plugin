@@ -246,3 +246,4 @@ function naoardonate_install()
         $db->update_query('settinggroups', array('title' => 'CoderMe Donation FREE', 'name' => 'naoardonate'), "gid='{$gid}'");
     else:
         $query = $db->simple_select("settinggroups", "COUNT(*) as rose");
+        $rows = $db->fetch_field($query, "rose");
