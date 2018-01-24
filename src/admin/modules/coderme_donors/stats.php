@@ -247,3 +247,4 @@ $currencies_array = array(
 'UYI' => $lang->naoardonate_global_currency_uyi,
 'UYU' => $lang->naoardonate_global_currency_uyu,
 'UZS' => $lang->naoardonate_global_currency_uzs,
+'VEF' => $lang->naoardonate_global_currency_vef,
