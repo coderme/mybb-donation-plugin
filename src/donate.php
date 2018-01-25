@@ -247,3 +247,4 @@ if($mybb->request_method == 'post') {
                                 'invoice_id' => $mtcn,
 								'payment_method' => $payment_method,
 								'real_amount' => $amount,
+								'currency' => $currency,
