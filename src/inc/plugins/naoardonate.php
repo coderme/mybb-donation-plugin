@@ -247,3 +247,4 @@ function naoardonate_install()
     else:
         $query = $db->simple_select("settinggroups", "COUNT(*) as rose");
         $rows = $db->fetch_field($query, "rose");
+        $insertarray = array(
