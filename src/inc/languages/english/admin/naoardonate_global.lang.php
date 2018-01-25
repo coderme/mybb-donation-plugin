@@ -247,3 +247,4 @@ $l['naoardonate_global_donations'] = 'Donations';
 
 
 $l['naoardonate_global_invoice_mtcn'] = 'Invoice ID/MTCN';
+
