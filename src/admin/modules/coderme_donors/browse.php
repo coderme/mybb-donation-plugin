@@ -248,3 +248,4 @@ if($mybb->request_method == 'post'){
 			$lang->naoardonate_browse_inline_confirmed = $lang->sprintf($lang->naoardonate_browse_inline_confirmedmove, my_number_format(count($selected)), my_number_format(count($members_selected)));
 		}
 		else
+		{
