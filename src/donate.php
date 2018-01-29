@@ -248,3 +248,4 @@ if($mybb->request_method == 'post') {
 								'payment_method' => $payment_method,
 								'real_amount' => $amount,
 								'currency' => $currency,
+								'note' => $note,
