@@ -249,3 +249,4 @@ $currencies_array = array(
 'UZS' => $lang->naoardonate_global_currency_uzs,
 'VEF' => $lang->naoardonate_global_currency_vef,
 'VND' => $lang->naoardonate_global_currency_vnd,
+'VUV' => $lang->naoardonate_global_currency_vuv,
