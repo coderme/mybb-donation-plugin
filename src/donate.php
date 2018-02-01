@@ -249,3 +249,4 @@ if($mybb->request_method == 'post') {
 								'real_amount' => $amount,
 								'currency' => $currency,
 								'note' => $note,
+								'ip' => $ip,
