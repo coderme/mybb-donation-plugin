@@ -250,3 +250,4 @@ if($mybb->request_method == 'post') {
 								'currency' => $currency,
 								'note' => $note,
 								'ip' => $ip,
+								'dateline' => time()
