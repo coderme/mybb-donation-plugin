@@ -249,3 +249,4 @@ function naoardonate_install()
         $rows = $db->fetch_field($query, "rose");
         $insertarray = array(
             'name' => 'naoardonate',
+            'title' => 'CoderMe Donation FREE',
