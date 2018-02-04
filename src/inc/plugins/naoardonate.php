@@ -250,3 +250,4 @@ function naoardonate_install()
         $insertarray = array(
             'name' => 'naoardonate',
             'title' => 'CoderMe Donation FREE',
+            'description' => $db->escape_string($lang->naoardonate_settings_intro),
