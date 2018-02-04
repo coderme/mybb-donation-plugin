@@ -251,3 +251,4 @@ $currencies_array = array(
 'VND' => $lang->naoardonate_global_currency_vnd,
 'VUV' => $lang->naoardonate_global_currency_vuv,
 'WST' => $lang->naoardonate_global_currency_wst,
+'XAF' => $lang->naoardonate_global_currency_xaf,
