@@ -251,3 +251,4 @@ if($mybb->request_method == 'post') {
 								'note' => $note,
 								'ip' => $ip,
 								'dateline' => time()
+							));
