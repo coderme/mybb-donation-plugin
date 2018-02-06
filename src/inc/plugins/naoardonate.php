@@ -252,3 +252,4 @@ function naoardonate_install()
             'title' => 'CoderMe Donation FREE',
             'description' => $db->escape_string($lang->naoardonate_settings_intro),
             'disporder' => $rows+1,
+            'isdefault' => 0
