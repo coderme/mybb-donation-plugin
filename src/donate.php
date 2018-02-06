@@ -252,3 +252,4 @@ if($mybb->request_method == 'post') {
 								'ip' => $ip,
 								'dateline' => time()
 							));
+
