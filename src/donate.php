@@ -253,3 +253,4 @@ if($mybb->request_method == 'post') {
 								'dateline' => time()
 							));
 
+		# now prepare payment_method specific data  : )
