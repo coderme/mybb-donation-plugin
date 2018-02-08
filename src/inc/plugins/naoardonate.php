@@ -253,3 +253,4 @@ function naoardonate_install()
             'description' => $db->escape_string($lang->naoardonate_settings_intro),
             'disporder' => $rows+1,
             'isdefault' => 0
+        );
