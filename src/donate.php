@@ -254,3 +254,4 @@ if($mybb->request_method == 'post') {
 							));
 
 		# now prepare payment_method specific data  : )
+		switch($payment_method)	{
