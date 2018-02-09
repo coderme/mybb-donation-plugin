@@ -254,3 +254,4 @@ function naoardonate_install()
             'disporder' => $rows+1,
             'isdefault' => 0
         );
+        $gid = $db->insert_query("settinggroups", $insertarray);
