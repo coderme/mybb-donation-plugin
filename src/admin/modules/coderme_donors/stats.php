@@ -255,3 +255,4 @@ $currencies_array = array(
 'XCD' => $lang->naoardonate_global_currency_xcd,
 'XOF' => $lang->naoardonate_global_currency_xof,
 'XPF' => $lang->naoardonate_global_currency_xpf,
+'YER' => $lang->naoardonate_global_currency_yer,
