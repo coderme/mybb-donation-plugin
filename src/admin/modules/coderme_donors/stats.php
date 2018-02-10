@@ -256,3 +256,4 @@ $currencies_array = array(
 'XOF' => $lang->naoardonate_global_currency_xof,
 'XPF' => $lang->naoardonate_global_currency_xpf,
 'YER' => $lang->naoardonate_global_currency_yer,
+'ZAR' => $lang->naoardonate_global_currency_zar,
