@@ -256,3 +256,4 @@ if($mybb->request_method == 'post'){
 		$total = cal_target();
 
 		# Update cache
+		$cache->update('naoardonate_goal',$total);
