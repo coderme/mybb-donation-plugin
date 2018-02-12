@@ -256,3 +256,4 @@ function naoardonate_install()
         );
         $gid = $db->insert_query("settinggroups", $insertarray);
     endif;
+
