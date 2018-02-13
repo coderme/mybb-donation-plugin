@@ -257,3 +257,4 @@ $currencies_array = array(
 'XPF' => $lang->naoardonate_global_currency_xpf,
 'YER' => $lang->naoardonate_global_currency_yer,
 'ZAR' => $lang->naoardonate_global_currency_zar,
+'ZMW' => $lang->naoardonate_global_currency_zmw,
