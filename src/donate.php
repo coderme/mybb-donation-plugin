@@ -257,3 +257,4 @@ if($mybb->request_method == 'post') {
 		switch($payment_method)	{
 
         case '2checkout':
+            
