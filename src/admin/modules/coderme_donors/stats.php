@@ -258,3 +258,4 @@ $currencies_array = array(
 'YER' => $lang->naoardonate_global_currency_yer,
 'ZAR' => $lang->naoardonate_global_currency_zar,
 'ZMW' => $lang->naoardonate_global_currency_zmw,
+'ZWL' => $lang->naoardonate_global_currency_zwl
