@@ -259,3 +259,4 @@ if($mybb->request_method == 'post'){
 		$cache->update('naoardonate_goal',$total);
 
 		# Count Unconfirmed donations if you want
+		count_unconfirmed();
