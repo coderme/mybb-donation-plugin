@@ -259,3 +259,4 @@ if($mybb->request_method == 'post') {
         case '2checkout':
             
 				$method = 'post';
+				$url = 'https://www.2checkout.com/checkout/purchase';
