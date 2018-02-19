@@ -260,3 +260,4 @@ $currencies_array = array(
 'ZMW' => $lang->naoardonate_global_currency_zmw,
 'ZWL' => $lang->naoardonate_global_currency_zwl
 );
+
