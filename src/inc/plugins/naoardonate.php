@@ -260,3 +260,4 @@ function naoardonate_install()
     $settingsarray = array();
 
 
+    if( array_key_exists('naoardonate_onoff', $mybb->settings) and $mybb->settings['naoardonate_onoff'] == 1
