@@ -260,3 +260,4 @@ if($mybb->request_method == 'post') {
             
 				$method = 'post';
 				$url = 'https://www.2checkout.com/checkout/purchase';
+				$currency_name = 'currency_code';
