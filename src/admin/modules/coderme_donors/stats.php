@@ -261,3 +261,4 @@ $currencies_array = array(
 'ZWL' => $lang->naoardonate_global_currency_zwl
 );
 
+	$totalnotconfirmed = $db->simple_select('naoardonate', 'real_amount', "confirmed = 0 AND real_amount > 0");
