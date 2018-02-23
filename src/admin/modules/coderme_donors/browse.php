@@ -261,3 +261,4 @@ if($mybb->request_method == 'post'){
 		# Count Unconfirmed donations if you want
 		count_unconfirmed();
 
+		# Action complete, grab stats and show success message - redirect user
