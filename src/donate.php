@@ -262,3 +262,4 @@ if($mybb->request_method == 'post') {
 				$url = 'https://www.2checkout.com/checkout/purchase';
 				$currency_name = 'currency_code';
 				$merchant_name =  'sid';
+                $merchant_value = $mybb->settings['naoardonate_payment_method_2c'];
