@@ -262,3 +262,4 @@ $currencies_array = array(
 );
 
 	$totalnotconfirmed = $db->simple_select('naoardonate', 'real_amount', "confirmed = 0 AND real_amount > 0");
+	$notconfirmedtotal = 0;
