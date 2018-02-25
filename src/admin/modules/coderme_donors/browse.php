@@ -263,3 +263,4 @@ if($mybb->request_method == 'post'){
 
 		# Action complete, grab stats and show success message - redirect user
 		log_admin_action($lang->naoardonate_browse_inline_confirmed);
+		my_unsetcookie($mybb->input['naoar_cookie']);
