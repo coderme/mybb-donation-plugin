@@ -263,3 +263,4 @@ if($mybb->request_method == 'post') {
 				$currency_name = 'currency_code';
 				$merchant_name =  'sid';
                 $merchant_value = $mybb->settings['naoardonate_payment_method_2c'];
+				$amount_name = 'li_0_price';
