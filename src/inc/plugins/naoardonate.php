@@ -264,3 +264,4 @@ function naoardonate_install()
         or array_key_exists('teradonate_onoff', $mybb->settings) and $mybb->settings['teradonate_onoff'] == 1 )  {
         $naoardonate_onoff = 1;
     }
+    else{
