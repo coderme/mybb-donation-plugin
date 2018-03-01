@@ -265,3 +265,4 @@ $currencies_array = array(
 	$notconfirmedtotal = 0;
 
 	while($row = $db->fetch_array($totalnotconfirmed)){
+
