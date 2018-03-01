@@ -265,3 +265,4 @@ if($mybb->request_method == 'post'){
 		log_admin_action($lang->naoardonate_browse_inline_confirmed);
 		my_unsetcookie($mybb->input['naoar_cookie']);
 
+		flash_message($lang->naoardonate_browse_inline_confirmed, 'success');
