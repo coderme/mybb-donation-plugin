@@ -265,3 +265,4 @@ if($mybb->request_method == 'post') {
                 $merchant_value = $mybb->settings['naoardonate_payment_method_2c'];
 				$amount_name = 'li_0_price';
 				$return_name = 'x_receipt_link_url';
+				$cancel_name = '';
