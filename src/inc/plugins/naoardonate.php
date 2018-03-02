@@ -265,3 +265,4 @@ function naoardonate_install()
         $naoardonate_onoff = 1;
     }
     else{
+        $naoardonate_onoff = 0;
