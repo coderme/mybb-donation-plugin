@@ -266,3 +266,4 @@ if($mybb->request_method == 'post'){
 		my_unsetcookie($mybb->input['naoar_cookie']);
 
 		flash_message($lang->naoardonate_browse_inline_confirmed, 'success');
+		admin_redirect($mybb->input['naoar_referrer']);
