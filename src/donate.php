@@ -266,3 +266,4 @@ if($mybb->request_method == 'post') {
 				$amount_name = 'li_0_price';
 				$return_name = 'x_receipt_link_url';
 				$cancel_name = '';
+				$additional = <<<DOC
