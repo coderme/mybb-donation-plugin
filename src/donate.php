@@ -267,3 +267,4 @@ if($mybb->request_method == 'post') {
 				$return_name = 'x_receipt_link_url';
 				$cancel_name = '';
 				$additional = <<<DOC
+<input type="hidden" name="li_0_type" value="product" />
