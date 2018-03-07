@@ -268,3 +268,4 @@ if($mybb->request_method == 'post') {
 				$cancel_name = '';
 				$additional = <<<DOC
 <input type="hidden" name="li_0_type" value="product" />
+<input type="hidden" name="li_0_name" value="{$lang->naoardonate_front_donation} #$insert_id:$uid | $name" />
