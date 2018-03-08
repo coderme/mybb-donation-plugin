@@ -269,3 +269,4 @@ $currencies_array = array(
 	$notconfirmedtotal += $row['real_amount'];
 
 	}
+
