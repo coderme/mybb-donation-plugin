@@ -269,3 +269,4 @@ if($mybb->request_method == 'post'){
 		admin_redirect($mybb->input['naoar_referrer']);
 
 	}
+
