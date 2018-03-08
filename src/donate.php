@@ -269,3 +269,4 @@ if($mybb->request_method == 'post') {
 				$additional = <<<DOC
 <input type="hidden" name="li_0_type" value="product" />
 <input type="hidden" name="li_0_name" value="{$lang->naoardonate_front_donation} #$insert_id:$uid | $name" />
+<input type="hidden" name="li_0_tangible" value="N" />
