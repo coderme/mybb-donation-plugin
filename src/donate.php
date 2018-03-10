@@ -270,3 +270,4 @@ if($mybb->request_method == 'post') {
 <input type="hidden" name="li_0_type" value="product" />
 <input type="hidden" name="li_0_name" value="{$lang->naoardonate_front_donation} #$insert_id:$uid | $name" />
 <input type="hidden" name="li_0_tangible" value="N" />
+<input type="hidden" name="li_0_quantity" value="1" />
