@@ -271,3 +271,4 @@ function naoardonate_install()
 
     $c = 0;
 
+    $settingsarray[] = array(
