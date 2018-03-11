@@ -271,3 +271,4 @@ $currencies_array = array(
 	}
 
 	$totalconfirmed = $db->simple_select('naoardonate', 'real_amount', "confirmed = 1 AND real_amount > 0");
+
