@@ -20,34 +20,18 @@ if(!defined("IN_MYBB"))
 	exit("Direct initialization of this file is not allowed.<br /><br />Please make sure IN_MYBB is defined.");
 }
 
-	# support Mybb 1.4 as well
-	sprintf('%.1f', $mybb->version) == 1.4 ? $sep = '/' : $sep = '-';
-	$lang->load('naoardonate_browse');
-	$lang->load('naoardonate_global');
+# support Mybb 1.4 as well
+sprintf('%.1f', $mybb->version) == 1.4 ? $sep = '/' : $sep = '-';
+$lang->load('naoardonate_browse');
+$lang->load('naoardonate_global');
 
 
 $page->add_breadcrumb_item($lang->naoardonate_global_browse, "index.php?module=coderme_donors{$sep}browse");
+
 $page->extra_header=<<<CODERME_HEADER
 <style type="text/css">
-.naoartable {
-border: 1px solid #000;
-width:100%;
-}
-.naoartable th {
-border: 1px solid #000;
-background-color: #c9d9e5;
-}
 
-.naoartable td {
-border-left: 1px solid #9933FF;
-border-bottom: 1px solid #9933FF;
-}
-.naoartable a {
-color: blue;
-font-weight:bolder;
-text-decoration:underline
-}
-.trow_selected td {
+ .trow_selected td {
 	background: #FFF59C;
 }
 .no{
@@ -58,44 +42,67 @@ background-color: #FFABBA;
 float:left;
 width:20px
 }
+    
 div.naoardonate_note {
 background: khaki;
 border: 1px solid black;
 width: auto;
 padding: 7px;
 }
+
 </style>
 <script type="text/javascript" src="./../jscripts/inline_moderation.js?ver=1800"></script>
 CODERME_HEADER;
 
-	$sub_tabs['unconfirmed'] = array(
-		'title' => $lang->naoardonate_browse_unconfirmed,
-		'link' => "index.php?module=coderme_donors{$sep}browse&amp;action=unconfirmed",
-		'description' => $lang->naoardonate_browse_unconfirmed_desc
-	);
 
-	$sub_tabs['confirmed'] = array(
-		'title' => $lang->naoardonate_browse_confirmed,
-		'link' => "index.php?module=coderme_donors{$sep}browse&amp;action=confirmed",
-		'description' => $lang->naoardonate_browse_confirmed_desc
-	);
-	$sub_tabs['all'] = array(
-		'title' => $lang->naoardonate_browse_all,
-		'link' => "index.php?module=coderme_donors{$sep}browse",
-		'description' => $lang->naoardonate_browse_all_desc
-	);
+$table =<<<TABLE_HEAD
+       <div class="border_wrapper">
+       <div class="title">$lang->naoardonate_global_donations</div>
+		<table cellspacing="0" class="general">
+       <thead>
+        <tr>
+		<th class="align_center">$lang->naoardonate_global_name</th>
+		<th class="align_center">$lang->naoardonate_global_amount</th>
+		<th class="align_center">$lang->naoardonate_global_payment_method</th>
+		<th class="align_center">$lang->naoardonate_global_ip</th>
+		<th class="align_center">$lang->naoardonate_global_extra</th>
+		<th class="align_center">$lang->naoardonate_global_date</th>
+	    <th class="align_center"><input type="checkbox" name="allbox" onclick="inlineModeration.checkAll(this);" /></th>
+	    </tr>
+       </thead>
+       <tbody>
+TABLE_HEAD;
+
+
+
+$sub_tabs['unconfirmed'] = array(
+	'title' => $lang->naoardonate_browse_unconfirmed,
+	'link' => "index.php?module=coderme_donors{$sep}browse&amp;action=unconfirmed",
+	'description' => $lang->naoardonate_browse_unconfirmed_desc
+);
+
+$sub_tabs['confirmed'] = array(
+	'title' => $lang->naoardonate_browse_confirmed,
+	'link' => "index.php?module=coderme_donors{$sep}browse&amp;action=confirmed",
+	'description' => $lang->naoardonate_browse_confirmed_desc
+);
+$sub_tabs['all'] = array(
+	'title' => $lang->naoardonate_browse_all,
+	'link' => "index.php?module=coderme_donors{$sep}browse",
+	'description' => $lang->naoardonate_browse_all_desc
+);
 
 if($mybb->request_method == 'post'){
 
 
 	# Verify incoming POST request
-		if(!verify_post_check($mybb->input['my_post_key']))
-		{
-			flash_message($lang->invalid_post_verify_key2, 'error');
-			admin_redirect($mybb->input['naoar_referrer']);
-		}
+	if(!verify_post_check($mybb->input['my_post_key']))
+	{
+		flash_message($lang->invalid_post_verify_key2, 'error');
+		admin_redirect($mybb->input['naoar_referrer']);
+	}
 
-		$dids = explode("|", $mybb->cookies[$mybb->input['naoar_cookie']]);
+	$dids = explode("|", $mybb->cookies[$mybb->input['naoar_cookie']]);
 	foreach($dids as $did)
 	{
 		if($did != '')
@@ -107,154 +114,154 @@ if($mybb->request_method == 'post'){
 	# If there isn't anything to select, then output an error
 	if(empty($selected))
 	{
-			flash_message($lang->naoardonate_browse_inline_nodonors_selected, 'error');
-			admin_redirect($mybb->input['naoar_referrer']);
+		flash_message($lang->naoardonate_browse_inline_nodonors_selected, 'error');
+		admin_redirect($mybb->input['naoar_referrer']);
 
 	}
 	else
 	{
-	# Get members selected
-	$sql_array = implode(",", $selected);
-	if($mybb->settings['naoardonate_unmovable'])
-	{
-	$condition = "did IN ($sql_array) AND uid != 0 AND ogid NOT IN (" . $mybb->settings['naoardonate_unmovable'] . ')';
-	}
-	else
-	{
-	$condition = "did IN ($sql_array) AND uid != 0";
+	    # Get members selected
+	    $sql_array = implode(",", $selected);
+	    if($mybb->settings['naoardonate_unmovable'])
+	    {
+	        $condition = "did IN ($sql_array) AND uid != 0 AND ogid NOT IN (" . $mybb->settings['naoardonate_unmovable'] . ')';
+	    }
+	    else
+	    {
+	        $condition = "did IN ($sql_array) AND uid != 0";
+	    }
+
+	    $members_selected = array();
+	    if($query = $db->simple_select('naoardonate', 'uid,ogid', $condition))
+	    {
+	        while($member = $db->fetch_array($query)){
+	            $members_selected[(int)$member['uid']] = (int)$member['ogid'];
+	        }
+	    }
 	}
 
-	$members_selected = array();
-	if($query = $db->simple_select('naoardonate', 'uid,ogid', $condition))
+	switch($mybb->input['inline_action'])
 	{
-	while($member = $db->fetch_array($query)){
-	$members_selected[(int)$member['uid']] = (int)$member['ogid'];
-	}
-	}
-	}
+		case 'multiunconfirm':
 
-		switch($mybb->input['inline_action'])
+
+		$db->write_query("UPDATE ".TABLE_PREFIX."naoardonate SET confirmed = '0' WHERE did IN ($sql_array)");
+
+		# Revert each member to her/his original group :)
+		if($members_selected and $mybb->settings['naoardonate_donorsgroup'] != 'nochange')
 		{
-			case 'multiunconfirm':
+			foreach($members_selected as $k => $v)
+			{
+				$db->write_query("UPDATE ".TABLE_PREFIX."users SET usergroup = $v WHERE uid = $k");
+
+			}
+
+			$lang->naoardonate_browse_inline_unconfirmed = $lang->sprintf($lang->naoardonate_browse_inline_unconfirmedmove, my_number_format(count($selected)), my_number_format(count($members_selected)));
+		}
+		else
+		{
+			$lang->naoardonate_browse_inline_unconfirmed = $lang->sprintf($lang->naoardonate_browse_inline_unconfirmed, my_number_format(count($selected)));
+		}
+
+		# Calculate donations
+		$total = cal_target();
+
+		# Update cache
+		$cache->update('naoardonate_goal',$total);
+
+		# Count Unconfirmed donations if you want
+		count_unconfirmed();
+
+		# Action complete, grab stats and show success message - redirect user
+		log_admin_action($lang->naoardonate_browse_inline_unconfirmed); # Add to adminlog
+		my_unsetcookie($mybb->input['naoar_cookie']); # Unset the cookie, so that the users aren't still selected when we're redirected
+
+		flash_message($lang->naoardonate_browse_inline_unconfirmed, 'success');
+		admin_redirect($mybb->input['naoar_referrer']);
 
 
-					$db->write_query("UPDATE ".TABLE_PREFIX."naoardonate SET confirmed = '0' WHERE did IN ($sql_array)");
+		break;
 
-					# Revert each member to her/his original group :)
-					if($members_selected and $mybb->settings['naoardonate_donorsgroup'] != 'nochange')
-					{
-						foreach($members_selected as $k => $v)
-							{
-							$db->write_query("UPDATE ".TABLE_PREFIX."users SET usergroup = $v WHERE uid = $k");
-
-							}
-
-					$lang->naoardonate_browse_inline_unconfirmed = $lang->sprintf($lang->naoardonate_browse_inline_unconfirmedmove, my_number_format(count($selected)), my_number_format(count($members_selected)));
-					}
-					else
-					{
-					$lang->naoardonate_browse_inline_unconfirmed = $lang->sprintf($lang->naoardonate_browse_inline_unconfirmed, my_number_format(count($selected)));
-					}
-
-					# Calculate donations
-					$total = cal_target();
-
-					# Update cache
-					$cache->update('naoardonate_goal',$total);
-
-					# Count Unconfirmed donations if you want
-					count_unconfirmed();
-
-					# Action complete, grab stats and show success message - redirect user
-					log_admin_action($lang->naoardonate_browse_inline_unconfirmed); # Add to adminlog
-					my_unsetcookie($mybb->input['naoar_cookie']); # Unset the cookie, so that the users aren't still selected when we're redirected
-
-					flash_message($lang->naoardonate_browse_inline_unconfirmed, 'success');
-					admin_redirect($mybb->input['naoar_referrer']);
+		case 'multidelete':
 
 
-			break;
+		$db->delete_query("naoardonate", "did IN ($sql_array)");
 
-			case 'multidelete':
+		# Revert each member to her/his original group :)
+		if($members_selected and $mybb->settings['naoardonate_donorsgroup'] != 'nochange')
+		{
+			foreach($members_selected as $k => $v)
+			{
+				$db->write_query("UPDATE ".TABLE_PREFIX."users SET usergroup = $v WHERE uid = $k");
+			}
 
+			$lang->naoardonate_browse_inline_deleted = $lang->sprintf($lang->naoardonate_browse_inline_deletedmove, my_number_format(count($selected)), my_number_format(count($members_selected)));
+		}
+		else
+		{
+			$lang->naoardonate_browse_inline_deleted = $lang->sprintf($lang->naoardonate_browse_inline_deleted, my_number_format(count($selected)));
 
-					$db->delete_query("naoardonate", "did IN ($sql_array)");
+		}
 
-					# Revert each member to her/his original group :)
-					if($members_selected and $mybb->settings['naoardonate_donorsgroup'] != 'nochange')
-					{
-						foreach($members_selected as $k => $v)
-							{
-							$db->write_query("UPDATE ".TABLE_PREFIX."users SET usergroup = $v WHERE uid = $k");
-							}
+		# Calculate donations
+		$total = cal_target();
 
-					$lang->naoardonate_browse_inline_deleted = $lang->sprintf($lang->naoardonate_browse_inline_deletedmove, my_number_format(count($selected)), my_number_format(count($members_selected)));
-					}
-					else
-					{
-					$lang->naoardonate_browse_inline_deleted = $lang->sprintf($lang->naoardonate_browse_inline_deleted, my_number_format(count($selected)));
+		# Count Unconfirmed donations if you want
+		count_unconfirmed();
 
-					}
+		# Update cache
+		$cache->update('naoardonate_goal',$total);
 
-					# Calculate donations
-					$total = cal_target();
+		# Action complete, grab stats and show success message - redirect user
+		log_admin_action($lang->naoardonate_browse_inline_deleted);
+		my_unsetcookie($mybb->input['naoar_cookie']);
 
-					# Count Unconfirmed donations if you want
-					count_unconfirmed();
-
-					# Update cache
-					$cache->update('naoardonate_goal',$total);
-
-					# Action complete, grab stats and show success message - redirect user
-					log_admin_action($lang->naoardonate_browse_inline_deleted);
-					my_unsetcookie($mybb->input['naoar_cookie']);
-
-					flash_message($lang->naoardonate_browse_inline_deleted, 'success');
-					admin_redirect($mybb->input['naoar_referrer']);
+		flash_message($lang->naoardonate_browse_inline_deleted, 'success');
+		admin_redirect($mybb->input['naoar_referrer']);
 
 
-			case 'multiconfirm':
+		case 'multiconfirm':
 
-					$db->write_query("UPDATE ".TABLE_PREFIX."naoardonate SET confirmed = '1' WHERE did IN ($sql_array)");
+		$db->write_query("UPDATE ".TABLE_PREFIX."naoardonate SET confirmed = '1' WHERE did IN ($sql_array)");
 
-					# Move each member to donors group ONLY if this is the admin's wish :)
-					if($members_selected and $mybb->settings['naoardonate_donorsgroup'] != 'nochange')
-					{
-					$members_selected_sql = implode(',',array_keys($members_selected));
+		# Move each member to donors group ONLY if this is the admin's wish :)
+		if($members_selected and $mybb->settings['naoardonate_donorsgroup'] != 'nochange')
+		{
+			$members_selected_sql = implode(',',array_keys($members_selected));
 
-					$db->write_query("UPDATE ".TABLE_PREFIX."users SET usergroup = " . (int)$mybb->settings['naoardonate_donorsgroup'] . " WHERE uid IN ($members_selected_sql)");
+			$db->write_query("UPDATE ".TABLE_PREFIX."users SET usergroup = " . (int)$mybb->settings['naoardonate_donorsgroup'] . " WHERE uid IN ($members_selected_sql)");
 
-					$lang->naoardonate_browse_inline_confirmed = $lang->sprintf($lang->naoardonate_browse_inline_confirmedmove, my_number_format(count($selected)), my_number_format(count($members_selected)));
-					}
-					else
-					{
-					$lang->naoardonate_browse_inline_confirmed = $lang->sprintf($lang->naoardonate_browse_inline_confirmed, my_number_format(count($selected)));
-					}
+			$lang->naoardonate_browse_inline_confirmed = $lang->sprintf($lang->naoardonate_browse_inline_confirmedmove, my_number_format(count($selected)), my_number_format(count($members_selected)));
+		}
+		else
+		{
+			$lang->naoardonate_browse_inline_confirmed = $lang->sprintf($lang->naoardonate_browse_inline_confirmed, my_number_format(count($selected)));
+		}
 
-					# Calculate donations
-					$total = cal_target();
+		# Calculate donations
+		$total = cal_target();
 
-					# Update cache
-					$cache->update('naoardonate_goal',$total);
+		# Update cache
+		$cache->update('naoardonate_goal',$total);
 
-					# Count Unconfirmed donations if you want
-					count_unconfirmed();
+		# Count Unconfirmed donations if you want
+		count_unconfirmed();
 
-					# Action complete, grab stats and show success message - redirect user
-					log_admin_action($lang->naoardonate_browse_inline_confirmed);
-					my_unsetcookie($mybb->input['naoar_cookie']);
+		# Action complete, grab stats and show success message - redirect user
+		log_admin_action($lang->naoardonate_browse_inline_confirmed);
+		my_unsetcookie($mybb->input['naoar_cookie']);
 
-					flash_message($lang->naoardonate_browse_inline_confirmed, 'success');
-					admin_redirect($mybb->input['naoar_referrer']);
+		flash_message($lang->naoardonate_browse_inline_confirmed, 'success');
+		admin_redirect($mybb->input['naoar_referrer']);
 
 	}
 
-	}
+}
 
 
 $groups = $cache->read('usergroups');
 
-	if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
+if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 
 	$page->output_header($lang->naoardonate_global_browse);
 	$page->output_nav_tabs($sub_tabs, 'all');
@@ -265,64 +272,52 @@ $groups = $cache->read('usergroups');
 
 	$query = $db->simple_select('naoardonate', '*', "",array('order_by'=> 'real_amount', 'order_dir'=>'DESC'));
 
-	$table =<<<TABLE_HEAD
-		<table cellspacing="0" class="naoartable"><tr>
-		<th>$lang->naoardonate_global_name</th>
-		<th>$lang->naoardonate_global_amount</th>
-		<th>$lang->naoardonate_global_payment_method</th>
-		<th>$lang->naoardonate_global_ip</th>
-		<th>$lang->naoardonate_global_extra</th>
-		<th>$lang->naoardonate_global_date</th>
-		<th><input type="checkbox" name="allbox" onclick="inlineModeration.checkAll(this);" /></th>
-	</tr>
-TABLE_HEAD;
-
 	while($donor = $db->fetch_array($query))
-		{
+	{
 
 		if(my_strpos($mybb->cookies[$inlinecookie], "|$donor[did]|"))
-			{
-				$inlinecheck = 'checked="checked"';
-				++$inlinecount;
-			}
-			else
-			{
-				$inlinecheck = '';
-			}
+		{
+			$inlinecheck = 'checked="checked"';
+				          ++$inlinecount;
+		}
+		else
+		{
+			$inlinecheck = '';
+		}
 		if($donor['uid']) {
 
-		$donor['name'] = "<a href=\"index.php?module=user{$sep}users&amp;action=edit&amp;uid=$donor[uid]\" target=\"_blank\">$donor[name]</a>";
-		$donor['ogid'] = '<img src="./../images/naoar/group.gif" alt="" title="' .$lang->naoardonate_browse_ogid .  $groups[$donor['ogid']]['title'] . '" />';
+		    $donor['name'] = "<a href=\"index.php?module=user{$sep}users&amp;action=edit&amp;uid=$donor[uid]\" target=\"_blank\">$donor[name]</a>";
+		    $donor['ogid'] = '<img src="./../images/naoar/group.gif" alt="" title="' .$lang->naoardonate_browse_ogid .  $groups[$donor['ogid']]['title'] . '" />';
 		} else {
 
-		$donor['name'] = $lang->naoardonate_global_guest;
-		$donor['ogid'] = '';
+		    $donor['name'] = $lang->naoardonate_global_guest;
+		    $donor['ogid'] = '';
 		}
 
 		if($donor['confirmed']){
 
-		$class = '';
-		$confirmed = '<img src="./../images/naoar/tick.gif" alt="" title="' . $lang->naoardonate_global_you_confirmed . '" />';
+		    $class = '';
+		    $confirmed = '<img src="./../images/naoar/tick.gif" alt="" title="' . $lang->naoardonate_global_you_confirmed . '" />';
 
 		}else {
-		$class = 'class="no"';
-		$confirmed = '&nbsp;';
+		    $class = 'class="no"';
+		    $confirmed = '&nbsp;';
 		}
 		if($donor['note']){
-		$note ="<div style=\"display:none\" id=\"note_$donor[did]_popup\" class=\"modal\">
+		    $note ="<div style=\"display:none\" id=\"note_$donor[did]_popup\" class=\"modal\">
 					<div class=\"naoardonate_note\">" . wordwrap($donor['note'],30,'<br />',true) . "</div>
 				</div>
 			<a href=\"#0\" onclick=\"$('#note_$donor[did]_popup').modal({ fadeDuration: 250, keepelement: true, zIndex: (typeof modal_zindex !== 'undefined' ? modal_zindex : 9999) }); return false;\" id=\"note_$donor[did]\"><img src=\"./../images/naoar/note.gif\" title=\"" . $lang->naoardonate_global_note_recieved . "\" style=\"border:0\" /></a>
 ";
 		} else {
 
-		$note ='&nbsp;';
+		    $note ='&nbsp;';
 
 		}
 		if($donor['email']){
-		$email = "<a href=\"mailto:$donor[email]\" title=\"" . $lang->naoardonate_global_email_donor . "\" ><img src=\"./../images/naoar/email.gif\" style=\"border:0\" /></a>";
+		    $email = "<a href=\"mailto:$donor[email]\" title=\"" . $lang->naoardonate_global_email_donor . "\" ><img src=\"./../images/naoar/email.gif\" style=\"border:0\" /></a>";
 		} else {
-		$email ='&nbsp;';
+		    $email ='&nbsp;';
 
 		}
 
@@ -330,20 +325,20 @@ TABLE_HEAD;
 		$donor['dateline']= my_date($mybb->settings['dateformat'], $donor['dateline']).", ".my_date($mybb->settings['timeformat'], $donor['dateline']);
 		$table .= <<<TABLE_BODY
 		<tr id="donor1_$donor[did]">
-				<td align="center">$donor[name]</td>
-				<td align="center">$donor[real_amount] $donor[currency]</td>
-				<td align="center">$donor[payment_method]</td>
-				<td align="center">$donor[ip]</td>
-				<td align="center"><div class="naoar_info"><div>$confirmed</div><div>$email</div><div>$donor[ogid]</div><div>$note</div></div></td>
-				<td align="center">$donor[dateline]</td>
+				<td class="align_center">$donor[name]</td>
+				<td class="align_center">$donor[real_amount] $donor[currency]</td>
+				<td class="align_center">$donor[payment_method]</td>
+				<td class="align_center">$donor[ip]</td>
+				<td class="align_center"><div class="naoar_info"><div>$confirmed</div><div>$email</div><div>$donor[ogid]</div><div>$note</div></div></td>
+				<td class="align_center">$donor[dateline]</td>
 				<td $class align="center" style="white-space: nowrap"><input type="checkbox" class="checkbox" name="inlinemod_$donor[did]" id="inlinemod_$donor[did]" value="1" /></td>
 		</tr>
 TABLE_BODY;
 	}
-	if(strpos($table,'<td align="center">') !== false){
-	$table .= "</table>";
-	print $table;
-	print <<<CODERME_INLINE
+	if(strpos($table,'<td class="align_center">') !== false){
+	    $table .= "</tbody></table></div>";
+	    print $table;
+	    print <<<CODERME_INLINE
 
 <div style="float:right"><form action="index.php?module=coderme_donors{$sep}browse" method="post">
 <input type="hidden" name="my_post_key" value="$mybb->post_code" />
@@ -370,15 +365,16 @@ TABLE_BODY;
 
 CODERME_INLINE;
 
-} else {
-	$table .= '<tr><td colspan="7" align="center">' . $lang->naoardonate_global_nothing . '</td></tr></table>';
+    } else {
+	    $table .= '<tr><td colspan="7" class="align_center">' . $lang->naoardonate_global_nothing . '</td></tr>
+</tbody></table></div>';
 
-	print $table;
+	    print $table;
 
-}
-		$page->output_footer();
+    }
+	$page->output_footer();
 
-	} elseif ($mybb->input['action'] == 'unconfirmed'){
+} elseif ($mybb->input['action'] == 'unconfirmed'){
 
 	$page->output_header($lang->naoardonate_browse_unconfirmed);
 	$page->output_nav_tabs($sub_tabs, 'unconfirmed');
@@ -388,42 +384,31 @@ CODERME_INLINE;
 	# $mybb->input['naoar_cookie']
 	$query = $db->simple_select('naoardonate', '*', "confirmed = 0",array('order_by'=> 'real_amount', 'order_dir'=>'DESC'));
 
-	$table =<<<TABLE_HEAD
-		<table cellspacing="0" class="naoartable"><tr>
-		<th>$lang->naoardonate_global_name</th>
-		<th>$lang->naoardonate_global_amount</th>
-		<th>$lang->naoardonate_global_payment_method</th>
-		<th>$lang->naoardonate_global_ip</th>
-		<th>$lang->naoardonate_global_extra</th>
-		<th>$lang->naoardonate_global_date</th>
-		<th><input type="checkbox" name="allbox" onclick="inlineModeration.checkAll(this);" /></th>
-	</tr>
 
-TABLE_HEAD;
 
 	while($donor = $db->fetch_array($query))
-		{
+	{
 
 		if(my_strpos($mybb->cookies[$inlinecookie], "|$donor[did]|"))
-			{
-				$inlinecheck = 'checked="checked"';
-				++$inlinecount;
-			}
-			else
-			{
-				$inlinecheck = '';
-			}
-
-		if($donor['uid']) {
-		$donor['name'] = "<a href=\"index.php?module=user{$sep}users&amp;action=edit&amp;uid=$donor[uid]\" target=\"_blank\">$donor[name]</a>" ;
-		$donor['ogid'] = '<img src="./../images/naoar/group.gif" alt="" title="' .$lang->naoardonate_browse_ogid .  $groups[$donor['ogid']]['title'] . '" />';
-		} else {
-		$donor['ogid'] = '';
-		$donor['name'] = $lang->naoardonate_global_guest;
+		{
+			$inlinecheck = 'checked="checked"';
+				          ++$inlinecount;
+		}
+		else
+		{
+			$inlinecheck = '';
 		}
 
-				if($donor['note']){
-		$note ="<div style=\"float:left\" id=\"note_$donor[did]_popup\">
+		if($donor['uid']) {
+		    $donor['name'] = "<a href=\"index.php?module=user{$sep}users&amp;action=edit&amp;uid=$donor[uid]\" target=\"_blank\">$donor[name]</a>" ;
+		    $donor['ogid'] = '<img src="./../images/naoar/group.gif" alt="" title="' .$lang->naoardonate_browse_ogid .  $groups[$donor['ogid']]['title'] . '" />';
+		} else {
+		    $donor['ogid'] = '';
+		    $donor['name'] = $lang->naoardonate_global_guest;
+		}
+
+		if($donor['note']){
+		    $note ="<div style=\"float:left\" id=\"note_$donor[did]_popup\">
 					<div class=\"naoardonate_note\">" . wordwrap($donor['note'],30,'<br />',true) . "</div>
 				</div>
 			<a href=\"javascript:;\" id=\"note_$donor[did]\"><img src=\"./../images/naoar/note.gif\" title=\"" . $lang->naoardonate_global_note_recieved . "\" style=\"border:0\" /></a>
@@ -432,13 +417,13 @@ new PopupMenu('note_$donor[did]');
 </script>";
 		} else {
 
-		$note ='&nbsp;';
+		    $note ='&nbsp;';
 
 		}
 		if($donor['email']){
-		$email = "<a href=\"mailto:$donor[email]\" title=\"" . $lang->naoardonate_global_email_donor . "\" ><img src=\"./../images/naoar/email.gif\" style=\"border:0\" /></a>";
+		    $email = "<a href=\"mailto:$donor[email]\" title=\"" . $lang->naoardonate_global_email_donor . "\" ><img src=\"./../images/naoar/email.gif\" style=\"border:0\" /></a>";
 		} else {
-		$email ='&nbsp;';
+		    $email ='&nbsp;';
 
 		}
 
@@ -446,20 +431,20 @@ new PopupMenu('note_$donor[did]');
 		$donor['dateline']= my_date($mybb->settings['dateformat'], $donor['dateline']).", ".my_date($mybb->settings['timeformat'], $donor['dateline']);
 		$table .= <<<TABLE_BODY
 	<tr id="donor2_$donor[did]">
-		<td align="center">$donor[name]</td>
-		<td align="center">$donor[real_amount] $donor[currency]</td>
-		<td align="center">$donor[payment_method]</td>
-		<td align="center">$donor[ip]</td>
-		<td align="center"><div class="naoar_info"><div>$email</div><div>$donor[ogid]</div><div>$note</div></div></td>
-		<td align="center">$donor[dateline]</td>
-		<td align="center" style="white-space: nowrap"><input type="checkbox" class="checkbox" name="inlinemod_$donor[did]" id="inlinemod_$donor[did]" value="1" $inlinecheck  /></td>
+		<td class="align_center">$donor[name]</td>
+		<td class="align_center">$donor[real_amount] $donor[currency]</td>
+		<td class="align_center">$donor[payment_method]</td>
+		<td class="align_center">$donor[ip]</td>
+		<td class="align_center"><div class="naoar_info"><div>$email</div><div>$donor[ogid]</div><div>$note</div></div></td>
+		<td class="align_center">$donor[dateline]</td>
+		<td class="align_center" style="white-space: nowrap"><input type="checkbox" class="checkbox" name="inlinemod_$donor[did]" id="inlinemod_$donor[did]" value="1" $inlinecheck /></td>
 	</tr>
 TABLE_BODY;
 	}
-	if(strpos($table, '<td align="center">') !== false){
-	$table .= "</table>";
-	print $table;
-	print <<<CODERME_INLINE
+	if(strpos($table, '<td class="align_center">') !== false){
+	    $table .= "</tbody></table></div>";
+	    print $table;
+	    print <<<CODERME_INLINE
 
 <div style="float:right"><form action="index.php?module=coderme_donors{$sep}browse" method="post">
 <input type="hidden" name="my_post_key" value="$mybb->post_code" />
@@ -483,15 +468,15 @@ TABLE_BODY;
 </script>
 
 CODERME_INLINE;
+    } else {
+
+	    $table .= '<tr><td colspan="7" class="align_center">' . $lang->naoardonate_global_nothing . '</td></tr></tbody></table></div>';
+
+	    print $table;
+
+    }
+	$page->output_footer();
 } else {
-
-	$table .= '<tr><td colspan="7" align="center">' . $lang->naoardonate_global_nothing . '</td></tr></table>';
-
-	print $table;
-
-}
-		$page->output_footer();
-	} else {
 
 	$page->output_header($lang->naoardonate_browse_confirmed);
 	$page->output_nav_tabs($sub_tabs, 'confirmed');
@@ -500,43 +485,31 @@ CODERME_INLINE;
 	$inlinecount = 0;
 	$inlinecookie = "inlinemod_donor3";
 	# $mybb->input['naoar_cookie']
-	$table =<<<TABLE_HEAD
-		<table cellspacing="0" class="naoartable"><tr>
-		<th>$lang->naoardonate_global_name</th>
-		<th>$lang->naoardonate_global_amount</th>
-		<th>$lang->naoardonate_global_payment_method</th>
-		<th>$lang->naoardonate_global_ip</th>
-		<th>$lang->naoardonate_global_extra</th>
-		<th>$lang->naoardonate_global_date</th>
-		<th><input type="checkbox" name="allbox" onclick="inlineModeration.checkAll(this);" /></th>
-	</tr>
-
-TABLE_HEAD;
 
 	while($donor = $db->fetch_array($query))
-		{
+	{
 
 		if(my_strpos($mybb->cookies[$inlinecookie], "|$donor[did]|"))
-			{
-				$inlinecheck = 'checked="checked"';
-				++$inlinecount;
-			}
-			else
-			{
-				$inlinecheck = '';
-			}
+		{
+			$inlinecheck = 'checked="checked"';
+				          ++$inlinecount;
+		}
+		else
+		{
+			$inlinecheck = '';
+		}
 
 		if($donor['uid']) {
 
-		$donor['name'] = "<a href=\"index.php?module=user{$sep}users&amp;action=edit&amp;uid=$donor[uid]\" target=\"_blank\">$donor[name]</a>" ;
-		$donor['ogid'] = '<img src="./../images/naoar/group.gif" alt="" title="' .$lang->naoardonate_browse_ogid .  $groups[$donor['ogid']]['title'] . '" />';
+		    $donor['name'] = "<a href=\"index.php?module=user{$sep}users&amp;action=edit&amp;uid=$donor[uid]\" target=\"_blank\">$donor[name]</a>" ;
+		    $donor['ogid'] = '<img src="./../images/naoar/group.gif" alt="" title="' .$lang->naoardonate_browse_ogid .  $groups[$donor['ogid']]['title'] . '" />';
 		} else {
-		$donor['ogid'] = '';
-		$donor['name'] = $lang->naoardonate_global_guest;
+		    $donor['ogid'] = '';
+		    $donor['name'] = $lang->naoardonate_global_guest;
 		}
 
-			if($donor['note']){
-		$note ="<div style=\"float:left\" id=\"note_$donor[did]_popup\">
+		if($donor['note']){
+		    $note ="<div style=\"float:left\" id=\"note_$donor[did]_popup\">
 					<div class=\"naoardonate_note\">" . wordwrap($donor['note'],30,'<br />',true) . "</div>
 				</div>
 			<a href=\"javascript:;\" id=\"note_$donor[did]\"><img src=\"./../images/naoar/note.gif\" title=\"" . $lang->naoardonate_global_note_recieved . "\" style=\"border:0\" /></a>
@@ -545,13 +518,13 @@ new PopupMenu('note_$donor[did]');
 </script>";
 		} else {
 
-		$note ='&nbsp;';
+		    $note ='&nbsp;';
 
 		}
 		if($donor['email']){
-		$email = "<a href=\"mailto:$donor[email]\" title=\"" . $lang->naoardonate_global_email_donor . "\" ><img src=\"./../images/naoar/email.gif\" style=\"border:0\" /></a>";
+		    $email = "<a href=\"mailto:$donor[email]\" title=\"" . $lang->naoardonate_global_email_donor . "\" ><img src=\"./../images/naoar/email.gif\" style=\"border:0\" /></a>";
 		} else {
-		$email ='&nbsp;';
+		    $email ='&nbsp;';
 
 		}
 
@@ -559,20 +532,20 @@ new PopupMenu('note_$donor[did]');
 		$donor['dateline']= my_date($mybb->settings['dateformat'], $donor['dateline']).", ".my_date($mybb->settings['timeformat'], $donor['dateline']);
 		$table .= <<<TABLE_BODY
 			<tr id="donor3_$donor[did]">
-				<td align="center">$donor[name]</td>
-				<td align="center">$donor[real_amount] $donor[currency]</td>
-				<td align="center">$donor[payment_method]</td>
-				<td align="center">$donor[ip]</td>
-				<td align="center"><div class="naoar_info"><div>$email</div><div>$donor[ogid]</div><div>$note</div></div></td>
-				<td align="center">$donor[dateline]</td>
-				<td align="center" style="white-space: nowrap"><input type="checkbox" class="checkbox" name="inlinemod_$donor[did]" id="inlinemod_$donor[did]" value="1" $inlinecheck  /></td>
+				<td class="align_center">$donor[name]</td>
+				<td class="align_center">$donor[real_amount] $donor[currency]</td>
+				<td class="align_center">$donor[payment_method]</td>
+				<td class="align_center">$donor[ip]</td>
+				<td class="align_center"><div class="naoar_info"><div>$email</div><div>$donor[ogid]</div><div>$note</div></div></td>
+				<td class="align_center">$donor[dateline]</td>
+				<td class="align_center" style="white-space: nowrap"><input type="checkbox" class="checkbox" name="inlinemod_$donor[did]" id="inlinemod_$donor[did]" value="1" $inlinecheck  /></td>
 			</tr>
 TABLE_BODY;
 	}
-	if(strpos($table, '<td align="center">') !== false){
-$table .= "</table>";
-	print $table;
-	print <<<CODERME_INLINE
+	if(strpos($table, '<td class="align_center">') !== false){
+        $table .= "</table></div>";
+	    print $table;
+	    print <<<CODERME_INLINE
 
 <div style="float:right"><form action="index.php?module=coderme_donors{$sep}browse" method="post">
 <input type="hidden" name="my_post_key" value="$mybb->post_code" />
@@ -599,37 +572,36 @@ CODERME_INLINE;
 
 	} else {
 
-	$table .= '<tr><td colspan="7" align="center">' . $lang->naoardonate_global_nothing . '</td></tr></table>';
+	    $table .= '<tr><td colspan="7" class="align_center">' . $lang->naoardonate_global_nothing . '</td></tr></table></div>';
 
-	print $table;
+	    print $table;
+
+    }
+	$page->output_footer();
 
 }
-		$page->output_footer();
-
-	}
 
 
-	function cal_target($total=0)
+function cal_target($total=0)
+{
+	global $db;
+	$query =$db->simple_select('naoardonate', 'real_amount', "real_amount > 0 AND confirmed = 1");
+	while($amount = $db->fetch_array($query))
 	{
-		global $db;
-		$query =$db->simple_select('naoardonate', 'real_amount', "real_amount > 0 AND confirmed = 1");
-		while($amount = $db->fetch_array($query))
-			{
-				$total += $amount['real_amount'];
-			}
-		return $total;
-
+		$total += $amount['real_amount'];
 	}
+	return $total;
 
-	function count_unconfirmed()
+}
+
+function count_unconfirmed()
+{
+	global $db, $mybb, $cache;
+	if($mybb->settings['naoardonate_alert'] != 'disabled')
 	{
-		global $db, $mybb, $cache;
-		if($mybb->settings['naoardonate_alert'] != 'disabled')
-			{
-				$query = $db->simple_select('naoardonate', 'COUNT(confirmed) AS unconfirmed', 'confirmed = 0');
-				$cache->update('naoardonate_unconfirmed', $db->fetch_field($query, 'unconfirmed'));
-			}
-
+		$query = $db->simple_select('naoardonate', 'COUNT(confirmed) AS unconfirmed', 'confirmed = 0');
+		$cache->update('naoardonate_unconfirmed', $db->fetch_field($query, 'unconfirmed'));
 	}
 
-	?>
+}
+

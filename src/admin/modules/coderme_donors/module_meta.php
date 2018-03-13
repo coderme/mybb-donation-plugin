@@ -39,7 +39,7 @@ function coderme_donors_meta()
 
 	$sub_menu['10'] = array("id" => "browse", "title" => $lang->naoardonate_global_browse, "link" => "index.php?module=coderme_donors{$sep}browse");
 	$sub_menu['20'] = array("id" => "stats", "title" => $lang->naoardonate_global_stats, "link" => "index.php?module=coderme_donors{$sep}stats");
-	$sub_menu['30'] = array("id" => "donate", "title" => 'By CoderMe.com', "link" => 'https://coderme.com?src=mybba');
+	$sub_menu['30'] = array("id" => "donate", "title" => 'By CoderMe.com', "link" => 'https://markit.coderme.com?src=mybba');
 	$sub_menu = $plugins->run_hooks("admin_config_menu", $sub_menu);
 	$page->add_menu_item($lang->naoardonate_meta_donors, "coderme_donors", "index.php?module=coderme_donors", 60, $sub_menu);
 	return true;

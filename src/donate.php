@@ -16,9 +16,18 @@
 define("IN_MYBB", 1);
 define('THIS_SCRIPT', 'donate.php');
 
-$templatelist = "naoardonate_redirect_v4,naoardonate_donate_aboutu_v4,naoardonate_donate_captcha_v4,naoardonate_donate_offline_v4,naoardonate_donate_currencies_row_v4,naoardonate_donate_currencies_row_v4,naoardonate_donate_note_v4,naoardonate_donate_v4,naoardonate_top_donation_v4,naoardonate_top_v4";
+
+
+$templatelist = "naoardonate_redirect_v5,naoardonate_donate_aboutu_v5,naoardonate_donate_captcha_v5,naoardonate_donate_offline_v5,naoardonate_donate_currencies_row_v5,naoardonate_donate_currencies_row_v5,naoardonate_donate_note_v5,naoardonate_donate_v5,naoardonate_top_donation_v5,naoardonate_top_v5";
 
 require_once "./global.php";
+require_once  implode(DIRECTORY_SEPARATOR,
+                           array(MYBB_ROOT ,
+                                 "inc", "plugins",
+                                  "naoardonate",
+                                 'funcs_currency.php'));
+
+
 
 # Load language phrases
 $lang->load("naoardonate_front");
@@ -32,7 +41,7 @@ if(!$db->table_exists('naoardonate')):
 	error($lang->naoardonate_front_error_notinstalled);
 elseif($mybb->settings['naoardonate_onoff'] == 0):
 	error($lang->naoardonate_front_error_disabled);
-elseif((!$mybb->settings['naoardonate_payment_method_pz'] and !$mybb->settings['naoardonate_payment_method_lr'] and !$mybb->settings['naoardonate_payment_method_sk'] and !$mybb->settings['naoardonate_payment_method_pp']) or strlen($mybb->settings['naoardonate_payment_method']) < 5):
+elseif((!$mybb->settings['naoardonate_payment_method_pz'] and !$mybb->settings['naoardonate_payment_method_lr'] and !$mybb->settings['naoardonate_payment_method_2c'] and !$mybb->settings['naoardonate_payment_method_pp']) or strlen($mybb->settings['naoardonate_payment_method']) < 5):
 	error($lang->naoardonate_front_error_notready);
 elseif(!in_array($mybb->user['usergroup'], $naoar_from)):
 	$mybb->user['uid'] != 0 ? error($lang->naoardonate_front_error_blockedgroups) : error($lang->naoardonate_front_error_noguests);
@@ -43,25 +52,9 @@ endif;
 # resetting some variables
 $name = $email = $amount = $currency = $currencies_row = $payment_method = $note = $errors = $js_updatelist = $js_load = $js_funcs = $captcha_valid = $submit_ifvalid = $isvalid_ = $single_currency_text = '';
 
-# All available currencies
- $currencies_bk = array('AED',    'AFN',    'ALL',    'AMD',    'ANG',    'AOA',    'ARS',    'AUD',    'AWG',    'AZN',    'BAM',    'BBD',    'BDT',    'BGN',    'BHD',    'BIF',    'BMD',    'BND',    'BOB',    'BOV',    'BRL',    'BSD',    'BTN',    'BWP',    'BYR',    'BZD',    'CAD',    'CDF',    'CHE',    'CHF',    'CHW',    'CLF',    'CLP',    'CNH',    'CNY',    'COP',    'COU',    'CRC',    'CUC',    'CUP',    'CVE',    'CZK',    'DJF',    'DKK',    'DOP',    'DZD',    'EGP',    'ERN',    'ETB',    'EUR',    'FJD',    'FKP',    'GBP',    'GEL',    'GHS',    'GIP',    'GMD',    'GNF',    'GTQ',    'GYD',    'HKD',    'HNL',    'HRK',    'HTG',    'HUF',    'IDR',    'ILS',    'INR',    'IQD',    'IRR',    'ISK',    'JMD',    'JOD',    'JPY',    'KES',    'KGS',    'KHR',    'KMF',    'KPW',    'KRW',    'KWD',    'KYD',    'KZT',    'LAK',    'LBP',    'LKR',    'LRD',    'LSL',    'LTL',    'LVL',    'LYD',    'MAD',    'MDL',    'MGA',    'MKD',    'MMK',    'MNT',    'MOP',    'MRO',    'MUR',    'MVR',    'MWK',    'MXN',    'MXV',    'MYR',    'MZN',    'NAD',    'NGN',    'NIO',    'NOK',    'NPR',    'NZD',    'OMR',    'PAB',    'PEN',    'PGK',    'PHP',    'PKR',    'PLN',    'PYG',    'QAR',    'RON',    'RSD',    'RUB',    'RWF',    'SAR',    'SBD',    'SCR',    'SDG',    'SEK',    'SGD',    'SHP',    'SLL',    'SOS',    'SRD',    'SSP',    'STD',    'SYP',    'SZL',    'THB',    'TJS',    'TMT',    'TND',    'TOP',    'TRY',    'TTD',    'TWD',    'TZS',    'UAH',    'UGX',    'USD',    'UYI',    'UYU',    'UZS',    'VEF',    'VND',    'VUV',    'WST',    'XAF',    'XCD',    'XOF',    'XPF',    'YER',    'ZAR',    'ZMW',    'ZWL');
 
-# currencies supported by LibertyReserve
-$currencies_lr = array('EUR','USD');
 
-# currencies supported by Payza
-$currencies_pz = array('AUD','BGN','CAD','CHF','CZK','DKK','EUR','GBP','HKD','HUF','INR','LTL','MKD','MYR','NOK','NZD','PLN','RON','SEK','SGD','USD','ZAR');
-
-# currencies supported by Skrill
-$currencies_sk = array('AED','AUD','BGN','CAD','CHF','CZK','DKK','EUR','GBP','HKD','HRK','HUF','ILS','INR','ISK','JOD','JPY','KRW','LTL','LVL','MAD','MYR','NOK','NZD','OMR','PLN','QAR','RON','RSD','SAR','SEK','SGD','THB','TND','TRY','TWD','USD','ZAR');
-
-# currencies supported by PayPal
-$currencies_pp = array('AUD','BRL','CAD','CHF','CZK','DKK','EUR','GBP','HKD','HUF','ILS','JPY','MXN','MYR','NOK','NZD','PHP','PLN','SEK','SGD','THB','TWD','USD');
-
-# currencies supported by Western Union
-$currencies_wu = array ('AED',    'ALL',    'AMD',    'ANG',    'AOA',    'ARS',    'AUD',    'AWG',    'AZN',    'BBD',    'BDT',    'BGN',    'BHD',    'BIF',    'BMD',    'BND',    'BOB',    'BRL',    'BSD',    'BTN',    'BWP',    'BZD',    'CAD',       'CDF',    'CHF',    'CLP',    'CNH',    'CNY',    'COP',    'CRC',    'CVE',    'CZK',    'DJF',    'DKK',    'DOP',    'DZD',    'EGP',    'ETB',    'EUR',    'FJD',    'FKP',    'GBP',    'GEL',    'GHS',    'GIP',    'GMD',    'GNF',    'GTQ',    'GYD',    'HKD',    'HNL',    'HRK',    'HTG',    'HUF',    'IDR',    'ILS',    'INR',    'JMD',    'JOD',    'JPY',    'KES',    'KGS',    'KHR',    'KMF',    'KRW',    'KWD',    'KYD',    'KZT',    'LAK',    'LBP',    'LKR',    'LSL',    'LTL',    'LVL',    'MAD',    'MDL',    'MGA',    'MKD',    'MNT',    'MOP',    'MRO',    'MUR',    'MVR',    'MWK',    'MXN',    'MYR',    'MZN',    'NAD',    'NGN',    'NIO',    'NOK',    'NPR',    'NZD',    'OMR',    'PAB',    'PEN',    'PGK',    'PHP',    'PKR',    'PLN',    'PYG',    'QAR',    'RON',    'RUB',    'RWF',    'SAR',    'SBD',    'SCR',    'SEK',    'SGD',    'SRD',    'STD',    'SZL',    'THB',    'TND',    'TOP',    'TRY',    'TTD',    'TWD',    'TZS',    'UAH',    'UGX',    'USD',    'UYU',    'UZS',    'VND',    'VUV',    'WST',    'XAF',    'XCD',    'XOF',    'XPF',    'YER',    'ZAR',    'ZMW');
-
-# accepted Ebanks
+# accepted payment processor
 $accepted_payment_methods = explode(',',$mybb->settings['naoardonate_payment_method']);
 $payment_methods_count = count($accepted_payment_methods);
 
@@ -99,6 +92,14 @@ $amount_0 = array_slice($amount_array, 0, 1 ,1);
 $index_0 = $amount_indeces[0];
 $amount_1 = array_slice($amount_array, 1, 1, 1 );
 $index_1 = $amount_indeces[1];
+
+// currency
+$currencies_lr = array('EUR', 'USD');
+$currencies_pz = getCurrenciesOf(CODERME_PAYZA);
+$currencies_2c = getCurrenciesOf(CODERME_2CHECKOUT);
+$currencies_bk = getCurrenciesOf(CODERME_BANK_WIRE);
+$currencies_wu = getCurrenciesOf(CODERME_WESTERN_UNION);
+$currencies_pp = getCurrenciesOf(CODERME_PAYPAL);
 
 
 # validate input
@@ -163,9 +164,8 @@ if($mybb->request_method == 'post')
 	}
 	elseif(!(($currency == $mybb->settings['naoardonate_currency']
 	    or $mybb->settings['naoardonate_currency'] == 'Any')
-	    and (($payment_method == 'LibertyReserve' and in_array($currency, $currencies_lr))
-	    or ($payment_method == 'Payza' and in_array($currency, $currencies_pz))
-	    or ($payment_method == 'Skrill' and in_array($currency, $currencies_sk))
+	    and (($payment_method == 'Payza' and in_array($currency, $currencies_pz))
+	    or ($payment_method == '2checkout' and in_array($currency, $currencies_2c))
 	    or ($payment_method == 'Bank/Wire transfer' and in_array($currency, $currencies_bk))
 	    or ($payment_method == 'Western Union' and in_array($currency, $currencies_wu))
 	    or ($payment_method == 'Paypal' and in_array($currency, $currencies_pp)))) and $mybb->settings['naoardonate_currency'] != '000')
@@ -250,17 +250,23 @@ if($mybb->request_method == 'post')
 
 			break;
 
-			case 'Skrill':
+			case '2checkout':
             
 				$method = 'post';
-				$url = 'https://www.skrill.com/app/payment.pl';
-				$currency_name = 'currency';
-				$merchant_name =  'pay_to_email';
-				$merchant_value = $mybb->settings['naoardonate_payment_method_sk'];
-				$amount_name = 'amount';
-				$return_name = 'return_url';
-				$cancel_name ='cancel_url';
-				$additional = "<input type=\"hidden\" name=\"recipient_description\" value=\"{$mybb->settings['bburl']}\" /><input type=\"hidden\" name=\"return_url_text\" value=\"{$lang->naoardonate_front_returnto}{$mybb->settings['bburl']}\" /><input type=\"hidden\" name=\"return_url_target\" value=\"3\" /><input type=\"hidden\" name=\"cancel_url_target\" value=\"3\" /><input type=\"hidden\" name=\"language\" value=\"EN\" /><input type=\"hidden\" name=\"rid\" value=\"19686949\" /><input type=\"hidden\" name=\"detail1_description\" value=\"{$lang->naoardonate_front_donation}\" /><input type=\"hidden\" name=\"detail1_text\" value=\"#$insert_id:$uid | $name\" />";
+				$url = 'https://www.2checkout.com/checkout/purchase';
+				$currency_name = 'currency_code';
+				$merchant_name =  'sid';
+                $merchant_value = $mybb->settings['naoardonate_payment_method_2c'];
+				$amount_name = 'li_0_price';
+				$return_name = 'x_receipt_link_url';
+				$cancel_name = '';
+				$additional = <<<DOC
+<input type="hidden" name="li_0_type" value="product" />
+<input type="hidden" name="li_0_name" value="{$lang->naoardonate_front_donation} #$insert_id:$uid | $name" />
+<input type="hidden" name="li_0_tangible" value="N" />
+<input type="hidden" name="li_0_quantity" value="1" />
+<input type="hidden" name="mode" value="2CO" />
+DOC;
 
 			break;
 
@@ -279,6 +285,14 @@ if($mybb->request_method == 'post')
 
 		}
 
+        if($cancel_name) {
+            $cancel_url =<<<DOC
+<input type="hidden" name="$cancel_name" value="{$mybb->settings['bburl']}/donate.php" />
+DOC;
+        } else {
+          $cancel_url = '';
+        }
+
 		# this is a good time to run plugins
 		$plugins->run_hooks('naoardonate_alert_admin');
 
@@ -293,7 +307,7 @@ if($mybb->request_method == 'post')
 		my_setcookie('naoardonate', 'd_ip'.$_SERVER['REMOTE_ADDR'],'86400');
 
 		# everything is ready? I hope so ..
-		eval('$naoardonate_redirect = "' . $templates->get('naoardonate_redirect_v4') . '";');
+		eval('$naoardonate_redirect = "' . $templates->get('naoardonate_redirect_v5') . '";');
 		print $naoardonate_redirect;
 		exit;
 	}
@@ -318,7 +332,7 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 		$optional_required = $lang->naoardonate_front_optional;
 	}
 	($name == $lang->naoardonate_global_guest) ? $name='' : false;
-	eval('$aboutyou = "' . $templates->get('naoardonate_donate_aboutu_v4') . '";');
+	eval('$aboutyou = "' . $templates->get('naoardonate_donate_aboutu_v5') . '";');
 } else {
 	$aboutyou ='';
 }
@@ -352,7 +366,7 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 		$db->insert_query("captcha", $imagearray);
 
 
-eval('$captcha = "' . $templates->get('naoardonate_donate_captcha_v4') . '";');
+eval('$captcha = "' . $templates->get('naoardonate_donate_captcha_v5') . '";');
 } elseif($captcha_valid){
 my_setcookie('imgstr', $mybb->input['imgstr'],'159');
 $captcha ='';
@@ -390,7 +404,7 @@ if ( in_array('Western Union', $accepted_payment_methods) ) {
     $payment_offline_id = 'offline_wu';
     $payment_offline = nl2br( htmlspecialchars_uni( $mybb->settings['naoardonate_payment_method_wu']) );
     $pay_to = $lang->sprintf( $lang->naoardonate_front_payfor, 'Western Union');
-    eval('$offline_options = "' . $templates->get('naoardonate_donate_offline_v4') . '";');
+    eval('$offline_options = "' . $templates->get('naoardonate_donate_offline_v5') . '";');
 }
 
 if ( in_array('Bank/Wire transfer', $accepted_payment_methods) ) {
@@ -398,7 +412,7 @@ if ( in_array('Bank/Wire transfer', $accepted_payment_methods) ) {
     $payment_offline_id = 'offline_bk';
     $payment_offline =  nl2br( htmlspecialchars_uni( $mybb->settings['naoardonate_payment_method_bk']) );
     $pay_to = $lang->sprintf( $lang->naoardonate_front_payfor, 'Bank/Wire transfer');
-    eval('$offline_options .= "' . $templates->get('naoardonate_donate_offline_v4') . '";');
+    eval('$offline_options .= "' . $templates->get('naoardonate_donate_offline_v5') . '";');
 
 }
 
@@ -423,9 +437,9 @@ foreach($accepted_payment_methods as $e)
 		{
 			$pz_currencies .=  "<option value=\"$c\">" . $lang->$lang_var . "</option>";
 		}
-		if(in_array($c, $currencies_sk))
+		if(in_array($c, $currencies_2c))
 		{
-			$sk_currencies .=  "<option value=\"$c\">" . $lang->$lang_var . "</option>";
+			$tc_currencies .=  "<option value=\"$c\">" . $lang->$lang_var . "</option>";
 		}
 		if(in_array($c, $currencies_pp))
 		{
@@ -444,7 +458,9 @@ $js_updatelist = 'function change_payment_method(){
 try{
 _payment_method();
 }
-catch(e){}
+catch(e){
+console.error("Err _payment_method()", e);
+}
 } ';
 
 $js_updatelist .= "\nj=d.getElementById('currency');\n";
@@ -493,7 +509,7 @@ if($mybb->settings['naoardonate_currency'] == '000')
 
 		}
     $currencyselect .= '</select>';
-    eval('$currencies_row ="' . $templates->get('naoardonate_donate_currencies_row_v4') . '";');
+    eval('$currencies_row ="' . $templates->get('naoardonate_donate_currencies_row_v5') . '";');
 
 }
 elseif ($mybb->settings['naoardonate_currency'] == 'Any')
@@ -506,12 +522,12 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 	$js_updatelist  .= " else if(a.payment_method.value == 'Payza'){ j.innerHTML = '<select name=\"currency\" class=\"w100\">$pz_currencies</select>'}";
     }
 
-    if ( in_array('Skrill', $accepted_payment_methods) )
+    if ( in_array('2checkout', $accepted_payment_methods) )
     {
-	$currencyselect .='<optgroup label="' . $lang->sprintf( $lang->naoardonate_front_currencies_supported_by , 'Skrill') . '">'
-			. $sk_currencies
+	$currencyselect .='<optgroup label="' . $lang->sprintf( $lang->naoardonate_front_currencies_supported_by , '2checkout') . '">'
+			. $tc_currencies
 			. '</optgroup>';
-	$js_updatelist  .= " else if(a.payment_method.value == 'Skrill'){j.innerHTML = '<select name=\"currency\" class=\"w100\">$sk_currencies</select>'} ";
+	$js_updatelist  .= " else if(a.payment_method.value == '2checkout'){j.innerHTML = '<select name=\"currency\" class=\"w100\">$tc_currencies</select>'} ";
     }
 
     if ( in_array('Paypal', $accepted_payment_methods) )
@@ -520,14 +536,6 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 			. $pp_currencies
 			. '</optgroup>';
 	$js_updatelist  .= " else if(a.payment_method.value == 'Paypal') {j.innerHTML = '<select name=\"currency\" class=\"w100\">$pp_currencies</select>'}";
-    }
-
-    if ( in_array('LibertyReserve', $accepted_payment_methods) )
-    {
-	$currencyselect .='<optgroup label="' . $lang->sprintf( $lang->naoardonate_front_currencies_supported_by , 'LibertyReserve') . '">'
-			. $lr_currencies
-			. '</optgroup>';
-	$js_updatelist  .= "else if(a.payment_method.value == 'LibertyReserve') {j.innerHTML ='<select name=\"currency\" class=\"w100\">$lr_currencies</select>'}\n";
     }
 
     if ( in_array('Western Union', $accepted_payment_methods) )
@@ -552,7 +560,7 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 
 
     $currencyselect .= '</select>';
-    eval('$currencies_row ="' . $templates->get('naoardonate_donate_currencies_row_v4') . '";');
+    eval('$currencies_row ="' . $templates->get('naoardonate_donate_currencies_row_v5') . '";');
 
 }
 else
@@ -636,7 +644,7 @@ if($mybb->settings['naoardonate_donormsg'] == 1){
 $js_load .= "t=a.note;if(t.value != ''){shownote();limit()}";
 $js_funcs .= "function shownote(){r=d.getElementById('divnote');r.style.display = 'block';d.getElementById('noteintro').innerHTML =''}function limit(){if(t.value.length > 100){t.value=t.value.substring(0,100)}d.getElementById('max').innerHTML=100 - t.value.length}";
 
-eval('$note_fieldset ="' . $templates->get('naoardonate_donate_note_v4') . '";');
+eval('$note_fieldset ="' . $templates->get('naoardonate_donate_note_v5') . '";');
 
 }else {
 
@@ -727,7 +735,7 @@ if($isvalid_):
 	$js_funcs .= $isvalid_;
 endif;
 
-eval('$naoardonate_donate = "' . $templates->get('naoardonate_donate_v4') . '";');
+eval('$naoardonate_donate = "' . $templates->get('naoardonate_donate_v5') . '";');
 
 output_page($naoardonate_donate);
 
@@ -768,13 +776,20 @@ elseif($mybb->input['action'] == 'top_donors') {
 			$top_donors['uid'] ? $top_donors['name'] = "<a href=\"member.php?action=profile&amp;uid=$top_donors[uid]\">$top_donors[name]</a>" : false;
 
 			$top_donors['name'] ? True : $top_donors['name'] = $lang->naoardonate_global_guest;
-			$top_donors['email'] ? $top_donors['email'] = "<a href=\"mailto:$top_donors[email]\" title=\"$lang->naoardonate_global_email_donor\">$top_donors[email]</a>" : $top_donors['email'] = '-----';
+            if ($mybb->settings['naoardonate_hidetopemails'] == '0' and $top_donors['email']) {
+			 $top_donors['email'] = "<a href=\"mailto:$top_donors[email]\" title=\"$lang->naoardonate_global_email_donor\">$top_donors[email]</a>" ;                
+
+            } else {
+                $top_donors['email'] = '-----';
+            }
+
+            
 			$top_donors['dateline'] = my_date($mybb->settings['dateformat'],$top_donors['dateline']) . ', ' . my_date($mybb->settings['timeformat'], $top_donors['dateline']);
-			eval("\$donations .= \"".$templates->get('naoardonate_top_donation_v4')."\";");
+			eval("\$donations .= \"".$templates->get('naoardonate_top_donation_v5')."\";");
 		}
 
 		empty($donations) ? $donations = "<tr><td align=\"center\" class=\"trow1\" colspan=\"5\">{$lang->naoardonate_global_nothing}</td></tr>" : false;
-		eval("\$naoardonate_top =\"".$templates->get('naoardonate_top_v4')."\";");
+		eval("\$naoardonate_top =\"".$templates->get('naoardonate_top_v5')."\";");
 		output_page($naoardonate_top);
 	}
 }

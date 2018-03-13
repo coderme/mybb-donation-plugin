@@ -3,12 +3,12 @@
 /**
  *
  * CoderMe Donation plugin
- * Copyright 2017 CoderMe.com, All Rights Reserved
+ * Copyright 2018 CoderMe.com, All Rights Reserved
  *
- * Website: https://coderme.com
+ * Website: https://markit.coderme.com
  * Home:    https://red.coderme.com/mybb-donation-plugin
  * License: https://red.coderme.com/mybb-donation-plugin#license
- * Version: 4.0.1
+ * Version: 5.0.0
  *
  **/
 
@@ -18,6 +18,8 @@
 if(!defined("IN_MYBB")){
     exit("Direct initialization of this file is not allowed.<br /><br />Please make sure IN_MYBB is defined.");
 }
+
+
 $plugins->add_hook("admin_page_output_footer", "naoar_showhide");
 $plugins->add_hook("admin_config_settings_change", "naoar_fixit");
 $plugins->add_hook("global_start", "naoar_showdonatelinks");
@@ -35,8 +37,8 @@ $lang->load('naoardonate_plugin');
         "description"   => $lang->naoardonate_plugin_description,
         "website"   => "https://red.coderme.com/coderme-mybb-donation-plugin",
         "author"    => "CoderMe.com",
-        "authorsite"    => "https://coderme.com",
-        "version"   => "4.0.1",
+        "authorsite"    => "https://markit.coderme.com?src=pluginslist",
+        "version"   => "5.0.0",
         "guid"      => "a60331204b57399c66a958398b08e6df",
 	"codename"  => "naoardonate",
         "compatibility" => "18*"
@@ -209,11 +211,14 @@ function naoardonate_install()
 
     }
 
-    # check for previous verions
+    # check for previous versions
     $query = $db->simple_select('settinggroups', 'gid', "name='naoardonate' or name='teradonate'");
 
     if($db->num_rows($query) > 0):
-        require_once  MYBB_ROOT . "/" . $mybb->config['admin_dir'] . "/inc/functions.php";
+        require_once  implode(DIRECTORY_SEPARATOR,
+                              array(MYBB_ROOT,
+                                    $mybb->config['admin_dir'] ,
+                                    "inc", "functions.php"));
         change_admin_permission('coderme_donors', "", -1);
         $gid = (int)$db->fetch_field($query, 'gid');
         $db->update_query('settinggroups', array('title' => 'CoderMe Donation plugin', 'name' => 'naoardonate'), "gid='{$gid}'");
@@ -283,15 +288,15 @@ function naoardonate_install()
         'description' => $db->escape_string($lang->naoardonate_settings_payment_method_desc),
         'optionscode' => $db->escape_string('php
 <label onclick=\"t_onchange(\'naoardonate_pz\',\'payment_method_pz\');\" for=\"naoardonate_pz\"><input type=\"checkbox\" name=\"upsetting[naoardonate_payment_method][]\" id=\"naoardonate_pz\" value=\"Payza\" ".(strpos($setting[\'value\'],\'Payza\') !== false? "checked=\"checked\"" : "" ) . "> Payza <a href=\"http://www.payza.com/?1cSIX3YMzAHE6df7fltAQA%3d%3d\" title=\"'
-. $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, 'Payza') . '\" target=\"_blank\"><img src=\"./../images/naoar/oh.png\" alt=\"'
+. $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, 'Payza') . '\" target=\"_blank\" rel=\"noopener\"><img src=\"./../images/naoar/oh.png\" alt=\"'
 . $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, 'Payza') . '\" style=\"vertical-align:middle;border:0;width:13px;height:13px\"/></a></label><br />
 
-<label onclick=\"t_onchange(\'naoardonate_sk\',\'payment_method_sk\');\" for=\"naoardonate_sk\"><input type=\"checkbox\" name=\"upsetting[naoardonate_payment_method][]\" id=\"naoardonate_sk\" value=\"Skrill\"   ".(strpos($setting[\'value\'],\'Skrill\') !== false? "checked=\"checked\"" : "" ) . "> Skrill <a href=\"https://www.skrill.com/en/?rid=19686949\" title=\"'
-. $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, 'Skrill') . '\" target=\"_blank\"><img src=\"./../images/naoar/oh.png\"  alt=\"'
-. $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, 'Skrill') . '\" style=\"vertical-align:middle;border:0;width:13px;height:13px\"/></a></label>
+<label onclick=\"t_onchange(\'naoardonate_2c\',\'payment_method_2c\');\" for=\"naoardonate_2c\"><input type=\"checkbox\" name=\"upsetting[naoardonate_payment_method][]\" id=\"naoardonate_2c\" value=\"2checkout\"   ".(strpos($setting[\'value\'],\'2checkout\') !== false? "checked=\"checked\"" : "" ) . "> 2checkout <a href=\"https://www.2checkout.com/signup\" title=\"'
+. $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, '2checkout') . '\" target=\"_blank\" rel=\"noopener\"><img src=\"./../images/naoar/oh.png\"  alt=\"'
+. $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, '2checkout') . '\" style=\"vertical-align:middle;border:0;width:13px;height:13px\"/></a></label>
 
 <br /><label onclick=\"t_onchange(\'naoardonate_pp\',\'payment_method_pp\');\" for=\"naoardonate_pp\"><input type=\"checkbox\" name=\"upsetting[naoardonate_payment_method][]\" id=\"naoardonate_pp\" value=\"Paypal\"  ".(strpos($setting[\'value\'],\'Paypal\') !== false? "checked=\"checked\"" : "" ). "> Paypal <a href=\"https://www.paypal.com/us/cgi-bin/webscr?cmd=_registration-run\" title=\"'
-. $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, 'Paypal') . '\" target=\"_blank\"><img src=\"./../images/naoar/oh.png\" alt=\"'
+. $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, 'Paypal') . '\" target=\"_blank\" rel=\"noopener\"><img src=\"./../images/naoar/oh.png\" alt=\"'
 . $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, 'Paypal') . '\" style=\"vertical-align:middle;border:0;width:13px;height:13px\"/></a></label>
 
 
@@ -338,30 +343,30 @@ function naoardonate_install()
         'gid' => $gid
     );
 
-    if ($mybb->settings['naoardonate_payment_method_sk']) {
-        $naoardonate_payment_method_sk = $mybb->settings['naoardonate_payment_method_sk'];
+    if ($mybb->settings['naoardonate_payment_method_2c']) {
+        $naoardonate_payment_method_2c = $mybb->settings['naoardonate_payment_method_2c'];
 
         }
-        elseif($mybb->settings['naoardonate_ebank_sk'])
+        elseif($mybb->settings['naoardonate_ebank_2c'])
         {
-        $naoardonate_payment_method_sk = $mybb->settings['naoardonate_ebank_sk'];
+        $naoardonate_payment_method_2c = $mybb->settings['naoardonate_ebank_2c'];
         }
-        elseif ($mybb->settings['teradonate_ebank_sk']) {
-        $naoardonate_payment_method_sk = $mybb->settings['teradonate_ebank_sk'];
+        elseif ($mybb->settings['teradonate_ebank_2c']) {
+        $naoardonate_payment_method_2c = $mybb->settings['teradonate_ebank_2c'];
 
         }
         else {
-        $naoardonate_payment_method_sk = '';
+        $naoardonate_payment_method_2c = '';
         }
 
 
 
     $settingsarray[] = array(
-        'name' => 'naoardonate_payment_method_sk',
-        'title' => $db->escape_string($lang->naoardonate_settings_payment_method_SK),
-        'description' => $db->escape_string($lang->naoardonate_settings_payment_method_SK_desc),
+        'name' => 'naoardonate_payment_method_2c',
+        'title' => $db->escape_string($lang->naoardonate_settings_payment_method_2C),
+        'description' => $db->escape_string($lang->naoardonate_settings_payment_method_2C_desc),
         'optionscode' => 'text',
-        'value' => $db->escape_string($naoardonate_payment_method_sk),
+        'value' => $db->escape_string($naoardonate_payment_method_2c),
         'disporder' => 4,
         'gid' => $gid
     );
@@ -616,7 +621,7 @@ disabled=$lang->naoardonate_settings_disabled
 
         }
         else {
-        $naoardonate_ifreached = '1';
+            $naoardonate_ifreached = '1';
         }
 
 
@@ -644,8 +649,6 @@ disabled=$lang->naoardonate_settings_disabled
         else {
         $naoardonate_bar_width = '851/605';
         }
-
-
 
 
     $settingsarray[] = array(
@@ -750,548 +753,176 @@ disabled=$lang->naoardonate_settings_disabled
         else {
         $naoardonate_currency = 'Any';
         }
+    
+       $currencies_funcs_file = implode(DIRECTORY_SEPARATOR,
+                                array(MYBB_ROOT ,
+                                      "inc", "plugins",
+                                      "naoardonate",
+                               'funcs_currency.php'));
+                                   
+    require_once $currencies_funcs_file;
+    $currencies = array (
+    array(
+    $lang->naoardonate_global_currency_all_supported =>
+        array(
+        CODERME_PAYZA, CODERME_2CHECKOUT,
+        CODERME_PAYPAL, CODERME_WESTERN_UNION,
+        CODERME_BANK_WIRE,
+
+            )),
+    array(
+    $lang->naoardonate_global_currency_pz_2c_pp_bk =>
+        array(
+        CODERME_PAYZA, CODERME_2CHECKOUT,
+        CODERME_PAYPAL,
+        CODERME_BANK_WIRE,
+
+            )),                                                     
+    array(
+    $lang->naoardonate_global_currency_pz_2c_wu_bk =>
+        array(
+        CODERME_PAYZA, CODERME_2CHECKOUT,
+        CODERME_WESTERN_UNION,
+        CODERME_BANK_WIRE,
+
+            )),
+    array(
+    $lang->naoardonate_global_currency_pz_2c_bk =>
+        array(
+        CODERME_PAYZA, CODERME_2CHECKOUT,
+        CODERME_BANK_WIRE,
+
+            )),
+        
+    array(
+    $lang->naoardonate_global_currency_pz_pp_wu_bk =>
+        array(
+        CODERME_PAYZA,
+        CODERME_PAYPAL, CODERME_WESTERN_UNION,
+        CODERME_BANK_WIRE,
+
+            )),
+    array(
+    $lang->naoardonate_global_currency_pz_pp_bk =>
+        array(
+        CODERME_PAYZA,
+        CODERME_PAYPAL,
+        CODERME_BANK_WIRE,
+
+            )),
+    array(
+    $lang->naoardonate_global_currency_2c_pp_wu_bk =>
+        array(
+        CODERME_2CHECKOUT,
+        CODERME_PAYPAL, CODERME_WESTERN_UNION,
+        CODERME_BANK_WIRE,
+
+            )),
+
+    array(
+    $lang->naoardonate_global_currency_2c_pp_bk =>
+        array(
+        CODERME_2CHECKOUT,
+        CODERME_PAYPAL,
+        CODERME_BANK_WIRE,
+
+            )),
+
+    array(
+    $lang->naoardonate_global_currency_2c_wu_bk =>
+        array(
+        CODERME_2CHECKOUT,
+        CODERME_WESTERN_UNION,
+        CODERME_BANK_WIRE,
+
+            )),
+
+    array(
+    $lang->naoardonate_global_currency_2c_bk =>
+        array(
+        CODERME_2CHECKOUT,
+        CODERME_BANK_WIRE,
+            )),
+    array(
+    $lang->naoardonate_global_currency_pp_wu_bk =>
+        array(
+        CODERME_PAYPAL, CODERME_WESTERN_UNION,
+        CODERME_BANK_WIRE,
+
+            )),
 
 
+    array(
+    $lang->naoardonate_global_currency_pp_bk =>
+        array(
+        CODERME_PAYPAL,
+        CODERME_BANK_WIRE,
+
+            )),        
+
+    array(
+    $lang->naoardonate_global_currency_pz_wu_bk =>
+        array(
+        CODERME_PAYZA,
+        CODERME_WESTERN_UNION,
+        CODERME_BANK_WIRE,
+
+            )),        
+
+    array(
+    $lang->naoardonate_global_currency_pz_bk =>
+        array(
+        CODERME_PAYZA,
+        CODERME_BANK_WIRE,
+
+            )),        
+
+    array(
+    $lang->naoardonate_global_currency_wu_bk =>
+        array(
+        CODERME_WESTERN_UNION,
+        CODERME_BANK_WIRE,
+
+            )),        
+
+    array(
+    $lang->naoardonate_global_currency_bk =>
+        array(
+        CODERME_BANK_WIRE,
+            )),
+                                                                
+    );
+    
+    $currenciesOptions = 'php
+<select name=\"upsetting[{$setting[name]}]\">
+<option value=\"Any\" ".($setting[\'value\'] == \'Any\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_settings_currency_any . '</option>
+<option value=\"000\" ".($setting[\'value\'] == \'000\' ? "selected=\"selected\"" : "" ). ">Euro and USD</option>';
+
+    foreach($currencies as $x){
+      foreach($x as $k => $v){
+        $list = call_user_func_array('getCommonCurrenciesFor', $v);
+        if (count($list) == 0) {
+          // :P
+          continue;
+        }
+        $currenciesOptions .= '<optgroup label=\"' . $k . '\">';
+        foreach($list as $c ){
+             $name = 'naoardonate_global_currency_' . strtolower($c);
+             $currenciesOptions .= '<option value=\"' . $c  .
+                       '\"  ".($setting[\'value\'] == \'' . $c . '\' ? "selected=\"selected\"" : "" ). ">' . $lang->$name . '</option>';
+        }
+        $currenciesOptions .= '</optgroup>';
+        
+     }
+    }
+   $currenciesOptions .= '</select>';
+
+   
     $settingsarray[] = array(
         'name' => 'naoardonate_currency',
         'title' => $db->escape_string($lang->naoardonate_settings_currency),
         'description' => $db->escape_string($lang->naoardonate_settings_currency_desc),
-        'optionscode' => $db->escape_string('php
-<select name=\"upsetting[{$setting[name]}]\">
-<option value=\"Any\" ".($setting[\'value\'] == \'Any\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_settings_currency_any . '</option>
-<option value=\"000\" ".($setting[\'value\'] == \'000\' ? "selected=\"selected\"" : "" ). ">Euro and USD</option>
-<optgroup label=\"' . $lang->naoardonate_global_currency_all_supported . '\">
-<option value=\"EUR\"  ".($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur . '</option>
-<option value=\"USD\"  ".($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd . '</option>
-<option value=\"AUD\"  " .($setting[\'value\'] == \'AUD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aud. '</option>
-<option value=\"CAD\"  " .($setting[\'value\'] == \'CAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cad. '</option>
-<option value=\"CHF\"  " .($setting[\'value\'] == \'CHF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chf. '</option>
-<option value=\"CZK\"  " .($setting[\'value\'] == \'CZK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_czk. '</option>
-<option value=\"DKK\"  " .($setting[\'value\'] == \'DKK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dkk. '</option>
-<option value=\"EUR\"  " .($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur. '</option>
-<option value=\"GBP\"  " .($setting[\'value\'] == \'GBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gbp. '</option>
-<option value=\"HKD\"  " .($setting[\'value\'] == \'HKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hkd. '</option>
-<option value=\"HUF\"  " .($setting[\'value\'] == \'HUF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_huf. '</option>
-<option value=\"MYR\"  " .($setting[\'value\'] == \'MYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_myr. '</option>
-<option value=\"NOK\"  " .($setting[\'value\'] == \'NOK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nok. '</option>
-<option value=\"NZD\"  " .($setting[\'value\'] == \'NZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nzd. '</option>
-<option value=\"PLN\"  " .($setting[\'value\'] == \'PLN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pln. '</option>
-<option value=\"SEK\"  " .($setting[\'value\'] == \'SEK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sek. '</option>
-<option value=\"SGD\"  " .($setting[\'value\'] == \'SGD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sgd. '</option>
-<option value=\"USD\"  " .($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd. '</option>
-</optgroup>
-<optgroup label=\"' . $lang->naoardonate_global_currency_pz_sk_pp_bk . '\">
-<option value=\"AUD\"  " .($setting[\'value\'] == \'AUD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aud. '</option>
-<option value=\"CAD\"  " .($setting[\'value\'] == \'CAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cad. '</option>
-<option value=\"CHF\"  " .($setting[\'value\'] == \'CHF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chf. '</option>
-<option value=\"CZK\"  " .($setting[\'value\'] == \'CZK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_czk. '</option>
-<option value=\"DKK\"  " .($setting[\'value\'] == \'DKK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dkk. '</option>
-<option value=\"EUR\"  " .($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur. '</option>
-<option value=\"GBP\"  " .($setting[\'value\'] == \'GBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gbp. '</option>
-<option value=\"HKD\"  " .($setting[\'value\'] == \'HKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hkd. '</option>
-<option value=\"HUF\"  " .($setting[\'value\'] == \'HUF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_huf. '</option>
-<option value=\"MYR\"  " .($setting[\'value\'] == \'MYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_myr. '</option>
-<option value=\"NOK\"  " .($setting[\'value\'] == \'NOK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nok. '</option>
-<option value=\"NZD\"  " .($setting[\'value\'] == \'NZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nzd. '</option>
-<option value=\"PLN\"  " .($setting[\'value\'] == \'PLN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pln. '</option>
-<option value=\"SEK\"  " .($setting[\'value\'] == \'SEK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sek. '</option>
-<option value=\"SGD\"  " .($setting[\'value\'] == \'SGD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sgd. '</option>
-<option value=\"USD\"  " .($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd. '</option>
-</optgroup>
-<optgroup label=\"' . $lang->naoardonate_global_currency_pz_sk_wu_bk . '\">
-<option value=\"AUD\"  " .($setting[\'value\'] == \'AUD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aud. '</option>
-<option value=\"BGN\"  " .($setting[\'value\'] == \'BGN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bgn. '</option>
-<option value=\"CAD\"  " .($setting[\'value\'] == \'CAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cad. '</option>
-<option value=\"CHF\"  " .($setting[\'value\'] == \'CHF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chf. '</option>
-<option value=\"CZK\"  " .($setting[\'value\'] == \'CZK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_czk. '</option>
-<option value=\"DKK\"  " .($setting[\'value\'] == \'DKK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dkk. '</option>
-<option value=\"EUR\"  " .($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur. '</option>
-<option value=\"GBP\"  " .($setting[\'value\'] == \'GBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gbp. '</option>
-<option value=\"HKD\"  " .($setting[\'value\'] == \'HKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hkd. '</option>
-<option value=\"HUF\"  " .($setting[\'value\'] == \'HUF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_huf. '</option>
-<option value=\"INR\"  " .($setting[\'value\'] == \'INR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_inr. '</option>
-<option value=\"LTL\"  " .($setting[\'value\'] == \'LTL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ltl. '</option>
-<option value=\"MYR\"  " .($setting[\'value\'] == \'MYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_myr. '</option>
-<option value=\"NOK\"  " .($setting[\'value\'] == \'NOK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nok. '</option>
-<option value=\"NZD\"  " .($setting[\'value\'] == \'NZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nzd. '</option>
-<option value=\"PLN\"  " .($setting[\'value\'] == \'PLN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pln. '</option>
-<option value=\"RON\"  " .($setting[\'value\'] == \'RON\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ron. '</option>
-<option value=\"SEK\"  " .($setting[\'value\'] == \'SEK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sek. '</option>
-<option value=\"SGD\"  " .($setting[\'value\'] == \'SGD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sgd. '</option>
-<option value=\"USD\"  " .($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd. '</option>
-<option value=\"ZAR\"  " .($setting[\'value\'] == \'ZAR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_zar. '</option>
-</optgroup>
-<optgroup label=\"' . $lang->naoardonate_global_currency_pz_sk_bk . '\">
-<option value=\"AUD\"  " .($setting[\'value\'] == \'AUD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aud. '</option>
-<option value=\"BGN\"  " .($setting[\'value\'] == \'BGN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bgn. '</option>
-<option value=\"CAD\"  " .($setting[\'value\'] == \'CAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cad. '</option>
-<option value=\"CHF\"  " .($setting[\'value\'] == \'CHF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chf. '</option>
-<option value=\"CZK\"  " .($setting[\'value\'] == \'CZK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_czk. '</option>
-<option value=\"DKK\"  " .($setting[\'value\'] == \'DKK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dkk. '</option>
-<option value=\"EUR\"  " .($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur. '</option>
-<option value=\"GBP\"  " .($setting[\'value\'] == \'GBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gbp. '</option>
-<option value=\"HKD\"  " .($setting[\'value\'] == \'HKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hkd. '</option>
-<option value=\"HUF\"  " .($setting[\'value\'] == \'HUF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_huf. '</option>
-<option value=\"INR\"  " .($setting[\'value\'] == \'INR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_inr. '</option>
-<option value=\"LTL\"  " .($setting[\'value\'] == \'LTL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ltl. '</option>
-<option value=\"MYR\"  " .($setting[\'value\'] == \'MYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_myr. '</option>
-<option value=\"NOK\"  " .($setting[\'value\'] == \'NOK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nok. '</option>
-<option value=\"NZD\"  " .($setting[\'value\'] == \'NZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nzd. '</option>
-<option value=\"PLN\"  " .($setting[\'value\'] == \'PLN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pln. '</option>
-<option value=\"RON\"  " .($setting[\'value\'] == \'RON\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ron. '</option>
-<option value=\"SEK\"  " .($setting[\'value\'] == \'SEK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sek. '</option>
-<option value=\"SGD\"  " .($setting[\'value\'] == \'SGD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sgd. '</option>
-<option value=\"USD\"  " .($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd. '</option>
-<option value=\"ZAR\"  " .($setting[\'value\'] == \'ZAR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_zar. '</option>
-</optgroup>
-<optgroup label=\"' . $lang->naoardonate_global_currency_pz_pp_wu_bk . '\">
-<option value=\"AUD\"  " .($setting[\'value\'] == \'AUD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aud. '</option>
-<option value=\"CAD\"  " .($setting[\'value\'] == \'CAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cad. '</option>
-<option value=\"CHF\"  " .($setting[\'value\'] == \'CHF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chf. '</option>
-<option value=\"CZK\"  " .($setting[\'value\'] == \'CZK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_czk. '</option>
-<option value=\"DKK\"  " .($setting[\'value\'] == \'DKK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dkk. '</option>
-<option value=\"EUR\"  " .($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur. '</option>
-<option value=\"GBP\"  " .($setting[\'value\'] == \'GBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gbp. '</option>
-<option value=\"HKD\"  " .($setting[\'value\'] == \'HKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hkd. '</option>
-<option value=\"HUF\"  " .($setting[\'value\'] == \'HUF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_huf. '</option>
-<option value=\"MYR\"  " .($setting[\'value\'] == \'MYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_myr. '</option>
-<option value=\"NOK\"  " .($setting[\'value\'] == \'NOK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nok. '</option>
-<option value=\"NZD\"  " .($setting[\'value\'] == \'NZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nzd. '</option>
-<option value=\"PLN\"  " .($setting[\'value\'] == \'PLN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pln. '</option>
-<option value=\"SEK\"  " .($setting[\'value\'] == \'SEK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sek. '</option>
-<option value=\"SGD\"  " .($setting[\'value\'] == \'SGD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sgd. '</option>
-<option value=\"USD\"  " .($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd. '</option>
-</optgroup>
-<optgroup label=\"' . $lang->naoardonate_global_currency_pz_pp_bk . '\">
-<option value=\"AUD\"  " .($setting[\'value\'] == \'AUD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aud. '</option>
-<option value=\"CAD\"  " .($setting[\'value\'] == \'CAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cad. '</option>
-<option value=\"CHF\"  " .($setting[\'value\'] == \'CHF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chf. '</option>
-<option value=\"CZK\"  " .($setting[\'value\'] == \'CZK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_czk. '</option>
-<option value=\"DKK\"  " .($setting[\'value\'] == \'DKK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dkk. '</option>
-<option value=\"EUR\"  " .($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur. '</option>
-<option value=\"GBP\"  " .($setting[\'value\'] == \'GBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gbp. '</option>
-<option value=\"HKD\"  " .($setting[\'value\'] == \'HKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hkd. '</option>
-<option value=\"HUF\"  " .($setting[\'value\'] == \'HUF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_huf. '</option>
-<option value=\"MYR\"  " .($setting[\'value\'] == \'MYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_myr. '</option>
-<option value=\"NOK\"  " .($setting[\'value\'] == \'NOK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nok. '</option>
-<option value=\"NZD\"  " .($setting[\'value\'] == \'NZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nzd. '</option>
-<option value=\"PLN\"  " .($setting[\'value\'] == \'PLN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pln. '</option>
-<option value=\"SEK\"  " .($setting[\'value\'] == \'SEK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sek. '</option>
-<option value=\"SGD\"  " .($setting[\'value\'] == \'SGD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sgd. '</option>
-<option value=\"USD\"  " .($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd. '</option>
-</optgroup>
-
-<optgroup label=\"' . $lang->naoardonate_global_currency_sk_pp_wu_bk . '\">
-<option value=\"AUD\"  " .($setting[\'value\'] == \'AUD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aud. '</option>
-<option value=\"CAD\"  " .($setting[\'value\'] == \'CAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cad. '</option>
-<option value=\"CHF\"  " .($setting[\'value\'] == \'CHF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chf. '</option>
-<option value=\"CZK\"  " .($setting[\'value\'] == \'CZK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_czk. '</option>
-<option value=\"DKK\"  " .($setting[\'value\'] == \'DKK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dkk. '</option>
-<option value=\"EUR\"  " .($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur. '</option>
-<option value=\"GBP\"  " .($setting[\'value\'] == \'GBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gbp. '</option>
-<option value=\"HKD\"  " .($setting[\'value\'] == \'HKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hkd. '</option>
-<option value=\"HUF\"  " .($setting[\'value\'] == \'HUF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_huf. '</option>
-<option value=\"ILS\"  " .($setting[\'value\'] == \'ILS\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ils. '</option>
-<option value=\"JPY\"  " .($setting[\'value\'] == \'JPY\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_jpy. '</option>
-<option value=\"MYR\"  " .($setting[\'value\'] == \'MYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_myr. '</option>
-<option value=\"NOK\"  " .($setting[\'value\'] == \'NOK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nok. '</option>
-<option value=\"NZD\"  " .($setting[\'value\'] == \'NZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nzd. '</option>
-<option value=\"PLN\"  " .($setting[\'value\'] == \'PLN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pln. '</option>
-<option value=\"SEK\"  " .($setting[\'value\'] == \'SEK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sek. '</option>
-<option value=\"SGD\"  " .($setting[\'value\'] == \'SGD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sgd. '</option>
-<option value=\"THB\"  " .($setting[\'value\'] == \'THB\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_thb. '</option>
-<option value=\"TWD\"  " .($setting[\'value\'] == \'TWD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_twd. '</option>
-<option value=\"USD\"  " .($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd. '</option>
-</optgroup>
-
-
-<optgroup label=\"' . $lang->naoardonate_global_currency_sk_pp_bk . '\">
-<option value=\"AUD\"  " .($setting[\'value\'] == \'AUD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aud. '</option>
-<option value=\"CAD\"  " .($setting[\'value\'] == \'CAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cad. '</option>
-<option value=\"CHF\"  " .($setting[\'value\'] == \'CHF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chf. '</option>
-<option value=\"CZK\"  " .($setting[\'value\'] == \'CZK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_czk. '</option>
-<option value=\"DKK\"  " .($setting[\'value\'] == \'DKK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dkk. '</option>
-<option value=\"EUR\"  " .($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur. '</option>
-<option value=\"GBP\"  " .($setting[\'value\'] == \'GBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gbp. '</option>
-<option value=\"HKD\"  " .($setting[\'value\'] == \'HKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hkd. '</option>
-<option value=\"HUF\"  " .($setting[\'value\'] == \'HUF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_huf. '</option>
-<option value=\"ILS\"  " .($setting[\'value\'] == \'ILS\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ils. '</option>
-<option value=\"JPY\"  " .($setting[\'value\'] == \'JPY\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_jpy. '</option>
-<option value=\"MYR\"  " .($setting[\'value\'] == \'MYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_myr. '</option>
-<option value=\"NOK\"  " .($setting[\'value\'] == \'NOK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nok. '</option>
-<option value=\"NZD\"  " .($setting[\'value\'] == \'NZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nzd. '</option>
-<option value=\"PLN\"  " .($setting[\'value\'] == \'PLN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pln. '</option>
-<option value=\"SEK\"  " .($setting[\'value\'] == \'SEK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sek. '</option>
-<option value=\"SGD\"  " .($setting[\'value\'] == \'SGD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sgd. '</option>
-<option value=\"THB\"  " .($setting[\'value\'] == \'THB\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_thb. '</option>
-<option value=\"TWD\"  " .($setting[\'value\'] == \'TWD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_twd. '</option>
-<option value=\"USD\"  " .($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd. '</option>
-</optgroup>
-
-
-<optgroup label=\"' . $lang->naoardonate_global_currency_sk_wu_bk . '\">
-<option value=\"AED\"  " .($setting[\'value\'] == \'AED\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aed. '</option>
-<option value=\"AUD\"  " .($setting[\'value\'] == \'AUD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aud. '</option>
-<option value=\"BGN\"  " .($setting[\'value\'] == \'BGN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bgn. '</option>
-<option value=\"CAD\"  " .($setting[\'value\'] == \'CAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cad. '</option>
-<option value=\"CHF\"  " .($setting[\'value\'] == \'CHF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chf. '</option>
-<option value=\"CZK\"  " .($setting[\'value\'] == \'CZK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_czk. '</option>
-<option value=\"DKK\"  " .($setting[\'value\'] == \'DKK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dkk. '</option>
-<option value=\"EUR\"  " .($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur. '</option>
-<option value=\"GBP\"  " .($setting[\'value\'] == \'GBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gbp. '</option>
-<option value=\"HKD\"  " .($setting[\'value\'] == \'HKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hkd. '</option>
-<option value=\"HRK\"  " .($setting[\'value\'] == \'HRK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hrk. '</option>
-<option value=\"HUF\"  " .($setting[\'value\'] == \'HUF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_huf. '</option>
-<option value=\"ILS\"  " .($setting[\'value\'] == \'ILS\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ils. '</option>
-<option value=\"INR\"  " .($setting[\'value\'] == \'INR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_inr. '</option>
-<option value=\"JOD\"  " .($setting[\'value\'] == \'JOD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_jod. '</option>
-<option value=\"JPY\"  " .($setting[\'value\'] == \'JPY\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_jpy. '</option>
-<option value=\"KRW\"  " .($setting[\'value\'] == \'KRW\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_krw. '</option>
-<option value=\"LTL\"  " .($setting[\'value\'] == \'LTL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ltl. '</option>
-<option value=\"LVL\"  " .($setting[\'value\'] == \'LVL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_lvl. '</option>
-<option value=\"MAD\"  " .($setting[\'value\'] == \'MAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mad. '</option>
-<option value=\"MYR\"  " .($setting[\'value\'] == \'MYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_myr. '</option>
-<option value=\"NOK\"  " .($setting[\'value\'] == \'NOK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nok. '</option>
-<option value=\"NZD\"  " .($setting[\'value\'] == \'NZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nzd. '</option>
-<option value=\"OMR\"  " .($setting[\'value\'] == \'OMR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_omr. '</option>
-<option value=\"PLN\"  " .($setting[\'value\'] == \'PLN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pln. '</option>
-<option value=\"QAR\"  " .($setting[\'value\'] == \'QAR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_qar. '</option>
-<option value=\"RON\"  " .($setting[\'value\'] == \'RON\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ron. '</option>
-<option value=\"SAR\"  " .($setting[\'value\'] == \'SAR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sar. '</option>
-<option value=\"SEK\"  " .($setting[\'value\'] == \'SEK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sek. '</option>
-<option value=\"SGD\"  " .($setting[\'value\'] == \'SGD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sgd. '</option>
-<option value=\"THB\"  " .($setting[\'value\'] == \'THB\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_thb. '</option>
-<option value=\"TND\"  " .($setting[\'value\'] == \'TND\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_tnd. '</option>
-<option value=\"TRY\"  " .($setting[\'value\'] == \'TRY\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_try. '</option>
-<option value=\"TWD\"  " .($setting[\'value\'] == \'TWD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_twd. '</option>
-<option value=\"USD\"  " .($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd. '</option>
-<option value=\"ZAR\"  " .($setting[\'value\'] == \'ZAR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_zar. '</option>
-</optgroup>
-
-
-<optgroup label=\"' . $lang->naoardonate_global_currency_sk_bk . '\">
-<option value=\"AED\"  " .($setting[\'value\'] == \'AED\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aed. '</option>
-<option value=\"AUD\"  " .($setting[\'value\'] == \'AUD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aud. '</option>
-<option value=\"BGN\"  " .($setting[\'value\'] == \'BGN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bgn. '</option>
-<option value=\"CAD\"  " .($setting[\'value\'] == \'CAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cad. '</option>
-<option value=\"CHF\"  " .($setting[\'value\'] == \'CHF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chf. '</option>
-<option value=\"CZK\"  " .($setting[\'value\'] == \'CZK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_czk. '</option>
-<option value=\"DKK\"  " .($setting[\'value\'] == \'DKK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dkk. '</option>
-<option value=\"EUR\"  " .($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur. '</option>
-<option value=\"GBP\"  " .($setting[\'value\'] == \'GBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gbp. '</option>
-<option value=\"HKD\"  " .($setting[\'value\'] == \'HKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hkd. '</option>
-<option value=\"HRK\"  " .($setting[\'value\'] == \'HRK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hrk. '</option>
-<option value=\"HUF\"  " .($setting[\'value\'] == \'HUF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_huf. '</option>
-<option value=\"ILS\"  " .($setting[\'value\'] == \'ILS\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ils. '</option>
-<option value=\"INR\"  " .($setting[\'value\'] == \'INR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_inr. '</option>
-<option value=\"ISK\"  " .($setting[\'value\'] == \'ISK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_isk. '</option>
-<option value=\"JOD\"  " .($setting[\'value\'] == \'JOD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_jod. '</option>
-<option value=\"JPY\"  " .($setting[\'value\'] == \'JPY\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_jpy. '</option>
-<option value=\"KRW\"  " .($setting[\'value\'] == \'KRW\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_krw. '</option>
-<option value=\"LTL\"  " .($setting[\'value\'] == \'LTL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ltl. '</option>
-<option value=\"LVL\"  " .($setting[\'value\'] == \'LVL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_lvl. '</option>
-<option value=\"MAD\"  " .($setting[\'value\'] == \'MAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mad. '</option>
-<option value=\"MYR\"  " .($setting[\'value\'] == \'MYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_myr. '</option>
-<option value=\"NOK\"  " .($setting[\'value\'] == \'NOK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nok. '</option>
-<option value=\"NZD\"  " .($setting[\'value\'] == \'NZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nzd. '</option>
-<option value=\"OMR\"  " .($setting[\'value\'] == \'OMR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_omr. '</option>
-<option value=\"PLN\"  " .($setting[\'value\'] == \'PLN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pln. '</option>
-<option value=\"QAR\"  " .($setting[\'value\'] == \'QAR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_qar. '</option>
-<option value=\"RON\"  " .($setting[\'value\'] == \'RON\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ron. '</option>
-<option value=\"RSD\"  " .($setting[\'value\'] == \'RSD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_rsd. '</option>
-<option value=\"SAR\"  " .($setting[\'value\'] == \'SAR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sar. '</option>
-<option value=\"SEK\"  " .($setting[\'value\'] == \'SEK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sek. '</option>
-<option value=\"SGD\"  " .($setting[\'value\'] == \'SGD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sgd. '</option>
-<option value=\"THB\"  " .($setting[\'value\'] == \'THB\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_thb. '</option>
-<option value=\"TND\"  " .($setting[\'value\'] == \'TND\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_tnd. '</option>
-<option value=\"TRY\"  " .($setting[\'value\'] == \'TRY\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_try. '</option>
-<option value=\"TWD\"  " .($setting[\'value\'] == \'TWD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_twd. '</option>
-<option value=\"USD\"  " .($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd. '</option>
-<option value=\"ZAR\"  " .($setting[\'value\'] == \'ZAR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_zar. '</option>
-</optgroup>
-
-
-<optgroup label=\"' . $lang->naoardonate_global_currency_pp_wu_bk . '\">
-<option value=\"AUD\"  " .($setting[\'value\'] == \'AUD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aud. '</option>
-<option value=\"BRL\"  " .($setting[\'value\'] == \'BRL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_brl. '</option>
-<option value=\"CAD\"  " .($setting[\'value\'] == \'CAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cad. '</option>
-<option value=\"CHF\"  " .($setting[\'value\'] == \'CHF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chf. '</option>
-<option value=\"CZK\"  " .($setting[\'value\'] == \'CZK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_czk. '</option>
-<option value=\"DKK\"  " .($setting[\'value\'] == \'DKK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dkk. '</option>
-<option value=\"EUR\"  " .($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur. '</option>
-<option value=\"GBP\"  " .($setting[\'value\'] == \'GBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gbp. '</option>
-<option value=\"HKD\"  " .($setting[\'value\'] == \'HKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hkd. '</option>
-<option value=\"HUF\"  " .($setting[\'value\'] == \'HUF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_huf. '</option>
-<option value=\"ILS\"  " .($setting[\'value\'] == \'ILS\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ils. '</option>
-<option value=\"JPY\"  " .($setting[\'value\'] == \'JPY\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_jpy. '</option>
-<option value=\"MXN\"  " .($setting[\'value\'] == \'MXN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mxn. '</option>
-<option value=\"MYR\"  " .($setting[\'value\'] == \'MYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_myr. '</option>
-<option value=\"NOK\"  " .($setting[\'value\'] == \'NOK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nok. '</option>
-<option value=\"NZD\"  " .($setting[\'value\'] == \'NZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nzd. '</option>
-<option value=\"PHP\"  " .($setting[\'value\'] == \'PHP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_php. '</option>
-<option value=\"PLN\"  " .($setting[\'value\'] == \'PLN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pln. '</option>
-<option value=\"SEK\"  " .($setting[\'value\'] == \'SEK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sek. '</option>
-<option value=\"SGD\"  " .($setting[\'value\'] == \'SGD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sgd. '</option>
-<option value=\"THB\"  " .($setting[\'value\'] == \'THB\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_thb. '</option>
-<option value=\"TWD\"  " .($setting[\'value\'] == \'TWD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_twd. '</option>
-<option value=\"USD\"  " .($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd. '</option>
-</optgroup>
-
-
-<optgroup label=\"' . $lang->naoardonate_global_currency_pp_bk . '\">
-<option value=\"AUD\"  " .($setting[\'value\'] == \'AUD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aud. '</option>
-<option value=\"BRL\"  " .($setting[\'value\'] == \'BRL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_brl. '</option>
-<option value=\"CAD\"  " .($setting[\'value\'] == \'CAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cad. '</option>
-<option value=\"CHF\"  " .($setting[\'value\'] == \'CHF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chf. '</option>
-<option value=\"CZK\"  " .($setting[\'value\'] == \'CZK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_czk. '</option>
-<option value=\"DKK\"  " .($setting[\'value\'] == \'DKK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dkk. '</option>
-<option value=\"EUR\"  " .($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur. '</option>
-<option value=\"GBP\"  " .($setting[\'value\'] == \'GBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gbp. '</option>
-<option value=\"HKD\"  " .($setting[\'value\'] == \'HKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hkd. '</option>
-<option value=\"HUF\"  " .($setting[\'value\'] == \'HUF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_huf. '</option>
-<option value=\"ILS\"  " .($setting[\'value\'] == \'ILS\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ils. '</option>
-<option value=\"JPY\"  " .($setting[\'value\'] == \'JPY\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_jpy. '</option>
-<option value=\"MXN\"  " .($setting[\'value\'] == \'MXN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mxn. '</option>
-<option value=\"MYR\"  " .($setting[\'value\'] == \'MYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_myr. '</option>
-<option value=\"NOK\"  " .($setting[\'value\'] == \'NOK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nok. '</option>
-<option value=\"NZD\"  " .($setting[\'value\'] == \'NZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nzd. '</option>
-<option value=\"PHP\"  " .($setting[\'value\'] == \'PHP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_php. '</option>
-<option value=\"PLN\"  " .($setting[\'value\'] == \'PLN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pln. '</option>
-<option value=\"SEK\"  " .($setting[\'value\'] == \'SEK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sek. '</option>
-<option value=\"SGD\"  " .($setting[\'value\'] == \'SGD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sgd. '</option>
-<option value=\"THB\"  " .($setting[\'value\'] == \'THB\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_thb. '</option>
-<option value=\"TWD\"  " .($setting[\'value\'] == \'TWD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_twd. '</option>
-<option value=\"USD\"  " .($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd. '</option>
-</optgroup>
-
-
-<optgroup label=\"' . $lang->naoardonate_global_currency_pz_wu_bk . '\">
-<option value=\"AUD\"  " .($setting[\'value\'] == \'AUD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aud. '</option>
-<option value=\"BGN\"  " .($setting[\'value\'] == \'BGN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bgn. '</option>
-<option value=\"CAD\"  " .($setting[\'value\'] == \'CAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cad. '</option>
-<option value=\"CHF\"  " .($setting[\'value\'] == \'CHF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chf. '</option>
-<option value=\"CZK\"  " .($setting[\'value\'] == \'CZK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_czk. '</option>
-<option value=\"DKK\"  " .($setting[\'value\'] == \'DKK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dkk. '</option>
-<option value=\"EUR\"  " .($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur. '</option>
-<option value=\"GBP\"  " .($setting[\'value\'] == \'GBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gbp. '</option>
-<option value=\"HKD\"  " .($setting[\'value\'] == \'HKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hkd. '</option>
-<option value=\"HUF\"  " .($setting[\'value\'] == \'HUF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_huf. '</option>
-<option value=\"INR\"  " .($setting[\'value\'] == \'INR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_inr. '</option>
-<option value=\"LTL\"  " .($setting[\'value\'] == \'LTL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ltl. '</option>
-<option value=\"MKD\"  " .($setting[\'value\'] == \'MKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mkd. '</option>
-<option value=\"MYR\"  " .($setting[\'value\'] == \'MYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_myr. '</option>
-<option value=\"NOK\"  " .($setting[\'value\'] == \'NOK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nok. '</option>
-<option value=\"NZD\"  " .($setting[\'value\'] == \'NZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nzd. '</option>
-<option value=\"PLN\"  " .($setting[\'value\'] == \'PLN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pln. '</option>
-<option value=\"RON\"  " .($setting[\'value\'] == \'RON\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ron. '</option>
-<option value=\"SEK\"  " .($setting[\'value\'] == \'SEK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sek. '</option>
-<option value=\"SGD\"  " .($setting[\'value\'] == \'SGD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sgd. '</option>
-<option value=\"USD\"  " .($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd. '</option>
-<option value=\"ZAR\"  " .($setting[\'value\'] == \'ZAR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_zar. '</option>
-</optgroup>
-
-
-<optgroup label=\"' . $lang->naoardonate_global_currency_pz_bk . '\">
-<option value=\"AUD\"  " .($setting[\'value\'] == \'AUD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aud. '</option>
-<option value=\"BGN\"  " .($setting[\'value\'] == \'BGN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bgn. '</option>
-<option value=\"CAD\"  " .($setting[\'value\'] == \'CAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cad. '</option>
-<option value=\"CHF\"  " .($setting[\'value\'] == \'CHF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chf. '</option>
-<option value=\"CZK\"  " .($setting[\'value\'] == \'CZK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_czk. '</option>
-<option value=\"DKK\"  " .($setting[\'value\'] == \'DKK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dkk. '</option>
-<option value=\"EUR\"  " .($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur. '</option>
-<option value=\"GBP\"  " .($setting[\'value\'] == \'GBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gbp. '</option>
-<option value=\"HKD\"  " .($setting[\'value\'] == \'HKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hkd. '</option>
-<option value=\"HUF\"  " .($setting[\'value\'] == \'HUF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_huf. '</option>
-<option value=\"INR\"  " .($setting[\'value\'] == \'INR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_inr. '</option>
-<option value=\"LTL\"  " .($setting[\'value\'] == \'LTL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ltl. '</option>
-<option value=\"MKD\"  " .($setting[\'value\'] == \'MKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mkd. '</option>
-<option value=\"MYR\"  " .($setting[\'value\'] == \'MYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_myr. '</option>
-<option value=\"NOK\"  " .($setting[\'value\'] == \'NOK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nok. '</option>
-<option value=\"NZD\"  " .($setting[\'value\'] == \'NZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nzd. '</option>
-<option value=\"PLN\"  " .($setting[\'value\'] == \'PLN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pln. '</option>
-<option value=\"RON\"  " .($setting[\'value\'] == \'RON\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ron. '</option>
-<option value=\"SEK\"  " .($setting[\'value\'] == \'SEK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sek. '</option>
-<option value=\"SGD\"  " .($setting[\'value\'] == \'SGD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sgd. '</option>
-<option value=\"USD\"  " .($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd. '</option>
-<option value=\"ZAR\"  " .($setting[\'value\'] == \'ZAR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_zar. '</option>
-</optgroup>
-
-
-<optgroup label=\"' . $lang->naoardonate_global_currency_wu_bk . '\">
-<option value=\"AED\"  " .($setting[\'value\'] == \'AED\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aed. '</option>
-<option value=\"ALL\"  " .($setting[\'value\'] == \'ALL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_all. '</option>
-<option value=\"AMD\"  " .($setting[\'value\'] == \'AMD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_amd. '</option>
-<option value=\"ANG\"  " .($setting[\'value\'] == \'ANG\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ang. '</option>
-<option value=\"AOA\"  " .($setting[\'value\'] == \'AOA\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aoa. '</option>
-<option value=\"ARS\"  " .($setting[\'value\'] == \'ARS\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ars. '</option>
-<option value=\"AUD\"  " .($setting[\'value\'] == \'AUD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_aud. '</option>
-<option value=\"AWG\"  " .($setting[\'value\'] == \'AWG\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_awg. '</option>
-<option value=\"AZN\"  " .($setting[\'value\'] == \'AZN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_azn. '</option>
-<option value=\"BBD\"  " .($setting[\'value\'] == \'BBD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bbd. '</option>
-<option value=\"BDT\"  " .($setting[\'value\'] == \'BDT\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bdt. '</option>
-<option value=\"BGN\"  " .($setting[\'value\'] == \'BGN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bgn. '</option>
-<option value=\"BHD\"  " .($setting[\'value\'] == \'BHD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bhd. '</option>
-<option value=\"BIF\"  " .($setting[\'value\'] == \'BIF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bif. '</option>
-<option value=\"BMD\"  " .($setting[\'value\'] == \'BMD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bmd. '</option>
-<option value=\"BND\"  " .($setting[\'value\'] == \'BND\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bnd. '</option>
-<option value=\"BOB\"  " .($setting[\'value\'] == \'BOB\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bob. '</option>
-<option value=\"BRL\"  " .($setting[\'value\'] == \'BRL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_brl. '</option>
-<option value=\"BSD\"  " .($setting[\'value\'] == \'BSD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bsd. '</option>
-<option value=\"BTN\"  " .($setting[\'value\'] == \'BTN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_btn. '</option>
-<option value=\"BWP\"  " .($setting[\'value\'] == \'BWP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bwp. '</option>
-<option value=\"BZD\"  " .($setting[\'value\'] == \'BZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bzd. '</option>
-<option value=\"CAD\"  " .($setting[\'value\'] == \'CAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cad. '</option>
-<option value=\"CDF\"  " .($setting[\'value\'] == \'CDF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cdf. '</option>
-<option value=\"CHF\"  " .($setting[\'value\'] == \'CHF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chf. '</option>
-<option value=\"CLP\"  " .($setting[\'value\'] == \'CLP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_clp. '</option>
-<option value=\"CNH\"  " .($setting[\'value\'] == \'CNH\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cnh. '</option>
-<option value=\"CNY\"  " .($setting[\'value\'] == \'CNY\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cny. '</option>
-<option value=\"COP\"  " .($setting[\'value\'] == \'COP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cop. '</option>
-<option value=\"CRC\"  " .($setting[\'value\'] == \'CRC\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_crc. '</option>
-<option value=\"CVE\"  " .($setting[\'value\'] == \'CVE\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cve. '</option>
-<option value=\"CZK\"  " .($setting[\'value\'] == \'CZK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_czk. '</option>
-<option value=\"DJF\"  " .($setting[\'value\'] == \'DJF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_djf. '</option>
-<option value=\"DKK\"  " .($setting[\'value\'] == \'DKK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dkk. '</option>
-<option value=\"DOP\"  " .($setting[\'value\'] == \'DOP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dop. '</option>
-<option value=\"DZD\"  " .($setting[\'value\'] == \'DZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_dzd. '</option>
-<option value=\"EGP\"  " .($setting[\'value\'] == \'EGP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_egp. '</option>
-<option value=\"ETB\"  " .($setting[\'value\'] == \'ETB\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_etb. '</option>
-<option value=\"EUR\"  " .($setting[\'value\'] == \'EUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_eur. '</option>
-<option value=\"FJD\"  " .($setting[\'value\'] == \'FJD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_fjd. '</option>
-<option value=\"FKP\"  " .($setting[\'value\'] == \'FKP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_fkp. '</option>
-<option value=\"GBP\"  " .($setting[\'value\'] == \'GBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gbp. '</option>
-<option value=\"GEL\"  " .($setting[\'value\'] == \'GEL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gel. '</option>
-<option value=\"GHS\"  " .($setting[\'value\'] == \'GHS\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ghs. '</option>
-<option value=\"GIP\"  " .($setting[\'value\'] == \'GIP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gip. '</option>
-<option value=\"GMD\"  " .($setting[\'value\'] == \'GMD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gmd. '</option>
-<option value=\"GNF\"  " .($setting[\'value\'] == \'GNF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gnf. '</option>
-<option value=\"GTQ\"  " .($setting[\'value\'] == \'GTQ\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gtq. '</option>
-<option value=\"GYD\"  " .($setting[\'value\'] == \'GYD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_gyd. '</option>
-<option value=\"HKD\"  " .($setting[\'value\'] == \'HKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hkd. '</option>
-<option value=\"HNL\"  " .($setting[\'value\'] == \'HNL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hnl. '</option>
-<option value=\"HRK\"  " .($setting[\'value\'] == \'HRK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_hrk. '</option>
-<option value=\"HTG\"  " .($setting[\'value\'] == \'HTG\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_htg. '</option>
-<option value=\"HUF\"  " .($setting[\'value\'] == \'HUF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_huf. '</option>
-<option value=\"IDR\"  " .($setting[\'value\'] == \'IDR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_idr. '</option>
-<option value=\"ILS\"  " .($setting[\'value\'] == \'ILS\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ils. '</option>
-<option value=\"INR\"  " .($setting[\'value\'] == \'INR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_inr. '</option>
-<option value=\"JMD\"  " .($setting[\'value\'] == \'JMD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_jmd. '</option>
-<option value=\"JOD\"  " .($setting[\'value\'] == \'JOD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_jod. '</option>
-<option value=\"JPY\"  " .($setting[\'value\'] == \'JPY\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_jpy. '</option>
-<option value=\"KES\"  " .($setting[\'value\'] == \'KES\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_kes. '</option>
-<option value=\"KGS\"  " .($setting[\'value\'] == \'KGS\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_kgs. '</option>
-<option value=\"KHR\"  " .($setting[\'value\'] == \'KHR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_khr. '</option>
-<option value=\"KMF\"  " .($setting[\'value\'] == \'KMF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_kmf. '</option>
-<option value=\"KRW\"  " .($setting[\'value\'] == \'KRW\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_krw. '</option>
-<option value=\"KWD\"  " .($setting[\'value\'] == \'KWD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_kwd. '</option>
-<option value=\"KYD\"  " .($setting[\'value\'] == \'KYD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_kyd. '</option>
-<option value=\"KZT\"  " .($setting[\'value\'] == \'KZT\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_kzt. '</option>
-<option value=\"LAK\"  " .($setting[\'value\'] == \'LAK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_lak. '</option>
-<option value=\"LBP\"  " .($setting[\'value\'] == \'LBP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_lbp. '</option>
-<option value=\"LKR\"  " .($setting[\'value\'] == \'LKR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_lkr. '</option>
-<option value=\"LSL\"  " .($setting[\'value\'] == \'LSL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_lsl. '</option>
-<option value=\"LTL\"  " .($setting[\'value\'] == \'LTL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ltl. '</option>
-<option value=\"LVL\"  " .($setting[\'value\'] == \'LVL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_lvl. '</option>
-<option value=\"MAD\"  " .($setting[\'value\'] == \'MAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mad. '</option>
-<option value=\"MDL\"  " .($setting[\'value\'] == \'MDL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mdl. '</option>
-<option value=\"MGA\"  " .($setting[\'value\'] == \'MGA\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mga. '</option>
-<option value=\"MKD\"  " .($setting[\'value\'] == \'MKD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mkd. '</option>
-<option value=\"MNT\"  " .($setting[\'value\'] == \'MNT\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mnt. '</option>
-<option value=\"MOP\"  " .($setting[\'value\'] == \'MOP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mop. '</option>
-<option value=\"MRO\"  " .($setting[\'value\'] == \'MRO\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mro. '</option>
-<option value=\"MUR\"  " .($setting[\'value\'] == \'MUR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mur. '</option>
-<option value=\"MVR\"  " .($setting[\'value\'] == \'MVR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mvr. '</option>
-<option value=\"MWK\"  " .($setting[\'value\'] == \'MWK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mwk. '</option>
-<option value=\"MXN\"  " .($setting[\'value\'] == \'MXN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mxn. '</option>
-<option value=\"MYR\"  " .($setting[\'value\'] == \'MYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_myr. '</option>
-<option value=\"MZN\"  " .($setting[\'value\'] == \'MZN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mzn. '</option>
-<option value=\"NAD\"  " .($setting[\'value\'] == \'NAD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nad. '</option>
-<option value=\"NGN\"  " .($setting[\'value\'] == \'NGN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ngn. '</option>
-<option value=\"NIO\"  " .($setting[\'value\'] == \'NIO\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nio. '</option>
-<option value=\"NOK\"  " .($setting[\'value\'] == \'NOK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nok. '</option>
-<option value=\"NPR\"  " .($setting[\'value\'] == \'NPR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_npr. '</option>
-<option value=\"NZD\"  " .($setting[\'value\'] == \'NZD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_nzd. '</option>
-<option value=\"OMR\"  " .($setting[\'value\'] == \'OMR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_omr. '</option>
-<option value=\"PAB\"  " .($setting[\'value\'] == \'PAB\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pab. '</option>
-<option value=\"PEN\"  " .($setting[\'value\'] == \'PEN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pen. '</option>
-<option value=\"PGK\"  " .($setting[\'value\'] == \'PGK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pgk. '</option>
-<option value=\"PHP\"  " .($setting[\'value\'] == \'PHP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_php. '</option>
-<option value=\"PKR\"  " .($setting[\'value\'] == \'PKR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pkr. '</option>
-<option value=\"PLN\"  " .($setting[\'value\'] == \'PLN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pln. '</option>
-<option value=\"PYG\"  " .($setting[\'value\'] == \'PYG\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_pyg. '</option>
-<option value=\"QAR\"  " .($setting[\'value\'] == \'QAR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_qar. '</option>
-<option value=\"RON\"  " .($setting[\'value\'] == \'RON\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ron. '</option>
-<option value=\"RUB\"  " .($setting[\'value\'] == \'RUB\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_rub. '</option>
-<option value=\"RWF\"  " .($setting[\'value\'] == \'RWF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_rwf. '</option>
-<option value=\"SAR\"  " .($setting[\'value\'] == \'SAR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sar. '</option>
-<option value=\"SBD\"  " .($setting[\'value\'] == \'SBD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sbd. '</option>
-<option value=\"SCR\"  " .($setting[\'value\'] == \'SCR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_scr. '</option>
-<option value=\"SEK\"  " .($setting[\'value\'] == \'SEK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sek. '</option>
-<option value=\"SGD\"  " .($setting[\'value\'] == \'SGD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sgd. '</option>
-<option value=\"SRD\"  " .($setting[\'value\'] == \'SRD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_srd. '</option>
-<option value=\"STD\"  " .($setting[\'value\'] == \'STD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_std. '</option>
-<option value=\"SZL\"  " .($setting[\'value\'] == \'SZL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_szl. '</option>
-<option value=\"THB\"  " .($setting[\'value\'] == \'THB\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_thb. '</option>
-<option value=\"TND\"  " .($setting[\'value\'] == \'TND\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_tnd. '</option>
-<option value=\"TOP\"  " .($setting[\'value\'] == \'TOP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_top. '</option>
-<option value=\"TRY\"  " .($setting[\'value\'] == \'TRY\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_try. '</option>
-<option value=\"TTD\"  " .($setting[\'value\'] == \'TTD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ttd. '</option>
-<option value=\"TWD\"  " .($setting[\'value\'] == \'TWD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_twd. '</option>
-<option value=\"TZS\"  " .($setting[\'value\'] == \'TZS\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_tzs. '</option>
-<option value=\"UAH\"  " .($setting[\'value\'] == \'UAH\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_uah. '</option>
-<option value=\"UGX\"  " .($setting[\'value\'] == \'UGX\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ugx. '</option>
-<option value=\"USD\"  " .($setting[\'value\'] == \'USD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_usd. '</option>
-<option value=\"UYU\"  " .($setting[\'value\'] == \'UYU\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_uyu. '</option>
-<option value=\"UZS\"  " .($setting[\'value\'] == \'UZS\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_uzs. '</option>
-<option value=\"VND\"  " .($setting[\'value\'] == \'VND\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_vnd. '</option>
-<option value=\"VUV\"  " .($setting[\'value\'] == \'VUV\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_vuv. '</option>
-<option value=\"WST\"  " .($setting[\'value\'] == \'WST\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_wst. '</option>
-<option value=\"XAF\"  " .($setting[\'value\'] == \'XAF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_xaf. '</option>
-<option value=\"XCD\"  " .($setting[\'value\'] == \'XCD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_xcd. '</option>
-<option value=\"XOF\"  " .($setting[\'value\'] == \'XOF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_xof. '</option>
-<option value=\"XPF\"  " .($setting[\'value\'] == \'XPF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_xpf. '</option>
-<option value=\"YER\"  " .($setting[\'value\'] == \'YER\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_yer. '</option>
-<option value=\"ZAR\"  " .($setting[\'value\'] == \'ZAR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_zar. '</option>
-<option value=\"ZMW\"  " .($setting[\'value\'] == \'ZMW\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_zmw. '</option>
-</optgroup>
-
-<optgroup label=\"' . $lang->naoardonate_global_currency_bk . '\">
-<option value=\"AFN\"  " .($setting[\'value\'] == \'AFN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_afn. '</option>
-<option value=\"BAM\"  " .($setting[\'value\'] == \'BAM\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bam. '</option>
-<option value=\"BOV\"  " .($setting[\'value\'] == \'BOV\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_bov. '</option>
-<option value=\"BYR\"  " .($setting[\'value\'] == \'BYR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_byr. '</option>
-<option value=\"CHE\"  " .($setting[\'value\'] == \'CHE\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_che. '</option>
-<option value=\"CHW\"  " .($setting[\'value\'] == \'CHW\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_chw. '</option>
-<option value=\"CLF\"  " .($setting[\'value\'] == \'CLF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_clf. '</option>
-<option value=\"COU\"  " .($setting[\'value\'] == \'COU\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cou. '</option>
-<option value=\"CUC\"  " .($setting[\'value\'] == \'CUC\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cuc. '</option>
-<option value=\"CUP\"  " .($setting[\'value\'] == \'CUP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_cup. '</option>
-<option value=\"ERN\"  " .($setting[\'value\'] == \'ERN\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ern. '</option>
-<option value=\"IQD\"  " .($setting[\'value\'] == \'IQD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_iqd. '</option>
-<option value=\"IRR\"  " .($setting[\'value\'] == \'IRR\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_irr. '</option>
-<option value=\"ISK\"  " .($setting[\'value\'] == \'ISK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_isk. '</option>
-<option value=\"KPW\"  " .($setting[\'value\'] == \'KPW\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_kpw. '</option>
-<option value=\"LRD\"  " .($setting[\'value\'] == \'LRD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_lrd. '</option>
-<option value=\"LYD\"  " .($setting[\'value\'] == \'LYD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_lyd. '</option>
-<option value=\"MMK\"  " .($setting[\'value\'] == \'MMK\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mmk. '</option>
-<option value=\"MXV\"  " .($setting[\'value\'] == \'MXV\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_mxv. '</option>
-<option value=\"RSD\"  " .($setting[\'value\'] == \'RSD\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_rsd. '</option>
-<option value=\"SDG\"  " .($setting[\'value\'] == \'SDG\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sdg. '</option>
-<option value=\"SHP\"  " .($setting[\'value\'] == \'SHP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_shp. '</option>
-<option value=\"SLL\"  " .($setting[\'value\'] == \'SLL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sll. '</option>
-<option value=\"SOS\"  " .($setting[\'value\'] == \'SOS\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_sos. '</option>
-<option value=\"SSP\"  " .($setting[\'value\'] == \'SSP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_ssp. '</option>
-<option value=\"SYP\"  " .($setting[\'value\'] == \'SYP\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_syp. '</option>
-<option value=\"TJS\"  " .($setting[\'value\'] == \'TJS\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_tjs. '</option>
-<option value=\"TMT\"  " .($setting[\'value\'] == \'TMT\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_tmt. '</option>
-<option value=\"UYI\"  " .($setting[\'value\'] == \'UYI\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_uyi. '</option>
-<option value=\"VEF\"  " .($setting[\'value\'] == \'VEF\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_vef. '</option>
-<option value=\"ZWL\"  " .($setting[\'value\'] == \'ZWL\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_global_currency_zwl. '</option>
-
-</optgroup>
-
-</select>
-'),
+        'optionscode' => $db->escape_string($currenciesOptions),
         'value' => $db->escape_string($naoardonate_currency),
         'disporder' => 20,
         'gid' => $gid
@@ -1487,6 +1118,19 @@ $naoardonate_groups . " </select>'),
 
 
 
+    $settingsarray[] = array(
+        'name' => 'naoardonate_hidetopemails',
+        'title' => $db->escape_string($lang->naoardonate_settings_hidetopemails),
+        'description' => $db->escape_string($lang->naoardonate_settings_hidetopemails_desc),
+        'optionscode' => 'yesno',
+        'value' => '1',
+        'disporder' => 28,
+        'gid' => $gid
+    );
+
+
+    
+
     if($mybb->settings['naoardonate_googleanalytics'])
         {
         $naoardonate_googleanalytics  = $mybb->settings['naoardonate_googleanalytics'];
@@ -1499,17 +1143,14 @@ $naoardonate_groups . " </select>'),
         $naoardonate_googleanalytics = '';
         }
 
-
-
-
-
+                                   
     $settingsarray[] = array(
         'name' => 'naoardonate_googleanalytics',
         'title' => $db->escape_string($lang->naoardonate_settings_googleanalytics),
         'description' => $db->escape_string($lang->naoardonate_settings_googleanalytics_dec),
         'optionscode' => "textarea",
         'value' => $db->escape_string($naoardonate_googleanalytics),
-        'disporder' => 28,
+        'disporder' => 29,
         'gid' => $gid
     );
 
@@ -1518,12 +1159,13 @@ $naoardonate_groups . " </select>'),
         'name' => 'naoardonate_premium',
         'title' => '',
         'description' => $db->escape_string('<h3 style="color:blue">Thank You</h3>
-<span style="color:darkred;font-size:.9rem">Thank you for using my plugin, I hope you like it : ), for anything custom you can contact me using *contact link <a href="https://red.coderme.com?src=mybbc" target="_blank">on this page</a><br>For support please use the release thread on <a href="https://community.mybb.com/thread-84084.html" target="_blank">here</a></span>'),
+<span style="color:darkred;font-size:.9rem">Thank you for using my plugin, I hope you like it : ), for anything custom you can contact me using *contact link <a href="https://red.coderme.com?src=mybbc" target="_blank" rel="noopener">on this page</a><br>For support please use the release thread on <a href="https://community.mybb.com/thread-84084.html" target="_blank" rel="noopener">here</a></span>'),
         'optionscode' => 'php',
         'value' => '',
-        'disporder' => 29,
+        'disporder' => 30,
         'gid' => $gid
     );
+    
     # clean old setups
     if(array_key_exists('naoardonate_onoff', $mybb->settings))
     {
@@ -1584,12 +1226,13 @@ function naoardonate_is_installed()
     // testing
     //return False;
     global $db;
-    $query = $db->simple_select('settings', 'name', "name='naoardonate_premium'");
-    if($db->num_rows($query) > 0):
+    $query = $db->simple_select('settings', 'name', "name='naoardonate_hidetopemails'");
+    
+    if($db->num_rows($query) > 0){
         return True;
-    else:
-        return False;
-    endif;
+    }
+    return False;
+
 }
 
  #    _uninstall():
@@ -1600,6 +1243,17 @@ function naoardonate_is_installed()
 function naoardonate_uninstall($clean=null)
 {
     global $mybb, $db, $cache;
+
+
+        if($mybb->request_method != 'post')
+        {
+                global $page, $lang;
+                $lang->load('naoardonate_settings');
+                $page->output_confirm_action('index.php?module=config-plugins&action=deactivate&uninstall=1&plugin=naoardonate', $lang->naoardonate_settings_uninstall_message, $lang->naoardonate_settings_uninstall);
+        }
+
+
+   if(!isset($mybb->input['no'])){
 
     if($clean == 'teradonate')
     {
@@ -1625,11 +1279,15 @@ function naoardonate_uninstall($clean=null)
         $cache->handler->delete("{$tname}_unconfirmed");
     endif;
 
-    require_once  MYBB_ROOT . "/" . $mybb->config['admin_dir'] . "/inc/functions.php";
+    require_once  implode(DIRECTORY_SEPARATOR,
+            array(MYBB_ROOT,
+            $mybb->config['admin_dir'],
+            "inc","functions.php"));
     change_admin_permission($perm, "", -1);
 
 
     rebuild_settings();
+  }
 }
 
  #     _activate():
@@ -1652,7 +1310,7 @@ function naoardonate_activate()
 
     $templates_array = array();
     $templates_array[] = array(
-        'title' => 'naoardonate_bar_v4',
+        'title' => 'naoardonate_bar_v5',
         'template' => $db->escape_string('<br class="clear" />
 <table style="width:{$container_width}px; margin:auto">
     <tr>
@@ -1704,7 +1362,7 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
-        'title' => 'naoardonate_links_donate_v4',
+        'title' => 'naoardonate_links_donate_v5',
         'template' => $db->escape_string('<li><a href="{$mybb->settings[\'bburl\']}/donate.php" style="background-image: url(\'{$mybb->settings[\'bburl\']}/images/naoar/donate.png\')">{$lang->naoardonate_front_donate_title}</a></li>'),
         'sid' => '-1',
         'version' => '',
@@ -1714,7 +1372,7 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
-        'title' => 'naoardonate_links_topdonors_v4',
+        'title' => 'naoardonate_links_topdonors_v5',
         'template' => $db->escape_string('<li><a href="{$mybb->settings[\'bburl\']}/donate.php?action=top_donors" style="background-image: url(\'{$mybb->settings[\'bburl\']}/images/naoar/top.png\')">{$lang->naoardonate_front_top_title}</a></li>'),
         'sid' => '-1',
         'version' => '',
@@ -1724,7 +1382,7 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
-        'title' => 'naoardonate_reason_v4',
+        'title' => 'naoardonate_reason_v5',
         'template' => $db->escape_string('{$mybb->settings[\'naoardonate_reason\']}'),
         'sid' => '-1',
         'version' => '',
@@ -1734,7 +1392,7 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
-        'title' => 'naoardonate_img_topdonors_v4',
+        'title' => 'naoardonate_img_topdonors_v5',
         'template' => $db->escape_string('<a href="{$mybb->settings[\'bburl\']}/donate.php?action=top_donors"><img src="{$mybb->settings[\'bburl\']}/images/naoar/topdonors.gif" style="border:0" alt="" /></a>'),
         'sid' => '-1',
         'version' => '',
@@ -1744,7 +1402,7 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
-        'title' => 'naoardonate_bar_tailtip_v4',
+        'title' => 'naoardonate_bar_tailtip_v5',
         'template' => $db->escape_string('<td style="width:12px; background: url(\'{$mybb->settings[\'bburl\']}/images/naoar/ftail.gif\') no-repeat; "></td>'),
         'sid' => '-1',
         'version' => '',
@@ -1754,7 +1412,7 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
-        'title' => 'naoardonate_leftdiv_v4',
+        'title' => 'naoardonate_leftdiv_v5',
         'template' => $db->escape_string('<td style="width:{$left_value}px;
             background: url(\'{$mybb->settings[\'bburl\']}/images/naoar/lbody.gif\') repeat-x;"></td>
             <td style="width:12px; background: url(\'{$mybb->settings[\'bburl\']}/images/naoar/ltail.gif\') no-repeat;"></td>'),
@@ -1766,7 +1424,7 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
-        'title' => 'naoardonate_tiptail_v4',
+        'title' => 'naoardonate_tiptail_v5',
         'template' => $db->escape_string('<td style="width:8px; background: url(\'{$mybb->settings[\'bburl\']}/images/naoar/tip.gif\') no-repeat;"></td>'),
         'sid' => '-1',
         'version' => '',
@@ -1775,7 +1433,7 @@ function naoardonate_activate()
 
 
     $templates_array[] = array(
-        'title' => 'naoardonate_donate_aboutu_v4',
+        'title' => 'naoardonate_donate_aboutu_v5',
         'template' => $db->escape_string('<fieldset class="w50 tleft" >
 <legend><strong>{$lang->naoardonate_front_aboutu}</strong></legend>
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
@@ -1804,7 +1462,7 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
-        'title' => 'naoardonate_donate_currencies_row_v4',
+        'title' => 'naoardonate_donate_currencies_row_v5',
         'template' => $db->escape_string('<tr>
         <td><strong>{$lang->naoardonate_global_currency}:</strong>
         </td>
@@ -1821,7 +1479,7 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
-        'title' => 'naoardonate_donate_offline_v4',
+        'title' => 'naoardonate_donate_offline_v5',
         'template' => $db->escape_string('<fieldset class="w50 tleft" style="display: none;" id="{$payment_offline_id}">
 <legend><strong>{$payment_method_offline}</strong></legend>
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
@@ -1841,7 +1499,7 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
-        'title' => 'naoardonate_donate_note_v4',
+        'title' => 'naoardonate_donate_note_v5',
         'template' => $db->escape_string('<fieldset class="w50 tleft">
 <legend><strong>{$lang->naoardonate_front_donationnote}</strong></legend>
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
@@ -1874,7 +1532,7 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
-        'title' => 'naoardonate_donate_captcha_v4',
+        'title' => 'naoardonate_donate_captcha_v5',
         'template' => $db->escape_string('<fieldset class="w50 tleft" >
 <script type="text/javascript" src="jscripts/captcha.js?ver=1400"></script>
 <legend><strong>Image verification</strong></legend>
@@ -1899,9 +1557,10 @@ function naoardonate_activate()
 
 
     $templates_array[] = array(
-        'title' => 'naoardonate_donate_v4',
+        'title' => 'naoardonate_donate_v5',
         'template' => $db->escape_string('<html>
 <head>
+{$googleanalytics}
 <title>{$mybb->settings[\'bbname\']} - {$lang->naoardonate_front_donate_title} </title>
 {$headerinclude}
 <style type="text/css">
@@ -1929,7 +1588,6 @@ color:gray;
 font-size:x-small
 }
 </style>
-{$googleanalytics}
 </head>
 <body onload="load()">
 {$header}
@@ -2012,7 +1670,7 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 
 
     $templates_array[] = array(
-        'title' => 'naoardonate_top_donation_v4',
+        'title' => 'naoardonate_top_donation_v5',
         'template' => $db->escape_string('<tr>
     <td class="trow1" align="center">
         {$top_donors[\'name\']}
@@ -2042,7 +1700,7 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 
 
     $templates_array[] = array(
-        'title' => 'naoardonate_notice_v4',
+        'title' => 'naoardonate_notice_v5',
         'template' => $db->escape_string('<div style="background-color:#EFDFF5;border:thin #D88CF4 solid;text-align:center;padding:1px">
 <span style="color:red;font-weight:bolder;font-size:larger;background-color:yellow;padding:3px;border:thin red solid">{$unconfirmed_donors}</span>
 <span style="font-weight:bolder">
@@ -2061,17 +1719,19 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 
 
     $templates_array[] = array(
-        'title' => 'naoardonate_redirect_v4',
+        'title' => 'naoardonate_redirect_v5',
         'template' => $db->escape_string('
 <!DOCTYPE html> <head>
  <meta charset="utf-8">
 <title>$lang->naoardonate_front_redirect</title> </head> <body onload="document.naoardonate.submit()">
 <form name="naoardonate" action="$url" method="$method">
- <div> <input type="hidden" name="$merchant_name" value="$merchant_value" />
-  <input type="hidden" name="$amount_name" value="$amount" />
-  <input type="hidden" name="$currency_name" value="$currency" />
+ <div> 
+   <input type="hidden" name="$merchant_name" value="$merchant_value" />
+   <input type="hidden" name="$amount_name" value="$amount" />
+   <input type="hidden" name="$currency_name" value="$currency" />
+   $cancel_url
    <input type="hidden" name="$return_name" value="{$mybb->settings[\'bburl\']}/donate.php?action=thank_you" />
-    <input type="hidden" name="$cancel_name" value="{$mybb->settings[\'bburl\']}/donate.php" /> $additional
+ $additional
    <noscript><div style="padding-top:23%;text-align:center"><button type="submit">{$lang->naoardonate_front_continuebutton}</button></div></noscript>
    </div>
     </form>
@@ -2084,7 +1744,7 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 
 
     $templates_array[] = array(
-        'title' => 'naoardonate_top_v4',
+        'title' => 'naoardonate_top_v5',
         'template' => $db->escape_string('<html>
 <head>
 <title>{$mybb->settings[\'bbname\']} - {$lang->naoardonate_front_top_title} </title>
@@ -2171,9 +1831,8 @@ $(document).ready(function() {
 t_load();
 });
 function t_load(){
-  if(t_ischecked('naoardonate_off')) {  t_hide('payment_method', 1); t_hide('payment_method_pz', 1); t_hide('payment_method_sk', 1); t_hide('payment_method_pp', 1);t_hide('payment_method_bk', 1); t_hide('payment_method_wu', 1);t_hide('enablebar', 1); t_hide('reason', 1); t_hide('target', 1); t_hide('duration', 1); t_hide('ifreached', 1); t_hide('amount', 1); t_hide('from', 1); t_hide('alert', 1); t_hide('info', 1); t_hide('info_required', 1); t_hide('bar_width', 1); t_hide('newgoal', 1); t_hide('recievedmsg', 1);
-t_hide('recievedmsg_100', 1); t_hide('currency', 1); t_hide('donorsgroup', 1); t_hide('unmovable', 1); t_hide('cannotviewtop', 1); t_hide('donormsg', 1); t_hide('captcha', 1); t_hide('googleanalytics', 1); t_hide('premium', 1)}  else {  t_onchange('naoardonate_pz','payment_method_pz');  t_onchange('naoardonate_bk','payment_method_bk');  t_onchange('naoardonate_wu','payment_method_wu');
-t_onchange('naoardonate_sk','payment_method_sk'); t_onchange('naoardonate_pp','payment_method_pp'); t_enablebar(); t_hide('payment_method'); t_hide('enablebar'); t_hide('amount'); t_hide('from'); t_hide('alert'); t_hide('info'); t_hide('info_required'); t_hide('currency'); t_hide('donorsgroup'); t_hide('unmovable'); t_hide('cannotviewtop'); t_hide('donormsg'); t_hide('captcha'); t_hide('googleanalytics');
+  if(t_ischecked('naoardonate_off')) {  t_hide('payment_method', 1); t_hide('payment_method_pz', 1); t_hide('payment_method_2c', 1); t_hide('payment_method_pp', 1);t_hide('payment_method_bk', 1); t_hide('payment_method_wu', 1);t_hide('enablebar', 1); t_hide('reason', 1); t_hide('target', 1); t_hide('duration', 1); t_hide('ifreached', 1); t_hide('amount', 1); t_hide('from', 1); t_hide('alert', 1); t_hide('info', 1); t_hide('info_required', 1); t_hide('bar_width', 1); t_hide('newgoal', 1); t_hide('recievedmsg', 1);
+t_hide('recievedmsg_100', 1); t_hide('currency', 1); t_hide('donorsgroup', 1); t_hide('unmovable', 1); t_hide('cannotviewtop', 1);t_hide('hidetopemails', 1); t_hide('donormsg', 1); t_hide('captcha', 1); t_hide('googleanalytics', 1); t_hide('premium', 1)}  else {  t_onchange('naoardonate_pz','payment_method_pz');  t_onchange('naoardonate_bk','payment_method_bk');  t_onchange('naoardonate_wu','payment_method_wu'); t_onchange('naoardonate_2c','payment_method_2c'); t_onchange('naoardonate_pp','payment_method_pp'); t_enablebar(); t_hide('payment_method'); t_hide('enablebar'); t_hide('amount'); t_hide('from'); t_hide('alert'); t_hide('info'); t_hide('info_required'); t_hide('currency'); t_hide('donorsgroup'); t_hide('unmovable'); t_hide('cannotviewtop');t_hide('hidetopemails'); t_hide('donormsg'); t_hide('captcha'); t_hide('googleanalytics');
 t_hide('premium')} };
 function t_hide(id, hide) {
 id = 'row_setting_naoardonate_' + id; var t_el = document.getElementById(id); if(hide) { t_el.style.display = 'none'}  else {t_el.style.display = ''} }  function t_onchange(id,h)  { if(t_ischecked(id)) {  t_hide(h, 0) } else {  t_hide(h, 1) } }  function t_ischecked(id) {  return document.getElementById(id).checked  }  function t_enablebar() {  if(t_ischecked('naoardonate_enablebar_off')) {  t_hide('reason',1); t_hide('target',1);
@@ -2208,14 +1867,17 @@ function naoar_showdonatelinks()
 
     if($mybb->user['usergroup'] == 4 and $unconfirmed_donors > 0 and $mybb->settings['naoardonate_alert'] == 'notice')
     {
-        require_once  MYBB_ROOT . "/" . $mybb->config['admin_dir'] . "/inc/functions.php";
+        require_once  implode(DIRECTORY_SEPARATOR,
+            array(MYBB_ROOT,  $mybb->config['admin_dir'],
+            "inc", "functions.php"));
+        
         $permissions = get_admin_permissions($mybb->user['uid'], 4);
 
         if($mybb->user['uid'] == 1 || isset($permissions['coderme_donors']))
         {
             sprintf('%.1f', $mybb->version) == 1.4 ? $sep = '/' :  $sep = '-';
         $pathtoadmin = $mybb->settings['bburl'] . '/' . $mybb->config['admin_dir'] . '/index.php?module=coderme_donors' . $sep . 'browse&amp;action=unconfirmed';
-            eval("\$naoardonate_notice = \"" . $templates->get('naoardonate_notice_v4') . "\";");
+            eval("\$naoardonate_notice = \"" . $templates->get('naoardonate_notice_v5') . "\";");
         } 
     }
     
@@ -2225,23 +1887,23 @@ function naoar_showdonatelinks()
     $naoardonate_from = explode(',',$mybb->settings['naoardonate_from']);
 
 
-    if(!in_array($mybb->user['usergroup'], $naoardonate_from) or !$db->table_exists('naoardonate') or $mybb->settings['naoardonate_onoff'] == 0 or (!$mybb->settings['naoardonate_payment_method_pz'] and !$mybb->settings['naoardonate_payment_method_sk'] and !$mybb->settings['naoardonate_payment_method_pp']) or strlen($mybb->settings['naoardonate_payment_method']) < 5) return; # yeah better now than later ..b
+    if(!in_array($mybb->user['usergroup'], $naoardonate_from) or !$db->table_exists('naoardonate') or $mybb->settings['naoardonate_onoff'] == 0 or (!$mybb->settings['naoardonate_payment_method_pz'] and !$mybb->settings['naoardonate_payment_method_2c'] and !$mybb->settings['naoardonate_payment_method_pp']) or strlen($mybb->settings['naoardonate_payment_method']) < 5) return; # yeah better now than later ..b
     $amount = intval($cache->read('naoardonate_goal'));
-    eval('$naoardonate_donatelink = "'. $templates->get('naoardonate_links_donate_v4') . '";');
+    eval('$naoardonate_donatelink = "'. $templates->get('naoardonate_links_donate_v5') . '";');
     $blocked_groups = explode(',',$mybb->settings['naoardonate_cannotviewtop']);
 
     if(!in_array($mybb->user['usergroup'],$blocked_groups))
     {
-        eval('$naoardonate_donatelink .= "' . $templates->get('naoardonate_links_topdonors_v4') . '";');
+        eval('$naoardonate_donatelink .= "' . $templates->get('naoardonate_links_topdonors_v5') . '";');
     }
 
     if($mybb->settings['naoardonate_enablebar'] == 1 and !($mybb->settings['naoardonate_ifreached'] == 1 and ($amount >= $mybb->settings['naoardonate_target'] or $mybb->settings['naoardonate_duration'] <= time() and $mybb->settings['naoardonate_duration'] != 0) or $mybb->settings['naoardonate_target'] == 0))
     {
         if($mybb->settings['naoardonate_reason']){
-            eval('$naoardonate_reason = "' . $templates->get('naoardonate_reason_v4'). '";');
+            eval('$naoardonate_reason = "' . $templates->get('naoardonate_reason_v5'). '";');
         }
         if(!in_array($mybb->user['usergroup'],$blocked_groups)){
-            eval('$naoardonate_top = "' . $templates->get('naoardonate_img_topdonors_v4') . '";');
+            eval('$naoardonate_top = "' . $templates->get('naoardonate_img_topdonors_v5') . '";');
         }
         $widths = explode('/', $mybb->settings['naoardonate_bar_width']);
         $container_width = $widths[0];
@@ -2249,7 +1911,7 @@ function naoar_showdonatelinks()
         if ($amount >= (int)$mybb->settings['naoardonate_target'])
         {
             $werecieved_msg = $mybb->settings['naoardonate_recievedmsg_100'];
-            eval('$tail_tip = "' . $templates->get('naoardonate_bar_tailtip_v4') . '";');
+            eval('$tail_tip = "' . $templates->get('naoardonate_bar_tailtip_v5') . '";');
 
             $progress_value = $bar_width - 12 - 12; # 705 - 13 - 13 # 687
         }
@@ -2257,20 +1919,21 @@ function naoar_showdonatelinks()
         {
             $werecieved_msg = $lang->sprintf($mybb->settings['naoardonate_recievedmsg'], '' . intval($amount ? $amount/$mybb->settings['naoardonate_target'] * 100 : 0 ) . '%');
 
-            eval('$tip_tail = "' . $templates->get('naoardonate_tiptail_v4') . '";');
+            eval('$tip_tail = "' . $templates->get('naoardonate_tiptail_v5') . '";');
 
             $progress_value = intval(($bar_width - 12 - 8 -12)  * $amount / $mybb->settings['naoardonate_target']); # 705 - 12 - 8 - 12  | 674
             $left_value = $bar_width - 12 - 8 -12 - $progress_value;
-            eval('$left_div = "' . $templates->get('naoardonate_leftdiv_v4') . '";');
+            eval('$left_div = "' . $templates->get('naoardonate_leftdiv_v5') . '";');
         }
-        eval("\$naoardonate_bar = \"".$templates->get('naoardonate_bar_v4')."\";");
+        eval("\$naoardonate_bar = \"".$templates->get('naoardonate_bar_v5')."\";");
     }
 
 
     if(stripos($_SERVER['SCRIPT_NAME'],'donate.php') !== false or $naoardonate_bar)
     {
-        # leaving my copyright intact is REQUIRED for legal use of my plugin
-        $naoar_copyright = 'Donation\'s plugin by <a href="https://coderme.com" target="_blank">CoderMe</a>';
+        $naoar_copyright = '<!-- CoderMe Copyright -- Keeping this copyright notice intact is REQUIRED for legal usage -->
+ Donation\'s plugin by <a href="https://markit.coderme.com" target="_blank" rel="noopener">CoderMe Markit</a>
+<!-- CoderMe Copyright -->';
     }
 
 }

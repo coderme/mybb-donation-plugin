@@ -31,12 +31,11 @@ background-color: #c9d9e5;
 padding:5px;font-size:large;
 font-weight:bold;
 }
-.coderme_table {
-width: 100%;
+
+table {
+   width: 100%;
 }
-.coderme_table td{
-border:thin silver solid;
-}
+    
 .red {
 	color:red;
 }
@@ -48,26 +47,6 @@ border:thin silver solid;
 }
 .black{
 	color:black;
-}
-.coderme_donors {
-	border: 1px #A01EF0 solid ;
-	width: 100%
-}
-.coderme_donors th{
-	background-color:  #c9d9e5;
-	padding:5px;
-	border: thin solid #000
-}
-.coderme_donors td{
-
-border:thin #000 solid;
-padding:3px;
-
-}
-.coderme_donors a {
-color: blue;
-font-weight:bolder;
-text-decoration:underline
 }
 
 .coderme_info div {
@@ -487,15 +466,18 @@ $currencies_array = array(
 		$query = $db->simple_select('naoardonate' ,'*' , 'real_amount > 0 AND uid != 0 AND confirmed=1',array('order_by' => 'real_amount', 'order_dir' => 'DESC', 'limit' => 21));
 
 		$table =<<<TABLE_HEAD
-		<table cellspacing="0" class="coderme_donors">
+		<table cellspacing="0" class="general">
+<thead>
 	<tr>
-		<th>$lang->naoardonate_global_name</th>
-		<th>$lang->naoardonate_global_amount</th>
-		<th>$lang->naoardonate_global_payment_method</th>
-		<th>$lang->naoardonate_global_ip</th>
-		<th>$lang->naoardonate_global_extra</th>
-		<th>$lang->naoardonate_global_date</th>
+		<th class="align_center">$lang->naoardonate_global_name</th>
+		<th class="align_center">$lang->naoardonate_global_amount</th>
+		<th class="align_center">$lang->naoardonate_global_payment_method</th>
+		<th class="align_center">$lang->naoardonate_global_ip</th>
+		<th class="align_center">$lang->naoardonate_global_extra</th>
+		<th class="align_center">$lang->naoardonate_global_date</th>
 	</tr>
+</thead>
+<tbody>
 TABLE_HEAD;
 		 while($donor = $db->fetch_array($query)){
 
@@ -527,24 +509,24 @@ new PopupMenu('note_$donor[did]');
 
 		 $table .= <<<TABLE_BODY
 	<tr>
-		<td align="center">$donor[name]</td>
-		<td align="center">$donor[real_amount] $donor[currency]</td>
-		<td align="center">$donor[payment_method]</td>
-		<td align="center">$donor[ip]</td>
-		<td align="center"><div class="coderme_info"><div>$email</div><div>$donor[ogid]</div><div>$note</div></div></td>
-		<td align="center">$donor[dateline]</td>
+		<td class="align_center">$donor[name]</td>
+		<td class="align_center">$donor[real_amount] $donor[currency]</td>
+		<td class="align_center">$donor[payment_method]</td>
+		<td class="align_center">$donor[ip]</td>
+		<td class="align_center"><div class="coderme_info"><div>$email</div><div>$donor[ogid]</div><div>$note</div></div></td>
+		<td class="align_center">$donor[dateline]</td>
 </tr>
 TABLE_BODY;
 		}
 
-	if(strpos($table, '<td align="center">') !== false){
-		$table .='</table>';
+	if(strpos($table, 'align_center') !== false){
+		$table .='</tbody></table>';
 
 	print $table;
 
 	} else {
 
-	$table .= '<tr><td colspan="6" align="center">' . $lang->naoardonate_global_nothing . '</td></tr></table>';
+	$table .= '<tr><td colspan="6" class="align_center">' . $lang->naoardonate_global_nothing . '</td></tr></tbody></table>';
 
 	print $table;
 
@@ -562,15 +544,18 @@ TABLE_BODY;
 	$query = $db->simple_select('naoardonate', '*', 'real_amount > 0 AND uid = 0 AND confirmed =1',array('order_by' => 'real_amount', 'order_dir'=> 'DESC', 'limit' => 21));
 
 			$table =<<<TABLE_HEAD
-		<table cellspacing="0" class="coderme_donors">
+		<table cellspacing="0" class="general">
+    <thead>
 	<tr>
-		<th>$lang->naoardonate_global_name</th>
-		<th>$lang->naoardonate_global_amount</th>
-		<th>$lang->naoardonate_global_payment_method</th>
-		<th>$lang->naoardonate_global_ip</th>
-		<th>$lang->naoardonate_global_extra</th>
-		<th>$lang->naoardonate_global_date</th>
+		<th class="align_center">$lang->naoardonate_global_name</th>
+		<th class="align_center">$lang->naoardonate_global_amount</th>
+		<th class="align_center">$lang->naoardonate_global_payment_method</th>
+		<th class="align_center">$lang->naoardonate_global_ip</th>
+		<th class="align_center">$lang->naoardonate_global_extra</th>
+		<th class="align_center">$lang->naoardonate_global_date</th>
 	</tr>
+    </thead>
+    <tbody>
 TABLE_HEAD;
 		 while($donor = $db->fetch_array($query)){
 
@@ -600,23 +585,23 @@ new PopupMenu('note_$donor[did]');
 
 		 $table .= <<<TABLE_BODY
 	<tr>
-		<td align="center">$donor[name]</td>
-		<td align="center">$donor[real_amount] $donor[currency]</td>
-		<td align="center">$donor[payment_method]</td>
-		<td align="center">$donor[ip]</td>
-		<td align="center"><div class="coderme_info"><div>$email</div><div>$note</div></div></td>
-		<td align="center">$donor[dateline]</td>
+		<td class="align_center">$donor[name]</td>
+		<td class="align_center">$donor[real_amount] $donor[currency]</td>
+		<td class="align_center">$donor[payment_method]</td>
+		<td class="align_center">$donor[ip]</td>
+		<td class="align_center"><div class="coderme_info"><div>$email</div><div>$note</div></div></td>
+		<td class="align_center">$donor[dateline]</td>
 			</tr>
 TABLE_BODY;
 		}
-	if(strpos($table, '<td align="center">') !== false){
-		$table .='</table>';
+	if(strpos($table, 'align_center') !== false){
+		$table .='</tbody></table>';
 
 	print $table;
 
 	} else {
 
-	$table .= '<tr><td colspan="6" align="center">' . $lang->naoardonate_global_nothing . '</td></tr></table>';
+	$table .= '<tr><td colspan="6" align="center">' . $lang->naoardonate_global_nothing . '</td></tr></tbody></table>';
 
 	print $table;
 

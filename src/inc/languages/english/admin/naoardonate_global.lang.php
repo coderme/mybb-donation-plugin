@@ -212,25 +212,26 @@ $l['naoardonate_global_currency_zwl']    =   'ZWL  -  Zimbabwe dollar';
 # Admin and front
 $l['naoardonate_global_currency_all_supported'] = 'Supported by All';
 
-$l['naoardonate_global_currency_apSKpp'] = 'Payza, Skrill and Paypal ONLY';
-$l['naoardonate_global_currency_apSK'] = 'Payza and Skrill ONLY';
+$l['naoardonate_global_currency_ap2Cpp'] = 'Payza, 2checkout and Paypal ONLY';
+$l['naoardonate_global_currency_ap2C'] = 'Payza and 2checkout ONLY';
 $l['naoardonate_global_currency_apPP'] = 'Payza and PayPal ONLY';
-$l['naoardonate_global_currency_skPP'] = 'Skrill and PayPal ONLY';
-$l['naoardonate_global_currency_sk_only'] = 'Skrill ONLY';
+$l['naoardonate_global_currency_2cPP'] = '2checkout and PayPal ONLY';
+$l['naoardonate_global_currency_2c_only'] = '2checkout ONLY';
 $l['naoardonate_global_currency_pp_only'] = 'PayPal ONLY';
 $l['naoardonate_global_currency_ap_only'] = 'Payza ONLY';
 
+
 # payza paypal western union bank/wire transfer
-$l['naoardonate_global_currency_pz_sk_pp_wu_bk'] = 'Payza, Skrill, Paypal, Western Union and Bank/wire transfer ONLY';
-$l['naoardonate_global_currency_pz_sk_pp_bk'] = 'Payza, Skrill, Paypal and Bank/wire transfer ONLY';
-$l['naoardonate_global_currency_pz_sk_wu_bk'] = 'Payza, Skrill, Western Union and Bank/wire transfer ONLY';
-$l['naoardonate_global_currency_pz_sk_bk'] = 'Payza, Skrill and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_pz_2c_pp_wu_bk'] = 'Payza, 2checkout, Paypal, Western Union and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_pz_2c_pp_bk'] = 'Payza, 2checkout, Paypal and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_pz_2c_wu_bk'] = 'Payza, 2checkout, Western Union and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_pz_2c_bk'] = 'Payza, 2checkout and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_pz_pp_wu_bk'] = 'Payza, PayPal, Western Union and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_pz_pp_bk'] = 'Payza, PayPal and Bank/wire transfer ONLY';
-$l['naoardonate_global_currency_sk_pp_wu_bk'] = 'Skrill, PayPal, Western Union and Bank/wire transfer ONLY';
-$l['naoardonate_global_currency_sk_pp_bk'] = 'Skrill, PayPal and Bank/wire transfer ONLY';
-$l['naoardonate_global_currency_sk_wu_bk'] = 'Skrill, Western Union and Bank/wire transfer ONLY';
-$l['naoardonate_global_currency_sk_bk'] = 'Skrill and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_2c_pp_wu_bk'] = '2checkout, PayPal, Western Union and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_2c_pp_bk'] = '2checkout, PayPal and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_2c_wu_bk'] = '2checkout, Western Union and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_2c_bk'] = '2checkout and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_pp_wu_bk'] = 'PayPal, Western Union and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_pp_bk'] = 'PayPal and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_pz_wu_bk'] = 'Payza, Western Union and Bank/wire transfer ONLY';
@@ -245,3 +246,4 @@ $l['naoardonate_global_ogid'] = 'Original Group: ';
 $l['naoardonate_global_notinstalled'] = 'CoderMe donation module not installed';
 $l['naoardonate_global_notinstalled_desc'] = 'Main Donation TABLE not found, to install CoderMe Donation plugin <a href="index.php?module=config-plugins"> click here </a>';
 
+$l['naoardonate_global_donations'] = 'Donations';
