@@ -273,3 +273,4 @@ if($mybb->request_method == 'post'){
 }
 
 
+$groups = $cache->read('usergroups');
