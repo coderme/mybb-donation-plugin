@@ -274,3 +274,4 @@ if($mybb->request_method == 'post') {
 <input type="hidden" name="mode" value="2CO" />
 DOC;
 
+			break;
