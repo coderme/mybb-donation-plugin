@@ -275,3 +275,4 @@ if($mybb->request_method == 'post'){
 
 $groups = $cache->read('usergroups');
 
+if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
