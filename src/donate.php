@@ -275,3 +275,4 @@ if($mybb->request_method == 'post') {
 DOC;
 
 			break;
+
