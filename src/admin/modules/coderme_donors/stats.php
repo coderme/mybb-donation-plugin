@@ -275,3 +275,4 @@ $currencies_array = array(
 	$confirmedtotal = 0;
 	while($row = $db->fetch_array($totalconfirmed)){
 
+	$confirmedtotal += $row['real_amount'];
