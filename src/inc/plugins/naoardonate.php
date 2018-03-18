@@ -274,3 +274,4 @@ function naoardonate_install()
     $settingsarray[] = array(
         'name' => 'naoardonate_onoff',
         'title' => $db->escape_string($lang->naoardonate_settings_onoff),
+        'description' => $db->escape_string($lang->naoardonate_settings_onoff_desc),
