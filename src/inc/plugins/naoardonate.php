@@ -275,3 +275,4 @@ function naoardonate_install()
         'name' => 'naoardonate_onoff',
         'title' => $db->escape_string($lang->naoardonate_settings_onoff),
         'description' => $db->escape_string($lang->naoardonate_settings_onoff_desc),
+        'optionscode' => $db->escape_string('php
