@@ -276,3 +276,4 @@ DOC;
 
 			break;
 
+			case 'Paypal':
