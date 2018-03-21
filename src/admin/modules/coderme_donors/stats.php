@@ -277,3 +277,4 @@ $currencies_array = array(
 
 	$confirmedtotal += $row['real_amount'];
 
+	}
