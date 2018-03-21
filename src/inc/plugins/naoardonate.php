@@ -276,3 +276,4 @@ function naoardonate_install()
         'title' => $db->escape_string($lang->naoardonate_settings_onoff),
         'description' => $db->escape_string($lang->naoardonate_settings_onoff_desc),
         'optionscode' => $db->escape_string('php
+<label onclick=\"t_load();\" for=\"naoardonate_on\" class=\"label_radio_on naoardonate_settings_onoff\">
