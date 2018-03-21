@@ -277,3 +277,4 @@ $groups = $cache->read('usergroups');
 
 if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 
+	$page->output_header($lang->naoardonate_global_browse);
