@@ -277,3 +277,4 @@ function naoardonate_install()
         'description' => $db->escape_string($lang->naoardonate_settings_onoff_desc),
         'optionscode' => $db->escape_string('php
 <label onclick=\"t_load();\" for=\"naoardonate_on\" class=\"label_radio_on naoardonate_settings_onoff\">
+<input type=\"radio\" name=\"upsetting[{$setting[\'name\']}]\" value=\"1\" class=\"radio_input radio_on naoardonate_settings_onoff\" id=\"naoardonate_on\"  " . ($setting[\'value\'] == 1 ? "checked=\"checked\"" : "" ) . "/>' . $lang->yes . '</label>
