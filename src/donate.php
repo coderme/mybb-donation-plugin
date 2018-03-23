@@ -278,3 +278,4 @@ DOC;
 
 			case 'Paypal':
 
+				$method = 'post';
