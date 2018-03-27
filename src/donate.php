@@ -279,3 +279,4 @@ DOC;
 			case 'Paypal':
 
 				$method = 'post';
+				$url = 'https://www.paypal.com/cgi-bin/webscr';
