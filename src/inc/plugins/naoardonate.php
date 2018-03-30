@@ -280,3 +280,4 @@ function naoardonate_install()
 <input type=\"radio\" name=\"upsetting[{$setting[\'name\']}]\" value=\"1\" class=\"radio_input radio_on naoardonate_settings_onoff\" id=\"naoardonate_on\"  " . ($setting[\'value\'] == 1 ? "checked=\"checked\"" : "" ) . "/>' . $lang->yes . '</label>
 <label onclick=\"t_load();\" for=\"naoardonate_off\" class=\"label_radio_off naoardonate_settings_onoff\">
 <input type=\"radio\" name=\"upsetting[{$setting[\'name\']}]\" value=\"0\" class=\"radio_input radio_off naoardonate_settings_onoff\" id=\"naoardonate_off\"  " . ($setting[\'value\'] == 0 ? "checked=\"checked\"" : "" ) . " />' . $lang->no . '</label>'),
+        'value' => $db->escape_string("$naoardonate_onoff"),
