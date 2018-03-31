@@ -281,3 +281,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 	$page->output_nav_tabs($sub_tabs, 'all');
 
 	$inlinecount = 0;
+	# $mybb->input['naoar_cookie']
