@@ -282,3 +282,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 
 	$inlinecount = 0;
 	# $mybb->input['naoar_cookie']
+	$inlinecookie = "inlinemod_donor1";
