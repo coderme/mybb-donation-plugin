@@ -281,3 +281,4 @@ DOC;
 				$method = 'post';
 				$url = 'https://www.paypal.com/cgi-bin/webscr';
 				$currency_name = 'currency_code';
+				$merchant_name =  'business';
