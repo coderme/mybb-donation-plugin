@@ -282,3 +282,4 @@ $currencies_array = array(
 	# you can get total by adding the previuos real_amounts together :)
 
 	$total = $confirmedtotal + $notconfirmedtotal;
+
