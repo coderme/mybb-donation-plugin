@@ -282,3 +282,4 @@ function naoardonate_install()
 <input type=\"radio\" name=\"upsetting[{$setting[\'name\']}]\" value=\"0\" class=\"radio_input radio_off naoardonate_settings_onoff\" id=\"naoardonate_off\"  " . ($setting[\'value\'] == 0 ? "checked=\"checked\"" : "" ) . " />' . $lang->no . '</label>'),
         'value' => $db->escape_string("$naoardonate_onoff"),
         'disporder' => $c++,
+        'gid' => $gid
