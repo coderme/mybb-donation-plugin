@@ -2,38 +2,42 @@
 
 /**
  *
- * CoderMe Donation plugin
- * Copyright 2017 CoderMe.com, All Rights Reserved
+ * CoderMe Donation FREE
+ * Copyright 2018 CoderMe.com, All Rights Reserved
  *
- * Website: https://coderme.com
+ * Website: https://markit.coderme.com
  * Home:    https://red.coderme.com/mybb-donation-plugin
  * License: https://red.coderme.com/mybb-donation-plugin#license
- * Version: 4.0.1
+ * Version: 5.0.0
+ * GOLD VERSION: https://markit.coderme.com/mybb-donation-gold
  *
  **/
 
 
-# Disallow direct access to this file for security reasons
-if(!defined("IN_MYBB"))
-{
-	exit("Direct initialization of this file is not allowed.<br /><br />Please make sure IN_MYBB is defined.");
-}
 
-/*	# check if naoardonate plugin installed?
+
+
+# Disallow direct access to this file for security reasons
+defined("IN_MYBB") or
+	exit("Direct initialization of this file is not allowed.<br /><br />Please make sure IN_MYBB is defined.");
+
+
+/*	
+  # check if naoardonate plugin installed?
 	if(!array_key_exists('naoardonate_newgoal', $mybb->settings)):
-		require_once  MYBB_ROOT . "/" . $mybb->config['admin_dir'] . "/inc/functions.php";
+		require_once  MYBB_ROOT . $mybb->config['admin_dir'] . "/inc/functions.php";
 		change_admin_permission($tab, $page="", $default=1);
 	endif;
-	*/
-	# load my global language phrases :)
-	$lang->load('naoardonate_global');
-	$lang->load('naoardonate_module_meta');
 
-	# support Mybb 1.4 as well
-	sprintf('%.1f', $mybb->version) == 1.4 ? $sep = '/' : $sep = '-';
+*/
+# load my global language phrases :)
+$lang->load('naoardonate_global');
+$lang->load('naoardonate_module_meta');
 
-function coderme_donors_meta()
-{
+# support Mybb 1.4 as well
+sprintf('%.1f', $mybb->version) == 1.4 ? $sep = '/' : $sep = '-';
+
+function coderme_donors_meta(){
     global $page, $lang, $sep, $plugins;
 
 
@@ -46,8 +50,7 @@ function coderme_donors_meta()
 
 }
 
-function coderme_donors_action_handler($action)
-{
+function coderme_donors_action_handler($action){
 	global $page;
 
 	$page->active_module = "coderme_donors";
@@ -70,8 +73,7 @@ function coderme_donors_action_handler($action)
 	}
 }
 
-function coderme_donors_admin_permissions()
-{
+function coderme_donors_admin_permissions(){
 	global $lang, $plugins;
 
 	$admin_permissions = array(
@@ -82,4 +84,4 @@ function coderme_donors_admin_permissions()
 	$admin_permissions = $plugins->run_hooks("admin_config_permissions", $admin_permissions);
 	return array("name" => $lang->naoardonate_meta_donors, "permissions" => $admin_permissions, "disporder" => 60);
 }
-?>
+

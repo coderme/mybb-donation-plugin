@@ -2,22 +2,22 @@
 
 /**
  *
- * CoderMe Donation plugin
+ * CoderMe Donation FREE
  * Copyright 2018 CoderMe.com, All Rights Reserved
  *
  * Website: https://markit.coderme.com
  * Home:    https://red.coderme.com/mybb-donation-plugin
  * License: https://red.coderme.com/mybb-donation-plugin#license
  * Version: 5.0.0
+ * GOLD VERSION: https://markit.coderme.com/mybb-donation-gold
  *
  **/
 
 
 
 # Disallow direct access to this file for security reasons
-if(!defined("IN_MYBB")){
+defined("IN_MYBB") or
     exit("Direct initialization of this file is not allowed.<br /><br />Please make sure IN_MYBB is defined.");
-}
 
 
 $plugins->add_hook("admin_page_output_footer", "naoar_showhide");
@@ -29,18 +29,18 @@ $plugins->add_hook("admin_config_plugins_begin", "naoardonate_getid");
 $plugins->add_hook("admin_config_plugins_activate_commit", "naoar_post_install");
 
 function naoardonate_info(){
-global $lang;
-$lang->load('naoardonate_plugin');
+  global $lang;
+  $lang->load('naoardonate_plugin');
 
     return array(
-        "name"      => "CoderMe Donation plugin",
+        "name"      => "CoderMe Donation FREE",
         "description"   => $lang->naoardonate_plugin_description,
-        "website"   => "https://red.coderme.com/coderme-mybb-donation-plugin",
+        "website"   => "https://red.coderme.com/mybb-donation-plugin",
         "author"    => "CoderMe.com",
         "authorsite"    => "https://markit.coderme.com?src=pluginslist",
         "version"   => "5.0.0",
         "guid"      => "a60331204b57399c66a958398b08e6df",
-	"codename"  => "naoardonate",
+    	"codename"  => "naoardonate",
         "compatibility" => "18*"
     );
 }
@@ -64,7 +64,8 @@ function naoardonate_install()
 
 
     // try to delete old paths
-    $old_donors = MYBB_ROOT . $mybb->config['admin_dir'] . '/modules/naoar_donors';
+    $old_donors = MYBB_ROOT . $mybb->config['admin_dir']
+                . '/modules/naoar_donors';
     my_rmdir_recursive($old_donors);
     @rmdir($old_donors);
 
@@ -122,8 +123,7 @@ function naoardonate_install()
 
             $db->query($query) or exit('DATABASE ERROR: teradonate table could not be renamed, error number: ' . $db->error_number());
     }
-    elseif( ! $db->table_exists('naoardonate'))
-    {
+    elseif( ! $db->table_exists('naoardonate')) {
         switch($mybb->config['database']['type']){
             case 'pgsql':
                 $query = "CREATE TABLE " . TABLE_PREFIX . "naoardonate
@@ -132,11 +132,12 @@ function naoardonate_install()
                 ogid int NOT NULL DEFAULT '1',
                 name varchar(20) NOT NULL DEFAULT '',
                 email varchar(120) NOT NULL DEFAULT '',
+                invoice_id varchar(120) NOT NULL DEFAULT '',
                 payment_method varchar(100) NOT NULL DEFAULT '',
                 real_amount FLOAT NOT NULL DEFAULT '0',
                 currency char(3) NOT NULL DEFAULT '' ,
                 note varchar(100) DEFAULT '',
-                ip varchar(39) DEFAULT '',
+                ip inet,
                 dateline numeric(30,0) NOT NULL DEFAULT '0',
                 confirmed smallint DEFAULT '0'
                 )";
@@ -149,6 +150,7 @@ function naoardonate_install()
                 ogid int NOT NULL DEFAULT '1',
                 name varchar(20) NOT NULL DEFAULT '',
                 email varchar(120) NOT NULL DEFAULT '',
+                invoice_id varchar(120) NOT NULL DEFAULT '',
                 payment_method varchar(100) NOT NULL DEFAULT '',
                 real_amount FLOAT NOT NULL DEFAULT '0',
                 currency char(3) NOT NULL DEFAULT '' ,
@@ -166,6 +168,7 @@ function naoardonate_install()
                 ogid INT UNSIGNED NOT NULL DEFAULT '1',
                 name VARCHAR(20) NOT NULL DEFAULT '',
                 email VARCHAR(120) NOT NULL DEFAULT '',
+                invoice_id VARCHAR(120) NOT NULL DEFAULT '',
                 payment_method VARCHAR(100) NOT NULL DEFAULT '',
                 real_amount FLOAT UNSIGNED NOT NULL DEFAULT '0',
                 currency CHAR(3) NOT NULL DEFAULT '' ,
@@ -181,6 +184,8 @@ function naoardonate_install()
 
         $db->query($query) or exit('CoderMe Donation plugin Couldn\'t be installed, database error number' . $db->error_number());
 
+    } elseif (!$db->field_exists('invoice_id', 'naoardonate')) {
+        $db->add_column('naoardonate', 'invoice_id', "VARCHAR(120) NOT NULL DEFAULT ''");
     }
 
     #####################
@@ -215,19 +220,17 @@ function naoardonate_install()
     $query = $db->simple_select('settinggroups', 'gid', "name='naoardonate' or name='teradonate'");
 
     if($db->num_rows($query) > 0):
-        require_once  implode(DIRECTORY_SEPARATOR,
-                              array(MYBB_ROOT,
-                                    $mybb->config['admin_dir'] ,
-                                    "inc", "functions.php"));
+        require_once  MYBB_ROOT . $mybb->config['admin_dir'] .
+                     '/inc/functions.php';
         change_admin_permission('coderme_donors', "", -1);
         $gid = (int)$db->fetch_field($query, 'gid');
-        $db->update_query('settinggroups', array('title' => 'CoderMe Donation plugin', 'name' => 'naoardonate'), "gid='{$gid}'");
+        $db->update_query('settinggroups', array('title' => 'CoderMe Donation FREE', 'name' => 'naoardonate'), "gid='{$gid}'");
     else:
         $query = $db->simple_select("settinggroups", "COUNT(*) as rows");
         $rows = $db->fetch_field($query, "rows");
         $insertarray = array(
             'name' => 'naoardonate',
-            'title' => 'CoderMe Donation plugin',
+            'title' => 'CoderMe Donation FREE',
             'description' => $db->escape_string($lang->naoardonate_settings_intro),
             'disporder' => $rows+1,
             'isdefault' => 0
@@ -754,13 +757,8 @@ disabled=$lang->naoardonate_settings_disabled
         $naoardonate_currency = 'Any';
         }
     
-       $currencies_funcs_file = implode(DIRECTORY_SEPARATOR,
-                                array(MYBB_ROOT ,
-                                      "inc", "plugins",
-                                      "naoardonate",
-                               'funcs_currency.php'));
-                                   
-    require_once $currencies_funcs_file;
+     require_once  MYBB_ROOT . 'inc/plugins'.
+                                   '/naoardonate/funcs.php';
     $currencies = array (
     array(
     $lang->naoardonate_global_currency_all_supported =>
@@ -1158,8 +1156,15 @@ $naoardonate_groups . " </select>'),
     $settingsarray[] = array(
         'name' => 'naoardonate_premium',
         'title' => '',
-        'description' => $db->escape_string('<h3 style="color:blue">Thank You</h3>
-<span style="color:darkred;font-size:.9rem">Thank you for using my plugin, I hope you like it : ), for anything custom you can contact me using *contact link <a href="https://red.coderme.com?src=mybbc" target="_blank" rel="noopener">on this page</a><br>For support please use the release thread on <a href="https://community.mybb.com/thread-84084.html" target="_blank" rel="noopener">here</a></span>'),
+        'description' => $db->escape_string(<<<'DOC'
+<h3 style="color:blue">Thank You</h3>
+<span style="color:darkred;font-size:.9rem">Thank you for using my plugin, 
+I hope you like it : ), 
+you really do?! Great news for you is that the GOLD version of this plugin is in the <a href="https://markit.coderme.com/mybb-donation-gold" target="_blank" rel="noopener">WILD</a>,<br />
+
+If you like to contact me about anything other than support please use *contact link <a href="https://markit.coderme.com?src=mybbc" target="_blank" rel="noopener">on this page</a><br />For support please use the release thread  <a href="https://community.mybb.com/thread-84084.html" target="_blank" rel="noopener">HERE</a>.</span>
+DOC
+        ),
         'optionscode' => 'php',
         'value' => '',
         'disporder' => 30,
@@ -1255,18 +1260,17 @@ function naoardonate_uninstall($clean=null)
 
    if(!isset($mybb->input['no'])){
 
-    if($clean == 'teradonate')
-    {
+    if($clean == 'teradonate')  {
         $tname = 'teradonate';
         $perm = 'tera_donors';
     }
-    else
-    {
+    else {
         $tname = 'naoardonate';
         $perm = 'coderme_donors';
+        
         # drop main plugin table
-        $db->query("DROP TABLE " . TABLE_PREFIX . $tname);
-}
+        $db->drop_table($tname);
+    }
 
 
     # remove traces
@@ -1279,10 +1283,9 @@ function naoardonate_uninstall($clean=null)
         $cache->handler->delete("{$tname}_unconfirmed");
     endif;
 
-    require_once  implode(DIRECTORY_SEPARATOR,
-            array(MYBB_ROOT,
-            $mybb->config['admin_dir'],
-            "inc","functions.php"));
+    require_once  MYBB_ROOT . $mybb->config['admin_dir'] 
+            . '/inc/functions.php';
+    
     change_admin_permission($perm, "", -1);
 
 
@@ -1300,7 +1303,7 @@ function naoardonate_activate()
 {
     global $db;
 
-    include_once MYBB_ROOT."/inc/adminfunctions_templates.php";
+    include_once MYBB_ROOT . "inc/adminfunctions_templates.php";
 
     find_replace_templatesets("header", "#".preg_quote('{$pm_notice}')."#i", '{$pm_notice}{$naoardonate_notice}{$naoardonate_bar}');
 
@@ -1498,6 +1501,58 @@ function naoardonate_activate()
     );
 
 
+
+
+    $templates_array[] = array(
+        'title' => 'naoardonate_donate_offline_bw_v5',
+        'template' => $db->escape_string('<fieldset class="w50 tleft" style="display: none;" id="{$payment_offline_id}">
+<legend><strong>{$payment_method_offline}</strong></legend>
+<table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
+        <tr>
+    <td colspan="2">
+    {$payment_offline}
+    </td>
+</tr>
+</table>
+</fieldset>'),
+        'sid' => '-1',
+        'version' => '',
+        'dateline' => TIME_NOW
+    );
+
+
+
+
+    $templates_array[] = array(
+        'title' => 'naoardonate_donate_offline_wu_v5',
+        'template' => $db->escape_string('<fieldset class="w50 tleft" style="display: none;" id="{$payment_offline_id}">
+<legend><strong>{$payment_method_offline}</strong></legend>
+<table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
+        <tr>
+    <td colspan="2">
+    {$payment_offline}
+
+    </td>
+</tr>
+<tr id="coderme-mtcn">
+ <td><b>{$lang->naoardonate_front_mtcn}</b></td>
+ <td class="w70">
+<input type="number" step="1" name="mtcn" value="$mtcn" />
+</td>
+
+</tr>
+
+</table>
+</fieldset>'),
+        'sid' => '-1',
+        'version' => '',
+        'dateline' => TIME_NOW
+    );
+
+
+        
+
+
         $templates_array[] = array(
         'title' => 'naoardonate_donate_note_v5',
         'template' => $db->escape_string('<fieldset class="w50 tleft">
@@ -1632,6 +1687,7 @@ font-size:x-small
     </td></tr>
         <tr>
         <td align="center">
+        <input type="hidden" name="coderme_post_key" value="{$coderme_post_key}">
         <input type="submit"  name ="submit" value="   {$lang->naoardonate_global_go}   " />
         </td>
 
@@ -1806,7 +1862,7 @@ function naoardonate_deactivate()
 {
     global $db;
 
-    include_once MYBB_ROOT."/inc/adminfunctions_templates.php";
+    include_once MYBB_ROOT . "inc/adminfunctions_templates.php";
 
     find_replace_templatesets("header", "#".preg_quote('{$naoardonate_notice}')."#i", '',0);
     find_replace_templatesets("header", "#".preg_quote('{$naoardonate_bar}')."#i", '',0);
@@ -1842,7 +1898,7 @@ NAOARDONATE_SHOWHIDE;
 
     if($naoardonate_id)
     {
-        $j .= 'document.getElementById("naoardonate").innerHTML = "<b><a href=\'index.php?module=config' . $sep .'settings&amp;action=change&amp;gid=' . $naoardonate_id . '\' style=\'padding:3px 9px; background:yellow\'>click here to edit settings</a></b>";';
+        $j .= 'document.getElementById("naoardonate").innerHTML = "<b><a href=\'index.php?module=config' . $sep .'settings&amp;action=change&amp;gid=' . $naoardonate_id . '\' style=\'padding:3px 9px; background-color: #656161;border-radius: 7px;color: white;\'>Edit Settings</a></b>";';
 
     }
 
@@ -1865,16 +1921,13 @@ function naoar_showdonatelinks()
 
     $naoardonate_notice = $left_div = $naoardonate_top = $naoardonate_reason = $naoardonate_donatelink = $naoardonate_bar = $naoar_copyright = '';
 
-    if($mybb->user['usergroup'] == 4 and $unconfirmed_donors > 0 and $mybb->settings['naoardonate_alert'] == 'notice')
-    {
-        require_once  implode(DIRECTORY_SEPARATOR,
-            array(MYBB_ROOT,  $mybb->config['admin_dir'],
-            "inc", "functions.php"));
+    if($mybb->user['usergroup'] == 4 and $unconfirmed_donors > 0 and $mybb->settings['naoardonate_alert'] == 'notice') {
+        require_once  MYBB_ROOT . $mybb->config['admin_dir']
+                                . '/inc/functions.php';
         
         $permissions = get_admin_permissions($mybb->user['uid'], 4);
 
-        if($mybb->user['uid'] == 1 || isset($permissions['coderme_donors']))
-        {
+        if($mybb->user['uid'] == 1 || isset($permissions['coderme_donors'])) {
             sprintf('%.1f', $mybb->version) == 1.4 ? $sep = '/' :  $sep = '-';
         $pathtoadmin = $mybb->settings['bburl'] . '/' . $mybb->config['admin_dir'] . '/index.php?module=coderme_donors' . $sep . 'browse&amp;action=unconfirmed';
             eval("\$naoardonate_notice = \"" . $templates->get('naoardonate_notice_v5') . "\";");
@@ -1929,10 +1982,11 @@ function naoar_showdonatelinks()
     }
 
 
-    if(stripos($_SERVER['SCRIPT_NAME'],'donate.php') !== false or $naoardonate_bar)
-    {
+    if(stripos($_SERVER['SCRIPT_NAME'],'donate.php') !== false or $naoardonate_bar) {
         $naoar_copyright = '<!-- CoderMe Copyright -- Keeping this copyright notice intact is REQUIRED for legal usage -->
- Donation\'s plugin by <a href="https://markit.coderme.com" target="_blank" rel="noopener">CoderMe Markit</a>
+<div class="coderme-copyright" style="text-align: center; padding: 1rem 0 2rem 0">
+ Donations by <a href="https://markit.coderme.com/mybb-donation-gold" target="_blank" rel="noopener">CoderMe</a>
+</div>
 <!-- CoderMe Copyright -->';
     }
 

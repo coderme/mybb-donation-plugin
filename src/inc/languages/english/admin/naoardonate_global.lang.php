@@ -2,15 +2,18 @@
 
 /**
  *
- * CoderMe Donation plugin
- * Copyright 2017 CoderMe.com, All Rights Reserved
+ * CoderMe Donation FREE
+ * Copyright 2018 CoderMe.com, All Rights Reserved
  *
- * Website: https://coderme.com
+ * Website: https://markit.coderme.com
  * Home:    https://red.coderme.com/mybb-donation-plugin
  * License: https://red.coderme.com/mybb-donation-plugin#license
- * Version: 4.0.1
+ * Version: 5.0.0
+ * GOLD VERSION: https://markit.coderme.com/mybb-donation-gold
  *
  **/
+
+
 
 
 # Admin: browse.php and stats.php | Front: donate.php
@@ -247,3 +250,7 @@ $l['naoardonate_global_notinstalled'] = 'CoderMe donation module not installed';
 $l['naoardonate_global_notinstalled_desc'] = 'Main Donation TABLE not found, to install CoderMe Donation plugin <a href="index.php?module=config-plugins"> click here </a>';
 
 $l['naoardonate_global_donations'] = 'Donations';
+
+
+$l['naoardonate_global_invoice_mtcn'] = 'Invoice ID/MTCN';
+

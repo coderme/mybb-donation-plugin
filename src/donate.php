@@ -2,15 +2,19 @@
 
 /**
  *
- * CoderMe Donation plugin
- * Copyright 2017 CoderMe.com, All Rights Reserved
+ * CoderMe Donation FREE
+ * Copyright 2018 CoderMe.com, All Rights Reserved
  *
- * Website: https://coderme.com
+ * Website: https://markit.coderme.com
  * Home:    https://red.coderme.com/mybb-donation-plugin
  * License: https://red.coderme.com/mybb-donation-plugin#license
- * Version: 4.0.1
+ * Version: 5.0.0
+ * GOLD VERSION: https://markit.coderme.com/mybb-donation-gold
  *
  **/
+
+
+
 
 
 define("IN_MYBB", 1);
@@ -18,14 +22,10 @@ define('THIS_SCRIPT', 'donate.php');
 
 
 
-$templatelist = "naoardonate_redirect_v5,naoardonate_donate_aboutu_v5,naoardonate_donate_captcha_v5,naoardonate_donate_offline_v5,naoardonate_donate_currencies_row_v5,naoardonate_donate_currencies_row_v5,naoardonate_donate_note_v5,naoardonate_donate_v5,naoardonate_top_donation_v5,naoardonate_top_v5";
+$templatelist = "naoardonate_redirect_v5,naoardonate_donate_aboutu_v5,naoardonate_donate_captcha_v5,naoardonate_donate_offline_wu_v5,naoardonate_donate_offline_bw_v5,naoardonate_donate_currencies_row_v5,naoardonate_donate_currencies_row_v5,naoardonate_donate_note_v5,naoardonate_donate_v5,naoardonate_top_donation_v5,naoardonate_top_v5";
 
 require_once "./global.php";
-require_once  implode(DIRECTORY_SEPARATOR,
-                           array(MYBB_ROOT ,
-                                 "inc", "plugins",
-                                  "naoardonate",
-                                 'funcs_currency.php'));
+require_once  MYBB_ROOT . 'inc/plugins/naoardonate/funcs.php';
 
 
 
@@ -33,18 +33,16 @@ require_once  implode(DIRECTORY_SEPARATOR,
 $lang->load("naoardonate_front");
 $lang->load("naoardonate_global");
 
-# can you accept donations?
-$naoar_from = explode(',', $mybb->settings['naoardonate_from']);
-
-
 if(!$db->table_exists('naoardonate')):
 	error($lang->naoardonate_front_error_notinstalled);
 elseif($mybb->settings['naoardonate_onoff'] == 0):
 	error($lang->naoardonate_front_error_disabled);
 elseif((!$mybb->settings['naoardonate_payment_method_pz'] and !$mybb->settings['naoardonate_payment_method_lr'] and !$mybb->settings['naoardonate_payment_method_2c'] and !$mybb->settings['naoardonate_payment_method_pp']) or strlen($mybb->settings['naoardonate_payment_method']) < 5):
 	error($lang->naoardonate_front_error_notready);
-elseif(!in_array($mybb->user['usergroup'], $naoar_from)):
-	$mybb->user['uid'] != 0 ? error($lang->naoardonate_front_error_blockedgroups) : error($lang->naoardonate_front_error_noguests);
+elseif(!mayDonate($mybb->user, $mybb->settings['naoardonate_from'])):
+  	$mybb->user['uid'] != 0 ?
+                       error($lang->naoardonate_front_error_blockedgroups)
+                       : error($lang->naoardonate_front_error_noguests);
 endif;
 
 
@@ -100,11 +98,14 @@ $currencies_2c = getCurrenciesOf(CODERME_2CHECKOUT);
 $currencies_bk = getCurrenciesOf(CODERME_BANK_WIRE);
 $currencies_wu = getCurrenciesOf(CODERME_WESTERN_UNION);
 $currencies_pp = getCurrenciesOf(CODERME_PAYPAL);
+$coderme_post_key = generate_post_check();
 
 
 # validate input
-if($mybb->request_method == 'post')
-{
+if($mybb->request_method == 'post') {
+    // post_key check
+    verify_post_check($mybb->input['coderme_post_key']);
+
 	# set working enviroment
 	$name = trim($mybb->input['name']);
 	$email = trim($mybb->input['email']);
@@ -114,6 +115,7 @@ if($mybb->request_method == 'post')
 	$note = trim($mybb->input['note']);
 	$imgstr = trim($mybb->input['imgstr']);
 	$imghash = $mybb->input['imagehash'];
+    $mtcn = trim($mybb->input['mtcn']);
 
 
 
@@ -173,9 +175,22 @@ if($mybb->request_method == 'post')
 		$errors[] = $lang->sprintf($lang->naoardonate_front_error_unsupportedcurency, $payment_method);
 	}
 
+
+    // wu
+    if($payment_method == 'Western Union') {
+        if (!$mtcn) {
+            $errors[] = $lang->naoardonate_front_error_empty_mtcn; 
+        } elseif(!ctype_digit($mtcn) or $mtcn < 5e9) {
+         $errors[] = $lang->naoardonate_front_error_invalid_mtcn; 
+        }
+    } else {
+        // no other payment methods needs it for now
+        $mtcn = '';
+    }
+    
+
 	# check for valid captcha
-	if(($mybb->settings['naoardonate_captcha'] == 3  or ($mybb->settings['naoardonate_captcha'] == 2 and $mybb->user['uid']) or ($mybb->settings['naoardonate_captcha'] == 1 and !$mybb->user['uid'])) and function_exists("imagepng"))
-	{
+	if(($mybb->settings['naoardonate_captcha'] == 3  or ($mybb->settings['naoardonate_captcha'] == 2 and $mybb->user['uid']) or ($mybb->settings['naoardonate_captcha'] == 1 and !$mybb->user['uid'])) and function_exists("imagepng"))	{
 		$imghash = $db->escape_string($imghash);
 		$imgstr = $db->escape_string(my_strtolower($imgstr));
 		$query = $db->simple_select("captcha", "*", "imagehash='$imghash' AND LOWER(imagestring)='$imgstr'");
@@ -186,23 +201,22 @@ if($mybb->request_method == 'post')
 		}
 		$db->delete_query("captcha", "imagehash='$imghash'");
 	}
-	else
-	{
+	else {
 		$captcha_valid = True;
 	}
 
 
 	# further manipulation of post data :)
-	if(!empty($name)){
+	if (!empty($name)) {
 		$name = substr($name,0,$mybb->settings['maxnamelength']);
-	}else{
+	} else {
 		$mybb->user['uid'] ? $name = $mybb->user['username'] : 	$name = $lang->naoardonate_global_guest;
 	}
+    
 	!empty($note) ? $note = substr($note,0 , 100) : false;
 
 	# is everything ok?
-	if(empty($errors))
-	{
+	if(empty($errors))	{
 		if(!$email and $mybb->user['uid']) $email = $mybb->user['email'];
 
 		# prepare data for database insertion
@@ -225,6 +239,7 @@ if($mybb->request_method == 'post')
 								'ogid' => $gid,
 								'name' => $name,
 								'email' => $email,
+                                'invoice_id' => $mtcn,
 								'payment_method' => $payment_method,
 								'real_amount' => $amount,
 								'currency' => $currency,
@@ -297,14 +312,20 @@ DOC;
 		$plugins->run_hooks('naoardonate_alert_admin');
 
 
+		# give a user a cookie :)
+		my_setcookie('naoardonate', 'd_ip'.$_SERVER['REMOTE_ADDR'],'86400');        
+
 		# offline donations finish here
 		if ( in_array($payment_method, array('Western Union', 'Bank/Wire transfer'))) {
-		    error($lang->naoardonate_front_thanku, $lang->naoardonate_front_thanku_title);
+           // rdr to prevent form resubmit
+           redirect($mybb->settings['bburl'] . '/donate.php?action=thank_you',
+                  $lang->naoardonate_front_thanku,
+                  $lang->naoardonate_front_thanku_title);
+            
+            
 		    exit;
 		}
 
-		# give a user a cookie :)
-		my_setcookie('naoardonate', 'd_ip'.$_SERVER['REMOTE_ADDR'],'86400');
 
 		# everything is ready? I hope so ..
 		eval('$naoardonate_redirect = "' . $templates->get('naoardonate_redirect_v5') . '";');
@@ -400,19 +421,28 @@ $payment_methodselect = $offline_options = '';
 </table>
 </fieldset> */
 if ( in_array('Western Union', $accepted_payment_methods) ) {
-    $payment_method_offline =  $lang->sprintf($lang->naoardonate_front_offline_payment_methods, 'Western Union');
-    $payment_offline_id = 'offline_wu';
-    $payment_offline = nl2br( htmlspecialchars_uni( $mybb->settings['naoardonate_payment_method_wu']) );
-    $pay_to = $lang->sprintf( $lang->naoardonate_front_payfor, 'Western Union');
-    eval('$offline_options = "' . $templates->get('naoardonate_donate_offline_v5') . '";');
+    $payment_method_offline = $lang->sprintf($lang->naoardonate_front_offline_payment_methods, 'Western Union');
+        $payment_offline_id = 'offline_wu';
+        $payment_offline = nl2br(htmlspecialchars_uni($mybb->settings['naoardonate_payment_method_wu']));
+        $pay_to = $lang->sprintf($lang->naoardonate_front_payfor, 'Western Union');
+        eval('$offline_options = "' . $templates->get('naoardonate_donate_offline_wu_v5') . '";');
+    
 }
 
 if ( in_array('Bank/Wire transfer', $accepted_payment_methods) ) {
+    
     $payment_method_offline = $lang->sprintf($lang->naoardonate_front_offline_payment_methods, 'Bank/Wire transfer');
-    $payment_offline_id = 'offline_bk';
-    $payment_offline =  nl2br( htmlspecialchars_uni( $mybb->settings['naoardonate_payment_method_bk']) );
-    $pay_to = $lang->sprintf( $lang->naoardonate_front_payfor, 'Bank/Wire transfer');
-    eval('$offline_options .= "' . $templates->get('naoardonate_donate_offline_v5') . '";');
+        $payment_offline_id = 'offline_bk';
+        $payment_offline = nl2br(htmlspecialchars_uni($mybb->settings['naoardonate_payment_method_bk']));
+        $pay_to = $lang->sprintf($lang->naoardonate_front_payfor, 'Bank/Wire transfer');
+        eval('$offline_options .= "' . $templates->get('naoardonate_donate_offline_bw_v5') . '";');
+
+
+
+
+
+
+    
 
 }
 
@@ -454,33 +484,60 @@ foreach($accepted_payment_methods as $e)
 	}
 
 # wrapper function
-$js_updatelist = 'function change_payment_method(){
-try{
-_payment_method();
+$js_updatelist = <<<'DOC'
+ function change_payment_method(){
+ try{
+ _payment_method();
+ }
+ catch(e){
+  console.error("Err _payment_method()", e);
+ }
 }
-catch(e){
-console.error("Err _payment_method()", e);
+
+// noop
+function check_amount(){
+  return;
 }
-} ';
 
-$js_updatelist .= "\nj=d.getElementById('currency');\n";
-$js_updatelist .= "\nfunction _payment_method() { \n\tvar offline =  false; \n if(false) { var x = 1; } \n";
+function mtcnSwitch(on){
+  var t = $('#coderme-mtcn'), i = t.find('input')[0];
+  if(on) {
+    t.show();
+    i.required = true;
+    return;
+  }
 
-if ( in_array('Western Union', $accepted_payment_methods) ){
+  t.hide();
+  i.required = false;
+}
+j=d.getElementById('currency');
+function _payment_method() { 
+var offline =  false; 
+if(false) { var x = 1; }
+               
+DOC;
 
-    $offline_js_wu = "	offline = document.getElementById('offline_wu');
+$js_updatelist .= "\n\n";
+$js_updatelist .= "\n \n";
+
+
+    if (in_array('Western Union', $accepted_payment_methods)) {
+
+        $offline_js_wu = " offline = document.getElementById('offline_wu');
 	    try {
-		document.getElementById('offline_bk').style.display = 'none';
-	    } catch(e) {}
+		   document.getElementById('offline_bk').style.display = 'none';
+	    } catch(e) {console.log(e)}  mtcnSwitch(1);
     ";
-}
-    if ( in_array('Bank/Wire transfer', $accepted_payment_methods) ){
-$offline_js_bk = " offline = document.getElementById('offline_bk');
+    }
+    
+    if (in_array('Bank/Wire transfer', $accepted_payment_methods))  {
+        $offline_js_bk = " offline = document.getElementById('offline_bk');
 	try {
 	    document.getElementById('offline_wu').style.display = 'none';
-	} catch(e) {}
+	} catch(e) {console.log(e)} mtcnSwitch();
 	";
-}
+    }
+    
 if ($offline_js_bk  or $offline_js_wu) {
   $offline_js_submit =  "if (offline){
       a.submit.value = '{$lang->naoardonate_front_finiishbutton}';
@@ -490,7 +547,7 @@ if ($offline_js_bk  or $offline_js_wu) {
       try {
 	      document.getElementById('offline_wu').style.display = 'none';
 	      document.getElementById('offline_bk').style.display = 'none';
-	  } catch(e) {}
+	  } catch(e) {console.log(e)} mtcnSwitch();
 
       a.submit.value = '{$lang->naoardonate_front_goto} ' + a.payment_method.value;
       }
@@ -538,14 +595,14 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 	$js_updatelist  .= " else if(a.payment_method.value == 'Paypal') {j.innerHTML = '<select name=\"currency\" class=\"w100\">$pp_currencies</select>'}";
     }
 
-    if ( in_array('Western Union', $accepted_payment_methods) )
-    {
+    if ( in_array('Western Union', $accepted_payment_methods) ) {
 	$currencyselect .='<optgroup label="' . $lang->sprintf( $lang->naoardonate_front_currencies_supported_by , 'Western Union') . '">'
 			. $wu_currencies
 			. '</optgroup>';
-	$js_updatelist  .= " else if(a.payment_method.value == 'Western Union'){ j.innerHTML = '<select name=\"currency\" class=\"w100\">$wu_currencies</select>';
+   $js_updatelist .= " else if(a.payment_method.value == 'Western Union'){ j.innerHTML = '<select onchange=\"check_amount();\" name=\"currency\" class=\"w100\">$wu_currencies</select>'; mtcnSwitch(1);
 	$offline_js_wu
 	}";
+   
     }
 
     if ( in_array('Bank/Wire transfer', $accepted_payment_methods) )
@@ -776,14 +833,15 @@ elseif($mybb->input['action'] == 'top_donors') {
 			$top_donors['uid'] ? $top_donors['name'] = "<a href=\"member.php?action=profile&amp;uid=$top_donors[uid]\">$top_donors[name]</a>" : false;
 
 			$top_donors['name'] ? True : $top_donors['name'] = $lang->naoardonate_global_guest;
-            if ($mybb->settings['naoardonate_hidetopemails'] == '0' and $top_donors['email']) {
-			 $top_donors['email'] = "<a href=\"mailto:$top_donors[email]\" title=\"$lang->naoardonate_global_email_donor\">$top_donors[email]</a>" ;                
-
+            
+             if ($mybb->settings['naoardonate_hidetopemails'] == '0' and
+                $top_donors['email']) {
+                $top_donors['email'] = "<a href=\"mailto:$top_donors[email]\" title=\"$lang->naoardonate_global_email_donor\">$top_donors[email]</a>";
             } else {
-                $top_donors['email'] = '-----';
+                $top_donors['email'] = '-------';
             }
 
-            
+
 			$top_donors['dateline'] = my_date($mybb->settings['dateformat'],$top_donors['dateline']) . ', ' . my_date($mybb->settings['timeformat'], $top_donors['dateline']);
 			eval("\$donations .= \"".$templates->get('naoardonate_top_donation_v5')."\";");
 		}

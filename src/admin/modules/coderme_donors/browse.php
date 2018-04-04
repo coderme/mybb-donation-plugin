@@ -2,23 +2,24 @@
 
 /**
  *
- * CoderMe Donation plugin
- * Copyright 2017 CoderMe.com, All Rights Reserved
+ * CoderMe Donation FREE
+ * Copyright 2018 CoderMe.com, All Rights Reserved
  *
- * Website: https://coderme.com
+ * Website: https://markit.coderme.com
  * Home:    https://red.coderme.com/mybb-donation-plugin
  * License: https://red.coderme.com/mybb-donation-plugin#license
- * Version: 4.0.1
+ * Version: 5.0.0
+ * GOLD VERSION: https://markit.coderme.com/mybb-donation-gold
  *
  **/
 
 
 
+
 # Disallow direct access to this file for security reasons
-if(!defined("IN_MYBB"))
-{
+defined("IN_MYBB") or 
 	exit("Direct initialization of this file is not allowed.<br /><br />Please make sure IN_MYBB is defined.");
-}
+
 
 # support Mybb 1.4 as well
 sprintf('%.1f', $mybb->version) == 1.4 ? $sep = '/' : $sep = '-';
@@ -65,6 +66,7 @@ $table =<<<TABLE_HEAD
 		<th class="align_center">$lang->naoardonate_global_amount</th>
 		<th class="align_center">$lang->naoardonate_global_payment_method</th>
 		<th class="align_center">$lang->naoardonate_global_ip</th>
+       	<th class="align_center">$lang->naoardonate_global_invoice_mtcn</th>       
 		<th class="align_center">$lang->naoardonate_global_extra</th>
 		<th class="align_center">$lang->naoardonate_global_date</th>
 	    <th class="align_center"><input type="checkbox" name="allbox" onclick="inlineModeration.checkAll(this);" /></th>
@@ -329,6 +331,7 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 				<td class="align_center">$donor[real_amount] $donor[currency]</td>
 				<td class="align_center">$donor[payment_method]</td>
 				<td class="align_center">$donor[ip]</td>
+                <td class="align_center">$donor[invoice_id]</td>
 				<td class="align_center"><div class="naoar_info"><div>$confirmed</div><div>$email</div><div>$donor[ogid]</div><div>$note</div></div></td>
 				<td class="align_center">$donor[dateline]</td>
 				<td $class align="center" style="white-space: nowrap"><input type="checkbox" class="checkbox" name="inlinemod_$donor[did]" id="inlinemod_$donor[did]" value="1" /></td>
@@ -435,6 +438,7 @@ new PopupMenu('note_$donor[did]');
 		<td class="align_center">$donor[real_amount] $donor[currency]</td>
 		<td class="align_center">$donor[payment_method]</td>
 		<td class="align_center">$donor[ip]</td>
+        <td class="align_center">$donor[invoice_id]</td>        
 		<td class="align_center"><div class="naoar_info"><div>$email</div><div>$donor[ogid]</div><div>$note</div></div></td>
 		<td class="align_center">$donor[dateline]</td>
 		<td class="align_center" style="white-space: nowrap"><input type="checkbox" class="checkbox" name="inlinemod_$donor[did]" id="inlinemod_$donor[did]" value="1" $inlinecheck /></td>
@@ -536,6 +540,7 @@ new PopupMenu('note_$donor[did]');
 				<td class="align_center">$donor[real_amount] $donor[currency]</td>
 				<td class="align_center">$donor[payment_method]</td>
 				<td class="align_center">$donor[ip]</td>
+                <td class="align_center">$donor[invoice_id]</td>
 				<td class="align_center"><div class="naoar_info"><div>$email</div><div>$donor[ogid]</div><div>$note</div></div></td>
 				<td class="align_center">$donor[dateline]</td>
 				<td class="align_center" style="white-space: nowrap"><input type="checkbox" class="checkbox" name="inlinemod_$donor[did]" id="inlinemod_$donor[did]" value="1" $inlinecheck  /></td>

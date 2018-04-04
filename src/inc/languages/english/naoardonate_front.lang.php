@@ -2,15 +2,18 @@
 
 /**
  *
- * CoderMe Donation plugin
- * Copyright 2017 CoderMe.com, All Rights Reserved
+ * CoderMe Donation FREE
+ * Copyright 2018 CoderMe.com, All Rights Reserved
  *
- * Website: https://coderme.com
+ * Website: https://markit.coderme.com
  * Home:    https://red.coderme.com/mybb-donation-plugin
  * License: https://red.coderme.com/mybb-donation-plugin#license
- * Version: 4.0.1
+ * Version: 5.0.0
+ * GOLD VERSION: https://markit.coderme.com/mybb-donation-gold
  *
  **/
+
+
 
 
 $l['naoardonate_front_top_title'] = "Top Donors";
@@ -34,7 +37,7 @@ $l['naoardonate_front_thanku'] = "Really thank you for helping me to continue ma
 $l['naoardonate_front_thanku_title'] = "Thank you!";
 $l['naoardonate_front_thanku_error'] = "ooh! something went wrong, have you come from donation page? Oh! thank you :)";
 
-$l['naoardonate_front_error_notinstalled'] = "Oh! how comes?!! Naoar Donation is not installed yet";
+$l['naoardonate_front_error_notinstalled'] = "Oh! how comes?!! CoderMe Donation is not installed yet";
 $l['naoardonate_front_error_disabled'] = "Donations is disabled by the Admin";
 
 $l['naoardonate_front_error_notready'] = "Donations settings are not set the right way, please contact the Admin";
@@ -90,8 +93,10 @@ $l['naoardonate_front_offline_payment_methods']  = '{1} details';
 
 
 $l['naoardonate_front_unconfirmed_emailsubject'] = '{1} Unconfirmed Donation(s)';
-$l['naoardonate_front_unconfirmed_emailhtmlmessage'] = 'Hello Admin\n <br /> There are {1} Donations waiting your action, please <a href="{2}" target="_blank" title="in a new page">Login to your Admin Control Panel</a> in order to manage these donations\n<br />Sweet Times\n<br />Naoar.com \n<br /> ---------------------------------------\n<br /> In Order to Stop recieving Alert Emails Regarding Unconfirmed Donations please edit plugins&#39; settings';
-$l['naoardonate_front_unconfirmed_emailtextmessage'] = 'Hello Admin\n There are {1} Donations waiting your action, please Go to {2} in order to manage donations\n Sweet Times\n Naoar.com\n \n ---------------------------------------\n In Order to Stop recieving Alert Emails Regarding Unconfirmed Donations please edit plugin settings';
+$l['naoardonate_front_unconfirmed_emailhtmlmessage'] = 'Hello Admin\n <br /> There are {1} Donations waiting your action, please <a href="{2}" target="_blank" title="in a new page">Login to your Admin Control Panel</a> in order to manage these donations\n<br />Sweet Times\n<br />markit.coderme.com \n<br /> ---------------------------------------\n<br /> In Order to Stop recieving Alert Emails Regarding Unconfirmed Donations please edit plugins&#39; settings';
+$l['naoardonate_front_unconfirmed_emailtextmessage'] = 'Hello Admin\n There are {1} Donations waiting your action, please Go to {2} in order to manage donations\n Sweet Times\n markit.coderme.com\n \n ---------------------------------------\n In Order to Stop recieving Alert Emails Regarding Unconfirmed Donations please edit plugin settings';
 
+$l['naoardonate_front_mtcn'] = 'MTCN Number';
+$l['naoardonate_front_error_empty_mtcn'] = 'MTCN number of the payment is required';
+$l['naoardonate_front_error_invalid_mtcn'] = 'Invalid MTCN number';
 
-?>
