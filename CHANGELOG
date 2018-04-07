@@ -1,3 +1,15 @@
+CoderMe Donation 5.0.2
+---------------------------------
+    # Change CodeName so it works with mods site
+
+
+
+#CoderMe Donation 5.0.1
+---------------------------------
+    # Adding missing src/inc/plugins/naoardonate/funcs.php
+
+
+
 ## New in CoderMe Donation v5.0
 ---------------------------------
     # [REMOVED]: Skrill removed.

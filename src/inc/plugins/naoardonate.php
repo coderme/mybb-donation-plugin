@@ -40,7 +40,9 @@ function naoardonate_info(){
         "authorsite"    => "https://markit.coderme.com?src=pluginslist",
         "version"   => "5.0.0",
         "guid"      => "a60331204b57399c66a958398b08e6df",
-    	"codename"  => "naoardonate",
+    	"codename"  => "coderme_donation_opensource",
+        // this shouldn't be in the 1st place
+        // "codename"  => "naoardonate",
         "compatibility" => "18*"
     );
 }
