@@ -284,3 +284,4 @@ DOC;
 				$merchant_name =  'business';
 				$merchant_value = $mybb->settings['naoardonate_payment_method_pp'];
 				$amount_name = 'amount';
+				$return_name = 'return';
