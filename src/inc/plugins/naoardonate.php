@@ -283,3 +283,4 @@ function naoardonate_install()
         'value' => $db->escape_string("$naoardonate_onoff"),
         'disporder' => $c++,
         'gid' => $gid
+    );
