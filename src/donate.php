@@ -283,3 +283,4 @@ DOC;
 				$currency_name = 'currency_code';
 				$merchant_name =  'business';
 				$merchant_value = $mybb->settings['naoardonate_payment_method_pp'];
+				$amount_name = 'amount';
