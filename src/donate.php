@@ -285,3 +285,4 @@ DOC;
 				$merchant_value = $mybb->settings['naoardonate_payment_method_pp'];
 				$amount_name = 'amount';
 				$return_name = 'return';
+				$cancel_name ='cancel_return';
