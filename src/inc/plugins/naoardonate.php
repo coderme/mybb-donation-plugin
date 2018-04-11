@@ -285,3 +285,4 @@ function naoardonate_install()
         'gid' => $gid
     );
   
+    $naoardonate_payment_method = '';
