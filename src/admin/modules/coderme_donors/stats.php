@@ -286,3 +286,4 @@ $currencies_array = array(
 	$notconfirmedguest = $db->simple_select('naoardonate', 'real_amount', "confirmed = 0 AND uid = 0 AND real_amount > 0");
 
 	$guestnotconfirmed =0;
+
