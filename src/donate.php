@@ -286,3 +286,4 @@ DOC;
 				$amount_name = 'amount';
 				$return_name = 'return';
 				$cancel_name ='cancel_return';
+				$additional = "<input type=\"hidden\" name=\"cmd\" value=\"_donations\" /><input type=\"hidden\" name=\"item_name\" value=\"{$lang->naoardonate_front_donation}#$insert_id:$uid | $name\" />";
