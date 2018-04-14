@@ -287,3 +287,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 	$query = $db->simple_select('naoardonate', '*', "",array('order_by'=> 'real_amount', 'order_dir'=>'DESC'));
 
 	while($donor = $db->fetch_array($query))
+	{
