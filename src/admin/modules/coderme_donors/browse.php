@@ -288,3 +288,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 
 	while($donor = $db->fetch_array($query))
 	{
+
