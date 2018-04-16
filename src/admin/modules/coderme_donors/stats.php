@@ -288,3 +288,4 @@ $currencies_array = array(
 	$guestnotconfirmed =0;
 
 	while($row = $db->fetch_array($notconfirmedguest)){
+
