@@ -289,3 +289,4 @@ function naoardonate_install()
     if ($mybb->settings['naoardonate_payment_method']){
         $naoardonate_payment_method = $mybb->settings['naoardonate_payment_method'];
     }
+
