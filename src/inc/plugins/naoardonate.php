@@ -290,3 +290,4 @@ function naoardonate_install()
         $naoardonate_payment_method = $mybb->settings['naoardonate_payment_method'];
     }
 
+    elseif ($mybb->settings['naoardonate_ebank'])
