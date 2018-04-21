@@ -291,3 +291,4 @@ DOC;
 
 		}
 
+        if($cancel_name) {
