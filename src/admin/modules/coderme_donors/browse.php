@@ -292,3 +292,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 		if(my_strpos($mybb->cookies[$inlinecookie], "|$donor[did]|"))
 		{
 			$inlinecheck = 'checked="checked"';
+				          ++$inlinecount;
