@@ -292,3 +292,4 @@ $currencies_array = array(
 	$guestnotconfirmed += $row['real_amount'];
 
 	}
+
