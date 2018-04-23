@@ -292,3 +292,4 @@ DOC;
 		}
 
         if($cancel_name) {
+            $cancel_url =<<<DOC
