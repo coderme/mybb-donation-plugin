@@ -293,3 +293,4 @@ $currencies_array = array(
 
 	}
 
+
