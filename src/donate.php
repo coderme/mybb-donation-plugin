@@ -296,3 +296,4 @@ DOC;
 <input type="hidden" name="$cancel_name" value="{$mybb->settings['bburl']}/donate.php" />
 DOC;
         } else {
+          $cancel_url = '';
