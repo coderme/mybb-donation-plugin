@@ -297,3 +297,4 @@ DOC;
 DOC;
         } else {
           $cancel_url = '';
+        }
