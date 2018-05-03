@@ -300,3 +300,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 		}
 		if($donor['uid']) {
 
+		    $donor['name'] = "<a href=\"index.php?module=user{$sep}users&amp;action=edit&amp;uid=$donor[uid]\" target=\"_blank\">$donor[name]</a>";
