@@ -299,3 +299,4 @@ DOC;
           $cancel_url = '';
         }
 
+		# this is a good time to run plugins
