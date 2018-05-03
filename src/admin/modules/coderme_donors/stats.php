@@ -300,3 +300,4 @@ $currencies_array = array(
 	while($row = $db->fetch_array($confirmedguest)){
 
 	$guestconfirmed += $row['real_amount'];
+
