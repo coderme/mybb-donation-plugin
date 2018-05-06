@@ -300,3 +300,4 @@ function naoardonate_install()
     }
     if ($naoardonate_payment_method){
       $naoardonate_payment_method = str_ireplace(
+          array('AlertPay', 'Payza', ',,'),  array('', '', ','),  $naoardonate_payment_method );
