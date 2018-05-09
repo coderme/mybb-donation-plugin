@@ -302,3 +302,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 
 		    $donor['name'] = "<a href=\"index.php?module=user{$sep}users&amp;action=edit&amp;uid=$donor[uid]\" target=\"_blank\">$donor[name]</a>";
 		    $donor['ogid'] = '<img src="./../images/naoar/group.gif" alt="" title="' .$lang->naoardonate_browse_ogid .  $groups[$donor['ogid']]['title'] . '" />';
+		} else {
