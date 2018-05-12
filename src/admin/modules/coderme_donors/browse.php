@@ -304,3 +304,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 		    $donor['ogid'] = '<img src="./../images/naoar/group.gif" alt="" title="' .$lang->naoardonate_browse_ogid .  $groups[$donor['ogid']]['title'] . '" />';
 		} else {
 
+		    $donor['name'] = $lang->naoardonate_global_guest;
