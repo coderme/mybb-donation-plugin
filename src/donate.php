@@ -303,3 +303,4 @@ DOC;
 		$plugins->run_hooks('naoardonate_alert_admin');
 
 
+		# give a user a cookie :)
