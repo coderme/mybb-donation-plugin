@@ -303,3 +303,4 @@ function naoardonate_install()
           array('AlertPay', 'Payza', ',,'),  array('', '', ','),  $naoardonate_payment_method );
       $naoardonate_payment_method = str_replace('PayPal', 'Paypal', $naoardonate_payment_method );
       $naoardonate_payment_method = trim($naoardonate_payment_method, ',');
+    }
