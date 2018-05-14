@@ -305,3 +305,4 @@ $currencies_array = array(
 
 	# calculate total guests donations
 
+	$guesttotal = $guestnotconfirmed + $guestconfirmed;
