@@ -305,3 +305,4 @@ function naoardonate_install()
       $naoardonate_payment_method = trim($naoardonate_payment_method, ',');
     }
                                    
+    $settingsarray[] = array(
