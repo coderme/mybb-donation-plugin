@@ -306,3 +306,4 @@ DOC;
 		# give a user a cookie :)
 		my_setcookie('naoardonate', 'd_ip'.$_SERVER['REMOTE_ADDR'],'86400');        
 
+		# offline donations finish here
