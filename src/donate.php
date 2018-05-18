@@ -307,3 +307,4 @@ DOC;
 		my_setcookie('naoardonate', 'd_ip'.$_SERVER['REMOTE_ADDR'],'86400');        
 
 		# offline donations finish here
+		if ( in_array($payment_method, array('Western Union', 'Bank/Wire transfer'))) {
