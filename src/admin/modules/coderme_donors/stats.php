@@ -307,3 +307,4 @@ $currencies_array = array(
 
 	$guesttotal = $guestnotconfirmed + $guestconfirmed;
 
+	# calcuate members donatins : start with unconfirmed donations
