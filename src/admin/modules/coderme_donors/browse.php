@@ -307,3 +307,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 		    $donor['name'] = $lang->naoardonate_global_guest;
 		    $donor['ogid'] = '';
 		}
+
