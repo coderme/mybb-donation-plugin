@@ -308,3 +308,4 @@ DOC;
 
 		# offline donations finish here
 		if ( in_array($payment_method, array('Western Union', 'Bank/Wire transfer'))) {
+           // rdr to prevent form resubmit
