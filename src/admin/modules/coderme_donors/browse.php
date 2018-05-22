@@ -310,3 +310,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 
 		if($donor['confirmed']){
 
+		    $class = '';
