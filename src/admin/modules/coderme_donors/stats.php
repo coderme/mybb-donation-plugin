@@ -309,3 +309,4 @@ $currencies_array = array(
 
 	# calcuate members donatins : start with unconfirmed donations
 
+	$membernotconfirmed = $notconfirmedtotal - $guestnotconfirmed;
