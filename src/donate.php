@@ -310,3 +310,4 @@ DOC;
 		if ( in_array($payment_method, array('Western Union', 'Bank/Wire transfer'))) {
            // rdr to prevent form resubmit
            redirect($mybb->settings['bburl'] . '/donate.php?action=thank_you',
+                  $lang->naoardonate_front_thanku,
