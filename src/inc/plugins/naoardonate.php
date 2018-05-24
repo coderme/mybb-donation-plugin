@@ -310,3 +310,4 @@ function naoardonate_install()
         'title' => $db->escape_string($lang->naoardonate_settings_payment_method),
         'description' => $db->escape_string($lang->naoardonate_settings_payment_method_desc),
         'optionscode' => $db->escape_string('php
+<label onclick=\"t_onchange(\'naoardonate_2c\',\'payment_method_2c\');\" for=\"naoardonate_2c\"><input type=\"checkbox\" name=\"upsetting[naoardonate_payment_method][]\" id=\"naoardonate_2c\" value=\"2checkout\"   ".(strpos($setting[\'value\'],\'2checkout\') !== false? "checked=\"checked\"" : "" ) . "> 2checkout <a href=\"https://www.2checkout.com/signup\" title=\"'
