@@ -311,3 +311,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 		if($donor['confirmed']){
 
 		    $class = '';
+		    $confirmed = '<img src="./../images/naoar/tick.gif" alt="" title="' . $lang->naoardonate_global_you_confirmed . '" />';
