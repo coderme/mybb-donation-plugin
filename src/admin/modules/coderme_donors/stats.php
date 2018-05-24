@@ -311,3 +311,4 @@ $currencies_array = array(
 
 	$membernotconfirmed = $notconfirmedtotal - $guestnotconfirmed;
 
+	# members confirmed
