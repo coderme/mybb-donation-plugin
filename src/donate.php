@@ -311,3 +311,4 @@ DOC;
            // rdr to prevent form resubmit
            redirect($mybb->settings['bburl'] . '/donate.php?action=thank_you',
                   $lang->naoardonate_front_thanku,
+                  $lang->naoardonate_front_thanku_title);
