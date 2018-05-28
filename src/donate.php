@@ -313,3 +313,4 @@ DOC;
                   $lang->naoardonate_front_thanku,
                   $lang->naoardonate_front_thanku_title);
             
+            
