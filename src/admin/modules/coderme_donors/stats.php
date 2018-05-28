@@ -313,3 +313,4 @@ $currencies_array = array(
 
 	# members confirmed
 
+	$memberconfirmed = $confirmedtotal - $guestconfirmed;
