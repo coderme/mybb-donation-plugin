@@ -314,3 +314,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 		    $confirmed = '<img src="./../images/naoar/tick.gif" alt="" title="' . $lang->naoardonate_global_you_confirmed . '" />';
 
 		}else {
+		    $class = 'class="no"';
