@@ -315,3 +315,4 @@ $currencies_array = array(
 
 	$memberconfirmed = $confirmedtotal - $guestconfirmed;
 
+	# sum of members donations
