@@ -317,3 +317,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 		    $class = 'class="no"';
 		    $confirmed = '&nbsp;';
 		}
+		if($donor['note']){
