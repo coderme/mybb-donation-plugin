@@ -318,3 +318,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 		    $confirmed = '&nbsp;';
 		}
 		if($donor['note']){
+		    $note ="<div style=\"display:none\" id=\"note_$donor[did]_popup\" class=\"modal\">
