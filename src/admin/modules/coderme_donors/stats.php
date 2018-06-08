@@ -318,3 +318,4 @@ $currencies_array = array(
 	# sum of members donations
 
 	$membertotal = $memberconfirmed + $membernotconfirmed;
+
