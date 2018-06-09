@@ -319,3 +319,4 @@ $currencies_array = array(
 
 	$membertotal = $memberconfirmed + $membernotconfirmed;
 
+	# get highest donations real_amount
