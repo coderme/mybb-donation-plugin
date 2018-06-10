@@ -320,3 +320,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 		if($donor['note']){
 		    $note ="<div style=\"display:none\" id=\"note_$donor[did]_popup\" class=\"modal\">
 					<div class=\"naoardonate_note\">" . wordwrap($donor['note'],30,'<br />',true) . "</div>
+				</div>
