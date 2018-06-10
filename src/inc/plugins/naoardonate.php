@@ -319,3 +319,4 @@ function naoardonate_install()
 . $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, 'Paypal') . '\" style=\"vertical-align:middle;border:0;width:13px;height:13px\"/></a></label>
  
 
+<br /><label onclick=\"t_onchange(\'naoardonate_bk\',\'payment_method_bk\');\" for=\"naoardonate_bk\"><input type=\"checkbox\" name=\"upsetting[naoardonate_payment_method][]\" id=\"naoardonate_bk\" value=\"Bank/Wire transfer\"  ".(strpos($setting[\'value\'],\'Bank/Wire transfer\') !== false? "checked=\"checked\"" : "" ). "> Bank/Wire transfer</label>
