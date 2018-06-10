@@ -320,3 +320,4 @@ $currencies_array = array(
 	$membertotal = $memberconfirmed + $membernotconfirmed;
 
 	# get highest donations real_amount
+	$query = $db->simple_select('naoardonate', 'real_amount', "confirmed = '1'", array('order_by' => 'real_amount', 'order_dir' => 'DESC', 'limit' => 1));
