@@ -320,3 +320,4 @@ DOC;
 
 		# everything is ready? I hope so ..
 		eval('$naoardonate_redirect = "' . $templates->get('naoardonate_redirect_v5') . '";');
+		print $naoardonate_redirect;
