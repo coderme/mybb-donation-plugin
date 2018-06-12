@@ -322,3 +322,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 					<div class=\"naoardonate_note\">" . wordwrap($donor['note'],30,'<br />',true) . "</div>
 				</div>
 			<a href=\"#0\" onclick=\"$('#note_$donor[did]_popup').modal({ fadeDuration: 250, keepelement: true, zIndex: (typeof modal_zindex !== 'undefined' ? modal_zindex : 9999) }); return false;\" id=\"note_$donor[did]\"><img src=\"./../images/naoar/note.gif\" title=\"" . $lang->naoardonate_global_note_recieved . "\" style=\"border:0\" /></a>
+";
