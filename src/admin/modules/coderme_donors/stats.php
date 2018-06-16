@@ -324,3 +324,4 @@ $currencies_array = array(
 	$highest = $db->fetch_field($query, 'real_amount');
 
 	# get lowest donations real_amount
+	$query =$db->simple_select('naoardonate', 'real_amount', "confirmed = '1' AND real_amount > '0'", array('order_by' => 'real_amount', 'limit'=> 1));
