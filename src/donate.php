@@ -325,3 +325,4 @@ DOC;
 	}
 	else
 	{
+		$errors = inline_error($errors);
