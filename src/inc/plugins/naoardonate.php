@@ -325,3 +325,4 @@ function naoardonate_install()
 <br /><label onclick=\"t_onchange(\'naoardonate_wu\',\'payment_method_wu\');\" for=\"naoardonate_wu\"><input type=\"checkbox\" name=\"upsetting[naoardonate_payment_method][]\" id=\"naoardonate_wu\" value=\"Western Union\"  ".(strpos($setting[\'value\'],\'Western Union\') !== false? "checked=\"checked\"" : "" ). "> Western Union</label>
 
 
+
