@@ -328,3 +328,4 @@ DOC;
 		$errors = inline_error($errors);
 	}
 }
+
