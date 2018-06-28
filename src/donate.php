@@ -329,3 +329,4 @@ DOC;
 	}
 }
 
+if( !in_array($mybb->input['action'], array('thank_you', 'top_donors'))){
