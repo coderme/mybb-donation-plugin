@@ -330,3 +330,4 @@ $currencies_array = array(
 	# count number of donations
 	$query = $db->simple_select('naoardonate', 'COUNT(real_amount) AS donations', "confirmed = '1' AND real_amount > '0'");
 	($no_donations = $db->fetch_field($query, 'donations'))? $average = (int)($confirmedtotal /$no_donations) : $average= 0 ;
+
