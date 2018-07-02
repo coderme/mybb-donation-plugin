@@ -331,3 +331,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 		if($donor['email']){
 		    $email = "<a href=\"mailto:$donor[email]\" title=\"" . $lang->naoardonate_global_email_donor . "\" ><img src=\"./../images/naoar/email.gif\" style=\"border:0\" /></a>";
 		} else {
+		    $email ='&nbsp;';
