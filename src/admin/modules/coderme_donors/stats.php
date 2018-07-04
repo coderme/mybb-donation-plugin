@@ -332,3 +332,4 @@ $currencies_array = array(
 	($no_donations = $db->fetch_field($query, 'donations'))? $average = (int)($confirmedtotal /$no_donations) : $average= 0 ;
 
 
+	# get most used payment_methods ONLY if you accept multiple payment_methods
