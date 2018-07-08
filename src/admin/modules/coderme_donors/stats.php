@@ -335,3 +335,4 @@ $currencies_array = array(
 	# get most used payment_methods ONLY if you accept multiple payment_methods
 	$query = $db->simple_select('naoardonate', 'payment_method, COUNT(payment_method) AS toppayment_methods', "confirmed = '1' AND real_amount > '0' GROUP BY payment_method", array('order_by' => 'toppayment_methods', 'order_dir' => 'DESC', 'limit' => 4));
 	while($row = $db->fetch_array($query))
+	{
