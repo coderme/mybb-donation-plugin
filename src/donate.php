@@ -334,3 +334,4 @@ if( !in_array($mybb->input['action'], array('thank_you', 'top_donors'))){
 # show name and email fields ONLY when enabled
 if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info'] == 2 and $mybb->user['uid'] or $mybb->settings['naoardonate_info'] == 1 and !$mybb->user['uid']) {
 	if(empty($name) and empty($email) and $mybb->user['uid']){
+		$name = $mybb->user['username'];
