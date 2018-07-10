@@ -336,3 +336,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 	if(empty($name) and empty($email) and $mybb->user['uid']){
 		$name = $mybb->user['username'];
 		$email = $mybb->user['email'];
+	}
