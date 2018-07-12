@@ -337,3 +337,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 		$name = $mybb->user['username'];
 		$email = $mybb->user['email'];
 	}
+	if($mybb->settings['naoardonate_info_required']){
