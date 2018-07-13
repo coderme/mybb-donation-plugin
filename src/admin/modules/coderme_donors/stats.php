@@ -338,3 +338,4 @@ $currencies_array = array(
 	{
 	$payment_methods[] =$row;
 	}
+
