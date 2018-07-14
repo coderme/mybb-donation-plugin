@@ -339,3 +339,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 		$donor['dateline']= my_date($mybb->settings['dateformat'], $donor['dateline']).", ".my_date($mybb->settings['timeformat'], $donor['dateline']);
 		$table .= <<<TABLE_BODY
 		<tr id="donor1_$donor[did]">
+				<td class="align_center">$donor[name]</td>
