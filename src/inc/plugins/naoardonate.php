@@ -338,3 +338,4 @@ function naoardonate_install()
 
         }
         elseif($mybb->settings['naoardonate_ebank_2c'])
+        {
