@@ -339,3 +339,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 	}
 	if($mybb->settings['naoardonate_info_required']){
 		$optional_required = $lang->naoardonate_front_required;
+	}
