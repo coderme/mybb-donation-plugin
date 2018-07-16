@@ -340,3 +340,4 @@ $currencies_array = array(
 	}
 
 
+	# get top donors' groups
