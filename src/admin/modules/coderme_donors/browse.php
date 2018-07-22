@@ -342,3 +342,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 				<td class="align_center">$donor[name]</td>
 				<td class="align_center">$donor[real_amount] $donor[currency]</td>
 				<td class="align_center">$donor[payment_method]</td>
+				<td class="align_center">$donor[ip]</td>
