@@ -342,3 +342,4 @@ $currencies_array = array(
 
 	# get top donors' groups
 	$query = $db->simple_select('naoardonate', 'ogid, COUNT(ogid) AS topgroups', 'confirmed = 1 AND real_amount > 0 GROUP BY ogid', array('order_by' => 'topgroups', 'order_dir' => 'DESC', 'limit' => 4));
+
