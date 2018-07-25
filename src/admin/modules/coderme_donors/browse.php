@@ -344,3 +344,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 				<td class="align_center">$donor[payment_method]</td>
 				<td class="align_center">$donor[ip]</td>
                 <td class="align_center">$donor[invoice_id]</td>
+				<td class="align_center"><div class="naoar_info"><div>$confirmed</div><div>$email</div><div>$donor[ogid]</div><div>$note</div></div></td>
