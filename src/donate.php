@@ -343,3 +343,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 	else {
 		$optional_required = $lang->naoardonate_front_optional;
 	}
+	($name == $lang->naoardonate_global_guest) ? $name='' : false;
