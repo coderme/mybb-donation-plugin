@@ -345,3 +345,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 	}
 	($name == $lang->naoardonate_global_guest) ? $name='' : false;
 	eval('$aboutyou = "' . $templates->get('naoardonate_donate_aboutu_v5') . '";');
+} else {
