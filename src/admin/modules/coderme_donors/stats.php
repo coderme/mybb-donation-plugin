@@ -347,3 +347,4 @@ $currencies_array = array(
 	{
 	$topgroups[] =$row;
 	}
+
