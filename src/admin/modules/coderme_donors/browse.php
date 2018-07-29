@@ -347,3 +347,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 				<td class="align_center"><div class="naoar_info"><div>$confirmed</div><div>$email</div><div>$donor[ogid]</div><div>$note</div></div></td>
 				<td class="align_center">$donor[dateline]</td>
 				<td $class align="center" style="white-space: nowrap"><input type="checkbox" class="checkbox" name="inlinemod_$donor[did]" id="inlinemod_$donor[did]" value="1" /></td>
+		</tr>
