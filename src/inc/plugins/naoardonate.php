@@ -347,3 +347,4 @@ function naoardonate_install()
         }
         else {
         $naoardonate_payment_method_2c = '';
+        }
