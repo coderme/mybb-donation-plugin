@@ -348,3 +348,4 @@ $currencies_array = array(
 	$topgroups[] =$row;
 	}
 
+	# get most used currencies ONLY if you accept multiple currencies
