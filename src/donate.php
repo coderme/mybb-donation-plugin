@@ -349,3 +349,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 	$aboutyou ='';
 }
 
+			if($mybb->input['imagestring'])
