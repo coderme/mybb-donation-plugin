@@ -349,3 +349,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 				<td $class align="center" style="white-space: nowrap"><input type="checkbox" class="checkbox" name="inlinemod_$donor[did]" id="inlinemod_$donor[did]" value="1" /></td>
 		</tr>
 TABLE_BODY;
+	}
