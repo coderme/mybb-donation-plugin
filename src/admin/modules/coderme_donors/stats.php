@@ -350,3 +350,4 @@ $currencies_array = array(
 
 	# get most used currencies ONLY if you accept multiple currencies
 	$query = $db->simple_select('naoardonate', 'currency, COUNT(currency) AS topcurrencies', "confirmed = 1 AND real_amount > 0 GROUP BY currency", array('order_by'=>'topcurrencies','order_dir'=>'DESC','limit'=>3));
+
