@@ -350,3 +350,4 @@ if( ! in_array( $mybb->input['action'], array('confirmed', 'unconfirmed'))){
 		</tr>
 TABLE_BODY;
 	}
+	if(strpos($table,'<td class="align_center">') !== false){
