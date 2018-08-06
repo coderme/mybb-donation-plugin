@@ -351,3 +351,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 
 			if($mybb->input['imagestring'])
 			{
+				$imagehash = $db->escape_string($mybb->input['imagehash']);
