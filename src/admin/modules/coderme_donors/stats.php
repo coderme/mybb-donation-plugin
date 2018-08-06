@@ -352,3 +352,4 @@ $currencies_array = array(
 	$query = $db->simple_select('naoardonate', 'currency, COUNT(currency) AS topcurrencies', "confirmed = 1 AND real_amount > 0 GROUP BY currency", array('order_by'=>'topcurrencies','order_dir'=>'DESC','limit'=>3));
 
 	while($row = $db->fetch_array($query))
+	{
