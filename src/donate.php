@@ -354,3 +354,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 				$imagehash = $db->escape_string($mybb->input['imagehash']);
 				$imagestring = $db->escape_string($mybb->input['imagestring']);
 				$query = $db->simple_select("captcha", "*", "imagehash='{$imagehash}' AND imagestring='{$imagestring}'");
+				$imgcheck = $db->fetch_array($query);
