@@ -354,3 +354,4 @@ $currencies_array = array(
 	while($row = $db->fetch_array($query))
 	{
 	$currencies[] =$row;
+	}
