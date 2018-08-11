@@ -355,3 +355,4 @@ $currencies_array = array(
 	{
 	$currencies[] =$row;
 	}
+
