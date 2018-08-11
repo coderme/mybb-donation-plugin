@@ -355,3 +355,4 @@ TABLE_BODY;
 	    print $table;
 	    print <<<CODERME_INLINE
 
+<div style="float:right"><form action="index.php?module=coderme_donors{$sep}browse" method="post">
