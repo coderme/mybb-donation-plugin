@@ -356,3 +356,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 				$query = $db->simple_select("captcha", "*", "imagehash='{$imagehash}' AND imagestring='{$imagestring}'");
 				$imgcheck = $db->fetch_array($query);
 				if($imgcheck['dateline'] > 0)
+				{
