@@ -356,3 +356,4 @@ $currencies_array = array(
 	$currencies[] =$row;
 	}
 
+	# get most paid real_amount
