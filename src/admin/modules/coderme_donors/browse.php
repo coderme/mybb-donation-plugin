@@ -356,3 +356,4 @@ TABLE_BODY;
 	    print <<<CODERME_INLINE
 
 <div style="float:right"><form action="index.php?module=coderme_donors{$sep}browse" method="post">
+<input type="hidden" name="my_post_key" value="$mybb->post_code" />
