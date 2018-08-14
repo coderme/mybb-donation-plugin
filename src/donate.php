@@ -357,3 +357,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 				$imgcheck = $db->fetch_array($query);
 				if($imgcheck['dateline'] > 0)
 				{
+					my_setcookie('naoardonate_captcha', md5($_SERVER['REMOTE_ADDR']),'86400');
