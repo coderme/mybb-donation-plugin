@@ -358,3 +358,4 @@ $currencies_array = array(
 
 	# get most paid real_amount
 	$query = $db->simple_select('naoardonate', 'real_amount, COUNT(real_amount) AS topamounts', "confirmed = 1 AND real_amount > 0 GROUP BY real_amount", array('order_by'=>'topamounts','order_dir'=>'DESC','limit'=>3));
+
