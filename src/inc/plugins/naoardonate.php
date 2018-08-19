@@ -358,3 +358,4 @@ function naoardonate_install()
         'optionscode' => 'text',
         'value' => $db->escape_string($naoardonate_payment_method_2c),
         'disporder' => $c++,
+        'gid' => $gid
