@@ -359,3 +359,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 				{
 					my_setcookie('naoardonate_captcha', md5($_SERVER['REMOTE_ADDR']),'86400');
 
+				}
