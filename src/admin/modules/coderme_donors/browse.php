@@ -360,3 +360,4 @@ TABLE_BODY;
 <input type="hidden" name="naoar_cookie" value="inlinemod_donor1" />
 <input type="hidden" name="naoar_referrer" value="index.php?module=coderme_donors{$sep}browse" />
 <span class="smalltext"><strong>$lang->naoardonate_browse_inline_moderation</strong></span>
+<select name="inline_action">
