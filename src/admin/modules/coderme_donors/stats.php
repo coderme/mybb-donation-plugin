@@ -363,3 +363,4 @@ $currencies_array = array(
 
 	$topamounts[] = $row;
 
+	}
