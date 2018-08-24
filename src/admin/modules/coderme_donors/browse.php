@@ -364,3 +364,4 @@ TABLE_BODY;
 		<option value="multidelete" >$lang->naoardonate_browse_delete</option>
 		<option value="multiunconfirm">$lang->naoardonate_browse_unconfirm</option>
 		<option value="multiconfirm" selected="selected" >$lang->naoardonate_browse_confirm</option>
+
