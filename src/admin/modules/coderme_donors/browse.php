@@ -365,3 +365,4 @@ TABLE_BODY;
 		<option value="multiunconfirm">$lang->naoardonate_browse_unconfirm</option>
 		<option value="multiconfirm" selected="selected" >$lang->naoardonate_browse_confirm</option>
 
+</select>
