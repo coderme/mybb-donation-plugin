@@ -365,3 +365,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 					$db->delete_query("captcha", "imagehash='{$imagehash}'");
 				}
 			}
+
