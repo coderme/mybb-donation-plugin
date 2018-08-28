@@ -366,3 +366,4 @@ $currencies_array = array(
 	}
 
 	print "<table cellspacing=\"0\"  class=\"coderme_table\">
+	<tr valign=\"top\">
