@@ -366,3 +366,4 @@ TABLE_BODY;
 		<option value="multiconfirm" selected="selected" >$lang->naoardonate_browse_confirm</option>
 
 </select>
+<input type="submit" class="button" name="go" value="$lang->naoardonate_global_go ($inlinecount)" id="inline_go" />&nbsp;
