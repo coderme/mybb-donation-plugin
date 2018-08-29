@@ -367,3 +367,4 @@ $currencies_array = array(
 
 	print "<table cellspacing=\"0\"  class=\"coderme_table\">
 	<tr valign=\"top\">
+		<td><div class=\"coderme_div\">$lang->naoardonate_stats_total_donations :</div>";
