@@ -367,3 +367,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 			}
 
 	if(($mybb->settings['naoardonate_captcha'] == 3  or ($mybb->settings['naoardonate_captcha'] == 2 and $mybb->user['uid']) or ($mybb->settings['naoardonate_captcha'] == 1 and !$mybb->user['uid'])) and function_exists("imagepng") and !$captcha_valid)
+		{
