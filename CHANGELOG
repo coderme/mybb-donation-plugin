@@ -1,6 +1,12 @@
+CoderMe Donation 5.1.0
+---------------------------------
+    # Security: Payza dropped (out of business)
+    # Support: PHP 7.2
+
+
 CoderMe Donation 5.0.2
 ---------------------------------
-    # drop CodeName in favor of guid (for now).
+    # Drop CodeName in favor of guid (for now).
 
 
 

@@ -8,7 +8,7 @@
  * Website: https://markit.coderme.com
  * Home:    https://red.coderme.com/mybb-donation-plugin
  * License: https://red.coderme.com/mybb-donation-plugin#license
- * Version: 5.0.0
+ * Version: 5.1.0
  * GOLD VERSION: https://markit.coderme.com/mybb-donation-gold
  *
  **/
@@ -38,7 +38,7 @@ function naoardonate_info(){
         "website"   => "https://red.coderme.com/mybb-donation-plugin",
         "author"    => "CoderMe.com",
         "authorsite"    => "https://markit.coderme.com?src=pluginslist",
-        "version"   => "5.0.2",
+        "version"   => "5.1.0",
         "guid"      => "a60331204b57399c66a958398b08e6df",
         // this shouldn't be in the 1st place
         // "codename"  => "naoardonate",
@@ -106,6 +106,14 @@ function naoardonate_install()
 
   }
 }
+
+
+   # delete old settings
+    // naoardonate_payment_method_pz remove
+    // naoardonate_ebank_ap
+    // teradonate_ebank_ap
+
+   $db->delete_query("settings", "name = 'naoardonate_payment_method_pz' OR name = 'naoardonate_ebank_ap' OR  name = 'teradonate_ebank_ap'");
 
 
     # handle upgrading..
@@ -243,14 +251,15 @@ function naoardonate_install()
 
 
     if( array_key_exists('naoardonate_onoff', $mybb->settings) and $mybb->settings['naoardonate_onoff'] == 1
-        or array_key_exists('teradonate_onoff', $mybb->settings) and $mybb->settings['teradonate_onoff'] == 1 )
-    {
+        or array_key_exists('teradonate_onoff', $mybb->settings) and $mybb->settings['teradonate_onoff'] == 1 )  {
         $naoardonate_onoff = 1;
     }
     else{
         $naoardonate_onoff = 0;
 
     }
+
+    $c = 0;
 
     $settingsarray[] = array(
         'name' => 'naoardonate_onoff',
@@ -262,7 +271,7 @@ function naoardonate_install()
 <label onclick=\"t_load();\" for=\"naoardonate_off\" class=\"label_radio_off naoardonate_settings_onoff\">
 <input type=\"radio\" name=\"upsetting[{$setting[name]}]\" value=\"0\" class=\"radio_input radio_off naoardonate_settings_onoff\" id=\"naoardonate_off\"  " . ($setting[\'value\'] == 0 ? "checked=\"checked\"" : "" ) . " />' . $lang->no . '</label>'),
         'value' => $db->escape_string("$naoardonate_onoff"),
-        'disporder' => 0,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -291,10 +300,6 @@ function naoardonate_install()
         'title' => $db->escape_string($lang->naoardonate_settings_payment_method),
         'description' => $db->escape_string($lang->naoardonate_settings_payment_method_desc),
         'optionscode' => $db->escape_string('php
-<label onclick=\"t_onchange(\'naoardonate_pz\',\'payment_method_pz\');\" for=\"naoardonate_pz\"><input type=\"checkbox\" name=\"upsetting[naoardonate_payment_method][]\" id=\"naoardonate_pz\" value=\"Payza\" ".(strpos($setting[\'value\'],\'Payza\') !== false? "checked=\"checked\"" : "" ) . "> Payza <a href=\"http://www.payza.com/?1cSIX3YMzAHE6df7fltAQA%3d%3d\" title=\"'
-. $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, 'Payza') . '\" target=\"_blank\" rel=\"noopener\"><img src=\"./../images/naoar/oh.png\" alt=\"'
-. $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, 'Payza') . '\" style=\"vertical-align:middle;border:0;width:13px;height:13px\"/></a></label><br />
-
 <label onclick=\"t_onchange(\'naoardonate_2c\',\'payment_method_2c\');\" for=\"naoardonate_2c\"><input type=\"checkbox\" name=\"upsetting[naoardonate_payment_method][]\" id=\"naoardonate_2c\" value=\"2checkout\"   ".(strpos($setting[\'value\'],\'2checkout\') !== false? "checked=\"checked\"" : "" ) . "> 2checkout <a href=\"https://www.2checkout.com/signup\" title=\"'
 . $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, '2checkout') . '\" target=\"_blank\" rel=\"noopener\"><img src=\"./../images/naoar/oh.png\"  alt=\"'
 . $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, '2checkout') . '\" style=\"vertical-align:middle;border:0;width:13px;height:13px\"/></a></label>
@@ -313,40 +318,11 @@ function naoardonate_install()
 
 '),
         'value' => $db->escape_string($naoardonate_payment_method),
-        'disporder' => 1,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
-
-    if ($mybb->settings['naoardonate_payment_method_pz']) {
-        $naoardonate_payment_method_pz = $mybb->settings['naoardonate_payment_method_pz'];
-
-        }
-        elseif($mybb->settings['naoardonate_ebank_ap'])
-        {
-        $naoardonate_payment_method_pz = $mybb->settings['naoardonate_ebank_ap'];
-        }
-        elseif ($mybb->settings['teradonate_ebank_ap']) {
-        $naoardonate_payment_method_pz = $mybb->settings['teradonate_ebank_ap'];
-
-        }
-        else {
-        $naoardonate_payment_method_pz = '';
-        }
-
-
-
-
-    $settingsarray[] = array(
-        'name' => 'naoardonate_payment_method_pz',
-        'title' => $db->escape_string($lang->naoardonate_settings_payment_method_AP),
-        'description' => $db->escape_string($lang->naoardonate_settings_payment_method_AP_desc),
-        'optionscode' => 'text',
-        'value' => $db->escape_string($naoardonate_payment_method_pz),
-        'disporder' => 2,
-        'gid' => $gid
-    );
-
+    
     if ($mybb->settings['naoardonate_payment_method_2c']) {
         $naoardonate_payment_method_2c = $mybb->settings['naoardonate_payment_method_2c'];
 
@@ -371,7 +347,7 @@ function naoardonate_install()
         'description' => $db->escape_string($lang->naoardonate_settings_payment_method_2C_desc),
         'optionscode' => 'text',
         'value' => $db->escape_string($naoardonate_payment_method_2c),
-        'disporder' => 4,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -400,7 +376,7 @@ function naoardonate_install()
         'description' => $db->escape_string($lang->naoardonate_settings_payment_method_PP_desc),
         'optionscode' => 'text',
         'value' => $db->escape_string($naoardonate_payment_method_pp),
-        'disporder' => 5,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -418,7 +394,7 @@ function naoardonate_install()
         'description' => $db->escape_string($lang->naoardonate_settings_payment_method_bank_desc),
         'optionscode' => 'textarea',
         'value' => $db->escape_string($payment_method_bk),
-        'disporder' => 6,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -437,7 +413,7 @@ function naoardonate_install()
         'description' => $db->escape_string($lang->naoardonate_settings_payment_method_WU_desc),
         'optionscode' => 'textarea',
         'value' =>   $db->escape_string($payment_method_wu),
-        'disporder' => 7,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -463,7 +439,7 @@ function naoardonate_install()
         'optionscode' => $db->escape_string('php
 " . $naoardonate_fromgroups . "'),
         'value' => $db->escape_string($naoardonate_from),
-        'disporder' => 8,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -493,7 +469,7 @@ email=$lang->naoardonate_settings_email
 disabled=$lang->naoardonate_settings_disabled
 ",
         'value' => $db->escape_string($naoardonate_alert),
-        'disporder' => 9,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -521,7 +497,7 @@ disabled=$lang->naoardonate_settings_disabled
 <label onclick=\"t_enablebar();\" for=\"naoardonate_enablebar_on\" class=\"label_radio_yes naoardonate_settings_enablebar\"><input type=\"radio\" name=\"upsetting[naoardonate_enablebar]\" value=\"1\" class=\"radio_input radio_yes naoardonate_settings_enablebar\" id=\"naoardonate_enablebar_on\" " . ($setting[\'value\'] == 1 ? "checked=\"checked\"" : "" ) . "/>' . $lang->yes . '</label>
 <label onclick=\"t_enablebar();\" for=\"naoardonate_enablebar_off\" class=\"label_radio_no naoardonate_settings_enablebar\"><input type=\"radio\" name=\"upsetting[naoardonate_enablebar]\" value=\"0\" class=\"radio_input radio_no naoardonate_settings_enablebar\" id=\"naoardonate_enablebar_off\" " . ($setting[\'value\'] == 0 ? "checked=\"checked\"" : "" ) . " />' . $lang->no . '</label>'),
         'value' => $db->escape_string($naoardonate_enablebar),
-        'disporder' => 10,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -534,7 +510,7 @@ disabled=$lang->naoardonate_settings_disabled
 <label for=\"naoardonate_newgoal_on\" class=\"label_radio_yes naoardonate_settings_newgoal\"><input type=\"radio\" name=\"upsetting[naoardonate_newgoal]\" value=\"1\" class=\"radio_input radio_yes naoardonate_settings_newgoal\" id=\"naoardonate_newgoal_on\" />' . $lang->yes . '</label>
 <label for=\"naoardonate_newgoal_off\" class=\"label_radio_no naoardonate_settings_newgoal\"><input type=\"radio\" name=\"upsetting[naoardonate_newgoal]\" value=\"0\" class=\"radio_input radio_no naoardonate_settings_newgoal\" id=\"naoardonate_newgoal_off\" checked=\"checked\" />' . $lang->no . '</label>'),
         'value' => 0,
-        'disporder' => 11,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -559,7 +535,7 @@ disabled=$lang->naoardonate_settings_disabled
         'description' => $db->escape_string($lang->naoardonate_settings_reason_desc),
         'optionscode' => 'textarea',
         'value' => $db->escape_string($naoardonate_reason),
-        'disporder' => 12,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -584,7 +560,7 @@ disabled=$lang->naoardonate_settings_disabled
         'description' => $db->escape_string($lang->naoardonate_settings_target_desc),
         'optionscode' => 'text',
         'value' => $db->escape_string($naoardonate_target),
-        'disporder' => 13,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -611,7 +587,7 @@ disabled=$lang->naoardonate_settings_disabled
 <input type=\"text\" size=\"7\" maxlength=\"3\" name=\"upsetting[{$setting[name]}]\" value=\"" . ((($v =($setting[\'value\']-time())/86400) <= 0 ) ? 0: round($v) ) ."\" /> Days'),
 
         'value' => $db->escape_string($naoardonate_duration),
-        'disporder' => 14,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -637,7 +613,7 @@ disabled=$lang->naoardonate_settings_disabled
         'description' => $db->escape_string($lang->naoardonate_settings_ifreached_desc),
         'optionscode' => 'yesno',
         'value' => $db->escape_string($naoardonate_ifreached),
-        'disporder' => 15,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -661,7 +637,7 @@ disabled=$lang->naoardonate_settings_disabled
         'description' => $db->escape_string($lang->naoardonate_settings_bar_width_desc),
         'optionscode' => 'text',
         'value' => $db->escape_string($naoardonate_bar_width),
-        'disporder' => 16,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -687,7 +663,7 @@ disabled=$lang->naoardonate_settings_disabled
         'description' => $db->escape_string($lang->naoardonate_settings_recievedmsg_desc),
         'optionscode' => 'textarea',
         'value' => $db->escape_string($naoardonate_recievedmsg),
-        'disporder' => 17,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -714,7 +690,7 @@ disabled=$lang->naoardonate_settings_disabled
         'description' => $db->escape_string($lang->naoardonate_settings_recievedmsg_100_desc),
         'optionscode' => 'textarea',
         'value' => $db->escape_string($naoardonate_recievedmsg_100),
-        'disporder' => 18,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -740,7 +716,7 @@ disabled=$lang->naoardonate_settings_disabled
         'description' => $db->escape_string($lang->naoardonate_settings_amount_desc),
         'optionscode' => 'textarea',
         'value' => $db->escape_string($naoardonate_amount),
-        'disporder' => 19,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -764,47 +740,45 @@ disabled=$lang->naoardonate_settings_disabled
     array(
     $lang->naoardonate_global_currency_all_supported =>
         array(
-        CODERME_PAYZA, CODERME_2CHECKOUT,
+        CODERME_2CHECKOUT,
         CODERME_PAYPAL, CODERME_WESTERN_UNION,
         CODERME_BANK_WIRE,
 
             )),
     array(
-    $lang->naoardonate_global_currency_pz_2c_pp_bk =>
+    $lang->naoardonate_global_currency_2c_pp_bk =>
         array(
-        CODERME_PAYZA, CODERME_2CHECKOUT,
+        CODERME_2CHECKOUT,
         CODERME_PAYPAL,
         CODERME_BANK_WIRE,
 
             )),                                                     
     array(
-    $lang->naoardonate_global_currency_pz_2c_wu_bk =>
+    $lang->naoardonate_global_currency_2c_wu_bk =>
         array(
-        CODERME_PAYZA, CODERME_2CHECKOUT,
+        CODERME_2CHECKOUT,
         CODERME_WESTERN_UNION,
         CODERME_BANK_WIRE,
 
             )),
     array(
-    $lang->naoardonate_global_currency_pz_2c_bk =>
+    $lang->naoardonate_global_currency_2c_bk =>
         array(
-        CODERME_PAYZA, CODERME_2CHECKOUT,
+        CODERME_2CHECKOUT,
         CODERME_BANK_WIRE,
 
             )),
         
     array(
-    $lang->naoardonate_global_currency_pz_pp_wu_bk =>
+    $lang->naoardonate_global_currency_pp_wu_bk =>
         array(
-        CODERME_PAYZA,
         CODERME_PAYPAL, CODERME_WESTERN_UNION,
         CODERME_BANK_WIRE,
 
             )),
     array(
-    $lang->naoardonate_global_currency_pz_pp_bk =>
+    $lang->naoardonate_global_currency_pp_bk =>
         array(
-        CODERME_PAYZA,
         CODERME_PAYPAL,
         CODERME_BANK_WIRE,
 
@@ -860,18 +834,16 @@ disabled=$lang->naoardonate_settings_disabled
             )),        
 
     array(
-    $lang->naoardonate_global_currency_pz_wu_bk =>
+    $lang->naoardonate_global_currency_wu_bk =>
         array(
-        CODERME_PAYZA,
         CODERME_WESTERN_UNION,
         CODERME_BANK_WIRE,
 
             )),        
 
     array(
-    $lang->naoardonate_global_currency_pz_bk =>
+    $lang->naoardonate_global_currency_bk =>
         array(
-        CODERME_PAYZA,
         CODERME_BANK_WIRE,
 
             )),        
@@ -905,10 +877,10 @@ disabled=$lang->naoardonate_settings_disabled
           continue;
         }
         $currenciesOptions .= '<optgroup label=\"' . $k . '\">';
-        foreach($list as $c ){
-             $name = 'naoardonate_global_currency_' . strtolower($c);
-             $currenciesOptions .= '<option value=\"' . $c  .
-                       '\"  ".($setting[\'value\'] == \'' . $c . '\' ? "selected=\"selected\"" : "" ). ">' . $lang->$name . '</option>';
+        foreach($list as $y ){
+             $name = 'naoardonate_global_currency_' . strtolower($y);
+             $currenciesOptions .= '<option value=\"' . $y  .
+                       '\"  ".($setting[\'value\'] == \'' . $y . '\' ? "selected=\"selected\"" : "" ). ">' . $lang->$name . '</option>';
         }
         $currenciesOptions .= '</optgroup>';
         
@@ -923,7 +895,7 @@ disabled=$lang->naoardonate_settings_disabled
         'description' => $db->escape_string($lang->naoardonate_settings_currency_desc),
         'optionscode' => $db->escape_string($currenciesOptions),
         'value' => $db->escape_string($naoardonate_currency),
-        'disporder' => 20,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -952,7 +924,7 @@ disabled=$lang->naoardonate_settings_disabled
 3=$lang->naoardonate_settings_always
 ",
         'value' => $db->escape_string($naoardonate_info),
-        'disporder' => 21,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -976,7 +948,7 @@ disabled=$lang->naoardonate_settings_disabled
         'description' => $db->escape_string($lang->naoardonate_settings_info_required_desc),
         'optionscode' => "yesno",
         'value' => $db->escape_string($naoardonate_info_required),
-        'disporder' => 22,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -1004,7 +976,7 @@ disabled=$lang->naoardonate_settings_disabled
 <option value=\"nochange\" " . ($setting[\'value\'] == \'nochange\' ?  "selected=\"selected\"" : "" ) . " >' . $lang->naoardonate_settings_donors_nochange .  '</option><option disabled=\"disabled\"> ............</option>" .
 $naoardonate_groups . " </select>'),
         'value' => $db->escape_string($naoardonate_donorsgroup),
-        'disporder' => 23,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -1030,7 +1002,7 @@ $naoardonate_groups . " </select>'),
         'optionscode' => $db->escape_string('php
 " . $naoardonate_unmovablegroups . "'),
         'value' => $db->escape_string($naoardonate_unmovable),
-        'disporder' => 24,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -1054,7 +1026,7 @@ $naoardonate_groups . " </select>'),
         'description' => $db->escape_string($lang->naoardonate_settings_donormsg_desc),
         'optionscode' => 'yesno',
         'value' => $db->escape_string($naoardonate_donormsg),
-        'disporder' => 25,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -1084,7 +1056,7 @@ $naoardonate_groups . " </select>'),
 3=$lang->naoardonate_settings_always
 ",
         'value' => $db->escape_string($naoardonate_captcha),
-        'disporder' => 26,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -1111,7 +1083,7 @@ $naoardonate_groups . " </select>'),
         'optionscode' => $db->escape_string('php
 " . $naoardonate_blockedgroups . "'),
         'value' => $db->escape_string($naoardonate_cannotviewtop),
-        'disporder' => 27,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -1123,7 +1095,7 @@ $naoardonate_groups . " </select>'),
         'description' => $db->escape_string($lang->naoardonate_settings_hidetopemails_desc),
         'optionscode' => 'yesno',
         'value' => '1',
-        'disporder' => 28,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -1149,7 +1121,7 @@ $naoardonate_groups . " </select>'),
         'description' => $db->escape_string($lang->naoardonate_settings_googleanalytics_dec),
         'optionscode' => "textarea",
         'value' => $db->escape_string($naoardonate_googleanalytics),
-        'disporder' => 29,
+        'disporder' => $c++,
         'gid' => $gid
     );
 
@@ -1168,7 +1140,7 @@ DOC
         ),
         'optionscode' => 'php',
         'value' => '',
-        'disporder' => 30,
+        'disporder' => $c++,
         'gid' => $gid
     );
     
@@ -1888,8 +1860,8 @@ $(document).ready(function() {
 t_load();
 });
 function t_load(){
-  if(t_ischecked('naoardonate_off')) {  t_hide('payment_method', 1); t_hide('payment_method_pz', 1); t_hide('payment_method_2c', 1); t_hide('payment_method_pp', 1);t_hide('payment_method_bk', 1); t_hide('payment_method_wu', 1);t_hide('enablebar', 1); t_hide('reason', 1); t_hide('target', 1); t_hide('duration', 1); t_hide('ifreached', 1); t_hide('amount', 1); t_hide('from', 1); t_hide('alert', 1); t_hide('info', 1); t_hide('info_required', 1); t_hide('bar_width', 1); t_hide('newgoal', 1); t_hide('recievedmsg', 1);
-t_hide('recievedmsg_100', 1); t_hide('currency', 1); t_hide('donorsgroup', 1); t_hide('unmovable', 1); t_hide('cannotviewtop', 1);t_hide('hidetopemails', 1); t_hide('donormsg', 1); t_hide('captcha', 1); t_hide('googleanalytics', 1); t_hide('premium', 1)}  else {  t_onchange('naoardonate_pz','payment_method_pz');  t_onchange('naoardonate_bk','payment_method_bk');  t_onchange('naoardonate_wu','payment_method_wu'); t_onchange('naoardonate_2c','payment_method_2c'); t_onchange('naoardonate_pp','payment_method_pp'); t_enablebar(); t_hide('payment_method'); t_hide('enablebar'); t_hide('amount'); t_hide('from'); t_hide('alert'); t_hide('info'); t_hide('info_required'); t_hide('currency'); t_hide('donorsgroup'); t_hide('unmovable'); t_hide('cannotviewtop');t_hide('hidetopemails'); t_hide('donormsg'); t_hide('captcha'); t_hide('googleanalytics');
+  if(t_ischecked('naoardonate_off')) {  t_hide('payment_method', 1); t_hide('payment_method_2c', 1); t_hide('payment_method_pp', 1);t_hide('payment_method_bk', 1); t_hide('payment_method_wu', 1);t_hide('enablebar', 1); t_hide('reason', 1); t_hide('target', 1); t_hide('duration', 1); t_hide('ifreached', 1); t_hide('amount', 1); t_hide('from', 1); t_hide('alert', 1); t_hide('info', 1); t_hide('info_required', 1); t_hide('bar_width', 1); t_hide('newgoal', 1); t_hide('recievedmsg', 1);
+t_hide('recievedmsg_100', 1); t_hide('currency', 1); t_hide('donorsgroup', 1); t_hide('unmovable', 1); t_hide('cannotviewtop', 1);t_hide('hidetopemails', 1); t_hide('donormsg', 1); t_hide('captcha', 1); t_hide('googleanalytics', 1); t_hide('premium', 1)}  else { t_onchange('naoardonate_bk','payment_method_bk');  t_onchange('naoardonate_wu','payment_method_wu'); t_onchange('naoardonate_2c','payment_method_2c'); t_onchange('naoardonate_pp','payment_method_pp'); t_enablebar(); t_hide('payment_method'); t_hide('enablebar'); t_hide('amount'); t_hide('from'); t_hide('alert'); t_hide('info'); t_hide('info_required'); t_hide('currency'); t_hide('donorsgroup'); t_hide('unmovable'); t_hide('cannotviewtop');t_hide('hidetopemails'); t_hide('donormsg'); t_hide('captcha'); t_hide('googleanalytics');
 t_hide('premium')} };
 function t_hide(id, hide) {
 id = 'row_setting_naoardonate_' + id; var t_el = document.getElementById(id); if(hide) { t_el.style.display = 'none'}  else {t_el.style.display = ''} }  function t_onchange(id,h)  { if(t_ischecked(id)) {  t_hide(h, 0) } else {  t_hide(h, 1) } }  function t_ischecked(id) {  return document.getElementById(id).checked  }  function t_enablebar() {  if(t_ischecked('naoardonate_enablebar_off')) {  t_hide('reason',1); t_hide('target',1);
@@ -1941,7 +1913,7 @@ function naoar_showdonatelinks()
     $naoardonate_from = explode(',',$mybb->settings['naoardonate_from']);
 
 
-    if(!in_array($mybb->user['usergroup'], $naoardonate_from) or !$db->table_exists('naoardonate') or $mybb->settings['naoardonate_onoff'] == 0 or (!$mybb->settings['naoardonate_payment_method_pz'] and !$mybb->settings['naoardonate_payment_method_2c'] and !$mybb->settings['naoardonate_payment_method_pp']) or strlen($mybb->settings['naoardonate_payment_method']) < 5) return; # yeah better now than later ..b
+    if(!in_array($mybb->user['usergroup'], $naoardonate_from) or !$db->table_exists('naoardonate') or $mybb->settings['naoardonate_onoff'] == 0 or (!$mybb->settings['naoardonate_payment_method_2c'] and !$mybb->settings['naoardonate_payment_method_pp']) or strlen($mybb->settings['naoardonate_payment_method']) < 5) return; # yeah better now than later ..b
     $amount = intval($cache->read('naoardonate_goal'));
     eval('$naoardonate_donatelink = "'. $templates->get('naoardonate_links_donate_v5') . '";');
     $blocked_groups = explode(',',$mybb->settings['naoardonate_cannotviewtop']);

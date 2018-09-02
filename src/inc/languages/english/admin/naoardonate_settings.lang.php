@@ -41,15 +41,13 @@ $l['naoardonate_settings_currency_desc'] = '<span style="color:#3d3b3e;font-size
 </span><br />
 <b>References:</b>
 <ul style="margin-top: 0"><li> <a href="https://developer.paypal.com/docs/classic/api/currency_codes/" target="_blank" rel="noopener" title="new page" > PayPal Currencies </a></li>
-<li><a href="https://www.payza.com/features/available-currencies" target="_blank" rel="noopener" title="new page"> Payza Currencies </a></li>
 </ul>
 ';
 $l['naoardonate_settings_payment_method'] = 'Accept donation through:';
 $l['naoardonate_settings_payment_method_desc'] = '<span style="color:#3d3b3e;font-size:small">your prefered payment processor to accept donations</span>';
 $l['naoardonate_settings_payment_method_LR'] = 'LibertyReserve Account:';
 $l['naoardonate_settings_payment_method_LR_desc'] = '<span style="color:#3d3b3e;font-size:small">Donations will sent to this account if LibertyReseve chosen, , Don&#39;t have an account? then <a href="https://www.libertyreserve.com/en/registration" target="_blank" rel="noopener" title="new page">Get your FREE account from Here</a></span>';
-$l['naoardonate_settings_payment_method_AP'] = 'Payza Account:';
-$l['naoardonate_settings_payment_method_AP_desc'] = '<span style="color:#3d3b3e;font-size:small">Donations will sent to this account if Payza chosen, Don&#39;t have an account? then <a href="https://secure.payza.com/?1cSIX3YMzAHE6df7fltAQA%3d%3d" target="_blank" rel="noopener" title="new page">Get your FREE account from Here</a></span>';
+
 $l['naoardonate_settings_cannotviewtop'] = 'Groups cannot view top donors:';
 $l['naoardonate_settings_cannotviewtop_desc'] = '<span style="color:#3d3b3e;font-size:small">Select groups cannot see topdonors when visiting donate.php?action=top_donors</span>';
 $l['naoardonate_settings_captcha'] = 'Enable Image verification?';

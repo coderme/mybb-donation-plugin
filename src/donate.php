@@ -93,7 +93,6 @@ $index_1 = $amount_indeces[1];
 
 // currency
 $currencies_lr = array('EUR', 'USD');
-$currencies_pz = getCurrenciesOf(CODERME_PAYZA);
 $currencies_2c = getCurrenciesOf(CODERME_2CHECKOUT);
 $currencies_bk = getCurrenciesOf(CODERME_BANK_WIRE);
 $currencies_wu = getCurrenciesOf(CODERME_WESTERN_UNION);
@@ -166,8 +165,7 @@ if($mybb->request_method == 'post') {
 	}
 	elseif(!(($currency == $mybb->settings['naoardonate_currency']
 	    or $mybb->settings['naoardonate_currency'] == 'Any')
-	    and (($payment_method == 'Payza' and in_array($currency, $currencies_pz))
-	    or ($payment_method == '2checkout' and in_array($currency, $currencies_2c))
+	    and (($payment_method == '2checkout' and in_array($currency, $currencies_2c))
 	    or ($payment_method == 'Bank/Wire transfer' and in_array($currency, $currencies_bk))
 	    or ($payment_method == 'Western Union' and in_array($currency, $currencies_wu))
 	    or ($payment_method == 'Paypal' and in_array($currency, $currencies_pp)))) and $mybb->settings['naoardonate_currency'] != '000')
@@ -249,23 +247,9 @@ if($mybb->request_method == 'post') {
 							));
 
 		# now prepare payment_method specific data  : )
-		switch($payment_method)
-		{
-			case 'Payza':
+		switch($payment_method)	{
 
-				$method = 'post';
-				$url = 'https://secure.payza.com/checkout';
-				$currency_name = 'ap_currency';
-				$merchant_name =  'ap_merchant';
-				$merchant_value = $mybb->settings['naoardonate_payment_method_pz'];
-				$amount_name = 'ap_amount';
-				$return_name = 'ap_returnurl';
-				$cancel_name ='ap_cancelurl';
-				$additional = "<input type=\"hidden\" name=\"ap_purchasetype\" value=\"service\" /><input type=\"hidden\" name=\"ap_itemname\" value=\"{$lang->naoardonate_front_donation}#$insert_id:$uid | $name\" />";
-
-			break;
-
-			case '2checkout':
+        case '2checkout':
             
 				$method = 'post';
 				$url = 'https://www.2checkout.com/checkout/purchase';
@@ -571,13 +555,6 @@ if($mybb->settings['naoardonate_currency'] == '000')
 }
 elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 {
-    if ( in_array('Payza', $accepted_payment_methods) )
-    {
-	$currencyselect .='<optgroup label="' . $lang->sprintf( $lang->naoardonate_front_currencies_supported_by , 'Payza') . '">'
-			. $pz_currencies
-			. '</optgroup>';
-	$js_updatelist  .= " else if(a.payment_method.value == 'Payza'){ j.innerHTML = '<select name=\"currency\" class=\"w100\">$pz_currencies</select>'}";
-    }
 
     if ( in_array('2checkout', $accepted_payment_methods) )
     {

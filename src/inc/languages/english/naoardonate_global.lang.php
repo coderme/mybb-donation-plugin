@@ -215,30 +215,24 @@ $l['naoardonate_global_currency_zwl']    =   'ZWL  -  Zimbabwe dollar';
 # Admin and front
 $l['naoardonate_global_currency_all_supported'] = 'Supported by All';
 
-$l['naoardonate_global_currency_ap2Cpp'] = 'Payza, 2checkout and Paypal ONLY';
-$l['naoardonate_global_currency_ap2C'] = 'Payza and 2checkout ONLY';
-$l['naoardonate_global_currency_apPP'] = 'Payza and PayPal ONLY';
 $l['naoardonate_global_currency_2cPP'] = '2checkout and PayPal ONLY';
 $l['naoardonate_global_currency_2c_only'] = '2checkout ONLY';
 $l['naoardonate_global_currency_pp_only'] = 'PayPal ONLY';
-$l['naoardonate_global_currency_ap_only'] = 'Payza ONLY';
 
-
-# payza paypal western union bank/wire transfer
-$l['naoardonate_global_currency_pz_2c_pp_wu_bk'] = 'Payza, 2checkout, Paypal, Western Union and Bank/wire transfer ONLY';
-$l['naoardonate_global_currency_pz_2c_pp_bk'] = 'Payza, 2checkout, Paypal and Bank/wire transfer ONLY';
-$l['naoardonate_global_currency_pz_2c_wu_bk'] = 'Payza, 2checkout, Western Union and Bank/wire transfer ONLY';
-$l['naoardonate_global_currency_pz_2c_bk'] = 'Payza, 2checkout and Bank/wire transfer ONLY';
-$l['naoardonate_global_currency_pz_pp_wu_bk'] = 'Payza, PayPal, Western Union and Bank/wire transfer ONLY';
-$l['naoardonate_global_currency_pz_pp_bk'] = 'Payza, PayPal and Bank/wire transfer ONLY';
+# paypal western union bank/wire transfer
+$l['naoardonate_global_currency_2c_pp_wu_bk'] = '2checkout, Paypal, Western Union and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_2c_pp_bk'] = '2checkout, Paypal and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_2c_wu_bk'] = '2checkout, Western Union and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_2c_bk'] = '2checkout and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_pp_wu_bk'] = 'PayPal, Western Union and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_pp_bk'] = 'PayPal and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_2c_pp_wu_bk'] = '2checkout, PayPal, Western Union and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_2c_pp_bk'] = '2checkout, PayPal and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_2c_wu_bk'] = '2checkout, Western Union and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_2c_bk'] = '2checkout and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_pp_wu_bk'] = 'PayPal, Western Union and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_pp_bk'] = 'PayPal and Bank/wire transfer ONLY';
-$l['naoardonate_global_currency_pz_wu_bk'] = 'Payza, Western Union and Bank/wire transfer ONLY';
-$l['naoardonate_global_currency_pz_bk'] = 'Payza and Bank/wire transfer ONLY';
+$l['naoardonate_global_currency_wu_bk'] = 'Western Union and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_wu_bk'] = 'Wetern Union and Bank/wire transfer ONLY';
 $l['naoardonate_global_currency_bk'] = 'Bank/wire transfer ONLY';
 

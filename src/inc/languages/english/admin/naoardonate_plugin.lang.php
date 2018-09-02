@@ -27,7 +27,7 @@ To learn more about the GOLD version please visit <a href="https://markit.coderm
       <li><b style="background-color: rgba(255, 215, 0, 0.51); padding: .1rem .4rem; border-radius: 7px; line-height: 1.5rem; border: 1px solid;">GOLD</b>
 Accept Bitcoins, Litecoins and other Cryptocurrencies through <a href="https://localbitcoins.net/accounts/api/?ch=podn" target="_blank" rel="noopener">Localbitcoins</a> and <a href="https://www.coinpayments.net/index.php?ref=37b8a837b47e9181ac3ee9bcb92c5cfe" target="_blank" rel="noopener">Coinpayments</a></li>
 
-      <li>Accept Donations Online through Paypal, Payza and 2checkout</li>
+      <li>Accept Donations Online through Paypal and 2checkout</li>
 
       <li>Accept Donations Offline through Western Union and Bank transfer</li>
 

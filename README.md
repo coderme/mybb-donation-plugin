@@ -1,7 +1,7 @@
-## CoderMe Donation FREE v5.0 for mybb 1.8 
+## CoderMe Donation FREE v5.1 for mybb 1.8 
 
 ## Features Summary
-* Online Donations through Payza, 2checkout and PayPal.
+* Online Donations through 2checkout and PayPal.
 * Offline Donations through Western Union and Bank/Wire transfer
 * Support ALL currencies on earth.
 * Custom or predefined amounts.(minimum accepted amount supported)
@@ -51,19 +51,10 @@ Whenever you like, you can upgrade to the GOLD version (paid), the GOLD version 
 
 
 
-## New in CoderMe Donation v5.0
+## New in CoderMe Donation v5.1
 ---------------------------------
-    * [REMOVED]: Skrill removed.
-    * [ADDED]:   2checkout has been added.
-    * [ADDED]:   Require MTCN from donors when Western Union is used.
-    * [SECURITY]: Form double submit prevention Added.
-    * [SECURITY]: CSRF Prevention Added.
-    * [PRIVACY]: Option to hide donors emails from top donors page (switched on by default).
-    * [ISO]: ISO 4217 Currency codes(1).
-    * [GENERAL]: Code refactoring/ general cleanups.
-    * [CONFIRMATION]: Require confirmation before uninstallation, to prevent accidental loss of data.
-(1) Some currencies codes picked over the ISO to address the common usage in certain payment processors.
-
+    * [REMOVED]: Payza removed
+    * [ADDED]:   Support PHP 7.2
 
 
 ## Home page

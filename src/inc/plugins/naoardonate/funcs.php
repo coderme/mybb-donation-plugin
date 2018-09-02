@@ -8,7 +8,7 @@
  * Website: https://markit.coderme.com
  * Home:    https://red.coderme.com/mybb-donation-plugin
  * License: https://red.coderme.com/mybb-donation-plugin#license
- * Version: 5.0.0
+ * Version: 5.1.0
  * GOLD VERSION: https://markit.coderme.com/mybb-donation-gold
  *
  **/
@@ -24,7 +24,6 @@ if(!defined("IN_MYBB")){
 define('CODERME_XXX', '000');
 define('CODERME_2CHECKOUT', '2CHECKOUT');
 define('CODERME_PAYPAL', 'PAYPAL');
-define('CODERME_PAYZA', 'PAYZA');
 define('CODERME_BANK_WIRE', 'BANK_WIRE');
 define('CODERME_WESTERN_UNION', 'WESTERN_UNION');
 
@@ -37,9 +36,6 @@ function getCurrenciesOf($index) {
     $xcurrencies = array();
 
     $xcurrencies[CODERME_XXX] = array('EUR','USD');
-
-    # currencies supported by Payza
-    $xcurrencies[CODERME_PAYZA] = array('AUD','BGN','CAD','CHF','CZK','DKK','EUR','GBP','HKD','HUF','INR','LTL','MKD','MYR','NOK','NZD','PLN','RON','SEK','SGD','USD','ZAR');
 
     # currencies supported by 2checkout
     $xcurrencies[CODERME_2CHECKOUT] = array('AFN', 'ALL', 'DZD', 'ARS', 'AUD', 'AZN', 'BSD', 'BDT', 'BBD', 'BZD', 'BMD', 'BOB', 'BWP', 'BRL', 'GBP', 'BND', 'BGN', 'CAD', 'CLP', 'CNY', 'COP', 'CRC', 'HRK', 'CZK', 'DKK', 'DOP', 'XCD', 'EGP', 'EUR', 'FJD', 'GTQ', 'HKD', 'HNL', 'HUF', 'INR', 'IDR', 'ILS', 'JMD', 'JPY', 'KZT', 'KES', 'LAK', 'MMK', 'LBP', 'LRD', 'MOP', 'MYR', 'MVR', 'MRO', 'MUR', 'MXN', 'MAD', 'NPR', 'TWD', 'NZD', 'NIO', 'NOK', 'PKR', 'PGK', 'PEN', 'PHP', 'PLN', 'QAR', 'RON', 'RUB', 'WST', 'SAR', 'SCR', 'SGD', 'SBD', 'ZAR', 'KRW', 'LKR', 'SEK', 'CHF', 'SYP', 'THB', 'TOP', 'TTD', 'TRY', 'UAH', 'AED', 'USD', 'VUV', 'VND', 'XOF', 'YER');
