@@ -369,3 +369,4 @@ $currencies_array = array(
 	<tr valign=\"top\">
 		<td><div class=\"coderme_div\">$lang->naoardonate_stats_total_donations :</div>";
 
+	if($total)
