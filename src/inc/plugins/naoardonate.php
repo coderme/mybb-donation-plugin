@@ -371,3 +371,4 @@ function naoardonate_install()
         $naoardonate_payment_method_pp = $mybb->settings['naoardonate_ebank_pp'];
         }
         elseif ($mybb->settings['teradonate_ebank_pp']) {
+        $naoardonate_payment_method_pp = $mybb->settings['teradonate_ebank_pp'];
