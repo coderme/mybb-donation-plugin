@@ -372,3 +372,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 		$imagehash = md5(random_str(12));
 		$imagearray = array(
 			"imagehash" => $imagehash,
+			"imagestring" => $randomstr,
