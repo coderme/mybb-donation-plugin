@@ -373,3 +373,4 @@ $currencies_array = array(
 	{
 	print "<ul>". ( $confirmedtotal ? "<li class=\"green\">$lang->naoardonate_stats_confirmed : $confirmedtotal</li>" : '') . ( $notconfirmedtotal ? "<li class=\"red\">$lang->naoardonate_stats_unconfirmed : <a href=\"index.php?module=coderme_donors{$sep}browse&action=unconfirmed\" style=\"color:red;text-decoration:underline\" >$notconfirmedtotal</a></li>": '' ) .( $total? "<li class=\"navy\">$lang->naoardonate_stats_total : $total</li>" : '' ). "</ul>";
 	}
+	else
