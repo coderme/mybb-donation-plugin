@@ -374,3 +374,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 			"imagehash" => $imagehash,
 			"imagestring" => $randomstr,
 			"dateline" => TIME_NOW
+		);
