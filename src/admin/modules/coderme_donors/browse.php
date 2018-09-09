@@ -374,3 +374,4 @@ TABLE_BODY;
 	var go_text = "$lang->naoardonate_global_go";
 	var all_text = "1";
 	var inlineType = "donor";
+	var inlineId = "1";
