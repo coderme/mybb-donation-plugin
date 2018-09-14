@@ -376,3 +376,4 @@ TABLE_BODY;
 	var inlineType = "donor";
 	var inlineId = "1";
 // -->
+</script>
