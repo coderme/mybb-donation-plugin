@@ -376,3 +376,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 			"dateline" => TIME_NOW
 		);
 		$db->insert_query("captcha", $imagearray);
+
