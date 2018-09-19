@@ -377,3 +377,4 @@ function naoardonate_install()
         else {
         $naoardonate_payment_method_pp = '';
         }
+
