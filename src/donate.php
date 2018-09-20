@@ -378,3 +378,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 		$db->insert_query("captcha", $imagearray);
 
 
+eval('$captcha = "' . $templates->get('naoardonate_donate_captcha_v5') . '";');
