@@ -8,7 +8,7 @@
  * Website: https://markit.coderme.com
  * Home:    https://red.coderme.com/mybb-donation-plugin
  * License: https://red.coderme.com/mybb-donation-plugin#license
- * Version: 5.1.0
+ * Version: 6.0.0
  * GOLD VERSION: https://markit.coderme.com/mybb-donation-gold
  *
  **/
@@ -38,7 +38,7 @@ function naoardonate_info(){
         "website"   => "https://red.coderme.com/mybb-donation-plugin",
         "author"    => "CoderMe.com",
         "authorsite"    => "https://markit.coderme.com?src=pluginslist",
-        "version"   => "5.1.0",
+        "version"   => "6.0.0",
         "guid"      => "a60331204b57399c66a958398b08e6df",
         // this shouldn't be in the 1st place
         // "codename"  => "naoardonate",
@@ -267,20 +267,20 @@ function naoardonate_install()
         'description' => $db->escape_string($lang->naoardonate_settings_onoff_desc),
         'optionscode' => $db->escape_string('php
 <label onclick=\"t_load();\" for=\"naoardonate_on\" class=\"label_radio_on naoardonate_settings_onoff\">
-<input type=\"radio\" name=\"upsetting[{$setting[name]}]\" value=\"1\" class=\"radio_input radio_on naoardonate_settings_onoff\" id=\"naoardonate_on\"  " . ($setting[\'value\'] == 1 ? "checked=\"checked\"" : "" ) . "/>' . $lang->yes . '</label>
+<input type=\"radio\" name=\"upsetting[{$setting[\'name\']}]\" value=\"1\" class=\"radio_input radio_on naoardonate_settings_onoff\" id=\"naoardonate_on\"  " . ($setting[\'value\'] == 1 ? "checked=\"checked\"" : "" ) . "/>' . $lang->yes . '</label>
 <label onclick=\"t_load();\" for=\"naoardonate_off\" class=\"label_radio_off naoardonate_settings_onoff\">
-<input type=\"radio\" name=\"upsetting[{$setting[name]}]\" value=\"0\" class=\"radio_input radio_off naoardonate_settings_onoff\" id=\"naoardonate_off\"  " . ($setting[\'value\'] == 0 ? "checked=\"checked\"" : "" ) . " />' . $lang->no . '</label>'),
+<input type=\"radio\" name=\"upsetting[{$setting[\'name\']}]\" value=\"0\" class=\"radio_input radio_off naoardonate_settings_onoff\" id=\"naoardonate_off\"  " . ($setting[\'value\'] == 0 ? "checked=\"checked\"" : "" ) . " />' . $lang->no . '</label>'),
         'value' => $db->escape_string("$naoardonate_onoff"),
         'disporder' => $c++,
         'gid' => $gid
     );
-
-
-    if($mybb->settings['naoardonate_payment_method']){
+  
+    $naoardonate_payment_method = '';
+    if ($mybb->settings['naoardonate_payment_method']){
         $naoardonate_payment_method = $mybb->settings['naoardonate_payment_method'];
     }
 
-    elseif($mybb->settings['naoardonate_ebank'])
+    elseif ($mybb->settings['naoardonate_ebank'])
     {
         $naoardonate_payment_method = $mybb->settings['naoardonate_ebank'];
     }
@@ -288,13 +288,13 @@ function naoardonate_install()
         $naoardonate_payment_method = $mybb->settings['teradonate_ebank'];
 
     }
-    if($naoardonate_payment_method){
-      $naoardonate_payment_method = str_replace('AlertPay', 'Payza', $naoardonate_payment_method );
+    if ($naoardonate_payment_method){
+      $naoardonate_payment_method = str_ireplace(
+          array('AlertPay', 'Payza', ',,'),  array('', '', ','),  $naoardonate_payment_method );
       $naoardonate_payment_method = str_replace('PayPal', 'Paypal', $naoardonate_payment_method );
-    }else {
-        $naoardonate_payment_method = '';
+      $naoardonate_payment_method = trim($naoardonate_payment_method, ',');
     }
-
+                                   
     $settingsarray[] = array(
         'name' => 'naoardonate_payment_method',
         'title' => $db->escape_string($lang->naoardonate_settings_payment_method),
@@ -307,7 +307,7 @@ function naoardonate_install()
 <br /><label onclick=\"t_onchange(\'naoardonate_pp\',\'payment_method_pp\');\" for=\"naoardonate_pp\"><input type=\"checkbox\" name=\"upsetting[naoardonate_payment_method][]\" id=\"naoardonate_pp\" value=\"Paypal\"  ".(strpos($setting[\'value\'],\'Paypal\') !== false? "checked=\"checked\"" : "" ). "> Paypal <a href=\"https://www.paypal.com/us/cgi-bin/webscr?cmd=_registration-run\" title=\"'
 . $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, 'Paypal') . '\" target=\"_blank\" rel=\"noopener\"><img src=\"./../images/naoar/oh.png\" alt=\"'
 . $lang->sprintf($lang->naoardonate_settings_get_payment_method_account, 'Paypal') . '\" style=\"vertical-align:middle;border:0;width:13px;height:13px\"/></a></label>
-
+ 
 
 <br /><label onclick=\"t_onchange(\'naoardonate_bk\',\'payment_method_bk\');\" for=\"naoardonate_bk\"><input type=\"checkbox\" name=\"upsetting[naoardonate_payment_method][]\" id=\"naoardonate_bk\" value=\"Bank/Wire transfer\"  ".(strpos($setting[\'value\'],\'Bank/Wire transfer\') !== false? "checked=\"checked\"" : "" ). "> Bank/Wire transfer</label>
 
@@ -584,7 +584,7 @@ disabled=$lang->naoardonate_settings_disabled
         'title' => $db->escape_string($lang->naoardonate_settings_duration),
         'description' => $db->escape_string($lang->naoardonate_settings_duration_desc),
         'optionscode' => $db->escape_string('php
-<input type=\"text\" size=\"7\" maxlength=\"3\" name=\"upsetting[{$setting[name]}]\" value=\"" . ((($v =($setting[\'value\']-time())/86400) <= 0 ) ? 0: round($v) ) ."\" /> Days'),
+<input type=\"text\" size=\"7\" maxlength=\"3\" name=\"upsetting[{$setting[\'name\']}]\" value=\"" . (string)((($v = ( (int)$setting[\'value\'] - time()) / 86400) <= 0 ) ? 0: round($v) ) ."\" /> Days'),
 
         'value' => $db->escape_string($naoardonate_duration),
         'disporder' => $c++,
@@ -865,7 +865,7 @@ disabled=$lang->naoardonate_settings_disabled
     );
     
     $currenciesOptions = 'php
-<select name=\"upsetting[{$setting[name]}]\">
+<select name=\"upsetting[{$setting[\'name\']}]\">
 <option value=\"Any\" ".($setting[\'value\'] == \'Any\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_settings_currency_any . '</option>
 <option value=\"000\" ".($setting[\'value\'] == \'000\' ? "selected=\"selected\"" : "" ). ">Euro and USD</option>';
 
@@ -1180,14 +1180,12 @@ DOC
   sprintf('%.1f', $mybb->version) == 1.4 ? $sep = '/' : $sep = '-';
    $no = 'index.php?module=config%ssettings&action=change&gid=%d' ;
     @sleep(3);
-
-
 }
 
 function naoar_post_install()
 {
     global $mybb, $sep, $gid, $no, $message, $installed;
-    if ( $mybb->input['plugin'] == "naoardonate" and $installed == false ) {
+    if ( $mybb->input['plugin'] == "naoardonate" and !$installed ) {
         flash_message($message, 'success');
         admin_redirect( sprintf($no, $sep, $gid) );
     }

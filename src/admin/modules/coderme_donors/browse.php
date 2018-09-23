@@ -8,7 +8,7 @@
  * Website: https://markit.coderme.com
  * Home:    https://red.coderme.com/mybb-donation-plugin
  * License: https://red.coderme.com/mybb-donation-plugin#license
- * Version: 5.0.0
+ * Version: 6.0.0
  * GOLD VERSION: https://markit.coderme.com/mybb-donation-gold
  *
  **/

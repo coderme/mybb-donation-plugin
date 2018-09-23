@@ -1,4 +1,4 @@
-## CoderMe Donation FREE v5.1 for mybb 1.8 
+## CoderMe Donation FREE v6.0 for mybb 1.8 
 
 ## Features Summary
 * Online Donations through 2checkout and PayPal.
@@ -51,7 +51,7 @@ Whenever you like, you can upgrade to the GOLD version (paid), the GOLD version 
 
 
 
-## New in CoderMe Donation v5.1
+## New in CoderMe Donation v6.0
 ---------------------------------
     * [REMOVED]: Payza removed
     * [ADDED]:   Support PHP 7.2
