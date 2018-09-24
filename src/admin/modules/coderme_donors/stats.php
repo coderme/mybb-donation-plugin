@@ -379,3 +379,4 @@ $currencies_array = array(
 	}
 	print "</td><td><div class=\"coderme_div\">$lang->naoardonate_stats_guests_donations :</div>";
 
+	if($guesttotal)
