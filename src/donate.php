@@ -379,3 +379,4 @@ if($mybb->settings['naoardonate_info'] == 3 or $mybb->settings['naoardonate_info
 
 
 eval('$captcha = "' . $templates->get('naoardonate_donate_captcha_v5') . '";');
+} elseif($captcha_valid){
