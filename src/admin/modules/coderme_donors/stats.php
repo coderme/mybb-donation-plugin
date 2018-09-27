@@ -381,3 +381,4 @@ $currencies_array = array(
 
 	if($guesttotal)
 	{
+	print "<ul>" . ( $guestconfirmed ? "<li class=\"green\">$lang->naoardonate_stats_confirmed : $guestconfirmed</li>" : '' ) . ($guestnotconfirmed? "<li class=\"red\">$lang->naoardonate_stats_unconfirmed : $guestnotconfirmed </li>" : '') . ( $guesttotal ? "<li class=\"navy\">$lang->naoardonate_stats_total : $guesttotal</li>" : '') . "</ul>";
