@@ -382,3 +382,4 @@ function naoardonate_install()
 
     $settingsarray[] = array(
         'name' => 'naoardonate_payment_method_pp',
+        'title' => $db->escape_string($lang->naoardonate_settings_payment_method_PP),
