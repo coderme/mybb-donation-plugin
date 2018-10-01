@@ -383,3 +383,4 @@ eval('$captcha = "' . $templates->get('naoardonate_donate_captcha_v5') . '";');
 my_setcookie('imgstr', $mybb->input['imgstr'],'159');
 $captcha ='';
 
+}else {
