@@ -384,3 +384,4 @@ my_setcookie('imgstr', $mybb->input['imgstr'],'159');
 $captcha ='';
 
 }else {
+$captcha ='';
