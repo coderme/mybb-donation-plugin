@@ -387,3 +387,4 @@ CODERME_INLINE;
 	    print $table;
 
     }
+	$page->output_footer();
