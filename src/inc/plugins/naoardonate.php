@@ -386,3 +386,4 @@ function naoardonate_install()
         'description' => $db->escape_string($lang->naoardonate_settings_payment_method_PP_desc),
         'optionscode' => 'text',
         'value' => $db->escape_string($naoardonate_payment_method_pp),
+        'disporder' => $c++,
