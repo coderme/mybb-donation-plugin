@@ -388,3 +388,4 @@ $currencies_array = array(
 	print '<div style="padding:27px;text-align:left">' . $lang->naoardonate_stats_notyet . '</div>';
 	}
 
+	print "</td></tr><tr valign=\"top\"><td><div class=\"coderme_div\">$lang->naoardonate_stats_members_donations :</div>";
