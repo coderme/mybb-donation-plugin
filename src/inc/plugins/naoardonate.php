@@ -388,3 +388,4 @@ function naoardonate_install()
         'value' => $db->escape_string($naoardonate_payment_method_pp),
         'disporder' => $c++,
         'gid' => $gid
+    );
