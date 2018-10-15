@@ -390,3 +390,4 @@ $currencies_array = array(
 
 	print "</td></tr><tr valign=\"top\"><td><div class=\"coderme_div\">$lang->naoardonate_stats_members_donations :</div>";
 
+	if($membertotal)
