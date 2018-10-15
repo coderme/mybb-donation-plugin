@@ -390,3 +390,4 @@ CODERME_INLINE;
 	$page->output_footer();
 
 } elseif ($mybb->input['action'] == 'unconfirmed'){
+
