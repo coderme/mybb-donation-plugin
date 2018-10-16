@@ -391,3 +391,4 @@ CODERME_INLINE;
 
 } elseif ($mybb->input['action'] == 'unconfirmed'){
 
+	$page->output_header($lang->naoardonate_browse_unconfirmed);
