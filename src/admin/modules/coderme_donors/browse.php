@@ -394,3 +394,4 @@ CODERME_INLINE;
 	$page->output_header($lang->naoardonate_browse_unconfirmed);
 	$page->output_nav_tabs($sub_tabs, 'unconfirmed');
 
+	$inlinecount = 0;
