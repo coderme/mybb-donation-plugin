@@ -393,3 +393,4 @@ add_breadcrumb($lang->naoardonate_front_donate_title);
 
 # payment options
 $payment_methodselect = $offline_options = '';
+
