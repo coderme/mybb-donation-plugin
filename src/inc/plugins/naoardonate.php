@@ -394,3 +394,4 @@ function naoardonate_install()
         $payment_method_bk = $mybb->settings['naoardonate_payment_method_bk'];
     }
     else {
+        $payment_method_bk = "Account no: \nAccount holder: \nBank SWIFT code: \n----------\nBank Details: \nBank Address: \nBank contact address:\n";
