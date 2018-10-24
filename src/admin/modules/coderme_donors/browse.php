@@ -395,3 +395,4 @@ CODERME_INLINE;
 	$page->output_nav_tabs($sub_tabs, 'unconfirmed');
 
 	$inlinecount = 0;
+	$inlinecookie = "inlinemod_donor2";
