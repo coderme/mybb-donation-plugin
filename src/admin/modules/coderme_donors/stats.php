@@ -395,3 +395,4 @@ $currencies_array = array(
 	print "<ul>" . ( $memberconfirmed ? "<li class=\"green\">$lang->naoardonate_stats_confirmed : $memberconfirmed </li>" : '') . ( $membernotconfirmed ? "<li class=\"red\">$lang->naoardonate_stats_unconfirmed : $membernotconfirmed </li>" : '' ) . ( $membertotal ? " <li class=\"navy\">$lang->naoardonate_stats_total : $membertotal </li>" : '' ). "</ul>";
 	}
 	else
+	{
