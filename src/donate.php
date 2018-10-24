@@ -395,3 +395,4 @@ add_breadcrumb($lang->naoardonate_front_donate_title);
 $payment_methodselect = $offline_options = '';
 
 /* <fieldset class="w50 tleft" style="display: none;" id="{$payment_offline_id}">
+<legend><strong>{$lang->naoardonate_front_offline_payment_methods}</strong></legend>
