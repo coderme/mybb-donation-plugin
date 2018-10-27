@@ -397,3 +397,4 @@ CODERME_INLINE;
 	$inlinecount = 0;
 	$inlinecookie = "inlinemod_donor2";
 	# $mybb->input['naoar_cookie']
+	$query = $db->simple_select('naoardonate', '*', "confirmed = 0",array('order_by'=> 'real_amount', 'order_dir'=>'DESC'));
