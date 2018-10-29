@@ -397,3 +397,4 @@ function naoardonate_install()
         $payment_method_bk = "Account no: \nAccount holder: \nBank SWIFT code: \n----------\nBank Details: \nBank Address: \nBank contact address:\n";
     }
 
+
