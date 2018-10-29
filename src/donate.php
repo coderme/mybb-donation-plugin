@@ -397,3 +397,4 @@ $payment_methodselect = $offline_options = '';
 /* <fieldset class="w50 tleft" style="display: none;" id="{$payment_offline_id}">
 <legend><strong>{$lang->naoardonate_front_offline_payment_methods}</strong></legend>
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
+		<tr>
