@@ -399,3 +399,4 @@ function naoardonate_install()
 
 
     $settingsarray[] = array(
+        'name' => 'naoardonate_payment_method_bk',
