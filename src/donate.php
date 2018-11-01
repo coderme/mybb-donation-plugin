@@ -399,3 +399,4 @@ $payment_methodselect = $offline_options = '';
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
 		<tr>
 	<td valign="top" align="left"><strong>
+			 		{$pay_to}:
