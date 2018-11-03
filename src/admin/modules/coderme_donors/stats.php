@@ -401,3 +401,4 @@ $currencies_array = array(
 
 	print "</td><td><div class=\"coderme_div\">$lang->naoardonate_stats_amount :</div>";
 
+	if($total)
