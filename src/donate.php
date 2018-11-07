@@ -402,3 +402,4 @@ $payment_methodselect = $offline_options = '';
 			 		{$pay_to}:
 					</strong>
 
+	</td>
