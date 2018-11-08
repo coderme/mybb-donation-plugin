@@ -403,3 +403,4 @@ $currencies_array = array(
 
 	if($total)
 	{
+	print "<ul>" .( $highest ? "<li class=\"red\">
