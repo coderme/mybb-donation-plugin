@@ -404,3 +404,4 @@ CODERME_INLINE;
 	while($donor = $db->fetch_array($query))
 	{
 
+		if(my_strpos($mybb->cookies[$inlinecookie], "|$donor[did]|"))
