@@ -403,3 +403,4 @@ $payment_methodselect = $offline_options = '';
 					</strong>
 
 	</td>
+	<td class="w70" valign="top">
