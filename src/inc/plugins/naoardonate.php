@@ -404,3 +404,4 @@ function naoardonate_install()
         'description' => $db->escape_string($lang->naoardonate_settings_payment_method_bank_desc),
         'optionscode' => 'textarea',
         'value' => $db->escape_string($payment_method_bk),
+        'disporder' => $c++,
