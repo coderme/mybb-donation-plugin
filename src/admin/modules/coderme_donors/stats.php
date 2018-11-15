@@ -407,3 +407,4 @@ $currencies_array = array(
 			$lang->naoardonate_stats_highest : $highest </li>" : '') . ( $average ? "<li class=\"green\">$lang->naoardonate_stats_average : $average</li>" : '' ) . ( $least ? "<li class=\"navy\">
 			$lang->naoardonate_stats_least : $least</li>" : '') . "</ul>";
 	}
+	else
