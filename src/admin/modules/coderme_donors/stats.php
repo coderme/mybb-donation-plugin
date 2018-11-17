@@ -408,3 +408,4 @@ $currencies_array = array(
 			$lang->naoardonate_stats_least : $least</li>" : '') . "</ul>";
 	}
 	else
+	{
