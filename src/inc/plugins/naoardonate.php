@@ -408,3 +408,4 @@ function naoardonate_install()
         'gid' => $gid
     );
 
+    if($mybb->settings['naoardonate_payment_method_wu']){
