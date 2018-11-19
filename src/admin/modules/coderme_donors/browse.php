@@ -410,3 +410,4 @@ CODERME_INLINE;
 				          ++$inlinecount;
 		}
 		else
+		{
