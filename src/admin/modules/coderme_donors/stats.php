@@ -410,3 +410,4 @@ $currencies_array = array(
 	else
 	{
 	print '<div style="padding:27px;text-align:left">' . $lang->naoardonate_stats_notyet . '</div>';
+	}
