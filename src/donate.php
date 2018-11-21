@@ -410,3 +410,4 @@ $payment_methodselect = $offline_options = '';
 </tr>
 
 </table>
+</fieldset> */
