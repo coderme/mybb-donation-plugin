@@ -411,3 +411,4 @@ $payment_methodselect = $offline_options = '';
 
 </table>
 </fieldset> */
+if ( in_array('Western Union', $accepted_payment_methods) ) {
