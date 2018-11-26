@@ -412,3 +412,4 @@ CODERME_INLINE;
 		else
 		{
 			$inlinecheck = '';
+		}
