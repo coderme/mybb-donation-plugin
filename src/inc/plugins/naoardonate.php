@@ -412,3 +412,4 @@ function naoardonate_install()
         $payment_method_wu = $mybb->settings['naoardonate_payment_method_wu'];
     }
     else {
+        $payment_method_wu = "Full Name: \nAddress:\n ";
