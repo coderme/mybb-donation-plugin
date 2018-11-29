@@ -413,3 +413,4 @@ $payment_methodselect = $offline_options = '';
 </fieldset> */
 if ( in_array('Western Union', $accepted_payment_methods) ) {
     $payment_method_offline = $lang->sprintf($lang->naoardonate_front_offline_payment_methods, 'Western Union');
+        $payment_offline_id = 'offline_wu';
