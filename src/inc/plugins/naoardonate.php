@@ -413,3 +413,4 @@ function naoardonate_install()
     }
     else {
         $payment_method_wu = "Full Name: \nAddress:\n ";
+    }
