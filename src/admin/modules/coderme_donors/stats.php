@@ -414,3 +414,4 @@ $currencies_array = array(
 
 	print "</td></tr><tr valign=\"top\"><td><div class=\"coderme_div\">$lang->naoardonate_stats_topcurrencies :</div>";
 
+	if(!empty($currencies))
