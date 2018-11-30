@@ -414,3 +414,4 @@ CODERME_INLINE;
 			$inlinecheck = '';
 		}
 
+		if($donor['uid']) {
