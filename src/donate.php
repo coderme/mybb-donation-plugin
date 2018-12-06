@@ -417,3 +417,4 @@ if ( in_array('Western Union', $accepted_payment_methods) ) {
         $payment_offline = nl2br(htmlspecialchars_uni($mybb->settings['naoardonate_payment_method_wu']));
         $pay_to = $lang->sprintf($lang->naoardonate_front_payfor, 'Western Union');
         eval('$offline_options = "' . $templates->get('naoardonate_donate_offline_wu_v5') . '";');
+    
