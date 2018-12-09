@@ -419,3 +419,4 @@ $currencies_array = array(
 	print "<ul>" .( $currencies[0]['currency'] ? "<li class=\"red\">" . $currencies_array[$currencies[0]['currency']] . " | " : '') . ( $currencies[0]['topcurrencies'] ? $currencies[0]['topcurrencies'] . ' ' : '') . ( $currencies[0]['topcurrencies'] > 0 ? $lang->naoardonate_stats_times . '</li>' : '' ) . ( $currencies[1]['currency'] ? "<li class=\"green\">" . $currencies_array[$currencies[1]['currency']] . " | " : '' ) . ( $currencies[1]['topcurrencies'] ? $currencies[1]['topcurrencies'] . ' ' : '' ) . ( $currencies[1]['topcurrencies'] > 0 ? $lang->naoardonate_stats_times . '</li>' : '') . ( $currencies[2]['currency'] ? "<li class=\"navy\">" . $currencies_array[$currencies[2]['currency']] . " | " : '') . ( $currencies[2]['topcurrencies'] ? $currencies[2]['topcurrencies'] . ' ' : '') . ( $currencies[2]['topcurrencies'] > 0 ? $lang->naoardonate_stats_times . '</li>' : '' ) . "</ul>";
 	}
 	else
+	{
