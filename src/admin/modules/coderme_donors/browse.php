@@ -419,3 +419,4 @@ CODERME_INLINE;
 		    $donor['ogid'] = '<img src="./../images/naoar/group.gif" alt="" title="' .$lang->naoardonate_browse_ogid .  $groups[$donor['ogid']]['title'] . '" />';
 		} else {
 		    $donor['ogid'] = '';
+		    $donor['name'] = $lang->naoardonate_global_guest;
