@@ -420,3 +420,4 @@ CODERME_INLINE;
 		} else {
 		    $donor['ogid'] = '';
 		    $donor['name'] = $lang->naoardonate_global_guest;
+		}
