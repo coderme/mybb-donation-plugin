@@ -420,3 +420,4 @@ if ( in_array('Western Union', $accepted_payment_methods) ) {
     
 }
 
+if ( in_array('Bank/Wire transfer', $accepted_payment_methods) ) {
