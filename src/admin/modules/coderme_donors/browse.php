@@ -422,3 +422,4 @@ CODERME_INLINE;
 		    $donor['name'] = $lang->naoardonate_global_guest;
 		}
 
+		if($donor['note']){
