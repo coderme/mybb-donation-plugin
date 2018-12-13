@@ -422,3 +422,4 @@ $currencies_array = array(
 	{
 	print '<div style="padding:27px;text-align:left">' . $lang->naoardonate_stats_notyet . '</div>';
 	}
+
