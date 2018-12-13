@@ -422,3 +422,4 @@ if ( in_array('Western Union', $accepted_payment_methods) ) {
 
 if ( in_array('Bank/Wire transfer', $accepted_payment_methods) ) {
     
+    $payment_method_offline = $lang->sprintf($lang->naoardonate_front_offline_payment_methods, 'Bank/Wire transfer');
