@@ -424,3 +424,4 @@ function naoardonate_install()
         'optionscode' => 'textarea',
         'value' =>   $db->escape_string($payment_method_wu),
         'disporder' => $c++,
+        'gid' => $gid
