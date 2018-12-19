@@ -425,3 +425,4 @@ if ( in_array('Bank/Wire transfer', $accepted_payment_methods) ) {
     $payment_method_offline = $lang->sprintf($lang->naoardonate_front_offline_payment_methods, 'Bank/Wire transfer');
         $payment_offline_id = 'offline_bk';
         $payment_offline = nl2br(htmlspecialchars_uni($mybb->settings['naoardonate_payment_method_bk']));
+        $pay_to = $lang->sprintf($lang->naoardonate_front_payfor, 'Bank/Wire transfer');
