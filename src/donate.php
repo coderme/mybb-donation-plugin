@@ -427,3 +427,4 @@ if ( in_array('Bank/Wire transfer', $accepted_payment_methods) ) {
         $payment_offline = nl2br(htmlspecialchars_uni($mybb->settings['naoardonate_payment_method_bk']));
         $pay_to = $lang->sprintf($lang->naoardonate_front_payfor, 'Bank/Wire transfer');
         eval('$offline_options .= "' . $templates->get('naoardonate_donate_offline_bw_v5') . '";');
+
