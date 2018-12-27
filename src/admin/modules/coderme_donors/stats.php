@@ -428,3 +428,4 @@ $currencies_array = array(
 	if($total)
 	{
 	print "<ul>" . ( $topamounts[0]['real_amount'] ? "<li class=\"red\">{$topamounts[0]['real_amount']} | " : '' ) . ( $topamounts[0]['topamounts'] ? $topamounts[0]['topamounts'] . ' ' : '') . ( $topamounts[0]['topamounts'] > 0 ? $lang->naoardonate_stats_times . '</li>' : '') . ( $topamounts[1]['real_amount'] ? "<li class=\"green\">{$topamounts[1]['real_amount']} | " : '') . ( $topamounts[1]['topamounts'] ? $topamounts[1]['topamounts']. ' ' : '' ) . ( $topamounts[1]['topamounts'] > 0 ? $lang->naoardonate_stats_times . '</li>' : '') . ( $topamounts[2]['real_amount'] ? "<li class=\"navy\">{$topamounts[2]['real_amount']} | " : '' ) . ($topamounts[2]['topamounts'] ? $topamounts[2]['topamounts'] . ' ' : '') . ($topamounts[2]['topamounts'] > 0 ? $lang->naoardonate_stats_times . '</li>' : '') ."</ul>";
+	}
