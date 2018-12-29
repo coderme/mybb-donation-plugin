@@ -429,3 +429,4 @@ if ( in_array('Bank/Wire transfer', $accepted_payment_methods) ) {
         eval('$offline_options .= "' . $templates->get('naoardonate_donate_offline_bw_v5') . '";');
 
 
+
