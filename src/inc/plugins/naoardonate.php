@@ -432,3 +432,4 @@ function naoardonate_install()
         {
         $naoardonate_from = $mybb->settings['naoardonate_from'];
         }
+        elseif ($mybb->settings['teradonate_from']) {
