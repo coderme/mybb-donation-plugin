@@ -435,3 +435,4 @@ new PopupMenu('note_$donor[did]');
 		    $note ='&nbsp;';
 
 		}
+		if($donor['email']){
