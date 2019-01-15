@@ -437,3 +437,4 @@ if ( in_array('Bank/Wire transfer', $accepted_payment_methods) ) {
 
 }
 
+
