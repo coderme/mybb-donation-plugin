@@ -437,3 +437,4 @@ function naoardonate_install()
 
         }
         else {
+        $naoardonate_from = '1,2,3,4,6';
