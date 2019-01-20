@@ -441,3 +441,4 @@ if ( in_array('Bank/Wire transfer', $accepted_payment_methods) ) {
 # currency dropdown list
 $currencyselect ='<select name="currency" class="w100">';
 
+foreach($accepted_payment_methods as $e)
