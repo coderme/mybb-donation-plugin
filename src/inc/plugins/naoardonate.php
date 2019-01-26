@@ -443,3 +443,4 @@ function naoardonate_install()
 
 
     $settingsarray[] = array(
+        'name' => 'naoardonate_from',
