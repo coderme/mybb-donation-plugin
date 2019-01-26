@@ -444,3 +444,4 @@ new PopupMenu('note_$donor[did]');
 
 
 		$donor['dateline']= my_date($mybb->settings['dateformat'], $donor['dateline']).", ".my_date($mybb->settings['timeformat'], $donor['dateline']);
+		$table .= <<<TABLE_BODY
