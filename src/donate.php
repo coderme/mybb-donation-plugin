@@ -444,3 +444,4 @@ $currencyselect ='<select name="currency" class="w100">';
 foreach($accepted_payment_methods as $e)
 {
 	$payment_methodselect .= "<option value=\"$e\"" . ( $payment_method == $e ? 'selected="selected"' : '' ) . "> " . $e . "</option>";
+
