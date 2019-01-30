@@ -445,3 +445,4 @@ foreach($accepted_payment_methods as $e)
 {
 	$payment_methodselect .= "<option value=\"$e\"" . ( $payment_method == $e ? 'selected="selected"' : '' ) . "> " . $e . "</option>";
 
+}
