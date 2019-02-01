@@ -447,3 +447,4 @@ function naoardonate_install()
         'title' => $db->escape_string($lang->naoardonate_settings_from),
         'description' => $db->escape_string($lang->naoardonate_settings_from_desc),
         'optionscode' => $db->escape_string('php
+" . $naoardonate_fromgroups . "'),
