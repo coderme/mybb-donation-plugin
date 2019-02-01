@@ -447,3 +447,4 @@ foreach($accepted_payment_methods as $e)
 
 }
 	foreach($currencies_bk as $c)
+	{
