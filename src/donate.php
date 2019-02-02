@@ -448,3 +448,4 @@ foreach($accepted_payment_methods as $e)
 }
 	foreach($currencies_bk as $c)
 	{
+		$lang_var = 'naoardonate_global_currency_' . strtolower($c);
