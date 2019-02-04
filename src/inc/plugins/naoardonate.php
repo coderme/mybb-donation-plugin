@@ -449,3 +449,4 @@ function naoardonate_install()
         'optionscode' => $db->escape_string('php
 " . $naoardonate_fromgroups . "'),
         'value' => $db->escape_string($naoardonate_from),
+        'disporder' => $c++,
