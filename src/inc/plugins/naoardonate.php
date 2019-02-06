@@ -450,3 +450,4 @@ function naoardonate_install()
 " . $naoardonate_fromgroups . "'),
         'value' => $db->escape_string($naoardonate_from),
         'disporder' => $c++,
+        'gid' => $gid
