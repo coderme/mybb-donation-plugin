@@ -451,3 +451,4 @@ foreach($accepted_payment_methods as $e)
 		$lang_var = 'naoardonate_global_currency_' . strtolower($c);
 
 		if(in_array($c, $currencies_lr))
+		{
