@@ -455,3 +455,4 @@ new PopupMenu('note_$donor[did]');
 		<td class="align_center">$donor[dateline]</td>
 		<td class="align_center" style="white-space: nowrap"><input type="checkbox" class="checkbox" name="inlinemod_$donor[did]" id="inlinemod_$donor[did]" value="1" $inlinecheck /></td>
 	</tr>
+TABLE_BODY;
