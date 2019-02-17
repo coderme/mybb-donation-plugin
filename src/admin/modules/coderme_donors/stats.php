@@ -456,3 +456,4 @@ $currencies_array = array(
 	}
 
 	print "</td></tr></table>";
+
