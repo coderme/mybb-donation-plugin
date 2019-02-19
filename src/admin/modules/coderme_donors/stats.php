@@ -457,3 +457,4 @@ $currencies_array = array(
 
 	print "</td></tr></table>";
 
+	$page->output_footer();
