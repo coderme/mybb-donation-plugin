@@ -457,3 +457,4 @@ function naoardonate_install()
 
     if($mybb->settings['naoardonate_alert'])
         {
+        $naoardonate_alert = $mybb->settings['naoardonate_alert'];
