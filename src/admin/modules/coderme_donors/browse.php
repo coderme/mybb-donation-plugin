@@ -459,3 +459,4 @@ TABLE_BODY;
 	}
 	if(strpos($table, '<td class="align_center">') !== false){
 	    $table .= "</tbody></table></div>";
+	    print $table;
