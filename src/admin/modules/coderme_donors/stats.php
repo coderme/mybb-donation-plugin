@@ -459,3 +459,4 @@ $currencies_array = array(
 
 	$page->output_footer();
 
+
