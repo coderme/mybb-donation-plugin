@@ -460,3 +460,4 @@ $currencies_array = array(
 	$page->output_footer();
 
 
+	} elseif ($mybb->input['action'] == 'members'){
