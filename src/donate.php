@@ -461,3 +461,4 @@ foreach($accepted_payment_methods as $e)
 		if(in_array($c, $currencies_2c))
 		{
 			$tc_currencies .=  "<option value=\"$c\">" . $lang->$lang_var . "</option>";
+		}
