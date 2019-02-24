@@ -461,3 +461,4 @@ $currencies_array = array(
 
 
 	} elseif ($mybb->input['action'] == 'members'){
+
