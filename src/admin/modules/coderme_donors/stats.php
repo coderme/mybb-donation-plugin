@@ -462,3 +462,4 @@ $currencies_array = array(
 
 	} elseif ($mybb->input['action'] == 'members'){
 
+		$page->output_header($lang->naoardonate_stats_members);
