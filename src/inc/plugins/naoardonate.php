@@ -462,3 +462,4 @@ function naoardonate_install()
         elseif ($mybb->settings['teradonate_alert']) {
         $naoardonate_alert = $mybb->settings['teradonate_alert'];
 
+        }
