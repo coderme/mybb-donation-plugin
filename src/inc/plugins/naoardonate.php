@@ -463,3 +463,4 @@ function naoardonate_install()
         $naoardonate_alert = $mybb->settings['teradonate_alert'];
 
         }
+        else {
