@@ -466,3 +466,4 @@ TABLE_BODY;
 <input type="hidden" name="my_post_key" value="$mybb->post_code" />
 <input type="hidden" name="naoar_cookie" value="inlinemod_donor2" />
 <input type="hidden" name="naoar_referrer" value="index.php?module=coderme_donors{$sep}browse&action=unconfirmed" />
+<span class="smalltext"><strong>$lang->naoardonate_browse_inline_moderation</strong></span>
