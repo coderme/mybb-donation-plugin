@@ -465,3 +465,4 @@ function naoardonate_install()
         }
         else {
         $naoardonate_alert = 'notice';
+        }
