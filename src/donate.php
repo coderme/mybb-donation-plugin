@@ -466,3 +466,4 @@ foreach($accepted_payment_methods as $e)
 		{
 			$pp_currencies .=  "<option value=\"$c\">" . $lang->$lang_var . "</option>";
 		}
+		if(in_array($c, $currencies_wu))
