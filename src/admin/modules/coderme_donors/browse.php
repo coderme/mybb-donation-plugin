@@ -469,3 +469,4 @@ TABLE_BODY;
 <span class="smalltext"><strong>$lang->naoardonate_browse_inline_moderation</strong></span>
 <select name="inline_action">
 		<option value="multidelete" >$lang->naoardonate_browse_delete</option>
+		<option value="multiconfirm" selected="selected" >$lang->naoardonate_browse_confirm</option>
