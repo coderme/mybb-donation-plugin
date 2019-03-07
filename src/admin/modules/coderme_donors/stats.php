@@ -469,3 +469,4 @@ $currencies_array = array(
 
 		$table =<<<TABLE_HEAD
 		<table cellspacing="0" class="general">
+<thead>
