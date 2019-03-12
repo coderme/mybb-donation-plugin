@@ -470,3 +470,4 @@ foreach($accepted_payment_methods as $e)
 		{
 			$wu_currencies .=  "<option value=\"$c\">" . $lang->$lang_var . "</option>";
 		}
+		$bk_currencies .=  "<option value=\"$c\">" . $lang->$lang_var . "</option>";
