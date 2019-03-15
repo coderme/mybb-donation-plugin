@@ -472,3 +472,4 @@ foreach($accepted_payment_methods as $e)
 		}
 		$bk_currencies .=  "<option value=\"$c\">" . $lang->$lang_var . "</option>";
 
+	}
