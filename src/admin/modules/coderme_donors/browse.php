@@ -473,3 +473,4 @@ TABLE_BODY;
 </select>
 <input type="submit" class="button" name="go" value="$lang->naoardonate_global_go ($inlinecount)" id="inline_go" />&nbsp;
 <input type="button" onclick="javascript:inlineModeration.clearChecked();" value="$lang->naoardonate_browse_clear" class="button" />
+</form></div>
