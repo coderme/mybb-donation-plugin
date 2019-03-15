@@ -472,3 +472,4 @@ function naoardonate_install()
     $settingsarray[] = array(
         'name' => 'naoardonate_alert',
         'title' => $db->escape_string($lang->naoardonate_settings_unconfirmednotice),
+        'description' => $db->escape_string($lang->naoardonate_settings_unconfirmednotice_desc),
