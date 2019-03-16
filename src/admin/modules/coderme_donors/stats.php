@@ -473,3 +473,4 @@ $currencies_array = array(
 	<tr>
 		<th class="align_center">$lang->naoardonate_global_name</th>
 		<th class="align_center">$lang->naoardonate_global_amount</th>
+		<th class="align_center">$lang->naoardonate_global_payment_method</th>
