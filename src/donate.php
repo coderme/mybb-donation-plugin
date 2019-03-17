@@ -474,3 +474,4 @@ foreach($accepted_payment_methods as $e)
 
 	}
 
+# wrapper function
