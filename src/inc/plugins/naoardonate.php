@@ -475,3 +475,4 @@ function naoardonate_install()
         'description' => $db->escape_string($lang->naoardonate_settings_unconfirmednotice_desc),
         'optionscode' => "radio
 notice=$lang->naoardonate_settings_notice
+email=$lang->naoardonate_settings_email
