@@ -476,3 +476,4 @@ $currencies_array = array(
 		<th class="align_center">$lang->naoardonate_global_payment_method</th>
 		<th class="align_center">$lang->naoardonate_global_ip</th>
 		<th class="align_center">$lang->naoardonate_global_extra</th>
+		<th class="align_center">$lang->naoardonate_global_date</th>
