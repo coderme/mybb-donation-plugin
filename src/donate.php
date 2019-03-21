@@ -476,3 +476,4 @@ foreach($accepted_payment_methods as $e)
 
 # wrapper function
 $js_updatelist = <<<'DOC'
+ function change_payment_method(){
