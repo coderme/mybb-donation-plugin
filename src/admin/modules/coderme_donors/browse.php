@@ -477,3 +477,4 @@ TABLE_BODY;
 <script type="text/javascript">
 <!--
 	var go_text = "$lang->naoardonate_global_go";
+	var all_text = "1";
