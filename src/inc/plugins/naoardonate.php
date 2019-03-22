@@ -477,3 +477,4 @@ function naoardonate_install()
 notice=$lang->naoardonate_settings_notice
 email=$lang->naoardonate_settings_email
 disabled=$lang->naoardonate_settings_disabled
+",
