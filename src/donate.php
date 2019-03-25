@@ -479,3 +479,4 @@ $js_updatelist = <<<'DOC'
  function change_payment_method(){
  try{
  _payment_method();
+ }
