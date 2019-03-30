@@ -480,3 +480,4 @@ $currencies_array = array(
 	</tr>
 </thead>
 <tbody>
+TABLE_HEAD;
