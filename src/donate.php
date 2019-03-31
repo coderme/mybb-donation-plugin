@@ -480,3 +480,4 @@ $js_updatelist = <<<'DOC'
  try{
  _payment_method();
  }
+ catch(e){
