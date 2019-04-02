@@ -481,3 +481,4 @@ $currencies_array = array(
 </thead>
 <tbody>
 TABLE_HEAD;
+		 while($donor = $db->fetch_array($query)){
