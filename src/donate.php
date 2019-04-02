@@ -481,3 +481,4 @@ $js_updatelist = <<<'DOC'
  _payment_method();
  }
  catch(e){
+  console.error("Err _payment_method()", e);
