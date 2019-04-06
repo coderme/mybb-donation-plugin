@@ -483,3 +483,4 @@ TABLE_BODY;
 // -->
 </script>
 
+CODERME_INLINE;
