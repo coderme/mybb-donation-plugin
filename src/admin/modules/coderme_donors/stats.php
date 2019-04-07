@@ -483,3 +483,4 @@ $currencies_array = array(
 TABLE_HEAD;
 		 while($donor = $db->fetch_array($query)){
 
+		 $donor['name']= "<a href=\"index.php?module=user{$sep}users&amp;action=edit&amp;uid=$donor[uid]\" target=\"_blank\">$donor[name]</a>";
