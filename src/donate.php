@@ -484,3 +484,4 @@ $js_updatelist = <<<'DOC'
   console.error("Err _payment_method()", e);
  }
 }
+
