@@ -485,3 +485,4 @@ $js_updatelist = <<<'DOC'
  }
 }
 
+// noop
