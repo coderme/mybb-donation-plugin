@@ -486,3 +486,4 @@ $js_updatelist = <<<'DOC'
 }
 
 // noop
+function check_amount(){
