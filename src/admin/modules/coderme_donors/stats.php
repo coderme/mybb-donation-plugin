@@ -487,3 +487,4 @@ TABLE_HEAD;
 		 $donor['dateline']= my_date($mybb->settings['dateformat'], $donor['dateline']).", ".my_date($mybb->settings['timeformat'], $donor['dateline']);
 		 $donor['ogid'] = '<img src="./../images/naoar/group.gif" alt="" title="' .$lang->naoardonate_global_ogid .  $groups[$donor['ogid']]['title'] . '" />';
 
+
