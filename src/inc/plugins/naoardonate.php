@@ -487,3 +487,4 @@ disabled=$lang->naoardonate_settings_disabled
 
     
     if($mybb->settings['naoardonate_unban'])   {
+         $naoardonate_unban = $mybb->settings['naoardonate_unban'];
