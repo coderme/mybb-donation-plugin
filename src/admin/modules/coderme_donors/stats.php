@@ -488,3 +488,4 @@ TABLE_HEAD;
 		 $donor['ogid'] = '<img src="./../images/naoar/group.gif" alt="" title="' .$lang->naoardonate_global_ogid .  $groups[$donor['ogid']]['title'] . '" />';
 
 
+		 if($donor['note']){
