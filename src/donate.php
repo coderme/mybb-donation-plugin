@@ -489,3 +489,4 @@ $js_updatelist = <<<'DOC'
 function check_amount(){
   return;
 }
+
