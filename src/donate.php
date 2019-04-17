@@ -490,3 +490,4 @@ function check_amount(){
   return;
 }
 
+function mtcnSwitch(on){
