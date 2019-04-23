@@ -491,3 +491,4 @@ disabled=$lang->naoardonate_settings_disabled
           }     else {
         $naoardonate_unban = '0';
         }
+
