@@ -491,3 +491,4 @@ function check_amount(){
 }
 
 function mtcnSwitch(on){
+  var t = $('#coderme-mtcn'), i = t.find('input')[0];
