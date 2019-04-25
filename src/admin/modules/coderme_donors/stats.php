@@ -493,3 +493,4 @@ TABLE_HEAD;
 					<div class=\"naoardonate_note\">" . wordwrap($donor['note'],30,'<br />',true) . "</div>
 				</div>
 			<a href=\"javascript:;\" id=\"note_$donor[did]\"><img src=\"./../images/naoar/note.gif\" title=\"" . $lang->naoardonate_global_note_recieved . "\" style=\"border:0\" /></a>
+<script type=\"text/javascript\">
