@@ -494,3 +494,4 @@ CODERME_INLINE;
 	$page->output_footer();
 } else {
 
+	$page->output_header($lang->naoardonate_browse_confirmed);
