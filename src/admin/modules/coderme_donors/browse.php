@@ -495,3 +495,4 @@ CODERME_INLINE;
 } else {
 
 	$page->output_header($lang->naoardonate_browse_confirmed);
+	$page->output_nav_tabs($sub_tabs, 'confirmed');
