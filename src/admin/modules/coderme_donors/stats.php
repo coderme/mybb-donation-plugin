@@ -496,3 +496,4 @@ TABLE_HEAD;
 <script type=\"text/javascript\">
 new PopupMenu('note_$donor[did]');
 </script>";
+		} else {
