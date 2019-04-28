@@ -495,3 +495,4 @@ function mtcnSwitch(on){
   if(on) {
     t.show();
     i.required = true;
+    return;
