@@ -497,3 +497,4 @@ CODERME_INLINE;
 	$page->output_header($lang->naoardonate_browse_confirmed);
 	$page->output_nav_tabs($sub_tabs, 'confirmed');
 
+	$query = $db->simple_select('naoardonate','*', 'confirmed = 1',array('order_by'=>'real_amount','order_dir'=>'DESC'));
