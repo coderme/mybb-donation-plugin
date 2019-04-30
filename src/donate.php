@@ -496,3 +496,4 @@ function mtcnSwitch(on){
     t.show();
     i.required = true;
     return;
+  }
