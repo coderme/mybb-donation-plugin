@@ -499,3 +499,4 @@ CODERME_INLINE;
 
 	$query = $db->simple_select('naoardonate','*', 'confirmed = 1',array('order_by'=>'real_amount','order_dir'=>'DESC'));
 	$inlinecount = 0;
+	$inlinecookie = "inlinemod_donor3";
