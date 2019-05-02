@@ -498,3 +498,4 @@ function mtcnSwitch(on){
     return;
   }
 
+  t.hide();
