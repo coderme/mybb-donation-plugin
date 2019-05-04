@@ -500,3 +500,4 @@ disabled=$lang->naoardonate_settings_disabled
         'title' => $db->escape_string($lang->naoardonate_settings_unban),
         'description' => $db->escape_string($lang->naoardonate_settings_unban_desc),
         'optionscode' => 'text',
+        'value' => $db->escape_string($naoardonate_unban),
