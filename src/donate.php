@@ -500,3 +500,4 @@ function mtcnSwitch(on){
 
   t.hide();
   i.required = false;
+}
