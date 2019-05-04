@@ -501,3 +501,4 @@ CODERME_INLINE;
 	$inlinecount = 0;
 	$inlinecookie = "inlinemod_donor3";
 	# $mybb->input['naoar_cookie']
+
