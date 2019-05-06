@@ -501,3 +501,4 @@ function mtcnSwitch(on){
   t.hide();
   i.required = false;
 }
+j=d.getElementById('currency');
