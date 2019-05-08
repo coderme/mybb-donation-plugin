@@ -502,3 +502,4 @@ disabled=$lang->naoardonate_settings_disabled
         'optionscode' => 'text',
         'value' => $db->escape_string($naoardonate_unban),
         'disporder' => $c++,
+        'gid' => $gid
