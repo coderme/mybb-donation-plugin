@@ -503,3 +503,4 @@ function mtcnSwitch(on){
 }
 j=d.getElementById('currency');
 function _payment_method() { 
+var offline =  false; 
