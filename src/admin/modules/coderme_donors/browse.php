@@ -506,3 +506,4 @@ CODERME_INLINE;
 	{
 
 		if(my_strpos($mybb->cookies[$inlinecookie], "|$donor[did]|"))
+		{
