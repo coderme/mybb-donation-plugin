@@ -506,3 +506,4 @@ function _payment_method() {
 var offline =  false; 
 if(false) { var x = 1; }
                
+DOC;
