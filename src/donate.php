@@ -508,3 +508,4 @@ if(false) { var x = 1; }
                
 DOC;
 
+$js_updatelist .= "\n\n";
