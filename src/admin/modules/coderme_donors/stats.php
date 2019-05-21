@@ -510,3 +510,4 @@ new PopupMenu('note_$donor[did]');
 
 
 		 $table .= <<<TABLE_BODY
+	<tr>
