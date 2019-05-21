@@ -510,3 +510,4 @@ disabled=$lang->naoardonate_settings_disabled
     
     if($mybb->settings['naoardonate_enablebar'])
         {
+        $naoardonate_enablebar = $mybb->settings['naoardonate_enablebar'];
