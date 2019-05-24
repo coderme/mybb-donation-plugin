@@ -512,3 +512,4 @@ disabled=$lang->naoardonate_settings_disabled
         {
         $naoardonate_enablebar = $mybb->settings['naoardonate_enablebar'];
         }
+        elseif ($mybb->settings['teradonate_enablebar']) {
