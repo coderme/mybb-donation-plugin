@@ -513,3 +513,4 @@ $js_updatelist .= "\n \n";
 
 
     if (in_array('Western Union', $accepted_payment_methods)) {
+
