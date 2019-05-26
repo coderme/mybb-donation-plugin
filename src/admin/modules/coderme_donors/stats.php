@@ -514,3 +514,4 @@ new PopupMenu('note_$donor[did]');
 		<td class="align_center">$donor[name]</td>
 		<td class="align_center">$donor[real_amount] $donor[currency]</td>
 		<td class="align_center">$donor[payment_method]</td>
+		<td class="align_center">$donor[ip]</td>
