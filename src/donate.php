@@ -515,3 +515,4 @@ $js_updatelist .= "\n \n";
     if (in_array('Western Union', $accepted_payment_methods)) {
 
         $offline_js_wu = " offline = document.getElementById('offline_wu');
+	    try {
