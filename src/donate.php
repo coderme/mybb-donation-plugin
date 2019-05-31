@@ -516,3 +516,4 @@ $js_updatelist .= "\n \n";
 
         $offline_js_wu = " offline = document.getElementById('offline_wu');
 	    try {
+		   document.getElementById('offline_bk').style.display = 'none';
