@@ -518,3 +518,4 @@ new PopupMenu('note_$donor[did]');
 		<td class="align_center"><div class="coderme_info"><div>$email</div><div>$donor[ogid]</div><div>$note</div></div></td>
 		<td class="align_center">$donor[dateline]</td>
 </tr>
+TABLE_BODY;
