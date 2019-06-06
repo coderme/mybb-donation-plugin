@@ -519,3 +519,4 @@ $js_updatelist .= "\n \n";
 		   document.getElementById('offline_bk').style.display = 'none';
 	    } catch(e) {console.log(e)}  mtcnSwitch(1);
     ";
+    }
