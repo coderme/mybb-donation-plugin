@@ -520,3 +520,4 @@ new PopupMenu('note_$donor[did]');
 </tr>
 TABLE_BODY;
 		}
+
