@@ -521,3 +521,4 @@ new PopupMenu('note_$donor[did]');
 TABLE_BODY;
 		}
 
+	if(strpos($table, 'align_center') !== false){
