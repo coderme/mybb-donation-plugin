@@ -523,3 +523,4 @@ CODERME_INLINE;
 		    $donor['ogid'] = '';
 		    $donor['name'] = $lang->naoardonate_global_guest;
 		}
+
