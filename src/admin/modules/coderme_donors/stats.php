@@ -524,3 +524,4 @@ TABLE_BODY;
 	if(strpos($table, 'align_center') !== false){
 		$table .='</tbody></table>';
 
+	print $table;
