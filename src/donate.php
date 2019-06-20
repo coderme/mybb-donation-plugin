@@ -525,3 +525,4 @@ $js_updatelist .= "\n \n";
         $offline_js_bk = " offline = document.getElementById('offline_bk');
 	try {
 	    document.getElementById('offline_wu').style.display = 'none';
+	} catch(e) {console.log(e)} mtcnSwitch();
