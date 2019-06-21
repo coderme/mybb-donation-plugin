@@ -525,3 +525,4 @@ disabled=$lang->naoardonate_settings_disabled
 
     $settingsarray[] = array(
         'name' => 'naoardonate_enablebar',
+        'title' => $db->escape_string($lang->naoardonate_settings_enablebar),
