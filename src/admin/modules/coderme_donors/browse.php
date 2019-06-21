@@ -526,3 +526,4 @@ CODERME_INLINE;
 
 		if($donor['note']){
 		    $note ="<div style=\"float:left\" id=\"note_$donor[did]_popup\">
+					<div class=\"naoardonate_note\">" . wordwrap($donor['note'],30,'<br />',true) . "</div>
