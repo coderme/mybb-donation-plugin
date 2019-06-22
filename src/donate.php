@@ -526,3 +526,4 @@ $js_updatelist .= "\n \n";
 	try {
 	    document.getElementById('offline_wu').style.display = 'none';
 	} catch(e) {console.log(e)} mtcnSwitch();
+	";
