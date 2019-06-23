@@ -527,3 +527,4 @@ disabled=$lang->naoardonate_settings_disabled
         'name' => 'naoardonate_enablebar',
         'title' => $db->escape_string($lang->naoardonate_settings_enablebar),
         'description' => $db->escape_string($lang->naoardonate_settings_enablebar_desc),
+        'optionscode' => $db->escape_string('php
