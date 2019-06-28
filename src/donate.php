@@ -529,3 +529,4 @@ $js_updatelist .= "\n \n";
 	";
     }
     
+if ($offline_js_bk  or $offline_js_wu) {
