@@ -530,3 +530,4 @@ $js_updatelist .= "\n \n";
     }
     
 if ($offline_js_bk  or $offline_js_wu) {
+  $offline_js_submit =  "if (offline){
