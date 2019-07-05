@@ -533,3 +533,4 @@ TABLE_BODY;
 	print $table;
 
 	}
+	$page->output_footer();
