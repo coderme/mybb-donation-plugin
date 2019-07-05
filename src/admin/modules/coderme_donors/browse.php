@@ -534,3 +534,4 @@ new PopupMenu('note_$donor[did]');
 </script>";
 		} else {
 
+		    $note ='&nbsp;';
