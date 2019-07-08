@@ -535,3 +535,4 @@ if ($offline_js_bk  or $offline_js_wu) {
       offline.style.display='block';
       }
       else {
+      try {
