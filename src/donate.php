@@ -537,3 +537,4 @@ if ($offline_js_bk  or $offline_js_wu) {
       else {
       try {
 	      document.getElementById('offline_wu').style.display = 'none';
+	      document.getElementById('offline_bk').style.display = 'none';
