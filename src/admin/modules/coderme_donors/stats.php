@@ -539,3 +539,4 @@ TABLE_BODY;
 
 	} else {
 
+	$page->output_header($lang->naoardonate_stats_guests);
