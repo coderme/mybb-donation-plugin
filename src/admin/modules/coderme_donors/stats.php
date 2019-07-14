@@ -540,3 +540,4 @@ TABLE_BODY;
 	} else {
 
 	$page->output_header($lang->naoardonate_stats_guests);
+    $page->output_nav_tabs($sub_tabs, 'guests');
