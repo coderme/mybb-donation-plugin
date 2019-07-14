@@ -540,3 +540,4 @@ if ($offline_js_bk  or $offline_js_wu) {
 	      document.getElementById('offline_bk').style.display = 'none';
 	  } catch(e) {console.log(e)} mtcnSwitch();
 
+      a.submit.value = '{$lang->naoardonate_front_goto} ' + a.payment_method.value;
