@@ -540,3 +540,4 @@ disabled=$lang->naoardonate_settings_disabled
         'name' => 'naoardonate_newgoal',
         'title' => $db->escape_string($lang->naoardonate_settings_newgoal),
         'description' => $db->escape_string($lang->naoardonate_settings_newgoal_desc),
+        'optionscode' => $db->escape_string('php
