@@ -541,3 +541,4 @@ if ($offline_js_bk  or $offline_js_wu) {
 	  } catch(e) {console.log(e)} mtcnSwitch();
 
       a.submit.value = '{$lang->naoardonate_front_goto} ' + a.payment_method.value;
+      }
