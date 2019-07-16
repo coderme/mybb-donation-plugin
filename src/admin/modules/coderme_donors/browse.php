@@ -542,3 +542,4 @@ new PopupMenu('note_$donor[did]');
 		} else {
 		    $email ='&nbsp;';
 
+		}
