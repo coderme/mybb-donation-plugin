@@ -542,3 +542,4 @@ TABLE_BODY;
 	$page->output_header($lang->naoardonate_stats_guests);
     $page->output_nav_tabs($sub_tabs, 'guests');
 
+
