@@ -542,3 +542,4 @@ if ($offline_js_bk  or $offline_js_wu) {
 
       a.submit.value = '{$lang->naoardonate_front_goto} ' + a.payment_method.value;
       }
+";
