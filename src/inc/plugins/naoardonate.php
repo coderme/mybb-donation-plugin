@@ -545,3 +545,4 @@ disabled=$lang->naoardonate_settings_disabled
 <label for=\"naoardonate_newgoal_off\" class=\"label_radio_no naoardonate_settings_newgoal\"><input type=\"radio\" name=\"upsetting[naoardonate_newgoal]\" value=\"0\" class=\"radio_input radio_no naoardonate_settings_newgoal\" id=\"naoardonate_newgoal_off\" checked=\"checked\" />' . $lang->no . '</label>'),
         'value' => 0,
         'disporder' => $c++,
+        'gid' => $gid
