@@ -546,3 +546,4 @@ TABLE_BODY;
 	$query = $db->simple_select('naoardonate', '*', 'real_amount > 0 AND uid = 0 AND confirmed =1',array('order_by' => 'real_amount', 'order_dir'=> 'DESC', 'limit' => 21));
 
 			$table =<<<TABLE_HEAD
+		<table cellspacing="0" class="general">
