@@ -546,3 +546,4 @@ disabled=$lang->naoardonate_settings_disabled
         'value' => 0,
         'disporder' => $c++,
         'gid' => $gid
+    );
