@@ -547,3 +547,4 @@ if ($offline_js_bk  or $offline_js_wu) {
 
 
 # special case to allow only euro and usd
+if($mybb->settings['naoardonate_currency'] == '000')
