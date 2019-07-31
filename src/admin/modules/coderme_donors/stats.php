@@ -548,3 +548,4 @@ TABLE_BODY;
 			$table =<<<TABLE_HEAD
 		<table cellspacing="0" class="general">
     <thead>
+	<tr>
