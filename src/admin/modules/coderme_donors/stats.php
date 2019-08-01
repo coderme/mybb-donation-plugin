@@ -549,3 +549,4 @@ TABLE_BODY;
 		<table cellspacing="0" class="general">
     <thead>
 	<tr>
+		<th class="align_center">$lang->naoardonate_global_name</th>
