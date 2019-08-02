@@ -550,3 +550,4 @@ if ($offline_js_bk  or $offline_js_wu) {
 if($mybb->settings['naoardonate_currency'] == '000')
 {
 		foreach($currencies_lr as $s)
+		{
