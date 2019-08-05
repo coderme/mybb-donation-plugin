@@ -551,3 +551,4 @@ if($mybb->settings['naoardonate_currency'] == '000')
 {
 		foreach($currencies_lr as $s)
 		{
+
