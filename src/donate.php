@@ -552,3 +552,4 @@ if($mybb->settings['naoardonate_currency'] == '000')
 		foreach($currencies_lr as $s)
 		{
 
+				$lang_var = 'naoardonate_global_currency_' . strtolower($s);
