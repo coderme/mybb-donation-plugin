@@ -552,3 +552,4 @@ disabled=$lang->naoardonate_settings_disabled
     if($mybb->settings['naoardonate_reason'])
         {
         $naoardonate_reason = $mybb->settings['naoardonate_reason'];
+        }
