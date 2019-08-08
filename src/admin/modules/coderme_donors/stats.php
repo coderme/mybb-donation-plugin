@@ -553,3 +553,4 @@ TABLE_BODY;
 		<th class="align_center">$lang->naoardonate_global_amount</th>
 		<th class="align_center">$lang->naoardonate_global_payment_method</th>
 		<th class="align_center">$lang->naoardonate_global_ip</th>
+		<th class="align_center">$lang->naoardonate_global_extra</th>
