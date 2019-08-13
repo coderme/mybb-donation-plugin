@@ -555,3 +555,4 @@ disabled=$lang->naoardonate_settings_disabled
         }
         elseif ($mybb->settings['teradonate_reason']) {
         $naoardonate_reason = $mybb->settings['teradonate_reason'];
+
