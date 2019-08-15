@@ -556,3 +556,4 @@ if($mybb->settings['naoardonate_currency'] == '000')
 				$currencyselect .= "<option value=\"$s\">" . $lang->$lang_var . "</option>";
 
 		}
+    $currencyselect .= '</select>';
