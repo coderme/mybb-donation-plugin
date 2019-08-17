@@ -557,3 +557,4 @@ TABLE_BODY;
 		<th class="align_center">$lang->naoardonate_global_date</th>
 	</tr>
     </thead>
+    <tbody>
