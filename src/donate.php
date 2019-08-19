@@ -558,3 +558,4 @@ if($mybb->settings['naoardonate_currency'] == '000')
 		}
     $currencyselect .= '</select>';
     eval('$currencies_row ="' . $templates->get('naoardonate_donate_currencies_row_v5') . '";');
+
