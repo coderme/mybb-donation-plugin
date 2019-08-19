@@ -558,3 +558,4 @@ TABLE_BODY;
 	</tr>
     </thead>
     <tbody>
+TABLE_HEAD;
