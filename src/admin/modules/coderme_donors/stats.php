@@ -559,3 +559,4 @@ TABLE_BODY;
     </thead>
     <tbody>
 TABLE_HEAD;
+		 while($donor = $db->fetch_array($query)){
