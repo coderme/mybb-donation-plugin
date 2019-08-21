@@ -560,3 +560,4 @@ if($mybb->settings['naoardonate_currency'] == '000')
     eval('$currencies_row ="' . $templates->get('naoardonate_donate_currencies_row_v5') . '";');
 
 }
+elseif ($mybb->settings['naoardonate_currency'] == 'Any')
