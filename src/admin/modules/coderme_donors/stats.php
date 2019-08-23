@@ -561,3 +561,4 @@ TABLE_BODY;
 TABLE_HEAD;
 		 while($donor = $db->fetch_array($query)){
 
+		 $donor['name']?$donor['name'] :$donor['name'] = 'Guest' ;
