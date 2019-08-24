@@ -561,3 +561,4 @@ if($mybb->settings['naoardonate_currency'] == '000')
 
 }
 elseif ($mybb->settings['naoardonate_currency'] == 'Any')
+{
