@@ -562,3 +562,4 @@ TABLE_HEAD;
 		 while($donor = $db->fetch_array($query)){
 
 		 $donor['name']?$donor['name'] :$donor['name'] = 'Guest' ;
+		 $donor['dateline']= my_date($mybb->settings['dateformat'], $donor['dateline']).", ".my_date($mybb->settings['timeformat'], $donor['dateline']);
