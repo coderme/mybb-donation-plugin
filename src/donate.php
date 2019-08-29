@@ -564,3 +564,4 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 {
 
     if ( in_array('2checkout', $accepted_payment_methods) )
+    {
