@@ -565,3 +565,4 @@ TABLE_HEAD;
 		 $donor['dateline']= my_date($mybb->settings['dateformat'], $donor['dateline']).", ".my_date($mybb->settings['timeformat'], $donor['dateline']);
 
 
+		 		 if($donor['note']){
