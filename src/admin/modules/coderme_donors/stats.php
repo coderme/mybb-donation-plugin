@@ -566,3 +566,4 @@ TABLE_HEAD;
 
 
 		 		 if($donor['note']){
+		$note ="<div style=\"float:left\" id=\"note_$donor[did]_popup\">
