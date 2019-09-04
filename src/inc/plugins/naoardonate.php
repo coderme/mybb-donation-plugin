@@ -568,3 +568,4 @@ disabled=$lang->naoardonate_settings_disabled
         'title' => $db->escape_string($lang->naoardonate_settings_reason),
         'description' => $db->escape_string($lang->naoardonate_settings_reason_desc),
         'optionscode' => 'textarea',
+        'value' => $db->escape_string($naoardonate_reason),
