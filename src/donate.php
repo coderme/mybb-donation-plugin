@@ -568,3 +568,4 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 	$currencyselect .='<optgroup label="' . $lang->sprintf( $lang->naoardonate_front_currencies_supported_by , '2checkout') . '">'
 			. $tc_currencies
 			. '</optgroup>';
+	$js_updatelist  .= " else if(a.payment_method.value == '2checkout'){j.innerHTML = '<select name=\"currency\" class=\"w100\">$tc_currencies</select>'} ";
