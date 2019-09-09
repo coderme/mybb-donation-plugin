@@ -570,3 +570,4 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 			. '</optgroup>';
 	$js_updatelist  .= " else if(a.payment_method.value == '2checkout'){j.innerHTML = '<select name=\"currency\" class=\"w100\">$tc_currencies</select>'} ";
     }
+
