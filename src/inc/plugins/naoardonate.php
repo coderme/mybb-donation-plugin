@@ -570,3 +570,4 @@ disabled=$lang->naoardonate_settings_disabled
         'optionscode' => 'textarea',
         'value' => $db->escape_string($naoardonate_reason),
         'disporder' => $c++,
+        'gid' => $gid
