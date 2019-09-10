@@ -571,3 +571,4 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 	$js_updatelist  .= " else if(a.payment_method.value == '2checkout'){j.innerHTML = '<select name=\"currency\" class=\"w100\">$tc_currencies</select>'} ";
     }
 
+    if ( in_array('Paypal', $accepted_payment_methods) )
