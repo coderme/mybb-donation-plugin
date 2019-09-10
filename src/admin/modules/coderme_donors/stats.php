@@ -571,3 +571,4 @@ TABLE_HEAD;
 				</div>
 			<a href=\"javascript:;\" id=\"note_$donor[did]\"><img src=\"./../images/naoar/note.gif\" title=\"" . $lang->naoardonate_global_note_recieved . "\" style=\"border:0\" /></a>
 <script type=\"text/javascript\">
+new PopupMenu('note_$donor[did]');
