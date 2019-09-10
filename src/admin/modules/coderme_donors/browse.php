@@ -572,3 +572,4 @@ TABLE_BODY;
 <select name="inline_action">
 		<option value="multidelete" >$lang->naoardonate_browse_delete</option>
 		<option value="multiunconfirm" selected="selected">$lang->naoardonate_browse_unconfirm</option>
+</select>
