@@ -572,3 +572,4 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
     }
 
     if ( in_array('Paypal', $accepted_payment_methods) )
+    {
