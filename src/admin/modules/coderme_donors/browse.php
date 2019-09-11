@@ -573,3 +573,4 @@ TABLE_BODY;
 		<option value="multidelete" >$lang->naoardonate_browse_delete</option>
 		<option value="multiunconfirm" selected="selected">$lang->naoardonate_browse_unconfirm</option>
 </select>
+<input type="submit" class="button" name="go" value="$lang->naoardonate_global_go ($inlinecount)" id="inline_go" />&nbsp;
