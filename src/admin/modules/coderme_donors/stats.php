@@ -574,3 +574,4 @@ TABLE_HEAD;
 new PopupMenu('note_$donor[did]');
 </script>";
 		} else {
+
