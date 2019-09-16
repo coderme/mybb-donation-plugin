@@ -575,3 +575,4 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
     {
 	$currencyselect .='<optgroup label="' . $lang->sprintf( $lang->naoardonate_front_currencies_supported_by , 'Paypal') . '">'
 			. $pp_currencies
+			. '</optgroup>';
