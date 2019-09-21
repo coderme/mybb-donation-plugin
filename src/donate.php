@@ -578,3 +578,4 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 			. '</optgroup>';
 	$js_updatelist  .= " else if(a.payment_method.value == 'Paypal') {j.innerHTML = '<select name=\"currency\" class=\"w100\">$pp_currencies</select>'}";
     }
+
