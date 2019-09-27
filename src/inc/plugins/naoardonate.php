@@ -580,3 +580,4 @@ disabled=$lang->naoardonate_settings_disabled
         }
         elseif ($mybb->settings['teradonate_target']) {
         $naoardonate_target = $mybb->settings['teradonate_target'];
+
