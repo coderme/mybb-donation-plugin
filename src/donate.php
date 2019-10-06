@@ -586,3 +586,4 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
    $js_updatelist .= " else if(a.payment_method.value == 'Western Union'){ j.innerHTML = '<select onchange=\"check_amount();\" name=\"currency\" class=\"w100\">$wu_currencies</select>'; mtcnSwitch(1);
 	$offline_js_wu
 	}";
+   
