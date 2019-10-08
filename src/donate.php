@@ -587,3 +587,4 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 	$offline_js_wu
 	}";
    
+    }
