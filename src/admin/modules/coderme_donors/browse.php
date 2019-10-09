@@ -589,3 +589,4 @@ CODERME_INLINE;
 
 	} else {
 
+	    $table .= '<tr><td colspan="7" class="align_center">' . $lang->naoardonate_global_nothing . '</td></tr></table></div>';
