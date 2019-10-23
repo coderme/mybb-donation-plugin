@@ -594,3 +594,4 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 	$currencyselect .='<optgroup label="' . $lang->sprintf( $lang->naoardonate_front_currencies_supported_by , 'Bank/Wire transfer') . '">'
 			. $bk_currencies
 			. '</optgroup>';
+	$js_updatelist  .= " else if(a.payment_method.value == 'Bank/Wire transfer'){ j.innerHTML = '<select name=\"currency\" class=\"w100\">$bk_currencies</select>';
