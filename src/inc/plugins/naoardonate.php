@@ -594,3 +594,4 @@ disabled=$lang->naoardonate_settings_disabled
         'description' => $db->escape_string($lang->naoardonate_settings_target_desc),
         'optionscode' => 'text',
         'value' => $db->escape_string($naoardonate_target),
+        'disporder' => $c++,
