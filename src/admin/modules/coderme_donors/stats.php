@@ -595,3 +595,4 @@ new PopupMenu('note_$donor[did]');
 		<td class="align_center">$donor[dateline]</td>
 			</tr>
 TABLE_BODY;
+		}
