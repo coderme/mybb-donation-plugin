@@ -599,3 +599,4 @@ CODERME_INLINE;
 }
 
 
+function cal_target($total=0)
