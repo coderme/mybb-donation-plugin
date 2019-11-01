@@ -600,3 +600,4 @@ TABLE_BODY;
 		$table .='</tbody></table>';
 
 	print $table;
+
