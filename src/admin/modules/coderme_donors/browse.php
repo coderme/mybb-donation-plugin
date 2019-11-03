@@ -602,3 +602,4 @@ CODERME_INLINE;
 function cal_target($total=0)
 {
 	global $db;
+	$query =$db->simple_select('naoardonate', 'real_amount', "real_amount > 0 AND confirmed = 1");
