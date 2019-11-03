@@ -601,3 +601,4 @@ disabled=$lang->naoardonate_settings_disabled
 
     if($mybb->settings['naoardonate_duration'])
         {
+        $naoardonate_duration = $mybb->settings['naoardonate_duration'];
