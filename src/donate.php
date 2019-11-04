@@ -602,3 +602,4 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 
     $currencyselect .= '</select>';
     eval('$currencies_row ="' . $templates->get('naoardonate_donate_currencies_row_v5') . '";');
+
