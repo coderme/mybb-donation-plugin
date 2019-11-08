@@ -604,3 +604,4 @@ TABLE_BODY;
 	} else {
 
 	$table .= '<tr><td colspan="6" align="center">' . $lang->naoardonate_global_nothing . '</td></tr></tbody></table>';
+
