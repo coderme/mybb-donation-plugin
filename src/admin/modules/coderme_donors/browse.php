@@ -604,3 +604,4 @@ function cal_target($total=0)
 	global $db;
 	$query =$db->simple_select('naoardonate', 'real_amount', "real_amount > 0 AND confirmed = 1");
 	while($amount = $db->fetch_array($query))
+	{
