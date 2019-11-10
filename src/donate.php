@@ -605,3 +605,4 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 
 }
 else
+{
