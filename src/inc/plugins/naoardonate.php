@@ -605,3 +605,4 @@ disabled=$lang->naoardonate_settings_disabled
         }
         elseif ($mybb->settings['teradonate_duration']) {
         $naoardonate_duration = $mybb->settings['teradonate_duration'];
+
