@@ -606,3 +606,4 @@ elseif ($mybb->settings['naoardonate_currency'] == 'Any')
 }
 else
 {
+      $single_currency = 1;
