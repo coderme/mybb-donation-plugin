@@ -606,3 +606,4 @@ function cal_target($total=0)
 	while($amount = $db->fetch_array($query))
 	{
 		$total += $amount['real_amount'];
+	}
