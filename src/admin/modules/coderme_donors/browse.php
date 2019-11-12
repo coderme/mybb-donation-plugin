@@ -607,3 +607,4 @@ function cal_target($total=0)
 	{
 		$total += $amount['real_amount'];
 	}
+	return $total;
