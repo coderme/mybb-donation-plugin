@@ -609,3 +609,4 @@ function cal_target($total=0)
 	}
 	return $total;
 
+}
