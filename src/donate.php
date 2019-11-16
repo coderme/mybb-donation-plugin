@@ -609,3 +609,4 @@ else
       $single_currency = 1;
       $single_currency_text = $mybb->settings['naoardonate_currency'];
 }
+
