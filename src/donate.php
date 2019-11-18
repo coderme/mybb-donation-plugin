@@ -610,3 +610,4 @@ else
       $single_currency_text = $mybb->settings['naoardonate_currency'];
 }
 
+$currencyselect .='</select>';
