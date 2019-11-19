@@ -611,3 +611,4 @@ else
 }
 
 $currencyselect .='</select>';
+
