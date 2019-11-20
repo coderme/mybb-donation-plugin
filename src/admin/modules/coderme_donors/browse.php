@@ -612,3 +612,4 @@ function cal_target($total=0)
 }
 
 function count_unconfirmed()
+{
