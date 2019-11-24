@@ -613,3 +613,4 @@ else
 $currencyselect .='</select>';
 
 if ($offline_js_submit and  $mybb->settings['naoardonate_currency'] != 'Any') {
+    if($offline_js_wu)
