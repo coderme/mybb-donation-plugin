@@ -614,3 +614,4 @@ function cal_target($total=0)
 function count_unconfirmed()
 {
 	global $db, $mybb, $cache;
+	if($mybb->settings['naoardonate_alert'] != 'disabled')
