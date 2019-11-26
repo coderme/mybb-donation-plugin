@@ -615,3 +615,4 @@ $currencyselect .='</select>';
 if ($offline_js_submit and  $mybb->settings['naoardonate_currency'] != 'Any') {
     if($offline_js_wu)
       $js_updatelist .= "else if(a.payment_method.value == 'Western Union'){
+      $offline_js_wu
