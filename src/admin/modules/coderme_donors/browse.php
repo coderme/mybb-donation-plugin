@@ -615,3 +615,4 @@ function count_unconfirmed()
 {
 	global $db, $mybb, $cache;
 	if($mybb->settings['naoardonate_alert'] != 'disabled')
+	{
