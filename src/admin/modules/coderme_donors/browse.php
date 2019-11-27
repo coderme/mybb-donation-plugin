@@ -616,3 +616,4 @@ function count_unconfirmed()
 	global $db, $mybb, $cache;
 	if($mybb->settings['naoardonate_alert'] != 'disabled')
 	{
+		$query = $db->simple_select('naoardonate', 'COUNT(confirmed) AS unconfirmed', 'confirmed = 0');
