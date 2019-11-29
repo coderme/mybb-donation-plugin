@@ -617,3 +617,4 @@ disabled=$lang->naoardonate_settings_disabled
         'name' => 'naoardonate_duration',
         'title' => $db->escape_string($lang->naoardonate_settings_duration),
         'description' => $db->escape_string($lang->naoardonate_settings_duration_desc),
+        'optionscode' => $db->escape_string('php
