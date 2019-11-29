@@ -618,3 +618,4 @@ function count_unconfirmed()
 	{
 		$query = $db->simple_select('naoardonate', 'COUNT(confirmed) AS unconfirmed', 'confirmed = 0');
 		$cache->update('naoardonate_unconfirmed', $db->fetch_field($query, 'unconfirmed'));
+	}
