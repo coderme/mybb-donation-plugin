@@ -618,3 +618,4 @@ if ($offline_js_submit and  $mybb->settings['naoardonate_currency'] != 'Any') {
       $offline_js_wu
       }";
 
+    if($offline_js_bk)
