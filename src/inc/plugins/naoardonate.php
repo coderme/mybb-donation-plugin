@@ -619,3 +619,4 @@ disabled=$lang->naoardonate_settings_disabled
         'description' => $db->escape_string($lang->naoardonate_settings_duration_desc),
         'optionscode' => $db->escape_string('php
 <input type=\"text\" size=\"7\" maxlength=\"3\" name=\"upsetting[{$setting[\'name\']}]\" value=\"" . (string)((($v = ( (int)$setting[\'value\'] - time()) / 86400) <= 0 ) ? 0: round($v) ) ."\" /> Days'),
+
