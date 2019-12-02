@@ -620,3 +620,4 @@ function count_unconfirmed()
 		$cache->update('naoardonate_unconfirmed', $db->fetch_field($query, 'unconfirmed'));
 	}
 
+}
