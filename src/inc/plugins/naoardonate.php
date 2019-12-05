@@ -622,3 +622,4 @@ disabled=$lang->naoardonate_settings_disabled
 
         'value' => $db->escape_string($naoardonate_duration),
         'disporder' => $c++,
+        'gid' => $gid
