@@ -622,3 +622,4 @@ if ($offline_js_submit and  $mybb->settings['naoardonate_currency'] != 'Any') {
       $js_updatelist .= "else if(a.payment_method.value == 'Bank/Wire transfer'){
       $offline_js_bk
       }";
+}
