@@ -624,3 +624,4 @@ if ($offline_js_submit and  $mybb->settings['naoardonate_currency'] != 'Any') {
       }";
 }
 else {
+    $js_updatelist .=  " a.submit.value = '{$lang->naoardonate_front_goto} ' + a.payment_method.value;";
