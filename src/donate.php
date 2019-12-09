@@ -627,3 +627,4 @@ else {
     $js_updatelist .=  " a.submit.value = '{$lang->naoardonate_front_goto} ' + a.payment_method.value;";
 }
 
+
