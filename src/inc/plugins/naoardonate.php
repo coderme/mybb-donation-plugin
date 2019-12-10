@@ -629,3 +629,4 @@ disabled=$lang->naoardonate_settings_disabled
     if($mybb->settings['naoardonate_ifreached'])
         {
         $naoardonate_ifreached = $mybb->settings['naoardonate_ifreached'];
+        }
