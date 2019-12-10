@@ -631,3 +631,4 @@ else {
 $js_updatelist  .= $offline_js_submit  . '}';
 
 
+$countofamount = count($amount_array);
