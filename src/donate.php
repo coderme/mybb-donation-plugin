@@ -629,3 +629,4 @@ else {
 
 
 $js_updatelist  .= $offline_js_submit  . '}';
+
