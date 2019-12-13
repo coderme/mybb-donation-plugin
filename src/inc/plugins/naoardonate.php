@@ -633,3 +633,4 @@ disabled=$lang->naoardonate_settings_disabled
         elseif ($mybb->settings['teradonate_ifreached']) {
         $naoardonate_ifreached = $mybb->settings['teradonate_ifreached'];
 
+        }
