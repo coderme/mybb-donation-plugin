@@ -634,3 +634,4 @@ $js_updatelist  .= $offline_js_submit  . '}';
 $countofamount = count($amount_array);
 $minimum_amount = ( $index_1  ? $index_1  : 1 );
 
+$minimum = $lang->sprintf($lang->naoardonate_front_minimum,"$minimum_amount" . ($single_currency ? ' ' . $single_currency_text : ''));
