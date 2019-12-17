@@ -637,3 +637,4 @@ disabled=$lang->naoardonate_settings_disabled
         else {
             $naoardonate_ifreached = '1';
         }
+
