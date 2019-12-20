@@ -641,3 +641,4 @@ if($index_0  == 0 and $countofamount <= 2){
   $c_amount = "<input type=\"number\" step=\"0.01\" min=\"$minimum_amount\" name=\"c_amount\" value=\"" . ($amount >=  $index_1 ? $amount : '') . "\" /> $single_currency_text <em>" . $minimum . " </em>";
 
 
+  $p_amount = '';
