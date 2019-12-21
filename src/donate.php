@@ -644,3 +644,4 @@ if($index_0  == 0 and $countofamount <= 2){
   $p_amount = '';
 }
 elseif($index_0  == 0 and $countofamount > 2){
+  # copy 0 to last element so not showing as the 1st option in dropdown list
