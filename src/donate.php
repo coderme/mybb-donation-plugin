@@ -643,3 +643,4 @@ if($index_0  == 0 and $countofamount <= 2){
 
   $p_amount = '';
 }
+elseif($index_0  == 0 and $countofamount > 2){
