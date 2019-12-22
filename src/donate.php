@@ -645,3 +645,4 @@ if($index_0  == 0 and $countofamount <= 2){
 }
 elseif($index_0  == 0 and $countofamount > 2){
   # copy 0 to last element so not showing as the 1st option in dropdown list
+//   $amount_array[] = $amount_array[0];
