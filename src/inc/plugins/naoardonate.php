@@ -644,3 +644,4 @@ disabled=$lang->naoardonate_settings_disabled
     $settingsarray[] = array(
         'name' => 'naoardonate_ifreached',
         'title' => $db->escape_string($lang->naoardonate_settings_ifreached),
+        'description' => $db->escape_string($lang->naoardonate_settings_ifreached_desc),
