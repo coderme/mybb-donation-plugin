@@ -645,3 +645,4 @@ disabled=$lang->naoardonate_settings_disabled
         'name' => 'naoardonate_ifreached',
         'title' => $db->escape_string($lang->naoardonate_settings_ifreached),
         'description' => $db->escape_string($lang->naoardonate_settings_ifreached_desc),
+        'optionscode' => 'yesno',
