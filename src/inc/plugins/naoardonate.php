@@ -647,3 +647,4 @@ disabled=$lang->naoardonate_settings_disabled
         'description' => $db->escape_string($lang->naoardonate_settings_ifreached_desc),
         'optionscode' => 'yesno',
         'value' => $db->escape_string($naoardonate_ifreached),
+        'disporder' => $c++,
