@@ -648,3 +648,4 @@ elseif($index_0  == 0 and $countofamount > 2){
 //   $amount_array[] = $amount_array[0];
   # we don't need it anymore
 //   unset($amount_array[0]);
+
