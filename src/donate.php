@@ -649,3 +649,4 @@ elseif($index_0  == 0 and $countofamount > 2){
   # we don't need it anymore
 //   unset($amount_array[0]);
 
+  $p_amount = '<select name="p_amount" onchange="custom()" class="w100">';
