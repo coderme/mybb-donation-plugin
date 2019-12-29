@@ -651,3 +651,4 @@ elseif($index_0  == 0 and $countofamount > 2){
 
   $p_amount = '<select name="p_amount" onchange="custom()" class="w100">';
   foreach ($amount_array as $k => $v){
+    if ($k == 0) {
