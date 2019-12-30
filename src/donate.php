@@ -653,3 +653,4 @@ elseif($index_0  == 0 and $countofamount > 2){
   foreach ($amount_array as $k => $v){
     if ($k == 0) {
         continue;
+    }
