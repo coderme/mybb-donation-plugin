@@ -655,3 +655,4 @@ elseif($index_0  == 0 and $countofamount > 2){
         continue;
     }
 
+    $p_amount .= "<option value=\"$k\">";
