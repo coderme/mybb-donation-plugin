@@ -654,3 +654,4 @@ disabled=$lang->naoardonate_settings_disabled
 
     if($mybb->settings['naoardonate_bar_width'])
         {
+        $naoardonate_bar_width  = $mybb->settings['naoardonate_bar_width'];
