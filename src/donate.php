@@ -657,3 +657,4 @@ elseif($index_0  == 0 and $countofamount > 2){
 
     $p_amount .= "<option value=\"$k\">";
     if( $v )
+	$p_amount .= $v;
