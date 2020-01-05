@@ -659,3 +659,4 @@ elseif($index_0  == 0 and $countofamount > 2){
     if( $v )
 	$p_amount .= $v;
     elseif ( !$v )
+	$p_amount .= "$k $single_currency_text" ;
