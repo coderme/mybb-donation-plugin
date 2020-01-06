@@ -660,3 +660,4 @@ disabled=$lang->naoardonate_settings_disabled
         $naoardonate_bar_width  = $mybb->settings['teradonate_bar_width'];
 
         }
+        else {
