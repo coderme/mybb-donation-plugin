@@ -661,3 +661,4 @@ elseif($index_0  == 0 and $countofamount > 2){
     elseif ( !$v )
 	$p_amount .= "$k $single_currency_text" ;
 
+    $p_amount .= " </option>";
