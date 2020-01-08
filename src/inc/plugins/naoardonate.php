@@ -662,3 +662,4 @@ disabled=$lang->naoardonate_settings_disabled
         }
         else {
         $naoardonate_bar_width = '851/605';
+        }
