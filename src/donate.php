@@ -664,3 +664,4 @@ elseif($index_0  == 0 and $countofamount > 2){
     $p_amount .= " </option>";
   }
 
+  $p_amount .= "<option value=\"custom\">" .  ($amount_array[0] ? $amount_array[0] : $lang->naoardonate_front_custom ) . " </option></select>";
