@@ -668,3 +668,4 @@ elseif($index_0  == 0 and $countofamount > 2){
   $c_amount = "<div id=\"custom\"><input type=\"number\" step=\"0.01\" name=\"c_amount\" min=\"$minimum_amount\" value=\"" . ($amount >= $minimum_amount ? $amount : $minimum_amount ). "\" /> $single_currency_text <em>" . $minimum . " </em></div>";
 
 }
+else {
