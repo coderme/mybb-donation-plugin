@@ -669,3 +669,4 @@ disabled=$lang->naoardonate_settings_disabled
         'name' => 'naoardonate_bar_width',
         'title' => $db->escape_string($lang->naoardonate_settings_bar_width),
         'description' => $db->escape_string($lang->naoardonate_settings_bar_width_desc),
+        'optionscode' => 'text',
