@@ -669,3 +669,4 @@ elseif($index_0  == 0 and $countofamount > 2){
 
 }
 else {
+  $c_amount = '';
