@@ -672,3 +672,4 @@ else {
   $c_amount = '';
   $p_amount .= '<select name="p_amount" class="w100">';
   foreach($amount_array as $k => $v ){
+
