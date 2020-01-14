@@ -672,3 +672,4 @@ disabled=$lang->naoardonate_settings_disabled
         'optionscode' => 'text',
         'value' => $db->escape_string($naoardonate_bar_width),
         'disporder' => $c++,
+        'gid' => $gid
