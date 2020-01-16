@@ -674,3 +674,4 @@ disabled=$lang->naoardonate_settings_disabled
         'disporder' => $c++,
         'gid' => $gid
     );
+
