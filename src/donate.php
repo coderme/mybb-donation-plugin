@@ -675,3 +675,4 @@ else {
 
   $p_amount .=  "<option value=\"$k\">" .  ( $v ? $v : "$k $single_currency_text" ).  " </option>";
 
+  }
