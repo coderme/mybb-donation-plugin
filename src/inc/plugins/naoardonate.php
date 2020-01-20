@@ -678,3 +678,4 @@ disabled=$lang->naoardonate_settings_disabled
 
     if($mybb->settings['naoardonate_recievedmsg'])
         {
+        $naoardonate_recievedmsg  = $mybb->settings['naoardonate_recievedmsg'];
