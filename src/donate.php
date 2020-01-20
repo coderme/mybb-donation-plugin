@@ -678,3 +678,4 @@ else {
   }
   $p_amount .= '</select>';
   $js_validate ='';
+}
