@@ -680,3 +680,4 @@ else {
   $js_validate ='';
 }
 
+if($mybb->settings['naoardonate_donormsg'] == 1){
