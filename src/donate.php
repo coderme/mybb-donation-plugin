@@ -681,3 +681,4 @@ else {
 }
 
 if($mybb->settings['naoardonate_donormsg'] == 1){
+# add js function shownote()
