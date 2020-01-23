@@ -682,3 +682,4 @@ else {
 
 if($mybb->settings['naoardonate_donormsg'] == 1){
 # add js function shownote()
+$js_load .= "t=a.note;if(t.value != ''){shownote();limit()}";
