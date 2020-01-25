@@ -683,3 +683,4 @@ disabled=$lang->naoardonate_settings_disabled
         elseif ($mybb->settings['teradonate_recievedmsg']) {
         $naoardonate_recievedmsg  = $mybb->settings['teradonate_recievedmsg'];
 
+        }
