@@ -686,3 +686,4 @@ $js_load .= "t=a.note;if(t.value != ''){shownote();limit()}";
 $js_funcs .= "function shownote(){r=d.getElementById('divnote');r.style.display = 'block';d.getElementById('noteintro').innerHTML =''}function limit(){if(t.value.length > 100){t.value=t.value.substring(0,100)}d.getElementById('max').innerHTML=100 - t.value.length}";
 
 eval('$note_fieldset ="' . $templates->get('naoardonate_donate_note_v5') . '";');
+
