@@ -687,3 +687,4 @@ disabled=$lang->naoardonate_settings_disabled
         else {
         $naoardonate_recievedmsg = 'We have recieved <span style="color:#C30000">{1}</span> of our goal ..';
         }
+
