@@ -690,3 +690,4 @@ eval('$note_fieldset ="' . $templates->get('naoardonate_donate_note_v5') . '";')
 }else {
 
 $note_fieldset = '';
+
