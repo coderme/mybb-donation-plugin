@@ -693,3 +693,4 @@ disabled=$lang->naoardonate_settings_disabled
 
     $settingsarray[] = array(
         'name' => 'naoardonate_recievedmsg',
+        'title' => $db->escape_string($lang->naoardonate_settings_recievedmsg),
