@@ -694,3 +694,4 @@ $note_fieldset = '';
 }
 # playing with some javascript :)
 if($mybb->input['p_amount'] == 'custom'){
+  $js_load .= 'checkcustom();';
