@@ -696,3 +696,4 @@ $note_fieldset = '';
 if($mybb->input['p_amount'] == 'custom'){
   $js_load .= 'checkcustom();';
   $js_funcs .= "function checkcustom(){f.value = 'custom'; f.value.checked=1}";
+}
