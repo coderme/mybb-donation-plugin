@@ -695,3 +695,4 @@ disabled=$lang->naoardonate_settings_disabled
         'name' => 'naoardonate_recievedmsg',
         'title' => $db->escape_string($lang->naoardonate_settings_recievedmsg),
         'description' => $db->escape_string($lang->naoardonate_settings_recievedmsg_desc),
+        'optionscode' => 'textarea',
