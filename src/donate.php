@@ -700,3 +700,4 @@ if($mybb->input['p_amount'] == 'custom'){
 
 if($c_amount and $p_amount or empty($p_amount) or $captcha or $mybb->settings['naoardonate_info_required'] and $aboutyou):
 	$isvalid_ = 'function isvalid(){';
+	$submit_ifvalid ='onsubmit="return isvalid()"';
