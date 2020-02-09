@@ -702,3 +702,4 @@ if($c_amount and $p_amount or empty($p_amount) or $captcha or $mybb->settings['n
 	$isvalid_ = 'function isvalid(){';
 	$submit_ifvalid ='onsubmit="return isvalid()"';
 endif;
+
