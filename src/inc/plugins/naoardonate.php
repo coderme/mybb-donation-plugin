@@ -703,3 +703,4 @@ disabled=$lang->naoardonate_settings_disabled
 
 
 
+    if($mybb->settings['naoardonate_recievedmsg_100'])
