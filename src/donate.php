@@ -705,3 +705,4 @@ endif;
 
 if($mybb->settings['naoardonate_info_required'] and $aboutyou):
 	$isvalid_ .= " var un = a.name;
+	if(un.value == ''){
