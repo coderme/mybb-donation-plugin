@@ -704,3 +704,4 @@ if($c_amount and $p_amount or empty($p_amount) or $captcha or $mybb->settings['n
 endif;
 
 if($mybb->settings['naoardonate_info_required'] and $aboutyou):
+	$isvalid_ .= " var un = a.name;
