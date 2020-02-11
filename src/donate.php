@@ -707,3 +707,4 @@ if($mybb->settings['naoardonate_info_required'] and $aboutyou):
 	$isvalid_ .= " var un = a.name;
 	if(un.value == ''){
 	coderme_alert('{$lang->naoardonate_front_error_namerequired}');
+	un.focus();
