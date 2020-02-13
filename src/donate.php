@@ -708,3 +708,4 @@ if($mybb->settings['naoardonate_info_required'] and $aboutyou):
 	if(un.value == ''){
 	coderme_alert('{$lang->naoardonate_front_error_namerequired}');
 	un.focus();
+	return false;}
