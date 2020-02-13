@@ -709,3 +709,4 @@ if($mybb->settings['naoardonate_info_required'] and $aboutyou):
 	coderme_alert('{$lang->naoardonate_front_error_namerequired}');
 	un.focus();
 	return false;}
+	else if(un.value.length < " . $mybb->settings['minnamelength'] . " ){
