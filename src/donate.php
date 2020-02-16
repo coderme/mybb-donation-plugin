@@ -712,3 +712,4 @@ if($mybb->settings['naoardonate_info_required'] and $aboutyou):
 	else if(un.value.length < " . $mybb->settings['minnamelength'] . " ){
 	coderme_alert('" . $lang->sprintf($lang->naoardonate_front_error_nametooshort, $mybb->settings['minnamelength']) . "');
 	un.focus();
+	return false;}
