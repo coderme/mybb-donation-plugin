@@ -713,3 +713,4 @@ disabled=$lang->naoardonate_settings_disabled
         }
         else {
         $naoardonate_recievedmsg_100 = 'Woooow! goal achieved .. Thanks for all donors for their support';
+        }
