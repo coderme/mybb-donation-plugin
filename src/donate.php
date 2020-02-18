@@ -713,3 +713,4 @@ if($mybb->settings['naoardonate_info_required'] and $aboutyou):
 	coderme_alert('" . $lang->sprintf($lang->naoardonate_front_error_nametooshort, $mybb->settings['minnamelength']) . "');
 	un.focus();
 	return false;}
+	var ue = a.email;
