@@ -715,3 +715,4 @@ if($mybb->settings['naoardonate_info_required'] and $aboutyou):
 	return false;}
 	var ue = a.email;
 	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	if(ue.value == ''){
