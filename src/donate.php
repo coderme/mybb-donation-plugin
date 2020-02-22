@@ -718,3 +718,4 @@ if($mybb->settings['naoardonate_info_required'] and $aboutyou):
 	if(ue.value == ''){
 	coderme_alert('{$lang->naoardonate_front_error_emailrequired}');
 	ue.focus();
+	return false;}
