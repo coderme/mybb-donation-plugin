@@ -719,3 +719,4 @@ disabled=$lang->naoardonate_settings_disabled
 
 
     $settingsarray[] = array(
+        'name' => 'naoardonate_recievedmsg_100',
