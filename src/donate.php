@@ -720,3 +720,4 @@ if($mybb->settings['naoardonate_info_required'] and $aboutyou):
 	ue.focus();
 	return false;}
 	else if(re.test(ue.value) == false){
+	coderme_alert('{$lang->naoardonate_front_error_bademail}');
