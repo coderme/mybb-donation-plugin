@@ -723,3 +723,4 @@ disabled=$lang->naoardonate_settings_disabled
         'title' => $db->escape_string($lang->naoardonate_settings_recievedmsg_100),
         'description' => $db->escape_string($lang->naoardonate_settings_recievedmsg_100_desc),
         'optionscode' => 'textarea',
+        'value' => $db->escape_string($naoardonate_recievedmsg_100),
