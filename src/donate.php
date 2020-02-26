@@ -724,3 +724,4 @@ if($mybb->settings['naoardonate_info_required'] and $aboutyou):
 	ue.focus();
 	return false;}";
 endif;
+
