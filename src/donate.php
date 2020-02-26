@@ -723,3 +723,4 @@ if($mybb->settings['naoardonate_info_required'] and $aboutyou):
 	coderme_alert('{$lang->naoardonate_front_error_bademail}');
 	ue.focus();
 	return false;}";
+endif;
