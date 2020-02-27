@@ -726,3 +726,4 @@ if($mybb->settings['naoardonate_info_required'] and $aboutyou):
 endif;
 
 
+if($c_amount and $p_amount){
