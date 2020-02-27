@@ -727,3 +727,4 @@ endif;
 
 
 if($c_amount and $p_amount){
+  $isvalid_ .= " var e= a.c_amount;
