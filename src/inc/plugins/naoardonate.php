@@ -726,3 +726,4 @@ disabled=$lang->naoardonate_settings_disabled
         'value' => $db->escape_string($naoardonate_recievedmsg_100),
         'disporder' => $c++,
         'gid' => $gid
+    );
