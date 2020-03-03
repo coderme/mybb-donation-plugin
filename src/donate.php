@@ -730,3 +730,4 @@ if($c_amount and $p_amount){
   $isvalid_ .= " var e= a.c_amount;
   if((parseFloat(e.value) != e.value) && f.value == 'custom'){
   e.value='';e.focus();
+  coderme_alert('{$lang->naoardonate_front_error_invalidamount}');
