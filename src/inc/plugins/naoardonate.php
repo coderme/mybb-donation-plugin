@@ -733,3 +733,4 @@ disabled=$lang->naoardonate_settings_disabled
     if($mybb->settings['naoardonate_amount'])
         {
         $naoardonate_amount  = $mybb->settings['naoardonate_amount'];
+        }
