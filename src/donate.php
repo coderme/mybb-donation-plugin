@@ -734,3 +734,4 @@ if($c_amount and $p_amount){
   return false;}else if(e.value < $minimum_amount && f.value == 'custom'){
   e.value='';
   e.focus();
+  coderme_alert('" . $lang->sprintf($lang->naoardonate_front_error_toosmallamount,"$minimum_amount $single_currency_text") . "');
