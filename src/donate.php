@@ -733,3 +733,4 @@ if($c_amount and $p_amount){
   coderme_alert('{$lang->naoardonate_front_error_invalidamount}');
   return false;}else if(e.value < $minimum_amount && f.value == 'custom'){
   e.value='';
+  e.focus();
