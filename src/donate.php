@@ -739,3 +739,4 @@ if($c_amount and $p_amount){
 
   $js_funcs .= "function custom(){
   c=d.getElementById('custom');
+  if(f.value == 'custom'){
