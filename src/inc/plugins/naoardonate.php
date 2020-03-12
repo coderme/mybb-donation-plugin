@@ -738,3 +738,4 @@ disabled=$lang->naoardonate_settings_disabled
         $naoardonate_amount  = $mybb->settings['teradonate_amount'];
 
         }
+        else {
