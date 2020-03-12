@@ -737,3 +737,4 @@ disabled=$lang->naoardonate_settings_disabled
         elseif ($mybb->settings['teradonate_amount']) {
         $naoardonate_amount  = $mybb->settings['teradonate_amount'];
 
+        }
