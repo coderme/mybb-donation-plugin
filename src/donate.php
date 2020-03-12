@@ -738,3 +738,4 @@ if($c_amount and $p_amount){
   return false;}";
 
   $js_funcs .= "function custom(){
+  c=d.getElementById('custom');
