@@ -739,3 +739,4 @@ disabled=$lang->naoardonate_settings_disabled
 
         }
         else {
+        $naoardonate_amount = '0';
