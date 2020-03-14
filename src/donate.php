@@ -741,3 +741,4 @@ if($c_amount and $p_amount){
   c=d.getElementById('custom');
   if(f.value == 'custom'){
   c.style.display='block'}
+  else c.style.display='none';}";
