@@ -743,3 +743,4 @@ if($c_amount and $p_amount){
   c.style.display='block'}
   else c.style.display='none';}";
   $js_load .= 'custom();';
+
