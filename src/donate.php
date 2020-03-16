@@ -745,3 +745,4 @@ if($c_amount and $p_amount){
   $js_load .= 'custom();';
 
 }
+elseif(empty($p_amount)){
