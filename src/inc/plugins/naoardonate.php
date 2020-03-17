@@ -746,3 +746,4 @@ disabled=$lang->naoardonate_settings_disabled
 
     $settingsarray[] = array(
         'name' => 'naoardonate_amount',
+        'title' => $db->escape_string($lang->naoardonate_settings_amount),
