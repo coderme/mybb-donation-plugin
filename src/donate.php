@@ -750,3 +750,4 @@ elseif(empty($p_amount)){
   if(parseFloat(e.value) != e.value){
   coderme_alert('{$lang->naoardonate_front_error_invalidamount}');
   e.value='';
+  e.focus();
