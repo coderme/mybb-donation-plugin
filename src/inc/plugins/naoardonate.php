@@ -748,3 +748,4 @@ disabled=$lang->naoardonate_settings_disabled
         'name' => 'naoardonate_amount',
         'title' => $db->escape_string($lang->naoardonate_settings_amount),
         'description' => $db->escape_string($lang->naoardonate_settings_amount_desc),
+        'optionscode' => 'textarea',
