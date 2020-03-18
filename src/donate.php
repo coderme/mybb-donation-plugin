@@ -749,3 +749,4 @@ elseif(empty($p_amount)){
   $isvalid_ .= " var e= a.c_amount;
   if(parseFloat(e.value) != e.value){
   coderme_alert('{$lang->naoardonate_front_error_invalidamount}');
+  e.value='';
