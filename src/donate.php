@@ -751,3 +751,4 @@ elseif(empty($p_amount)){
   coderme_alert('{$lang->naoardonate_front_error_invalidamount}');
   e.value='';
   e.focus();
+  return false;}
