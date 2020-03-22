@@ -754,3 +754,4 @@ elseif(empty($p_amount)){
   return false;}
   else if(e.value < $minimum_amount){
   e.value='';
+  e.focus();
