@@ -755,3 +755,4 @@ elseif(empty($p_amount)){
   else if(e.value < $minimum_amount){
   e.value='';
   e.focus();
+  coderme_alert('" . $lang->sprintf($lang->naoardonate_front_error_toosmallamount,"$minimum_amount $single_currency_text") . "');
