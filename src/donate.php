@@ -759,3 +759,4 @@ elseif(empty($p_amount)){
   return false;}";
 }
 
+if($captcha):
