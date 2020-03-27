@@ -758,3 +758,4 @@ elseif(empty($p_amount)){
   coderme_alert('" . $lang->sprintf($lang->naoardonate_front_error_toosmallamount,"$minimum_amount $single_currency_text") . "');
   return false;}";
 }
+
