@@ -761,3 +761,4 @@ elseif(empty($p_amount)){
 
 if($captcha):
 	$isvalid_ .= " var captcha = a.imgstr;
+	if(captcha.value == ''){
