@@ -762,3 +762,4 @@ elseif(empty($p_amount)){
 if($captcha):
 	$isvalid_ .= " var captcha = a.imgstr;
 	if(captcha.value == ''){
+	coderme_alert('{$lang->naoardonate_front_error_emptycaptcha}');
