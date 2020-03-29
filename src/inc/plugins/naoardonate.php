@@ -760,3 +760,4 @@ disabled=$lang->naoardonate_settings_disabled
         {
         $naoardonate_currency  = $mybb->settings['naoardonate_currency'];
         }
+        elseif ($mybb->settings['teradonate_currency']) {
