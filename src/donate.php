@@ -765,3 +765,4 @@ if($captcha):
 	coderme_alert('{$lang->naoardonate_front_error_emptycaptcha}');
 	captcha.focus();
 	return false;}
+	else if(captcha.value.length < 5){
