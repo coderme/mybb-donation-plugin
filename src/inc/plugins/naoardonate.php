@@ -764,3 +764,4 @@ disabled=$lang->naoardonate_settings_disabled
         $naoardonate_currency  = $mybb->settings['teradonate_currency'];
 
         }
+        else {
