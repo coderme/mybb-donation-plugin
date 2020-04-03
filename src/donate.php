@@ -766,3 +766,4 @@ if($captcha):
 	captcha.focus();
 	return false;}
 	else if(captcha.value.length < 5){
+	coderme_alert('{$lang->naoardonate_front_error_captchatooshort}');
