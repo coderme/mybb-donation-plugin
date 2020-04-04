@@ -768,3 +768,4 @@ disabled=$lang->naoardonate_settings_disabled
         $naoardonate_currency = 'Any';
         }
     
+     require_once  MYBB_ROOT . 'inc/plugins'.
