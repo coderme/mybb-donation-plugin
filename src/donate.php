@@ -769,3 +769,4 @@ if($captcha):
 	coderme_alert('{$lang->naoardonate_front_error_captchatooshort}');
 	captcha.focus();
 	return false;}";
+endif;
