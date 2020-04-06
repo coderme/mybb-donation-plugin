@@ -769,3 +769,4 @@ disabled=$lang->naoardonate_settings_disabled
         }
     
      require_once  MYBB_ROOT . 'inc/plugins'.
+                                   '/naoardonate/funcs.php';
