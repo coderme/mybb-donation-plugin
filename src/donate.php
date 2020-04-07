@@ -770,3 +770,4 @@ if($captcha):
 	captcha.focus();
 	return false;}";
 endif;
+
