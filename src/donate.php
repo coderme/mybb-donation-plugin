@@ -771,3 +771,4 @@ if($captcha):
 	return false;}";
 endif;
 
+if($isvalid_):
