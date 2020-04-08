@@ -772,3 +772,4 @@ if($captcha):
 endif;
 
 if($isvalid_):
+	$isvalid_ .= '}';
