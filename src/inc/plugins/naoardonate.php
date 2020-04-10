@@ -773,3 +773,4 @@ disabled=$lang->naoardonate_settings_disabled
     $currencies = array (
     array(
     $lang->naoardonate_global_currency_all_supported =>
+        array(
