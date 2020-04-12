@@ -774,3 +774,4 @@ disabled=$lang->naoardonate_settings_disabled
     array(
     $lang->naoardonate_global_currency_all_supported =>
         array(
+        CODERME_2CHECKOUT,
