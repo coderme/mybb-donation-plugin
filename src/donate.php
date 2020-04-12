@@ -774,3 +774,4 @@ endif;
 if($isvalid_):
 	$isvalid_ .= '}';
 	$js_funcs .= $isvalid_;
+endif;
