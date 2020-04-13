@@ -775,3 +775,4 @@ disabled=$lang->naoardonate_settings_disabled
     $lang->naoardonate_global_currency_all_supported =>
         array(
         CODERME_2CHECKOUT,
+        CODERME_PAYPAL, CODERME_WESTERN_UNION,
