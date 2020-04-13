@@ -776,3 +776,4 @@ disabled=$lang->naoardonate_settings_disabled
         array(
         CODERME_2CHECKOUT,
         CODERME_PAYPAL, CODERME_WESTERN_UNION,
+        CODERME_BANK_WIRE,
