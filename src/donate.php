@@ -777,3 +777,4 @@ if($isvalid_):
 endif;
 
 eval('$naoardonate_donate = "' . $templates->get('naoardonate_donate_v5') . '";');
+
