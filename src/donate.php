@@ -781,3 +781,4 @@ eval('$naoardonate_donate = "' . $templates->get('naoardonate_donate_v5') . '";'
 output_page($naoardonate_donate);
 
 
+} elseif($mybb->input['action'] == 'thank_you'){
