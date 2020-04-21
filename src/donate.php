@@ -784,3 +784,4 @@ output_page($naoardonate_donate);
 } elseif($mybb->input['action'] == 'thank_you'){
 
 if($_COOKIE['naoardonate'] == 'd_ip'.$_SERVER['REMOTE_ADDR']){
+
