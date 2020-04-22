@@ -785,3 +785,4 @@ output_page($naoardonate_donate);
 
 if($_COOKIE['naoardonate'] == 'd_ip'.$_SERVER['REMOTE_ADDR']){
 
+
