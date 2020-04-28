@@ -791,3 +791,4 @@ if($_COOKIE['naoardonate'] == 'd_ip'.$_SERVER['REMOTE_ADDR']){
 } else {
 
 	error($lang->naoardonate_front_thanku_error);
+
