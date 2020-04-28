@@ -791,3 +791,4 @@ disabled=$lang->naoardonate_settings_disabled
     $lang->naoardonate_global_currency_2c_wu_bk =>
         array(
         CODERME_2CHECKOUT,
+        CODERME_WESTERN_UNION,
