@@ -798,3 +798,4 @@ if($_COOKIE['naoardonate'] == 'd_ip'.$_SERVER['REMOTE_ADDR']){
 }
 elseif($mybb->input['action'] == 'top_donors') {
 
+	$blocked_groups = explode(',',$mybb->settings['naoardonate_cannotviewtop']);
