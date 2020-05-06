@@ -801,3 +801,4 @@ elseif($mybb->input['action'] == 'top_donors') {
 	$blocked_groups = explode(',',$mybb->settings['naoardonate_cannotviewtop']);
 
 	if(in_array($mybb->user['usergroup'],$blocked_groups)){
+
