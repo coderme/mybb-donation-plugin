@@ -802,3 +802,4 @@ elseif($mybb->input['action'] == 'top_donors') {
 
 	if(in_array($mybb->user['usergroup'],$blocked_groups)){
 
+		error($lang->naoardonate_front_error_cannotviewtop);
