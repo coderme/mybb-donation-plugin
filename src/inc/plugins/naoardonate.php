@@ -801,3 +801,4 @@ disabled=$lang->naoardonate_settings_disabled
         CODERME_2CHECKOUT,
         CODERME_BANK_WIRE,
 
+            )),
