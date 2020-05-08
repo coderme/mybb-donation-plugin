@@ -804,3 +804,4 @@ elseif($mybb->input['action'] == 'top_donors') {
 
 		error($lang->naoardonate_front_error_cannotviewtop);
 
+
