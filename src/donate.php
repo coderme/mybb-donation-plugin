@@ -810,3 +810,4 @@ elseif($mybb->input['action'] == 'top_donors') {
 		add_breadcrumb($lang->naoardonate_front_donate_title,'donate.php');
 		add_breadcrumb($lang->naoardonate_front_top_title);
 
+		$query =$db->simple_select('naoardonate','*', 'real_amount > 0 AND confirmed = 1', array('order_by' =>'real_amount', 'order_dir' => 'DESC', 'limit' => 11));
