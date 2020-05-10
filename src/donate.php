@@ -808,3 +808,4 @@ elseif($mybb->input['action'] == 'top_donors') {
 	} else {
 
 		add_breadcrumb($lang->naoardonate_front_donate_title,'donate.php');
+		add_breadcrumb($lang->naoardonate_front_top_title);
