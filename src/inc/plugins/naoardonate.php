@@ -811,3 +811,4 @@ disabled=$lang->naoardonate_settings_disabled
 
             )),
     array(
+    $lang->naoardonate_global_currency_pp_bk =>
