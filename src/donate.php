@@ -814,3 +814,4 @@ elseif($mybb->input['action'] == 'top_donors') {
 
 		while($top_donors = $db->fetch_array($query)){
 
+			$top_donors['uid'] ? $top_donors['name'] = "<a href=\"member.php?action=profile&amp;uid=$top_donors[uid]\">$top_donors[name]</a>" : false;
