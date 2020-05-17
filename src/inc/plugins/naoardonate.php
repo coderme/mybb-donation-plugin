@@ -815,3 +815,4 @@ disabled=$lang->naoardonate_settings_disabled
         array(
         CODERME_PAYPAL,
         CODERME_BANK_WIRE,
+
