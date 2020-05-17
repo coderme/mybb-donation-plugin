@@ -816,3 +816,4 @@ elseif($mybb->input['action'] == 'top_donors') {
 
 			$top_donors['uid'] ? $top_donors['name'] = "<a href=\"member.php?action=profile&amp;uid=$top_donors[uid]\">$top_donors[name]</a>" : false;
 
+			$top_donors['name'] ? True : $top_donors['name'] = $lang->naoardonate_global_guest;
