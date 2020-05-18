@@ -818,3 +818,4 @@ elseif($mybb->input['action'] == 'top_donors') {
 
 			$top_donors['name'] ? True : $top_donors['name'] = $lang->naoardonate_global_guest;
             
+             if ($mybb->settings['naoardonate_hidetopemails'] == '0' and
