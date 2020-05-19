@@ -821,3 +821,4 @@ elseif($mybb->input['action'] == 'top_donors') {
              if ($mybb->settings['naoardonate_hidetopemails'] == '0' and
                 $top_donors['email']) {
                 $top_donors['email'] = "<a href=\"mailto:$top_donors[email]\" title=\"$lang->naoardonate_global_email_donor\">$top_donors[email]</a>";
+            } else {
