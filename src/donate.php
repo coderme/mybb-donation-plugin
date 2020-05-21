@@ -822,3 +822,4 @@ elseif($mybb->input['action'] == 'top_donors') {
                 $top_donors['email']) {
                 $top_donors['email'] = "<a href=\"mailto:$top_donors[email]\" title=\"$lang->naoardonate_global_email_donor\">$top_donors[email]</a>";
             } else {
+                $top_donors['email'] = '-------';
