@@ -824,3 +824,4 @@ elseif($mybb->input['action'] == 'top_donors') {
             } else {
                 $top_donors['email'] = '-------';
             }
+
