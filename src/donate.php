@@ -826,3 +826,4 @@ elseif($mybb->input['action'] == 'top_donors') {
             }
 
 
+			$top_donors['dateline'] = my_date($mybb->settings['dateformat'],$top_donors['dateline']) . ', ' . my_date($mybb->settings['timeformat'], $top_donors['dateline']);
