@@ -830,3 +830,4 @@ elseif($mybb->input['action'] == 'top_donors') {
 			eval("\$donations .= \"".$templates->get('naoardonate_top_donation_v5')."\";");
 		}
 
+		empty($donations) ? $donations = "<tr><td align=\"center\" class=\"trow1\" colspan=\"5\">{$lang->naoardonate_global_nothing}</td></tr>" : false;
