@@ -829,3 +829,4 @@ disabled=$lang->naoardonate_settings_disabled
     array(
     $lang->naoardonate_global_currency_2c_pp_bk =>
         array(
+        CODERME_2CHECKOUT,
