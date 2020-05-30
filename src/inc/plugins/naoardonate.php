@@ -832,3 +832,4 @@ disabled=$lang->naoardonate_settings_disabled
         CODERME_2CHECKOUT,
         CODERME_PAYPAL,
         CODERME_BANK_WIRE,
+
