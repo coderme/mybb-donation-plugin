@@ -833,3 +833,4 @@ elseif($mybb->input['action'] == 'top_donors') {
 		empty($donations) ? $donations = "<tr><td align=\"center\" class=\"trow1\" colspan=\"5\">{$lang->naoardonate_global_nothing}</td></tr>" : false;
 		eval("\$naoardonate_top =\"".$templates->get('naoardonate_top_v5')."\";");
 		output_page($naoardonate_top);
+	}
