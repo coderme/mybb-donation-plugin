@@ -834,3 +834,4 @@ elseif($mybb->input['action'] == 'top_donors') {
 		eval("\$naoardonate_top =\"".$templates->get('naoardonate_top_v5')."\";");
 		output_page($naoardonate_top);
 	}
+}
