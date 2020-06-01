@@ -835,3 +835,4 @@ elseif($mybb->input['action'] == 'top_donors') {
 		output_page($naoardonate_top);
 	}
 }
+
