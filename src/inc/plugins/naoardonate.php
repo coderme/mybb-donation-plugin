@@ -838,3 +838,4 @@ disabled=$lang->naoardonate_settings_disabled
     array(
     $lang->naoardonate_global_currency_2c_wu_bk =>
         array(
+        CODERME_2CHECKOUT,
