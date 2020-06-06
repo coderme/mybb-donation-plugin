@@ -843,3 +843,4 @@ disabled=$lang->naoardonate_settings_disabled
         CODERME_BANK_WIRE,
 
             )),
+
