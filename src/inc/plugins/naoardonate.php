@@ -848,3 +848,4 @@ disabled=$lang->naoardonate_settings_disabled
     $lang->naoardonate_global_currency_2c_bk =>
         array(
         CODERME_2CHECKOUT,
+        CODERME_BANK_WIRE,
