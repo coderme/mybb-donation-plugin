@@ -851,3 +851,4 @@ disabled=$lang->naoardonate_settings_disabled
         CODERME_BANK_WIRE,
             )),
     array(
+    $lang->naoardonate_global_currency_pp_wu_bk =>
