@@ -863,3 +863,4 @@ disabled=$lang->naoardonate_settings_disabled
     $lang->naoardonate_global_currency_pp_bk =>
         array(
         CODERME_PAYPAL,
+        CODERME_BANK_WIRE,
