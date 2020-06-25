@@ -888,3 +888,4 @@ disabled=$lang->naoardonate_settings_disabled
         CODERME_WESTERN_UNION,
         CODERME_BANK_WIRE,
 
+            )),        
