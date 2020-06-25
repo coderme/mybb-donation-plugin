@@ -886,3 +886,4 @@ disabled=$lang->naoardonate_settings_disabled
     $lang->naoardonate_global_currency_wu_bk =>
         array(
         CODERME_WESTERN_UNION,
+        CODERME_BANK_WIRE,
