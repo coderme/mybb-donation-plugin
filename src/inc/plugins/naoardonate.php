@@ -894,3 +894,4 @@ disabled=$lang->naoardonate_settings_disabled
     $lang->naoardonate_global_currency_bk =>
         array(
         CODERME_BANK_WIRE,
+            )),
