@@ -899,3 +899,4 @@ disabled=$lang->naoardonate_settings_disabled
     );
     
     $currenciesOptions = 'php
+<select name=\"upsetting[{$setting[\'name\']}]\">
