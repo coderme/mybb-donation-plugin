@@ -900,3 +900,4 @@ disabled=$lang->naoardonate_settings_disabled
     
     $currenciesOptions = 'php
 <select name=\"upsetting[{$setting[\'name\']}]\">
+<option value=\"Any\" ".($setting[\'value\'] == \'Any\' ? "selected=\"selected\"" : "" ). ">' . $lang->naoardonate_settings_currency_any . '</option>
