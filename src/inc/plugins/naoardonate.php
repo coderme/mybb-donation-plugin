@@ -904,3 +904,4 @@ disabled=$lang->naoardonate_settings_disabled
 <option value=\"000\" ".($setting[\'value\'] == \'000\' ? "selected=\"selected\"" : "" ). ">Euro and USD</option>';
 
     foreach($currencies as $x){
+      foreach($x as $k => $v){
