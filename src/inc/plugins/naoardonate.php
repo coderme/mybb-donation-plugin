@@ -907,3 +907,4 @@ disabled=$lang->naoardonate_settings_disabled
       foreach($x as $k => $v){
         $list = call_user_func_array('getCommonCurrenciesFor', $v);
         if (count($list) == 0) {
+          // :P
