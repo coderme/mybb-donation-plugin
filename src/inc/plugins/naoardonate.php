@@ -909,3 +909,4 @@ disabled=$lang->naoardonate_settings_disabled
         if (count($list) == 0) {
           // :P
           continue;
+        }
