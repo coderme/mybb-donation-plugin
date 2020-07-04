@@ -911,3 +911,4 @@ disabled=$lang->naoardonate_settings_disabled
           continue;
         }
         $currenciesOptions .= '<optgroup label=\"' . $k . '\">';
+        foreach($list as $y ){
