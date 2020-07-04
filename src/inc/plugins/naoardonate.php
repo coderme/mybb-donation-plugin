@@ -910,3 +910,4 @@ disabled=$lang->naoardonate_settings_disabled
           // :P
           continue;
         }
+        $currenciesOptions .= '<optgroup label=\"' . $k . '\">';
