@@ -913,3 +913,4 @@ disabled=$lang->naoardonate_settings_disabled
         $currenciesOptions .= '<optgroup label=\"' . $k . '\">';
         foreach($list as $y ){
              $name = 'naoardonate_global_currency_' . strtolower($y);
+             $currenciesOptions .= '<option value=\"' . $y  .
