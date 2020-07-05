@@ -915,3 +915,4 @@ disabled=$lang->naoardonate_settings_disabled
              $name = 'naoardonate_global_currency_' . strtolower($y);
              $currenciesOptions .= '<option value=\"' . $y  .
                        '\"  ".($setting[\'value\'] == \'' . $y . '\' ? "selected=\"selected\"" : "" ). ">' . $lang->$name . '</option>';
+        }
