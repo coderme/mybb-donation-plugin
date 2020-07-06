@@ -916,3 +916,4 @@ disabled=$lang->naoardonate_settings_disabled
              $currenciesOptions .= '<option value=\"' . $y  .
                        '\"  ".($setting[\'value\'] == \'' . $y . '\' ? "selected=\"selected\"" : "" ). ">' . $lang->$name . '</option>';
         }
+        $currenciesOptions .= '</optgroup>';
