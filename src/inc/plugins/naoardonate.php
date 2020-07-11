@@ -928,3 +928,4 @@ disabled=$lang->naoardonate_settings_disabled
         'title' => $db->escape_string($lang->naoardonate_settings_currency),
         'description' => $db->escape_string($lang->naoardonate_settings_currency_desc),
         'optionscode' => $db->escape_string($currenciesOptions),
+        'value' => $db->escape_string($naoardonate_currency),
