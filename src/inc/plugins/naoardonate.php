@@ -930,3 +930,4 @@ disabled=$lang->naoardonate_settings_disabled
         'optionscode' => $db->escape_string($currenciesOptions),
         'value' => $db->escape_string($naoardonate_currency),
         'disporder' => $c++,
+        'gid' => $gid
