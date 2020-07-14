@@ -936,3 +936,4 @@ disabled=$lang->naoardonate_settings_disabled
 
     if($mybb->settings['naoardonate_info'])
         {
+        $naoardonate_info  = $mybb->settings['naoardonate_info'];
