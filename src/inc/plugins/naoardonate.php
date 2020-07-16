@@ -942,3 +942,4 @@ disabled=$lang->naoardonate_settings_disabled
         $naoardonate_info  = $mybb->settings['teradonate_info'];
 
         }
+        else {
