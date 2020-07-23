@@ -953,3 +953,4 @@ disabled=$lang->naoardonate_settings_disabled
         'description' => $db->escape_string($lang->naoardonate_settings_info_desc),
         'optionscode' => "select
 0=$lang->naoardonate_settings_disabled
+1=$lang->naoardonate_settings_guestonly
