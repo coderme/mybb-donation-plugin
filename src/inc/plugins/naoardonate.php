@@ -950,3 +950,4 @@ disabled=$lang->naoardonate_settings_disabled
     $settingsarray[] = array(
         'name' => 'naoardonate_info',
         'title' => $db->escape_string($lang->naoardonate_settings_info),
+        'description' => $db->escape_string($lang->naoardonate_settings_info_desc),
