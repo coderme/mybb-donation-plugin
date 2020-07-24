@@ -954,3 +954,4 @@ disabled=$lang->naoardonate_settings_disabled
         'optionscode' => "select
 0=$lang->naoardonate_settings_disabled
 1=$lang->naoardonate_settings_guestonly
+2=$lang->naoardonate_settings_memberonly
