@@ -955,3 +955,4 @@ disabled=$lang->naoardonate_settings_disabled
 0=$lang->naoardonate_settings_disabled
 1=$lang->naoardonate_settings_guestonly
 2=$lang->naoardonate_settings_memberonly
+3=$lang->naoardonate_settings_always
