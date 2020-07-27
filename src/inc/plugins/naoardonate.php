@@ -958,3 +958,4 @@ disabled=$lang->naoardonate_settings_disabled
 3=$lang->naoardonate_settings_always
 ",
         'value' => $db->escape_string($naoardonate_info),
+        'disporder' => $c++,
