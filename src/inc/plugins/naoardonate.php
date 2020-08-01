@@ -971,3 +971,4 @@ disabled=$lang->naoardonate_settings_disabled
         $naoardonate_info_required  = $mybb->settings['teradonate_info_required'];
 
         }
+        else {
