@@ -977,3 +977,4 @@ disabled=$lang->naoardonate_settings_disabled
 
 
     $settingsarray[] = array(
+        'name' => 'naoardonate_info_required',
