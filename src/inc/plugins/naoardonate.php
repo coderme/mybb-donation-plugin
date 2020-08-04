@@ -981,3 +981,4 @@ disabled=$lang->naoardonate_settings_disabled
         'title' => $db->escape_string($lang->naoardonate_settings_info_required),
         'description' => $db->escape_string($lang->naoardonate_settings_info_required_desc),
         'optionscode' => "yesno",
+        'value' => $db->escape_string($naoardonate_info_required),
