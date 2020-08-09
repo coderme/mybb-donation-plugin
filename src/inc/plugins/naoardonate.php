@@ -990,3 +990,4 @@ disabled=$lang->naoardonate_settings_disabled
     if($mybb->settings['naoardonate_donorsgroup'])
         {
         $naoardonate_donorsgroup  = $mybb->settings['naoardonate_donorsgroup'];
+        }
