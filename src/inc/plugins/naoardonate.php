@@ -998,3 +998,4 @@ disabled=$lang->naoardonate_settings_disabled
         else {
         $naoardonate_donorsgroup = 'nochange';
         }
+
