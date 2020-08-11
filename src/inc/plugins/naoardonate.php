@@ -995,3 +995,4 @@ disabled=$lang->naoardonate_settings_disabled
         $naoardonate_donorsgroup  = $mybb->settings['teradonate_donorsgroup'];
 
         }
+        else {
