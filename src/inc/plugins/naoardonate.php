@@ -1003,3 +1003,4 @@ disabled=$lang->naoardonate_settings_disabled
 
     $settingsarray[] = array(
         'name' => 'naoardonate_donorsgroup',
+        'title' => $db->escape_string($lang->naoardonate_settings_donorsgroup),
