@@ -1007,3 +1007,4 @@ disabled=$lang->naoardonate_settings_disabled
         'description' => $db->escape_string($lang->naoardonate_settings_donorsgroup_desc),
         'optionscode' => $db->escape_string('php
 <select name=\"upsetting[naoardonate_donorsgroup]\">
+<option value=\"nochange\" " . ($setting[\'value\'] == \'nochange\' ?  "selected=\"selected\"" : "" ) . " >' . $lang->naoardonate_settings_donors_nochange .  '</option><option disabled=\"disabled\"> ............</option>" .
