@@ -1006,3 +1006,4 @@ disabled=$lang->naoardonate_settings_disabled
         'title' => $db->escape_string($lang->naoardonate_settings_donorsgroup),
         'description' => $db->escape_string($lang->naoardonate_settings_donorsgroup_desc),
         'optionscode' => $db->escape_string('php
+<select name=\"upsetting[naoardonate_donorsgroup]\">
