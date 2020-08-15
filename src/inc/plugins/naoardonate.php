@@ -1010,3 +1010,4 @@ disabled=$lang->naoardonate_settings_disabled
 <option value=\"nochange\" " . ($setting[\'value\'] == \'nochange\' ?  "selected=\"selected\"" : "" ) . " >' . $lang->naoardonate_settings_donors_nochange .  '</option><option disabled=\"disabled\"> ............</option>" .
 $naoardonate_groups . " </select>'),
         'value' => $db->escape_string($naoardonate_donorsgroup),
+        'disporder' => $c++,
