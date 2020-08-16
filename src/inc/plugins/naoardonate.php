@@ -1011,3 +1011,4 @@ disabled=$lang->naoardonate_settings_disabled
 $naoardonate_groups . " </select>'),
         'value' => $db->escape_string($naoardonate_donorsgroup),
         'disporder' => $c++,
+        'gid' => $gid
