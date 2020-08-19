@@ -1016,3 +1016,4 @@ $naoardonate_groups . " </select>'),
 
 
     if($mybb->settings['naoardonate_unmovable'])
+        {
