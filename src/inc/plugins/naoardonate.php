@@ -1021,3 +1021,4 @@ $naoardonate_groups . " </select>'),
         }
         elseif ($mybb->settings['teradonate_unmovable']) {
         $naoardonate_unmovable  = $mybb->settings['teradonate_unmovable'];
+
