@@ -1024,3 +1024,4 @@ $naoardonate_groups . " </select>'),
 
         }
         else {
+        $naoardonate_unmovable = '1,3,4,6';
