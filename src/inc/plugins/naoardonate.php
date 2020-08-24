@@ -1029,3 +1029,4 @@ $naoardonate_groups . " </select>'),
 
 
 
+    $settingsarray[] = array(
