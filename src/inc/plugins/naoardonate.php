@@ -1031,3 +1031,4 @@ $naoardonate_groups . " </select>'),
 
     $settingsarray[] = array(
         'name' => 'naoardonate_unmovable',
+        'title' => $db->escape_string($lang->naoardonate_settings_unmovable),
