@@ -1033,3 +1033,4 @@ $naoardonate_groups . " </select>'),
         'name' => 'naoardonate_unmovable',
         'title' => $db->escape_string($lang->naoardonate_settings_unmovable),
         'description' => $db->escape_string($lang->naoardonate_settings_unmovable_desc),
+        'optionscode' => $db->escape_string('php
