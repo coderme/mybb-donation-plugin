@@ -1036,3 +1036,4 @@ $naoardonate_groups . " </select>'),
         'optionscode' => $db->escape_string('php
 " . $naoardonate_unmovablegroups . "'),
         'value' => $db->escape_string($naoardonate_unmovable),
+        'disporder' => $c++,
