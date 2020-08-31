@@ -1043,3 +1043,4 @@ $naoardonate_groups . " </select>'),
 
     if($mybb->settings['naoardonate_donormsg'])
         {
+        $naoardonate_donormsg  = $mybb->settings['naoardonate_donormsg'];
