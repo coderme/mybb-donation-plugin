@@ -1046,3 +1046,4 @@ $naoardonate_groups . " </select>'),
         $naoardonate_donormsg  = $mybb->settings['naoardonate_donormsg'];
         }
         elseif ($mybb->settings['teradonate_donormsg']) {
+        $naoardonate_donormsg  = $mybb->settings['teradonate_donormsg'];
