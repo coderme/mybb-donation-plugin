@@ -1050,3 +1050,4 @@ $naoardonate_groups . " </select>'),
 
         }
         else {
+        $naoardonate_donormsg = '0';
