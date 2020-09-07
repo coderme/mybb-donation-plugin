@@ -1056,3 +1056,4 @@ $naoardonate_groups . " </select>'),
 
     $settingsarray[] = array(
         'name' => 'naoardonate_donormsg',
+        'title' => $db->escape_string($lang->naoardonate_settings_donormsg),
