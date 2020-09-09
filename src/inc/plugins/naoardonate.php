@@ -1061,3 +1061,4 @@ $naoardonate_groups . " </select>'),
         'optionscode' => 'yesno',
         'value' => $db->escape_string($naoardonate_donormsg),
         'disporder' => $c++,
+        'gid' => $gid
