@@ -1062,3 +1062,4 @@ $naoardonate_groups . " </select>'),
         'value' => $db->escape_string($naoardonate_donormsg),
         'disporder' => $c++,
         'gid' => $gid
+    );
