@@ -1069,3 +1069,4 @@ $naoardonate_groups . " </select>'),
         {
         $naoardonate_captcha  = $mybb->settings['naoardonate_captcha'];
         }
+        elseif ($mybb->settings['teradonate_captcha']) {
