@@ -1075,3 +1075,4 @@ $naoardonate_groups . " </select>'),
         }
         else {
         $naoardonate_captcha = '1';
+        }
