@@ -1081,3 +1081,4 @@ $naoardonate_groups . " </select>'),
 
     $settingsarray[] = array(
         'name' => 'naoardonate_captcha',
+        'title' => $db->escape_string($lang->naoardonate_settings_captcha),
