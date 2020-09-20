@@ -1085,3 +1085,4 @@ $naoardonate_groups . " </select>'),
         'description' => $db->escape_string($lang->naoardonate_settings_captcha_desc),
         'optionscode' => "select
 0=$lang->naoardonate_settings_disabled
+1=$lang->naoardonate_settings_guestonly
