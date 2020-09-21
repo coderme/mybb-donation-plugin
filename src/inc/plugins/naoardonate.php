@@ -1089,3 +1089,4 @@ $naoardonate_groups . " </select>'),
 2=$lang->naoardonate_settings_memberonly
 3=$lang->naoardonate_settings_always
 ",
+        'value' => $db->escape_string($naoardonate_captcha),
