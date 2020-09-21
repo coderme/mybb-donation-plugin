@@ -1090,3 +1090,4 @@ $naoardonate_groups . " </select>'),
 3=$lang->naoardonate_settings_always
 ",
         'value' => $db->escape_string($naoardonate_captcha),
+        'disporder' => $c++,
