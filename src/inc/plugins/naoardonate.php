@@ -1088,3 +1088,4 @@ $naoardonate_groups . " </select>'),
 1=$lang->naoardonate_settings_guestonly
 2=$lang->naoardonate_settings_memberonly
 3=$lang->naoardonate_settings_always
+",
