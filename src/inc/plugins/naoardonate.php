@@ -1091,3 +1091,4 @@ $naoardonate_groups . " </select>'),
 ",
         'value' => $db->escape_string($naoardonate_captcha),
         'disporder' => $c++,
+        'gid' => $gid
