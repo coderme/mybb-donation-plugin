@@ -1095,3 +1095,4 @@ $naoardonate_groups . " </select>'),
     );
 
 
+    if($mybb->settings['naoardonate_cannotviewtop'])
