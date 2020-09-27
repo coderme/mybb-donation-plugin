@@ -1099,3 +1099,4 @@ $naoardonate_groups . " </select>'),
         {
         $naoardonate_cannotviewtop  = $mybb->settings['naoardonate_cannotviewtop'];
         }
+        elseif ($mybb->settings['teradonate_cannotviewtop']) {
