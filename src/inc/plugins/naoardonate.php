@@ -1114,3 +1114,4 @@ $naoardonate_groups . " </select>'),
         'name' => 'naoardonate_cannotviewtop',
         'title' => $db->escape_string($lang->naoardonate_settings_cannotviewtop),
         'description' => $db->escape_string($lang->naoardonate_settings_cannotviewtop_desc),
+        'optionscode' => $db->escape_string('php
