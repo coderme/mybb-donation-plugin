@@ -1119,3 +1119,4 @@ $naoardonate_groups . " </select>'),
         'value' => $db->escape_string($naoardonate_cannotviewtop),
         'disporder' => $c++,
         'gid' => $gid
+    );
