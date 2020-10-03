@@ -1117,3 +1117,4 @@ $naoardonate_groups . " </select>'),
         'optionscode' => $db->escape_string('php
 " . $naoardonate_blockedgroups . "'),
         'value' => $db->escape_string($naoardonate_cannotviewtop),
+        'disporder' => $c++,
