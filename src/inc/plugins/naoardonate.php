@@ -1126,3 +1126,4 @@ $naoardonate_groups . " </select>'),
     $settingsarray[] = array(
         'name' => 'naoardonate_hidetopemails',
         'title' => $db->escape_string($lang->naoardonate_settings_hidetopemails),
+        'description' => $db->escape_string($lang->naoardonate_settings_hidetopemails_desc),
