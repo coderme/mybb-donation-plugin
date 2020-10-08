@@ -1130,3 +1130,4 @@ $naoardonate_groups . " </select>'),
         'optionscode' => 'yesno',
         'value' => '1',
         'disporder' => $c++,
+        'gid' => $gid
