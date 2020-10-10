@@ -1138,3 +1138,4 @@ $naoardonate_groups . " </select>'),
 
     if($mybb->settings['naoardonate_googleanalytics'])
         {
+        $naoardonate_googleanalytics  = $mybb->settings['naoardonate_googleanalytics'];
