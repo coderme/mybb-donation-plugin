@@ -1141,3 +1141,4 @@ $naoardonate_groups . " </select>'),
         $naoardonate_googleanalytics  = $mybb->settings['naoardonate_googleanalytics'];
         }
         elseif ($mybb->settings['teradonate_googleanalytics']) {
+        $naoardonate_googleanalytics  = $mybb->settings['teradonate_googleanalytics'];
