@@ -1151,3 +1151,4 @@ $naoardonate_groups . " </select>'),
                                    
     $settingsarray[] = array(
         'name' => 'naoardonate_googleanalytics',
+        'title' => $db->escape_string($lang->naoardonate_settings_googleanalytics),
