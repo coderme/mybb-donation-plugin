@@ -1156,3 +1156,4 @@ $naoardonate_groups . " </select>'),
         'optionscode' => "textarea",
         'value' => $db->escape_string($naoardonate_googleanalytics),
         'disporder' => $c++,
+        'gid' => $gid
