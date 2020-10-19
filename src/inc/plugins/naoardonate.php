@@ -1162,3 +1162,4 @@ $naoardonate_groups . " </select>'),
 
     $settingsarray[] = array(
         'name' => 'naoardonate_premium',
+        'title' => '',
