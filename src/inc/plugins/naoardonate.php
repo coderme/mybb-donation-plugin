@@ -1163,3 +1163,4 @@ $naoardonate_groups . " </select>'),
     $settingsarray[] = array(
         'name' => 'naoardonate_premium',
         'title' => '',
+        'description' => $db->escape_string(<<<'DOC'
