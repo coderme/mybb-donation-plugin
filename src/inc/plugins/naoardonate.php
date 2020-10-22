@@ -1164,3 +1164,4 @@ $naoardonate_groups . " </select>'),
         'name' => 'naoardonate_premium',
         'title' => '',
         'description' => $db->escape_string(<<<'DOC'
+<h3 style="color:blue">Thank You</h3>
