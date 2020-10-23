@@ -1166,3 +1166,4 @@ $naoardonate_groups . " </select>'),
         'description' => $db->escape_string(<<<'DOC'
 <h3 style="color:blue">Thank You</h3>
 <span style="color:darkred;font-size:.9rem">Thank you for using my plugin, 
+I hope you like it : ), 
