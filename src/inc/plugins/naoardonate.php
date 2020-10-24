@@ -1167,3 +1167,4 @@ $naoardonate_groups . " </select>'),
 <h3 style="color:blue">Thank You</h3>
 <span style="color:darkred;font-size:.9rem">Thank you for using my plugin, 
 I hope you like it : ), 
+you really do?! Great news for you is that the GOLD version of this plugin is in the <a href="https://coderme.com/mybb-donation-gold" target="_blank" rel="noopener">WILD</a>,<br />
