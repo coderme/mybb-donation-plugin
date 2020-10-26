@@ -1173,3 +1173,4 @@ If you like to contact me about anything other than support please use *contact 
 DOC
         ),
         'optionscode' => 'php',
+        'value' => '',
