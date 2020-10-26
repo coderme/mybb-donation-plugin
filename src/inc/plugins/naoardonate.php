@@ -1175,3 +1175,4 @@ DOC
         'optionscode' => 'php',
         'value' => '',
         'disporder' => $c++,
+        'gid' => $gid
