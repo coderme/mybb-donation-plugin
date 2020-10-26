@@ -1172,3 +1172,4 @@ you really do?! Great news for you is that the GOLD version of this plugin is in
 If you like to contact me about anything other than support please use *contact link <a href="https://coderme.com?src=mybbc" target="_blank" rel="noopener">on this page</a><br />For support please use the release thread  <a href="https://community.mybb.com/thread-84084.html" target="_blank" rel="noopener">HERE</a>.</span>
 DOC
         ),
+        'optionscode' => 'php',
