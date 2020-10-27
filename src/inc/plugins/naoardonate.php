@@ -1179,3 +1179,4 @@ DOC
     );
     
     # clean old setups
+    if(array_key_exists('naoardonate_onoff', $mybb->settings))
