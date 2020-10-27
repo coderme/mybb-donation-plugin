@@ -1178,3 +1178,4 @@ DOC
         'gid' => $gid
     );
     
+    # clean old setups
