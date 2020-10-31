@@ -1184,3 +1184,4 @@ DOC
         $db->delete_query("settings", "name LIKE 'naoardonate%'");
     }
     elseif(array_key_exists('teradonate_supportme', $mybb->settings))
+        {
