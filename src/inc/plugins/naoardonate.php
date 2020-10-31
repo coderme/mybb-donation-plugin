@@ -1185,3 +1185,4 @@ DOC
     }
     elseif(array_key_exists('teradonate_supportme', $mybb->settings))
         {
+        $db->update_query("datacache", "title = REPLACE(title, 'tera', 'naoar')", "title LIKE 'tera%'");
