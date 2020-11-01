@@ -1189,3 +1189,4 @@ DOC
         if(is_object($cache->handler)):
 
             # copy value to new cache
+            $cache->update('naoardonate_goal', $cache->read('teradonate_goal'));
