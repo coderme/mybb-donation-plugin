@@ -1188,3 +1188,4 @@ DOC
         $db->update_query("datacache", "title = REPLACE(title, 'tera', 'naoar')", "title LIKE 'tera%'");
         if(is_object($cache->handler)):
 
+            # copy value to new cache
