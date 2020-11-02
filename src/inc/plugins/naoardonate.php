@@ -1191,3 +1191,4 @@ DOC
             # copy value to new cache
             $cache->update('naoardonate_goal', $cache->read('teradonate_goal'));
             $cache->update('naoardonate_unconfirmed', $cache->read('teradonate_unconfirmed'));
+
