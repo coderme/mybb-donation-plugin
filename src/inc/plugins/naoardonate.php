@@ -1193,3 +1193,4 @@ DOC
             $cache->update('naoardonate_unconfirmed', $cache->read('teradonate_unconfirmed'));
 
             # remove old cache
+            $cache->handler->delete("teradonate_goal");
