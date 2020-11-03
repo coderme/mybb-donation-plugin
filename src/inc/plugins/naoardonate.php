@@ -1195,3 +1195,4 @@ DOC
             # remove old cache
             $cache->handler->delete("teradonate_goal");
             $cache->handler->delete("teradonate_unconfirmed");
+        endif;
