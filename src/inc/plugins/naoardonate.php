@@ -1198,3 +1198,4 @@ DOC
         endif;
 
 
+      naoardonate_uninstall('teradonate');
