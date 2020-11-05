@@ -1204,3 +1204,4 @@ DOC
      # insert new values
     foreach($settingsarray as $v):
         $db->insert_query('settings', $v);
+    endforeach;
