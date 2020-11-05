@@ -1202,3 +1202,4 @@ DOC
     }
 
      # insert new values
+    foreach($settingsarray as $v):
