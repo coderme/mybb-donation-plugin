@@ -1206,3 +1206,4 @@ DOC
         $db->insert_query('settings', $v);
     endforeach;
 
+
