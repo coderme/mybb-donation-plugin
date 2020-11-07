@@ -1208,3 +1208,4 @@ DOC
 
 
 
+    rebuild_settings();
