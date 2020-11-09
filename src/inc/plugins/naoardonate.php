@@ -1210,3 +1210,4 @@ DOC
 
     rebuild_settings();
 
+  # Mybb 1.4
