@@ -1211,3 +1211,4 @@ DOC
     rebuild_settings();
 
   # Mybb 1.4
+  sprintf('%.1f', $mybb->version) == 1.4 ? $sep = '/' : $sep = '-';
