@@ -1212,3 +1212,4 @@ DOC
 
   # Mybb 1.4
   sprintf('%.1f', $mybb->version) == 1.4 ? $sep = '/' : $sep = '-';
+   $no = 'index.php?module=config%ssettings&action=change&gid=%d' ;
