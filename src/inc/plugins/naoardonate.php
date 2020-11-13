@@ -1218,3 +1218,4 @@ DOC
 
 function naoar_post_install()
 {
+    global $mybb, $sep, $gid, $no, $message, $installed;
