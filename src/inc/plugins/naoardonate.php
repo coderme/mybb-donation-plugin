@@ -1217,3 +1217,4 @@ DOC
 }
 
 function naoar_post_install()
+{
