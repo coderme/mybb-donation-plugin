@@ -1216,3 +1216,4 @@ DOC
     @sleep(3);
 }
 
+function naoar_post_install()
