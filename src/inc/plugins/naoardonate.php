@@ -1221,3 +1221,4 @@ function naoar_post_install()
     global $mybb, $sep, $gid, $no, $message, $installed;
     if ( $mybb->input['plugin'] == "naoardonate" and !$installed ) {
         flash_message($message, 'success');
+        admin_redirect( sprintf($no, $sep, $gid) );
