@@ -1223,3 +1223,4 @@ function naoar_post_install()
         flash_message($message, 'success');
         admin_redirect( sprintf($no, $sep, $gid) );
     }
+}
