@@ -1224,3 +1224,4 @@ function naoar_post_install()
         admin_redirect( sprintf($no, $sep, $gid) );
     }
 }
+
