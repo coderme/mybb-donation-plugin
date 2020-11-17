@@ -1226,3 +1226,4 @@ function naoar_post_install()
 }
 
  #   _is_installed():
+ #   Called on the plugin management page to establish if a plugin is already installed or not.
