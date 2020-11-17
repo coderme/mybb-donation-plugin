@@ -1225,3 +1225,4 @@ function naoar_post_install()
     }
 }
 
+ #   _is_installed():
