@@ -1229,3 +1229,4 @@ function naoar_post_install()
  #   Called on the plugin management page to establish if a plugin is already installed or not.
  #   This should return TRUE if the plugin is installed (by checking tables, fields etc) or FALSE
  #   if the plugin is not installed.
+
