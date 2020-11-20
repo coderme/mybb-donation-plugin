@@ -1231,3 +1231,4 @@ function naoar_post_install()
  #   if the plugin is not installed.
 
 
+function naoardonate_is_installed()
