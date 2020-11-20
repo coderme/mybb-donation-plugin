@@ -1233,3 +1233,4 @@ function naoar_post_install()
 
 function naoardonate_is_installed()
 {
+    // testing
