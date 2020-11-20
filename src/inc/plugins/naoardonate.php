@@ -1230,3 +1230,4 @@ function naoar_post_install()
  #   This should return TRUE if the plugin is installed (by checking tables, fields etc) or FALSE
  #   if the plugin is not installed.
 
+
