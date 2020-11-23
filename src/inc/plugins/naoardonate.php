@@ -1238,3 +1238,4 @@ function naoardonate_is_installed()
 
     global $db;
     $query = $db->simple_select('settings', 'name', "name='naoardonate_unban'");
+
