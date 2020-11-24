@@ -1244,3 +1244,4 @@ function naoardonate_is_installed()
     }
     return False;
 
+}
