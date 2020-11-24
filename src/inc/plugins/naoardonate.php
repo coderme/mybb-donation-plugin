@@ -1242,3 +1242,4 @@ function naoardonate_is_installed()
     if($db->num_rows($query) > 0){
         return True;
     }
+    return False;
