@@ -1243,3 +1243,4 @@ function naoardonate_is_installed()
         return True;
     }
     return False;
+
