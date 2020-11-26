@@ -1246,3 +1246,4 @@ function naoardonate_is_installed()
 
 }
 
+ #    _uninstall():
