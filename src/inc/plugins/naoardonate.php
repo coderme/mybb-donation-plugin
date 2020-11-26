@@ -1247,3 +1247,4 @@ function naoardonate_is_installed()
 }
 
  #    _uninstall():
+ #    Called whenever a plugin is to be uninstalled. This should remove ALL traces of the plugin
