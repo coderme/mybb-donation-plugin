@@ -1249,3 +1249,4 @@ function naoardonate_is_installed()
  #    _uninstall():
  #    Called whenever a plugin is to be uninstalled. This should remove ALL traces of the plugin
  #    from the installation (tables etc). If it does not exist, uninstall button is not shown.
+
