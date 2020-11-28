@@ -1253,3 +1253,4 @@ function naoardonate_is_installed()
 
 function naoardonate_uninstall($clean=null)
 {
+    global $mybb, $db, $cache;
