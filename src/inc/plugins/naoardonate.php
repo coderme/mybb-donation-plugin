@@ -1251,3 +1251,4 @@ function naoardonate_is_installed()
  #    from the installation (tables etc). If it does not exist, uninstall button is not shown.
 
 
+function naoardonate_uninstall($clean=null)
