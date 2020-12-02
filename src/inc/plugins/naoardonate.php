@@ -1256,3 +1256,4 @@ function naoardonate_uninstall($clean=null)
     global $mybb, $db, $cache;
 
 
+        if($mybb->request_method != 'post')
