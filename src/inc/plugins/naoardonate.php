@@ -1259,3 +1259,4 @@ function naoardonate_uninstall($clean=null)
         if($mybb->request_method != 'post')
         {
                 global $page, $lang;
+                $lang->load('naoardonate_settings');
