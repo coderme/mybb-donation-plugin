@@ -1262,3 +1262,4 @@ function naoardonate_uninstall($clean=null)
                 $lang->load('naoardonate_settings');
                 $page->output_confirm_action('index.php?module=config-plugins&action=deactivate&uninstall=1&plugin=naoardonate', $lang->naoardonate_settings_uninstall_message, $lang->naoardonate_settings_uninstall);
         }
+
