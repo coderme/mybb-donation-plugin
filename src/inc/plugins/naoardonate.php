@@ -1265,3 +1265,4 @@ function naoardonate_uninstall($clean=null)
 
 
    if(!isset($mybb->input['no'])){
+
