@@ -1271,3 +1271,4 @@ function naoardonate_uninstall($clean=null)
         $perm = 'tera_donors';
     }
     else {
+        $tname = 'naoardonate';
