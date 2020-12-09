@@ -1269,3 +1269,4 @@ function naoardonate_uninstall($clean=null)
     if($clean == 'teradonate')  {
         $tname = 'teradonate';
         $perm = 'tera_donors';
+    }
