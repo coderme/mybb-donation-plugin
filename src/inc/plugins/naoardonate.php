@@ -1273,3 +1273,4 @@ function naoardonate_uninstall($clean=null)
     else {
         $tname = 'naoardonate';
         $perm = 'coderme_donors';
+        
