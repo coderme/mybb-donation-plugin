@@ -1274,3 +1274,4 @@ function naoardonate_uninstall($clean=null)
         $tname = 'naoardonate';
         $perm = 'coderme_donors';
         
+        # drop main plugin table
