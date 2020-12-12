@@ -1276,3 +1276,4 @@ function naoardonate_uninstall($clean=null)
         
         # drop main plugin table
         $db->drop_table($tname);
+    }
