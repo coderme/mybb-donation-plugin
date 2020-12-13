@@ -1278,3 +1278,4 @@ function naoardonate_uninstall($clean=null)
         $db->drop_table($tname);
     }
 
+
