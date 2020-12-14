@@ -1280,3 +1280,4 @@ function naoardonate_uninstall($clean=null)
 
 
     # remove traces
+    $db->delete_query("settings", "name LIKE '$tname%'");
