@@ -1279,3 +1279,4 @@ function naoardonate_uninstall($clean=null)
     }
 
 
+    # remove traces
