@@ -1283,3 +1283,4 @@ function naoardonate_uninstall($clean=null)
     $db->delete_query("settings", "name LIKE '$tname%'");
     $db->delete_query("settinggroups", "name = '$tname'");
     $db->delete_query("datacache", "title = '{$tname}_goal'");
+    $db->delete_query("datacache", "title = '{$tname}_unconfirmed'");
