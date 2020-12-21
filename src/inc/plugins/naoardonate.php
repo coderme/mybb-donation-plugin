@@ -1286,3 +1286,4 @@ function naoardonate_uninstall($clean=null)
     $db->delete_query("datacache", "title = '{$tname}_unconfirmed'");
     if(is_object($cache->handler)):
         $cache->handler->delete("{$tname}_goal");
+        $cache->handler->delete("{$tname}_unconfirmed");
