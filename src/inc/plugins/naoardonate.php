@@ -1287,3 +1287,4 @@ function naoardonate_uninstall($clean=null)
     if(is_object($cache->handler)):
         $cache->handler->delete("{$tname}_goal");
         $cache->handler->delete("{$tname}_unconfirmed");
+    endif;
