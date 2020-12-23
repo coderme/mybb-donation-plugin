@@ -1288,3 +1288,4 @@ function naoardonate_uninstall($clean=null)
         $cache->handler->delete("{$tname}_goal");
         $cache->handler->delete("{$tname}_unconfirmed");
     endif;
+
