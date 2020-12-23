@@ -1290,3 +1290,4 @@ function naoardonate_uninstall($clean=null)
     endif;
 
     require_once  MYBB_ROOT . $mybb->config['admin_dir'] 
+            . '/inc/functions.php';
