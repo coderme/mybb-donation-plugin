@@ -1289,3 +1289,4 @@ function naoardonate_uninstall($clean=null)
         $cache->handler->delete("{$tname}_unconfirmed");
     endif;
 
+    require_once  MYBB_ROOT . $mybb->config['admin_dir'] 
