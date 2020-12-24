@@ -1293,3 +1293,4 @@ function naoardonate_uninstall($clean=null)
             . '/inc/functions.php';
     
     change_admin_permission($perm, "", -1);
+
