@@ -1295,3 +1295,4 @@ function naoardonate_uninstall($clean=null)
     change_admin_permission($perm, "", -1);
 
 
+    rebuild_settings();
