@@ -1292,3 +1292,4 @@ function naoardonate_uninstall($clean=null)
     require_once  MYBB_ROOT . $mybb->config['admin_dir'] 
             . '/inc/functions.php';
     
+    change_admin_permission($perm, "", -1);
