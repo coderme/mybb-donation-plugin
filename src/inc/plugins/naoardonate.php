@@ -1297,3 +1297,4 @@ function naoardonate_uninstall($clean=null)
 
     rebuild_settings();
   }
+}
