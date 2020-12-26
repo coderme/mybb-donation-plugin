@@ -1299,3 +1299,4 @@ function naoardonate_uninstall($clean=null)
   }
 }
 
+ #     _activate():
