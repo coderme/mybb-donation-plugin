@@ -1300,3 +1300,4 @@ function naoardonate_uninstall($clean=null)
 }
 
  #     _activate():
+ #    Called whenever a plugin is activated via the Admin CP. This should essentially make a plugin
