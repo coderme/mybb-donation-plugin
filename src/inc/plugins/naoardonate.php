@@ -1305,3 +1305,4 @@ function naoardonate_uninstall($clean=null)
 
 
 
+function naoardonate_activate()
