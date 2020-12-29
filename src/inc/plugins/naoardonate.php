@@ -1302,3 +1302,4 @@ function naoardonate_uninstall($clean=null)
  #     _activate():
  #    Called whenever a plugin is activated via the Admin CP. This should essentially make a plugin
  #    "visible" by adding templates/template changes, language changes etc.
+
