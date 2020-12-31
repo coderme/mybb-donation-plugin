@@ -1311,3 +1311,4 @@ function naoardonate_activate()
 
     include_once MYBB_ROOT . "inc/adminfunctions_templates.php";
 
+    find_replace_templatesets("header", "#".preg_quote('{$pm_notice}')."#i", '{$pm_notice}{$naoardonate_notice}{$naoardonate_bar}');
