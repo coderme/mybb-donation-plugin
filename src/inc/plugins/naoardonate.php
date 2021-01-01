@@ -1316,3 +1316,4 @@ function naoardonate_activate()
     find_replace_templatesets("header", "#".preg_quote('{$menu_portal}')."#i", '{$naoardonate_donatelink}{$menu_portal}');
 
     find_replace_templatesets("footer", "#".preg_quote('{$task_image}')."#i", '{$task_image}{$naoar_copyright}');
+
