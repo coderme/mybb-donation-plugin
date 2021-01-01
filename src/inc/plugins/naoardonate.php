@@ -1314,3 +1314,4 @@ function naoardonate_activate()
     find_replace_templatesets("header", "#".preg_quote('{$pm_notice}')."#i", '{$pm_notice}{$naoardonate_notice}{$naoardonate_bar}');
 
     find_replace_templatesets("header", "#".preg_quote('{$menu_portal}')."#i", '{$naoardonate_donatelink}{$menu_portal}');
+
