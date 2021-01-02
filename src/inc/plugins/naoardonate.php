@@ -1317,3 +1317,4 @@ function naoardonate_activate()
 
     find_replace_templatesets("footer", "#".preg_quote('{$task_image}')."#i", '{$task_image}{$naoar_copyright}');
 
+    $templates_array = array();
