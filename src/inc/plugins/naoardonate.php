@@ -1320,3 +1320,4 @@ function naoardonate_activate()
     $templates_array = array();
     $templates_array[] = array(
         'title' => 'naoardonate_bar_v5',
+        'template' => $db->escape_string('<br class="clear" />
