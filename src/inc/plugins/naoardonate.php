@@ -1323,3 +1323,4 @@ function naoardonate_activate()
         'template' => $db->escape_string('<br class="clear" />
 <table style="width:{$container_width}px; margin:auto">
     <tr>
+        <td style="padding-left:23%;" colspan="2">
