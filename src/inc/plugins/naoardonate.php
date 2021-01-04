@@ -1322,3 +1322,4 @@ function naoardonate_activate()
         'title' => 'naoardonate_bar_v5',
         'template' => $db->escape_string('<br class="clear" />
 <table style="width:{$container_width}px; margin:auto">
+    <tr>
