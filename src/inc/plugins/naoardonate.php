@@ -1326,3 +1326,4 @@ function naoardonate_activate()
         <td style="padding-left:23%;" colspan="2">
         <span style="font-weight:bold;font-size:small;text-align:left;">&nbsp;{$werecieved_msg}</span>
         </td>
+    </tr>
