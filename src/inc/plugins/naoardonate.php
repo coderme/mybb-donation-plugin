@@ -1339,3 +1339,4 @@ function naoardonate_activate()
             <!-- bar started -->
 
             <td style="background: url(\'{$mybb->settings[\'bburl\']}/images/naoar/body.gif\') repeat-x; width:{$progress_value}px;"> </td>
+
