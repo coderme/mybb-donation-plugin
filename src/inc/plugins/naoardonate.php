@@ -1337,3 +1337,4 @@ function naoardonate_activate()
             <td style="background: url(\'{$mybb->settings[\'bburl\']}/images/naoar/tail.gif\') no-repeat; width:12px;"> </td>
 
             <!-- bar started -->
+
