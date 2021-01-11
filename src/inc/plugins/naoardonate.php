@@ -1344,3 +1344,4 @@ function naoardonate_activate()
                  {$tip_tail}
                  {$left_div}
                 {$tail_tip}
+
