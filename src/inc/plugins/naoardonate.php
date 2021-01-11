@@ -1341,3 +1341,4 @@ function naoardonate_activate()
             <td style="background: url(\'{$mybb->settings[\'bburl\']}/images/naoar/body.gif\') repeat-x; width:{$progress_value}px;"> </td>
 
 
+                 {$tip_tail}
