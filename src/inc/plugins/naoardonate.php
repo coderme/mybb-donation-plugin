@@ -1346,3 +1346,4 @@ function naoardonate_activate()
                 {$tail_tip}
 
         <td styke="padding:0"><a href="{$mybb->settings[\'bburl\']}/donate.php"><img alt="" src="{$mybb->settings[\'bburl\']}/images/naoar/donate_now.gif" width="100" height="21" style="vertical-align:baseline" border="0" /></a>{$naoardonate_top}</td>
+        </tr>
