@@ -1358,3 +1358,4 @@ function naoardonate_activate()
         <td colspan="2">
             <!-- reason  started-->
             {$naoardonate_reason}
+            <!-- reason ended -->
