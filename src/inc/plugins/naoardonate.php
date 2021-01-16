@@ -1359,3 +1359,4 @@ function naoardonate_activate()
             <!-- reason  started-->
             {$naoardonate_reason}
             <!-- reason ended -->
+        </td>
