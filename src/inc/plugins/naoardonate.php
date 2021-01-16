@@ -1355,3 +1355,4 @@ function naoardonate_activate()
 
 
     <tr>
+        <td colspan="2">
