@@ -1360,3 +1360,4 @@ function naoardonate_activate()
             {$naoardonate_reason}
             <!-- reason ended -->
         </td>
+    </tr>
