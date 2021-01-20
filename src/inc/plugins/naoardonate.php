@@ -1363,3 +1363,4 @@ function naoardonate_activate()
     </tr>
 
 </table>
+<br class="clear" />'),
