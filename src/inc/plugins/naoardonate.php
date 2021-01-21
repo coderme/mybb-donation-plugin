@@ -1365,3 +1365,4 @@ function naoardonate_activate()
 </table>
 <br class="clear" />'),
         'sid' => '-1',
+        'version' => '',
