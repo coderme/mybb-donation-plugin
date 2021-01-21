@@ -1366,3 +1366,4 @@ function naoardonate_activate()
 <br class="clear" />'),
         'sid' => '-1',
         'version' => '',
+        'dateline' => TIME_NOW
