@@ -1373,3 +1373,4 @@ function naoardonate_activate()
         $templates_array[] = array(
         'title' => 'naoardonate_links_donate_v5',
         'template' => $db->escape_string('<li><a href="{$mybb->settings[\'bburl\']}/donate.php" style="background-image: url(\'{$mybb->settings[\'bburl\']}/images/naoar/donate.png\')">{$lang->naoardonate_front_donate_title}</a></li>'),
+        'sid' => '-1',
