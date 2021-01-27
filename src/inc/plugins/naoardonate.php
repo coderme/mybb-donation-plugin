@@ -1381,3 +1381,4 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
+        'title' => 'naoardonate_links_topdonors_v5',
