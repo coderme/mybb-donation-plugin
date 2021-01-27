@@ -1382,3 +1382,4 @@ function naoardonate_activate()
 
         $templates_array[] = array(
         'title' => 'naoardonate_links_topdonors_v5',
+        'template' => $db->escape_string('<li><a href="{$mybb->settings[\'bburl\']}/donate.php?action=top_donors" style="background-image: url(\'{$mybb->settings[\'bburl\']}/images/naoar/top.png\')">{$lang->naoardonate_front_top_title}</a></li>'),
