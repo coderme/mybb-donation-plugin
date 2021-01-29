@@ -1385,3 +1385,4 @@ function naoardonate_activate()
         'template' => $db->escape_string('<li><a href="{$mybb->settings[\'bburl\']}/donate.php?action=top_donors" style="background-image: url(\'{$mybb->settings[\'bburl\']}/images/naoar/top.png\')">{$lang->naoardonate_front_top_title}</a></li>'),
         'sid' => '-1',
         'version' => '',
+        'dateline' => TIME_NOW
