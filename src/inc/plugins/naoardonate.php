@@ -1393,3 +1393,4 @@ function naoardonate_activate()
 
         $templates_array[] = array(
         'title' => 'naoardonate_links_unban_v7',
+        'template' => $db->escape_string('<li><a href="{$mybb->settings[\'bburl\']}/donate.php" style="background-image: url(\'{$mybb->settings[\'bburl\']}/images/naoar/unban.png\')">{$lang->naoardonate_front_unban_title}</a></li>'),
