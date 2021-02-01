@@ -1392,3 +1392,4 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
+        'title' => 'naoardonate_links_unban_v7',
