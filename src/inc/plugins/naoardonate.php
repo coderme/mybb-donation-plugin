@@ -1405,3 +1405,4 @@ function naoardonate_activate()
         'title' => 'naoardonate_reason_v5',
         'template' => $db->escape_string('{$mybb->settings[\'naoardonate_reason\']}'),
         'sid' => '-1',
+        'version' => '',
