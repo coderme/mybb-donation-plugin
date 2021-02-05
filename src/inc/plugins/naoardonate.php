@@ -1406,3 +1406,4 @@ function naoardonate_activate()
         'template' => $db->escape_string('{$mybb->settings[\'naoardonate_reason\']}'),
         'sid' => '-1',
         'version' => '',
+        'dateline' => TIME_NOW
