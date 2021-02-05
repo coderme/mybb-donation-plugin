@@ -1402,3 +1402,4 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
+        'title' => 'naoardonate_reason_v5',
