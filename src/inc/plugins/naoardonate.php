@@ -1413,3 +1413,4 @@ function naoardonate_activate()
 
         $templates_array[] = array(
         'title' => 'naoardonate_img_topdonors_v5',
+        'template' => $db->escape_string('<a href="{$mybb->settings[\'bburl\']}/donate.php?action=top_donors"><img src="{$mybb->settings[\'bburl\']}/images/naoar/topdonors.gif" style="border:0" alt="" /></a>'),
