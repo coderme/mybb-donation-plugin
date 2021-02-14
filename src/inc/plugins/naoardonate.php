@@ -1422,3 +1422,4 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
+        'title' => 'naoardonate_bar_tailtip_v5',
