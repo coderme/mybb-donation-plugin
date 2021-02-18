@@ -1431,3 +1431,4 @@ function naoardonate_activate()
 
 
 
+        $templates_array[] = array(
