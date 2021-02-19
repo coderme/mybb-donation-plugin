@@ -1432,3 +1432,4 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
+        'title' => 'naoardonate_leftdiv_v5',
