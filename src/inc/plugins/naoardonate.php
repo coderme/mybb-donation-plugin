@@ -1433,3 +1433,4 @@ function naoardonate_activate()
 
         $templates_array[] = array(
         'title' => 'naoardonate_leftdiv_v5',
+        'template' => $db->escape_string('<td style="width:{$left_value}px;
