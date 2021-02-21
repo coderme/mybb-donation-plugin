@@ -1437,3 +1437,4 @@ function naoardonate_activate()
             background: url(\'{$mybb->settings[\'bburl\']}/images/naoar/lbody.gif\') repeat-x;"></td>
             <td style="width:12px; background: url(\'{$mybb->settings[\'bburl\']}/images/naoar/ltail.gif\') no-repeat;"></td>'),
         'sid' => '-1',
+        'version' => '',
