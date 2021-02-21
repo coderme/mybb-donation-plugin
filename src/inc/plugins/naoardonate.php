@@ -1438,3 +1438,4 @@ function naoardonate_activate()
             <td style="width:12px; background: url(\'{$mybb->settings[\'bburl\']}/images/naoar/ltail.gif\') no-repeat;"></td>'),
         'sid' => '-1',
         'version' => '',
+        'dateline' => TIME_NOW
