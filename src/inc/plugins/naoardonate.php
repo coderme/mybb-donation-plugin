@@ -1445,3 +1445,4 @@ function naoardonate_activate()
 
         $templates_array[] = array(
         'title' => 'naoardonate_tiptail_v5',
+        'template' => $db->escape_string('<td style="width:8px; background: url(\'{$mybb->settings[\'bburl\']}/images/naoar/tip.gif\') no-repeat;"></td>'),
