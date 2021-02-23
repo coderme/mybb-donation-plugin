@@ -1444,3 +1444,4 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
+        'title' => 'naoardonate_tiptail_v5',
