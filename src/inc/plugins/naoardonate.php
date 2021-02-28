@@ -1458,3 +1458,4 @@ function naoardonate_activate()
 <legend><strong>{$lang->naoardonate_front_aboutu}</strong></legend>
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
     <tr>
+        <td><strong>{$lang->naoardonate_global_name}:</strong>
