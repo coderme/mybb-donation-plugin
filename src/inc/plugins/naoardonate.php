@@ -1457,3 +1457,4 @@ function naoardonate_activate()
         'template' => $db->escape_string('<fieldset class="w50 tleft" >
 <legend><strong>{$lang->naoardonate_front_aboutu}</strong></legend>
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
+    <tr>
