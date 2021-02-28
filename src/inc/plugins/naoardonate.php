@@ -1455,3 +1455,4 @@ function naoardonate_activate()
     $templates_array[] = array(
         'title' => 'naoardonate_donate_aboutu_v5',
         'template' => $db->escape_string('<fieldset class="w50 tleft" >
+<legend><strong>{$lang->naoardonate_front_aboutu}</strong></legend>
