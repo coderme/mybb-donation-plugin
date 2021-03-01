@@ -1460,3 +1460,4 @@ function naoardonate_activate()
     <tr>
         <td><strong>{$lang->naoardonate_global_name}:</strong>
         </td>
+            <td class="w70"><input type="text" name="name" value="{$name}" class="w80" /> <em>{$optional_required}</em>
