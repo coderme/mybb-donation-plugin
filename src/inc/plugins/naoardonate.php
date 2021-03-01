@@ -1459,3 +1459,4 @@ function naoardonate_activate()
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
     <tr>
         <td><strong>{$lang->naoardonate_global_name}:</strong>
+        </td>
