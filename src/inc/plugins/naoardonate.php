@@ -1462,3 +1462,4 @@ function naoardonate_activate()
         </td>
             <td class="w70"><input type="text" name="name" value="{$name}" class="w80" /> <em>{$optional_required}</em>
         </td>
+
