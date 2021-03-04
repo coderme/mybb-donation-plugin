@@ -1468,3 +1468,4 @@ function naoardonate_activate()
         <td><strong>{$lang->naoardonate_front_email}:</strong>
         </td>
             <td class="w70"><input type="email" name="email" value="{$email}" class="w80" /> <em>{$optional_required}</em>
+        </td>
