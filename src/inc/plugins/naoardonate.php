@@ -1466,3 +1466,4 @@ function naoardonate_activate()
     </tr>
         <tr>
         <td><strong>{$lang->naoardonate_front_email}:</strong>
+        </td>
