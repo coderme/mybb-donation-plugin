@@ -1473,3 +1473,4 @@ function naoardonate_activate()
     </tr>
 
 </table>
+</fieldset>'),
