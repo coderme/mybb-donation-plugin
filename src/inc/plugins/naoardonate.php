@@ -1470,3 +1470,4 @@ function naoardonate_activate()
             <td class="w70"><input type="email" name="email" value="{$email}" class="w80" /> <em>{$optional_required}</em>
         </td>
 
+    </tr>
