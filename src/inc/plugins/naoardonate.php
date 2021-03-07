@@ -1474,3 +1474,4 @@ function naoardonate_activate()
 
 </table>
 </fieldset>'),
+        'sid' => '-1',
