@@ -1484,3 +1484,4 @@ function naoardonate_activate()
         $templates_array[] = array(
         'title' => 'naoardonate_donate_currencies_row_v5',
         'template' => $db->escape_string('<tr>
+        <td><strong>{$lang->naoardonate_global_currency}:</strong>
