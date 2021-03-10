@@ -1482,3 +1482,4 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
+        'title' => 'naoardonate_donate_currencies_row_v5',
