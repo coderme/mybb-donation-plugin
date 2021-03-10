@@ -1486,3 +1486,4 @@ function naoardonate_activate()
         'template' => $db->escape_string('<tr>
         <td><strong>{$lang->naoardonate_global_currency}:</strong>
         </td>
+        <td class="w70"><div id="currency">{$currencyselect}</div>
