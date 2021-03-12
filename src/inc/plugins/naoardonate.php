@@ -1490,3 +1490,4 @@ function naoardonate_activate()
         </td>
 
     </tr>'),
+        'sid' => '-1',
