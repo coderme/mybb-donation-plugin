@@ -1491,3 +1491,4 @@ function naoardonate_activate()
 
     </tr>'),
         'sid' => '-1',
+        'version' => '',
