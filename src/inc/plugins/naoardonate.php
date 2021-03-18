@@ -1502,3 +1502,4 @@ function naoardonate_activate()
         'title' => 'naoardonate_donate_offline_v5',
         'template' => $db->escape_string('<fieldset class="w50 tleft" style="display: none;" id="{$payment_offline_id}">
 <legend><strong>{$payment_method_offline}</strong></legend>
+<table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
