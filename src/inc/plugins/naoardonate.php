@@ -1505,3 +1505,4 @@ function naoardonate_activate()
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
         <tr>
     <td colspan="2">
+    {$payment_offline}
