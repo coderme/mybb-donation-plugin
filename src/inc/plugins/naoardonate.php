@@ -1508,3 +1508,4 @@ function naoardonate_activate()
     {$payment_offline}
 
     </td>
+</tr>
