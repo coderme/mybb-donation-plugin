@@ -1515,3 +1515,4 @@ function naoardonate_activate()
         'sid' => '-1',
         'version' => '',
         'dateline' => TIME_NOW
+    );
