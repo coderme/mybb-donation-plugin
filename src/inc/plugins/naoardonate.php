@@ -1514,3 +1514,4 @@ function naoardonate_activate()
 </fieldset>'),
         'sid' => '-1',
         'version' => '',
+        'dateline' => TIME_NOW
