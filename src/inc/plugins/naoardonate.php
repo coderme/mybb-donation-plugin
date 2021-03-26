@@ -1522,3 +1522,4 @@ function naoardonate_activate()
 
     $templates_array[] = array(
         'title' => 'naoardonate_donate_offline_bw_v5',
+        'template' => $db->escape_string('<fieldset class="w50 tleft" style="display: none;" id="{$payment_offline_id}">
