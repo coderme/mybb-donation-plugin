@@ -1526,3 +1526,4 @@ function naoardonate_activate()
 <legend><strong>{$payment_method_offline}</strong></legend>
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
         <tr>
+    <td colspan="2">
