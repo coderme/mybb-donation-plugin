@@ -1529,3 +1529,4 @@ function naoardonate_activate()
     <td colspan="2">
     {$payment_offline}
     </td>
+</tr>
