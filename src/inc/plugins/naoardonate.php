@@ -1541,3 +1541,4 @@ function naoardonate_activate()
 
 
     $templates_array[] = array(
+        'title' => 'naoardonate_donate_offline_wu_v5',
