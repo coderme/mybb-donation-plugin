@@ -1553,3 +1553,4 @@ function naoardonate_activate()
 </tr>
 <tr id="coderme-mtcn">
  <td><b>{$lang->naoardonate_front_mtcn}</b></td>
+ <td class="w70">
