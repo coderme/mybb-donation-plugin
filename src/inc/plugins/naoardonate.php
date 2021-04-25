@@ -1571,3 +1571,4 @@ function naoardonate_activate()
 
 
         $templates_array[] = array(
+        'title' => 'naoardonate_donate_note_v5',
