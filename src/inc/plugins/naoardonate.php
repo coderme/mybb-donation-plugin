@@ -1574,3 +1574,4 @@ function naoardonate_activate()
         'title' => 'naoardonate_donate_note_v5',
         'template' => $db->escape_string('<fieldset class="w50 tleft">
 <legend><strong>{$lang->naoardonate_front_donationnote}</strong></legend>
+<table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
