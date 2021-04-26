@@ -1576,3 +1576,4 @@ function naoardonate_activate()
 <legend><strong>{$lang->naoardonate_front_donationnote}</strong></legend>
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
         <tr>
+    <td valign="top" align="left"><strong>
