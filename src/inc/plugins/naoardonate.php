@@ -1577,3 +1577,4 @@ function naoardonate_activate()
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
         <tr>
     <td valign="top" align="left"><strong>
+                    {$lang->naoardonate_front_note}:
