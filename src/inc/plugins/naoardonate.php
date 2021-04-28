@@ -1578,3 +1578,4 @@ function naoardonate_activate()
         <tr>
     <td valign="top" align="left"><strong>
                     {$lang->naoardonate_front_note}:
+                    </strong>
