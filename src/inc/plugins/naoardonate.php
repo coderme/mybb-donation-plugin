@@ -1580,3 +1580,4 @@ function naoardonate_activate()
                     {$lang->naoardonate_front_note}:
                     </strong>
 
+    </td>
