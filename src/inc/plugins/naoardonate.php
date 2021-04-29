@@ -1581,3 +1581,4 @@ function naoardonate_activate()
                     </strong>
 
     </td>
+    <td class="w70" valign="top">
