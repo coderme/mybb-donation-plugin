@@ -1585,3 +1585,4 @@ function naoardonate_activate()
     <script type="text/javascript">
     <!--
     document.write(\'<div id="noteintro" style="text-align:center"><a href="javascript:shownote();">{$lang->naoardonate_front_writenote}<\/a> <em> {$lang->naoardonate_front_optional}<\/em><\/div>\');
+    //-->
