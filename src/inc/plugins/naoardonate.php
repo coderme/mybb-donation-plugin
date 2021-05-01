@@ -1587,3 +1587,4 @@ function naoardonate_activate()
     document.write(\'<div id="noteintro" style="text-align:center"><a href="javascript:shownote();">{$lang->naoardonate_front_writenote}<\/a> <em> {$lang->naoardonate_front_optional}<\/em><\/div>\');
     //-->
     </script>
+    <div style="display:none" id="divnote"><textarea class="w100" cols="33" rows="5" name="note" onkeyup="limit()" onkeypress="limit()">{$note}</textarea><br/><em><span id="max">100</span>{$lang->naoardonate_front_charsleft}</em></div>
