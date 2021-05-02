@@ -1590,3 +1590,4 @@ function naoardonate_activate()
     <div style="display:none" id="divnote"><textarea class="w100" cols="33" rows="5" name="note" onkeyup="limit()" onkeypress="limit()">{$note}</textarea><br/><em><span id="max">100</span>{$lang->naoardonate_front_charsleft}</em></div>
 
     <noscript><textarea cols="33" rows="5" name="note" class="w100">{$note}</textarea></noscript>
+
