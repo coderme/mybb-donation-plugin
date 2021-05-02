@@ -1591,3 +1591,4 @@ function naoardonate_activate()
 
     <noscript><textarea cols="33" rows="5" name="note" class="w100">{$note}</textarea></noscript>
 
+    </td>
