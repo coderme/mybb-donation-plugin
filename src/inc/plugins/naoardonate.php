@@ -1605,3 +1605,4 @@ function naoardonate_activate()
 
         $templates_array[] = array(
         'title' => 'naoardonate_donate_captcha_v5',
+        'template' => $db->escape_string('<fieldset class="w50 tleft" >
