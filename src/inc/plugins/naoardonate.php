@@ -1608,3 +1608,4 @@ function naoardonate_activate()
         'template' => $db->escape_string('<fieldset class="w50 tleft" >
 <script type="text/javascript" src="jscripts/captcha.js?ver=1400"></script>
 <legend><strong>Image verification</strong></legend>
+<table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
