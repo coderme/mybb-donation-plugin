@@ -1609,3 +1609,4 @@ function naoardonate_activate()
 <script type="text/javascript" src="jscripts/captcha.js?ver=1400"></script>
 <legend><strong>Image verification</strong></legend>
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
+    <tr>
