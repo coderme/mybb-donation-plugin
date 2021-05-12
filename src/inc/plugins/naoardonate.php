@@ -1613,3 +1613,4 @@ function naoardonate_activate()
         <td  style="padding-left:30%"><img src="captcha.php?action=regimage&amp;imagehash={$imagehash}" alt="{$lang->image_verification}" title="{$lang->naoardonate_front_refresh}" id="captcha_img" onmouseover="this.style.cursor=\'help\';"  onclick="return captcha.refresh();"  width="231" />
         </td>
 
+    </tr>
