@@ -1617,3 +1617,4 @@ function naoardonate_activate()
         <tr>
 <td  style="padding-left:30%"><input type="text" name="imgstr" value="" style="width:227px" />  <input type="hidden" name="imagehash" value="{$imagehash}" id="imagehash" />    </td>
 
+    </tr>
