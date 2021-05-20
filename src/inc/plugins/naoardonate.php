@@ -1632,3 +1632,4 @@ function naoardonate_activate()
         'title' => 'naoardonate_donate_v7',
         'template' => $db->escape_string('<html>
 <head>
+{$googleanalytics}
