@@ -1631,3 +1631,4 @@ function naoardonate_activate()
     $templates_array[] = array(
         'title' => 'naoardonate_donate_v7',
         'template' => $db->escape_string('<html>
+<head>
