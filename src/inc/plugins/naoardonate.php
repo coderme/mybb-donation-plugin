@@ -1633,3 +1633,4 @@ function naoardonate_activate()
         'template' => $db->escape_string('<html>
 <head>
 {$googleanalytics}
+<title>{$mybb->settings[\'bbname\']} - {$donation_page_title} </title>
