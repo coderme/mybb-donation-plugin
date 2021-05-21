@@ -1637,3 +1637,4 @@ function naoardonate_activate()
 {$headerinclude}
 <style type="text/css">
 .w70 {
+    width:70%
