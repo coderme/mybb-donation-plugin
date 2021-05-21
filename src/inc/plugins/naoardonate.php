@@ -1634,3 +1634,4 @@ function naoardonate_activate()
 <head>
 {$googleanalytics}
 <title>{$mybb->settings[\'bbname\']} - {$donation_page_title} </title>
+{$headerinclude}
