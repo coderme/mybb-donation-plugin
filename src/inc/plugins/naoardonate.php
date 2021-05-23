@@ -1638,3 +1638,4 @@ function naoardonate_activate()
 <style type="text/css">
 .w70 {
     width:70%
+}
