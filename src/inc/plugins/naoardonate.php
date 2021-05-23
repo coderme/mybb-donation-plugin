@@ -1639,3 +1639,4 @@ function naoardonate_activate()
 .w70 {
     width:70%
 }
+.w50 {
