@@ -1641,3 +1641,4 @@ function naoardonate_activate()
 }
 .w50 {
 
+width:50%
