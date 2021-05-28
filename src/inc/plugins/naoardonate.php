@@ -1650,3 +1650,4 @@ width:100%
 .w80 {
 width:80%
 }
+.tleft {
