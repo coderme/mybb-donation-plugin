@@ -1656,3 +1656,4 @@ text-align:left
 
 }
 em {
+color:gray;
