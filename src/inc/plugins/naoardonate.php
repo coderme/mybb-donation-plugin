@@ -1657,3 +1657,4 @@ text-align:left
 }
 em {
 color:gray;
+font-size:x-small
