@@ -1664,3 +1664,4 @@ font-size:x-small
 <body onload="load()">
 {$header}
 {$errors}
+<form action="donate.php" method="post" name="naoar" {$submit_ifvalid}>
