@@ -1662,3 +1662,4 @@ font-size:x-small
 </style>
 </head>
 <body onload="load()">
+{$header}
