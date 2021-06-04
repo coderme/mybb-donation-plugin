@@ -1663,3 +1663,4 @@ font-size:x-small
 </head>
 <body onload="load()">
 {$header}
+{$errors}
