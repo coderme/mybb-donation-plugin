@@ -1665,3 +1665,4 @@ font-size:x-small
 {$header}
 {$errors}
 <form action="donate.php" method="post" name="naoar" {$submit_ifvalid}>
+<table class="tborder" border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" >
