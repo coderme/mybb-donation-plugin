@@ -1667,3 +1667,4 @@ font-size:x-small
 <form action="donate.php" method="post" name="naoar" {$submit_ifvalid}>
 <table class="tborder" border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" >
 <tr>
+<td colspan="2" class="thead">
