@@ -1668,3 +1668,4 @@ font-size:x-small
 <table class="tborder" border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" >
 <tr>
 <td colspan="2" class="thead">
+<strong> {$donationform_title} </strong>
