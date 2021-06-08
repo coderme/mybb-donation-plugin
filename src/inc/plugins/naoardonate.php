@@ -1670,3 +1670,4 @@ font-size:x-small
 <td colspan="2" class="thead">
 <strong> {$donationform_title} </strong>
 </td></tr>
+
