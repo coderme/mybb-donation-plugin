@@ -1671,3 +1671,4 @@ font-size:x-small
 <strong> {$donationform_title} </strong>
 </td></tr>
 
+<tr>
