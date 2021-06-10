@@ -1674,3 +1674,4 @@ font-size:x-small
 <tr>
 <td  class="trow1 w100"  align="center">
 {$aboutyou}
+<fieldset class="w50 tleft">
