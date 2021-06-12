@@ -1678,3 +1678,4 @@ font-size:x-small
 <legend><strong>{$donationdetails_title}</strong></legend>
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
     <tr>
+        <td><strong>{$lang->naoardonate_global_payment_method}:</strong>
