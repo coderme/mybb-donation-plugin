@@ -1679,3 +1679,4 @@ font-size:x-small
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
     <tr>
         <td><strong>{$lang->naoardonate_global_payment_method}:</strong>
+        </td>
