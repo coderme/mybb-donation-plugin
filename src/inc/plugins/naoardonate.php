@@ -1675,3 +1675,4 @@ font-size:x-small
 <td  class="trow1 w100"  align="center">
 {$aboutyou}
 <fieldset class="w50 tleft">
+<legend><strong>{$donationdetails_title}</strong></legend>
