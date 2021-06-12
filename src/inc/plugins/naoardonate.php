@@ -1677,3 +1677,4 @@ font-size:x-small
 <fieldset class="w50 tleft">
 <legend><strong>{$donationdetails_title}</strong></legend>
 <table cellspacing="0" cellpadding="{$theme[\'tablespace\']}" class="w100">
+    <tr>
