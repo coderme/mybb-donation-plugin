@@ -1680,3 +1680,4 @@ font-size:x-small
     <tr>
         <td><strong>{$lang->naoardonate_global_payment_method}:</strong>
         </td>
+            <td class="w70"><select onchange="change_payment_method()" name="payment_method" class="w100">
