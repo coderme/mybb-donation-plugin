@@ -1683,3 +1683,4 @@ font-size:x-small
             <td class="w70"><select onchange="change_payment_method()" name="payment_method" class="w100">
                 {$payment_methodselect}
                 </select>
+        </td>
