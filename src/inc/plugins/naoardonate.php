@@ -1684,3 +1684,4 @@ font-size:x-small
                 {$payment_methodselect}
                 </select>
         </td>
+
