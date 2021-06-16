@@ -1689,3 +1689,4 @@ font-size:x-small
     <tr>
         <td valign="top"><strong>{$lang->naoardonate_global_amount}:</strong>
         </td>
+            <td class="w70">{$p_amount}{$c_amount}
