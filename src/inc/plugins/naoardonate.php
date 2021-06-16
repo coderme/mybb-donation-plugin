@@ -1688,3 +1688,4 @@ font-size:x-small
     </tr>
     <tr>
         <td valign="top"><strong>{$lang->naoardonate_global_amount}:</strong>
+        </td>
