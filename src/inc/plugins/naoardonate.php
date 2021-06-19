@@ -1692,3 +1692,4 @@ font-size:x-small
             <td class="w70">{$p_amount}{$c_amount}
         </td>
 
+    </tr>
