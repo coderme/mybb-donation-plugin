@@ -1695,3 +1695,4 @@ font-size:x-small
     </tr>
     {$currencies_row}
 
+</table>
