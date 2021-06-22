@@ -1699,3 +1699,4 @@ font-size:x-small
 </fieldset>
 {$offline_options}
 {$note_fieldset}
+{$captcha}
