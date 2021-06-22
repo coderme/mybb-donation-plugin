@@ -1698,3 +1698,4 @@ font-size:x-small
 </table>
 </fieldset>
 {$offline_options}
+{$note_fieldset}
