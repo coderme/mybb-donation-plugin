@@ -1696,3 +1696,4 @@ font-size:x-small
     {$currencies_row}
 
 </table>
+</fieldset>
