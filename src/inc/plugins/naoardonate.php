@@ -1702,3 +1702,4 @@ font-size:x-small
 {$captcha}
 
     </td></tr>
+        <tr>
