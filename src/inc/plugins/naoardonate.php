@@ -1701,3 +1701,4 @@ font-size:x-small
 {$note_fieldset}
 {$captcha}
 
+    </td></tr>
