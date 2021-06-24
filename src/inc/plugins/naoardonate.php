@@ -1704,3 +1704,4 @@ font-size:x-small
     </td></tr>
         <tr>
         <td align="center">
+        <input type="hidden" name="coderme_post_key" value="{$coderme_post_key}">
