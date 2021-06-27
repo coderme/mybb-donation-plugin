@@ -1707,3 +1707,4 @@ font-size:x-small
         <input type="hidden" name="coderme_post_key" value="{$coderme_post_key}">
         <input type="submit" name ="submit" value="   {$lang->naoardonate_global_go}   " />
         </td>
+
