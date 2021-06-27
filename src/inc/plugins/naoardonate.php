@@ -1708,3 +1708,4 @@ font-size:x-small
         <input type="submit" name ="submit" value="   {$lang->naoardonate_global_go}   " />
         </td>
 
+    </tr>
