@@ -1715,3 +1715,4 @@ font-size:x-small
 <table width="100%" cellspacing="0" cellpadding="5" border="0" class="tborder">
 <tr>
 <td class="thead" colspan="2"><strong>{$lang->naoardonate_front_msg}</strong></td>
+                    </tr>
