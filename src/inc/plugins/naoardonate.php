@@ -1716,3 +1716,4 @@ font-size:x-small
 <tr>
 <td class="thead" colspan="2"><strong>{$lang->naoardonate_front_msg}</strong></td>
                     </tr>
+                    <tr>
