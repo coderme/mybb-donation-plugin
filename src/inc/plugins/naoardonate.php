@@ -1717,3 +1717,4 @@ font-size:x-small
 <td class="thead" colspan="2"><strong>{$lang->naoardonate_front_msg}</strong></td>
                     </tr>
                     <tr>
+                <td class="trow1" colspan="2" id="coderme_msg"></td>
