@@ -1722,3 +1722,4 @@ font-size:x-small
 </table>
 </div>
 <script>
+a=document.naoar;f=a.p_amount;d=document;function load(){change_payment_method();{$js_load}}
