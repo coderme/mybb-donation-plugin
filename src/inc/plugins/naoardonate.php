@@ -1723,3 +1723,4 @@ font-size:x-small
 </div>
 <script>
 a=document.naoar;f=a.p_amount;d=document;function load(){change_payment_method();{$js_load}}
+{$js_updatelist}{$js_funcs}
