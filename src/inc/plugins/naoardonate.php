@@ -1728,3 +1728,4 @@ function coderme_alert(msg){
 jQuery("#coderme_msg").html(msg);
 jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (typeof modal_zindex !== "undefined" ? modal_zindex : 9999) });
 }</script>
+
