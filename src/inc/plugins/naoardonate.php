@@ -1741,3 +1741,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 
 
 
+    $templates_array[] = array(
