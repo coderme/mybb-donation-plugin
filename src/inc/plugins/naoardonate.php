@@ -1748,3 +1748,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
         {$top_donors[\'name\']}
     </td>
 
+    <td align="center" class="trow2">
