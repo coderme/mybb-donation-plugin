@@ -1745,3 +1745,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
         'title' => 'naoardonate_top_donation_v5',
         'template' => $db->escape_string('<tr>
     <td class="trow1" align="center">
+        {$top_donors[\'name\']}
