@@ -1756,3 +1756,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
     {$top_donors[\'payment_method\']}
     </td>
 
+    <td class="trow2" align="center">
