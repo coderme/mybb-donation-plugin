@@ -1758,3 +1758,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 
     <td class="trow2" align="center">
     {$top_donors[\'email\']}
+    </td>
