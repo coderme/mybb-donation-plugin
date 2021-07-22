@@ -1766,3 +1766,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 
 </tr>'),
         'sid' => '-1',
+        'version' => '',
