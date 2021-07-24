@@ -1777,3 +1777,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 <span style="color:red;font-weight:bolder;font-size:larger;background-color:yellow;padding:3px;border:thin red solid">{$unconfirmed_donors}</span>
 <span style="font-weight:bolder">
 {$lang->naoardonate_front_waitingyouraction}
+</span>,
