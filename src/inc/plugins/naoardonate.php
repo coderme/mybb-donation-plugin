@@ -1775,3 +1775,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
         'title' => 'naoardonate_notice_v5',
         'template' => $db->escape_string('<div style="background-color:#EFDFF5;border:thin #D88CF4 solid;text-align:center;padding:1px">
 <span style="color:red;font-weight:bolder;font-size:larger;background-color:yellow;padding:3px;border:thin red solid">{$unconfirmed_donors}</span>
+<span style="font-weight:bolder">
