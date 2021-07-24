@@ -1778,3 +1778,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 <span style="font-weight:bolder">
 {$lang->naoardonate_front_waitingyouraction}
 </span>,
+{$lang->naoardonate_front_formoreinfo}
