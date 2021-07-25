@@ -1780,3 +1780,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 </span>,
 {$lang->naoardonate_front_formoreinfo}
 <a href="{$pathtoadmin}" target="_blank" title="new page" style="color:blue;text-decoration:underline">
+{$lang->naoardonate_front_clickhere}
