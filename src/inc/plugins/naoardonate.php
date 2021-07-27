@@ -1783,3 +1783,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 {$lang->naoardonate_front_clickhere}
 </a>
 </div><br />'),
+        'sid' => '-1',
