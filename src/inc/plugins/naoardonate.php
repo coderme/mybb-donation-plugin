@@ -1791,3 +1791,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 
 
     $templates_array[] = array(
+        'title' => 'naoardonate_redirect_v5',
