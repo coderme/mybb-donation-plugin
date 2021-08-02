@@ -1795,3 +1795,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
         'template' => $db->escape_string('
 <!DOCTYPE html> <head>
  <meta charset="utf-8">
+<title>$lang->naoardonate_front_redirect</title> </head> <body onload="document.naoardonate.submit()">
