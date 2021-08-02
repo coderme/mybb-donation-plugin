@@ -1796,3 +1796,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 <!DOCTYPE html> <head>
  <meta charset="utf-8">
 <title>$lang->naoardonate_front_redirect</title> </head> <body onload="document.naoardonate.submit()">
+<form name="naoardonate" action="$url" method="$method">
