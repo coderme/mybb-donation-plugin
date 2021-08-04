@@ -1800,3 +1800,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
  <div> 
    <input type="hidden" name="$merchant_name" value="$merchant_value" />
    <input type="hidden" name="$amount_name" value="$amount" />
+   <input type="hidden" name="$currency_name" value="$currency" />
