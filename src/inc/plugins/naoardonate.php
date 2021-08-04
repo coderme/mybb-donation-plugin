@@ -1803,3 +1803,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
    <input type="hidden" name="$currency_name" value="$currency" />
    $cancel_url
    <input type="hidden" name="$return_name" value="{$mybb->settings[\'bburl\']}/donate.php?action=thank_you" />
+ $additional
