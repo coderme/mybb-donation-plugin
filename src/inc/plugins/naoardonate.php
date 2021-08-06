@@ -1807,3 +1807,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
    <noscript><div style="padding-top:23%;text-align:center"><button type="submit">{$lang->naoardonate_front_continuebutton}</button></div></noscript>
    </div>
     </form>
+     </body>
