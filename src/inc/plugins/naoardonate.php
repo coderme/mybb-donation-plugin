@@ -1818,3 +1818,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
     $templates_array[] = array(
         'title' => 'naoardonate_top_v5',
         'template' => $db->escape_string('<html>
+<head>
