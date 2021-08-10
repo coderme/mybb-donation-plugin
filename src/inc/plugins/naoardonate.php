@@ -1819,3 +1819,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
         'title' => 'naoardonate_top_v5',
         'template' => $db->escape_string('<html>
 <head>
+<title>{$mybb->settings[\'bbname\']} - {$lang->naoardonate_front_top_title} </title>
