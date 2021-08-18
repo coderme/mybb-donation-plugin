@@ -1828,3 +1828,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
     <tr>
         <td class="thead" colspan="5">
             <div>
+                <strong>{$lang->naoardonate_front_top_title}</strong>
