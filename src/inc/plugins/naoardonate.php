@@ -1834,3 +1834,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
     </tr>
     <tr>
         <th align="center" class="tcat" width="15%" ><span class="smalltext"><strong>{$lang->naoardonate_global_name}</strong></span>
+        </th>
