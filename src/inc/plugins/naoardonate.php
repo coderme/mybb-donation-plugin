@@ -1842,3 +1842,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 
         <th align="center" class="tcat"  width="30%" ><span class="smalltext"><strong>{$lang->naoardonate_front_email}</strong></span>
         </th>
+
