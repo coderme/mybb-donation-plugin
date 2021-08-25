@@ -1849,3 +1849,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
     {$donations}
     <tr>
         <td class="tfoot" colspan="5">
+            </td>
