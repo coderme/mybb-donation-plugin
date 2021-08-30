@@ -1863,3 +1863,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
     );
 
     foreach($templates_array as $template):
+        $db->insert_query("templates", $template);
