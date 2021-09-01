@@ -1868,3 +1868,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 }
 
  #    _deactivate():
+ #    Called whenever a plugin is deactivated. This should essentially "hide" the plugin from view
