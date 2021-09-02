@@ -1872,3 +1872,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
  #    by removing templates/template changes etc. It should not, however, remove any information
  #    such as tables, fields etc - that should be handled by an _uninstall routine. When a plugin is
  #    uninstalled, this routine will also be called before _uninstall() if the plugin is active.
+
