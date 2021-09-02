@@ -1870,3 +1870,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
  #    _deactivate():
  #    Called whenever a plugin is deactivated. This should essentially "hide" the plugin from view
  #    by removing templates/template changes etc. It should not, however, remove any information
+ #    such as tables, fields etc - that should be handled by an _uninstall routine. When a plugin is
