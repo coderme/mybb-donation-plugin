@@ -1874,3 +1874,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
  #    uninstalled, this routine will also be called before _uninstall() if the plugin is active.
 
 
+function naoardonate_deactivate()
