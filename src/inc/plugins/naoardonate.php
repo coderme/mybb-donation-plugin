@@ -1876,3 +1876,4 @@ jQuery("#coderme_alert").modal({ fadeDuration: 250, keepelement: true, zIndex: (
 
 function naoardonate_deactivate()
 {
+    global $db;
