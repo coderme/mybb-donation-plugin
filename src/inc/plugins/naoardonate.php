@@ -1879,3 +1879,4 @@ function naoardonate_deactivate()
     global $db;
 
     include_once MYBB_ROOT . "inc/adminfunctions_templates.php";
+
