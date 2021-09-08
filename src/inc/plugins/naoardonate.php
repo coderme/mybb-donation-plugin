@@ -1881,3 +1881,4 @@ function naoardonate_deactivate()
     include_once MYBB_ROOT . "inc/adminfunctions_templates.php";
 
     find_replace_templatesets("header", "#".preg_quote('{$naoardonate_notice}')."#i", '',0);
+    find_replace_templatesets("header", "#".preg_quote('{$naoardonate_bar}')."#i", '',0);
