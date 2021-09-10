@@ -1886,3 +1886,4 @@ function naoardonate_deactivate()
     find_replace_templatesets("footer", "#".preg_quote('{$naoar_copyright}')."#i", '', 0);
 
     $db->write_query("DELETE FROM ".TABLE_PREFIX."templates WHERE title LIKE 'naoardonate%'");
+}
