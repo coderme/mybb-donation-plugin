@@ -1889,3 +1889,4 @@ function naoardonate_deactivate()
 }
 
 
+function naoar_showhide(){
