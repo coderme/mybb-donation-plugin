@@ -1888,3 +1888,4 @@ function naoardonate_deactivate()
     $db->write_query("DELETE FROM ".TABLE_PREFIX."templates WHERE title LIKE 'naoardonate%'");
 }
 
+
