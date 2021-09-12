@@ -1892,3 +1892,4 @@ function naoardonate_deactivate()
 function naoar_showhide(){
 global $naoardonate_id;
 
+ sprintf('%.1f', $GLOBALS['mybb']->version) == 1.4 ? $sep = '/' : $sep = '-';
