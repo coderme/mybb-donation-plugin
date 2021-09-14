@@ -1896,3 +1896,4 @@ global $naoardonate_id;
  $j = '<script type="text/javascript">
         <!--
 ';
+ if(stripos($_SERVER['QUERY_STRING'],"module=config{$sep}settings&action=change") !== false)
