@@ -1895,3 +1895,4 @@ global $naoardonate_id;
  sprintf('%.1f', $GLOBALS['mybb']->version) == 1.4 ? $sep = '/' : $sep = '-';
  $j = '<script type="text/javascript">
         <!--
+';
