@@ -1899,3 +1899,4 @@ global $naoardonate_id;
  if(stripos($_SERVER['QUERY_STRING'],"module=config{$sep}settings&action=change") !== false)
  {
     $j .= <<<NAOARDONATE_SHOWHIDE
+$(document).ready(function() {
