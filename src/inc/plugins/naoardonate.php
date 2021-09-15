@@ -1900,3 +1900,4 @@ global $naoardonate_id;
  {
     $j .= <<<NAOARDONATE_SHOWHIDE
 $(document).ready(function() {
+t_load();
