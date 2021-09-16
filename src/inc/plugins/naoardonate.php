@@ -1903,3 +1903,4 @@ $(document).ready(function() {
 t_load();
 });
 function t_load(){
+  if(t_ischecked('naoardonate_off')) {  t_hide('payment_method', 1); t_hide('payment_method_2c', 1); t_hide('payment_method_pp', 1);t_hide('payment_method_bk', 1); t_hide('payment_method_wu', 1);t_hide('enablebar', 1); t_hide('reason', 1); t_hide('target', 1); t_hide('duration', 1); t_hide('ifreached', 1); t_hide('amount', 1); t_hide('from', 1); t_hide('alert', 1); t_hide('info', 1); t_hide('info_required', 1); t_hide('bar_width', 1); t_hide('newgoal', 1); t_hide('recievedmsg', 1);
