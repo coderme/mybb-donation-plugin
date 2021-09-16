@@ -1902,3 +1902,4 @@ global $naoardonate_id;
 $(document).ready(function() {
 t_load();
 });
+function t_load(){
