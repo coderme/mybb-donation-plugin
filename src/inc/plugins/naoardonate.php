@@ -1909,3 +1909,4 @@ t_hide('premium')} };
 function t_hide(id, hide) {
 id = 'row_setting_naoardonate_' + id; var t_el = document.getElementById(id); if(hide) { t_el.style.display = 'none'}  else {t_el.style.display = ''} }  function t_onchange(id,h)  { if(t_ischecked(id)) {  t_hide(h, 0) } else {  t_hide(h, 1) } }  function t_ischecked(id) {  return document.getElementById(id).checked  }  function t_enablebar() {  if(t_ischecked('naoardonate_enablebar_off')) {  t_hide('reason',1); t_hide('target',1);
 t_hide('duration',1); t_hide('bar_width', 1); t_hide('newgoal', 1); t_hide('recievedmsg', 1); t_hide('recievedmsg_100', 1); t_hide('ifreached',1)}  else {  t_hide('reason'); t_hide('target'); t_hide('duration'); t_hide('bar_width'); t_hide('newgoal'); t_hide('recievedmsg'); t_hide('recievedmsg_100'); t_hide('ifreached')}}
+NAOARDONATE_SHOWHIDE;
