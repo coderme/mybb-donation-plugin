@@ -1912,3 +1912,4 @@ t_hide('duration',1); t_hide('bar_width', 1); t_hide('newgoal', 1); t_hide('reci
 NAOARDONATE_SHOWHIDE;
     }
 
+    if($naoardonate_id)
