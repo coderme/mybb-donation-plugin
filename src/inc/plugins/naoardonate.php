@@ -1914,3 +1914,4 @@ NAOARDONATE_SHOWHIDE;
 
     if($naoardonate_id)
     {
+        $j .= 'document.getElementById("naoardonate").innerHTML = "<b><a href=\'index.php?module=config' . $sep .'settings&amp;action=change&amp;gid=' . $naoardonate_id . '\' style=\'padding:3px 9px; background-color: #656161;border-radius: 7px;color: white;\'>Edit Settings</a></b>";';
