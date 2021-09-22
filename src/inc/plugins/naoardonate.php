@@ -1911,3 +1911,4 @@ id = 'row_setting_naoardonate_' + id; var t_el = document.getElementById(id); if
 t_hide('duration',1); t_hide('bar_width', 1); t_hide('newgoal', 1); t_hide('recievedmsg', 1); t_hide('recievedmsg_100', 1); t_hide('ifreached',1)}  else {  t_hide('reason'); t_hide('target'); t_hide('duration'); t_hide('bar_width'); t_hide('newgoal'); t_hide('recievedmsg'); t_hide('recievedmsg_100'); t_hide('ifreached')}}
 NAOARDONATE_SHOWHIDE;
     }
+
