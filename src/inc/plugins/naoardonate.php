@@ -1919,3 +1919,4 @@ NAOARDONATE_SHOWHIDE;
     }
 
     $j .= "\n//-->\n" . '</script>';
+
