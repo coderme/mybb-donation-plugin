@@ -1924,3 +1924,4 @@ NAOARDONATE_SHOWHIDE;
 }
 
 
+function naoar_showdonatelinks()
