@@ -1926,3 +1926,4 @@ NAOARDONATE_SHOWHIDE;
 
 function naoar_showdonatelinks()
 {
+    global $mybb, $db, $theme, $templates, $cache, $lang, $naoardonate_bar, $naoardonate_donatelink, $naoar_copyright, $googleanalytics, $naoardonate_notice;
