@@ -1932,3 +1932,4 @@ function naoar_showdonatelinks()
     $theme['templateset'] = 1;
 
     $lang->load('naoardonate_front');
+
