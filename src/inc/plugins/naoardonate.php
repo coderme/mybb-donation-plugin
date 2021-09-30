@@ -1931,3 +1931,4 @@ function naoar_showdonatelinks()
     # work around not ready template
     $theme['templateset'] = 1;
 
+    $lang->load('naoardonate_front');
