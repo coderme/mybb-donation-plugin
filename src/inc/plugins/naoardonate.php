@@ -1934,3 +1934,4 @@ function naoar_showdonatelinks()
     $lang->load('naoardonate_front');
 
     $unconfirmed_donors = (int)$cache->read('naoardonate_unconfirmed');
+
