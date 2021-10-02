@@ -1936,3 +1936,4 @@ function naoar_showdonatelinks()
     $unconfirmed_donors = (int)$cache->read('naoardonate_unconfirmed');
 
     $naoardonate_notice = $left_div = $naoardonate_top = $naoardonate_reason = $naoardonate_donatelink = $naoardonate_bar = $naoar_copyright = '';
+
