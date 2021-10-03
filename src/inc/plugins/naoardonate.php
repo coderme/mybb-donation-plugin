@@ -1939,3 +1939,4 @@ function naoar_showdonatelinks()
 
     if($mybb->user['usergroup'] == 4 and $unconfirmed_donors > 0 and $mybb->settings['naoardonate_alert'] == 'notice') {
         require_once  MYBB_ROOT . $mybb->config['admin_dir']
+                                . '/inc/functions.php';
