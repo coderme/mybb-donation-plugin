@@ -1937,3 +1937,4 @@ function naoar_showdonatelinks()
 
     $naoardonate_notice = $left_div = $naoardonate_top = $naoardonate_reason = $naoardonate_donatelink = $naoardonate_bar = $naoar_copyright = '';
 
+    if($mybb->user['usergroup'] == 4 and $unconfirmed_donors > 0 and $mybb->settings['naoardonate_alert'] == 'notice') {
