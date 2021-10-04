@@ -1941,3 +1941,4 @@ function naoar_showdonatelinks()
         require_once  MYBB_ROOT . $mybb->config['admin_dir']
                                 . '/inc/functions.php';
         
+        $permissions = get_admin_permissions($mybb->user['uid'], 4);
