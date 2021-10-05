@@ -1943,3 +1943,4 @@ function naoar_showdonatelinks()
         
         $permissions = get_admin_permissions($mybb->user['uid'], 4);
 
+        if($mybb->user['uid'] == 1 || isset($permissions['coderme_donors'])) {
