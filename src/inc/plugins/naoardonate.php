@@ -1942,3 +1942,4 @@ function naoar_showdonatelinks()
                                 . '/inc/functions.php';
         
         $permissions = get_admin_permissions($mybb->user['uid'], 4);
+
