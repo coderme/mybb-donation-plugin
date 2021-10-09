@@ -1947,3 +1947,4 @@ function naoar_showdonatelinks()
             sprintf('%.1f', $mybb->version) == 1.4 ? $sep = '/' :  $sep = '-';
         $pathtoadmin = $mybb->settings['bburl'] . '/' . $mybb->config['admin_dir'] . '/index.php?module=coderme_donors' . $sep . 'browse&amp;action=unconfirmed';
             eval("\$naoardonate_notice = \"" . $templates->get('naoardonate_notice_v5') . "\";");
+        } 
