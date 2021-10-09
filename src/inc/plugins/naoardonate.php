@@ -1945,3 +1945,4 @@ function naoar_showdonatelinks()
 
         if($mybb->user['uid'] == 1 || isset($permissions['coderme_donors'])) {
             sprintf('%.1f', $mybb->version) == 1.4 ? $sep = '/' :  $sep = '-';
+        $pathtoadmin = $mybb->settings['bburl'] . '/' . $mybb->config['admin_dir'] . '/index.php?module=coderme_donors' . $sep . 'browse&amp;action=unconfirmed';
