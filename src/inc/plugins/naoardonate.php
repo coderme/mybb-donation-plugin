@@ -1948,3 +1948,4 @@ function naoar_showdonatelinks()
         $pathtoadmin = $mybb->settings['bburl'] . '/' . $mybb->config['admin_dir'] . '/index.php?module=coderme_donors' . $sep . 'browse&amp;action=unconfirmed';
             eval("\$naoardonate_notice = \"" . $templates->get('naoardonate_notice_v5') . "\";");
         } 
+    }
