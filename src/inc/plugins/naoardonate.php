@@ -1949,3 +1949,4 @@ function naoar_showdonatelinks()
             eval("\$naoardonate_notice = \"" . $templates->get('naoardonate_notice_v5') . "\";");
         } 
     }
+    
