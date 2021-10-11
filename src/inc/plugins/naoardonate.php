@@ -1952,3 +1952,4 @@ function naoar_showdonatelinks()
     
     
 
+    $googleanalytics = $mybb->settings['naoardonate_googleanalytics'];
