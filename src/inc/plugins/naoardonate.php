@@ -1955,3 +1955,4 @@ function naoar_showdonatelinks()
     $googleanalytics = $mybb->settings['naoardonate_googleanalytics'];
     $naoardonate_from = explode(',',$mybb->settings['naoardonate_from']);
 
+
