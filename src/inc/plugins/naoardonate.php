@@ -1956,3 +1956,4 @@ function naoar_showdonatelinks()
     $naoardonate_from = explode(',',$mybb->settings['naoardonate_from']);
 
 
+    if(!in_array($mybb->user['usergroup'], $naoardonate_from) or !$db->table_exists('naoardonate') or $mybb->settings['naoardonate_onoff'] == 0 or (!$mybb->settings['naoardonate_payment_method_2c'] and !$mybb->settings['naoardonate_payment_method_pp']) or strlen($mybb->settings['naoardonate_payment_method']) < 5) return; # yeah better now than later ..b
