@@ -1959,3 +1959,4 @@ function naoar_showdonatelinks()
     if(!in_array($mybb->user['usergroup'], $naoardonate_from) or !$db->table_exists('naoardonate') or $mybb->settings['naoardonate_onoff'] == 0 or (!$mybb->settings['naoardonate_payment_method_2c'] and !$mybb->settings['naoardonate_payment_method_pp']) or strlen($mybb->settings['naoardonate_payment_method']) < 5) return; # yeah better now than later ..b
     $amount = intval($cache->read('naoardonate_goal'));
     eval('$naoardonate_donatelink = "'. $templates->get('naoardonate_links_donate_v5') . '";');
+    $blocked_groups = explode(',',$mybb->settings['naoardonate_cannotviewtop']);
