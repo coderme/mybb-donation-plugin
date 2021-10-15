@@ -1962,3 +1962,4 @@ function naoar_showdonatelinks()
     $blocked_groups = explode(',',$mybb->settings['naoardonate_cannotviewtop']);
 
     if(!in_array($mybb->user['usergroup'],$blocked_groups))
+    {
