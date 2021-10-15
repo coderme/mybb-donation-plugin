@@ -1961,3 +1961,4 @@ function naoar_showdonatelinks()
     eval('$naoardonate_donatelink = "'. $templates->get('naoardonate_links_donate_v5') . '";');
     $blocked_groups = explode(',',$mybb->settings['naoardonate_cannotviewtop']);
 
+    if(!in_array($mybb->user['usergroup'],$blocked_groups))
