@@ -1964,3 +1964,4 @@ function naoar_showdonatelinks()
     if(!in_array($mybb->user['usergroup'],$blocked_groups))
     {
         eval('$naoardonate_donatelink .= "' . $templates->get('naoardonate_links_topdonors_v5') . '";');
+    }
