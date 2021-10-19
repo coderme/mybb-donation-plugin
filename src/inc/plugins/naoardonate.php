@@ -1965,3 +1965,4 @@ function naoar_showdonatelinks()
     {
         eval('$naoardonate_donatelink .= "' . $templates->get('naoardonate_links_topdonors_v5') . '";');
     }
+
