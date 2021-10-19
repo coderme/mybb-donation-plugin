@@ -1966,3 +1966,4 @@ function naoar_showdonatelinks()
         eval('$naoardonate_donatelink .= "' . $templates->get('naoardonate_links_topdonors_v5') . '";');
     }
 
+    if($mybb->settings['naoardonate_enablebar'] == 1 and !($mybb->settings['naoardonate_ifreached'] == 1 and ($amount >= $mybb->settings['naoardonate_target'] or $mybb->settings['naoardonate_duration'] <= time() and $mybb->settings['naoardonate_duration'] != 0) or $mybb->settings['naoardonate_target'] == 0))
