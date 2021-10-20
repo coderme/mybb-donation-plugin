@@ -1971,3 +1971,4 @@ function naoar_showdonatelinks()
         if($mybb->settings['naoardonate_reason']){
             eval('$naoardonate_reason = "' . $templates->get('naoardonate_reason_v5'). '";');
         }
+        if(!in_array($mybb->user['usergroup'],$blocked_groups)){
