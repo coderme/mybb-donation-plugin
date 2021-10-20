@@ -1973,3 +1973,4 @@ function naoar_showdonatelinks()
         }
         if(!in_array($mybb->user['usergroup'],$blocked_groups)){
             eval('$naoardonate_top = "' . $templates->get('naoardonate_img_topdonors_v5') . '";');
+        }
