@@ -1969,3 +1969,4 @@ function naoar_showdonatelinks()
     if($mybb->settings['naoardonate_enablebar'] == 1 and !($mybb->settings['naoardonate_ifreached'] == 1 and ($amount >= $mybb->settings['naoardonate_target'] or $mybb->settings['naoardonate_duration'] <= time() and $mybb->settings['naoardonate_duration'] != 0) or $mybb->settings['naoardonate_target'] == 0))
     {
         if($mybb->settings['naoardonate_reason']){
+            eval('$naoardonate_reason = "' . $templates->get('naoardonate_reason_v5'). '";');
