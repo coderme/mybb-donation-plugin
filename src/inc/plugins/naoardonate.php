@@ -1972,3 +1972,4 @@ function naoar_showdonatelinks()
             eval('$naoardonate_reason = "' . $templates->get('naoardonate_reason_v5'). '";');
         }
         if(!in_array($mybb->user['usergroup'],$blocked_groups)){
+            eval('$naoardonate_top = "' . $templates->get('naoardonate_img_topdonors_v5') . '";');
