@@ -1975,3 +1975,4 @@ function naoar_showdonatelinks()
             eval('$naoardonate_top = "' . $templates->get('naoardonate_img_topdonors_v5') . '";');
         }
         $widths = explode('/', $mybb->settings['naoardonate_bar_width']);
+        $container_width = $widths[0];
