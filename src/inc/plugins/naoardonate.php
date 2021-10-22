@@ -1979,3 +1979,4 @@ function naoar_showdonatelinks()
         $bar_width = $widths[1];
         if ($amount >= (int)$mybb->settings['naoardonate_target'])
         {
+            $werecieved_msg = $mybb->settings['naoardonate_recievedmsg_100'];
