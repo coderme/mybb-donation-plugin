@@ -1980,3 +1980,4 @@ function naoar_showdonatelinks()
         if ($amount >= (int)$mybb->settings['naoardonate_target'])
         {
             $werecieved_msg = $mybb->settings['naoardonate_recievedmsg_100'];
+            eval('$tail_tip = "' . $templates->get('naoardonate_bar_tailtip_v5') . '";');
