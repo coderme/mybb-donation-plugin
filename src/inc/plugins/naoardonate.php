@@ -1981,3 +1981,4 @@ function naoar_showdonatelinks()
         {
             $werecieved_msg = $mybb->settings['naoardonate_recievedmsg_100'];
             eval('$tail_tip = "' . $templates->get('naoardonate_bar_tailtip_v5') . '";');
+
