@@ -1978,3 +1978,4 @@ function naoar_showdonatelinks()
         $container_width = $widths[0];
         $bar_width = $widths[1];
         if ($amount >= (int)$mybb->settings['naoardonate_target'])
+        {
