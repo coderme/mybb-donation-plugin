@@ -1986,3 +1986,4 @@ function naoar_showdonatelinks()
         }
         else
         {
+            $werecieved_msg = $lang->sprintf($mybb->settings['naoardonate_recievedmsg'], '' . intval($amount ? $amount/$mybb->settings['naoardonate_target'] * 100 : 0 ) . '%');
