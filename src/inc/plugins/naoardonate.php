@@ -1985,3 +1985,4 @@ function naoar_showdonatelinks()
             $progress_value = $bar_width - 12 - 12; # 705 - 13 - 13 # 687
         }
         else
+        {
