@@ -1983,3 +1983,4 @@ function naoar_showdonatelinks()
             eval('$tail_tip = "' . $templates->get('naoardonate_bar_tailtip_v5') . '";');
 
             $progress_value = $bar_width - 12 - 12; # 705 - 13 - 13 # 687
+        }
