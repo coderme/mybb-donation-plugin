@@ -1988,3 +1988,4 @@ function naoar_showdonatelinks()
         {
             $werecieved_msg = $lang->sprintf($mybb->settings['naoardonate_recievedmsg'], '' . intval($amount ? $amount/$mybb->settings['naoardonate_target'] * 100 : 0 ) . '%');
 
+            eval('$tip_tail = "' . $templates->get('naoardonate_tiptail_v5') . '";');
