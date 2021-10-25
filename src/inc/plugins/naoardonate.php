@@ -1990,3 +1990,4 @@ function naoar_showdonatelinks()
 
             eval('$tip_tail = "' . $templates->get('naoardonate_tiptail_v5') . '";');
 
+            $progress_value = intval(($bar_width - 12 - 8 -12)  * $amount / $mybb->settings['naoardonate_target']); # 705 - 12 - 8 - 12  | 674
