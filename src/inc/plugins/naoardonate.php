@@ -1993,3 +1993,4 @@ function naoar_showdonatelinks()
             $progress_value = intval(($bar_width - 12 - 8 -12)  * $amount / $mybb->settings['naoardonate_target']); # 705 - 12 - 8 - 12  | 674
             $left_value = $bar_width - 12 - 8 -12 - $progress_value;
             eval('$left_div = "' . $templates->get('naoardonate_leftdiv_v5') . '";');
+        }
