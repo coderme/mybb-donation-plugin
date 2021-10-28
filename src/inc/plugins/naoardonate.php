@@ -1996,3 +1996,4 @@ function naoar_showdonatelinks()
         }
         eval("\$naoardonate_bar = \"".$templates->get('naoardonate_bar_v5')."\";");
     }
+
