@@ -1995,3 +1995,4 @@ function naoar_showdonatelinks()
             eval('$left_div = "' . $templates->get('naoardonate_leftdiv_v5') . '";');
         }
         eval("\$naoardonate_bar = \"".$templates->get('naoardonate_bar_v5')."\";");
+    }
