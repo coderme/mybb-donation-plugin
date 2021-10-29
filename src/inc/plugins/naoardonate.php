@@ -2001,3 +2001,4 @@ function naoar_showdonatelinks()
     if(stripos($_SERVER['SCRIPT_NAME'],'donate.php') !== false or $naoardonate_bar) {
         $naoar_copyright = '<!-- CoderMe Copyright -- Keeping this copyright notice intact is REQUIRED for legal usage -->
 <div class="coderme-copyright" style="text-align: center; padding: 1rem 0 2rem 0">
+ Donations by <a href="https://coderme.com/mybb-donation-gold" target="_blank" rel="noopener">CoderMe</a>
