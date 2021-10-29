@@ -1998,3 +1998,4 @@ function naoar_showdonatelinks()
     }
 
 
+    if(stripos($_SERVER['SCRIPT_NAME'],'donate.php') !== false or $naoardonate_bar) {
