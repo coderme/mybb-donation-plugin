@@ -1999,3 +1999,4 @@ function naoar_showdonatelinks()
 
 
     if(stripos($_SERVER['SCRIPT_NAME'],'donate.php') !== false or $naoardonate_bar) {
+        $naoar_copyright = '<!-- CoderMe Copyright -- Keeping this copyright notice intact is REQUIRED for legal usage -->
