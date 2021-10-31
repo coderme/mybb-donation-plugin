@@ -2004,3 +2004,4 @@ function naoar_showdonatelinks()
  Donations by <a href="https://coderme.com/mybb-donation-gold" target="_blank" rel="noopener">CoderMe</a>
 </div>
 <!-- CoderMe Copyright -->';
+    }
