@@ -2003,3 +2003,4 @@ function naoar_showdonatelinks()
 <div class="coderme-copyright" style="text-align: center; padding: 1rem 0 2rem 0">
  Donations by <a href="https://coderme.com/mybb-donation-gold" target="_blank" rel="noopener">CoderMe</a>
 </div>
+<!-- CoderMe Copyright -->';
