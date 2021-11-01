@@ -2006,3 +2006,4 @@ function naoar_showdonatelinks()
 <!-- CoderMe Copyright -->';
     }
 
+}
