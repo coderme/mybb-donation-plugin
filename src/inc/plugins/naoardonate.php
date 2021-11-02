@@ -2009,3 +2009,4 @@ function naoar_showdonatelinks()
 }
 
 
+function naoar_fixit()
