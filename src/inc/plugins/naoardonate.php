@@ -2012,3 +2012,4 @@ function naoar_showdonatelinks()
 function naoar_fixit()
 {
     global $mybb, $db, $cache, $naoardonate_groups, $naoardonate_blockedgroups,$naoardonate_unmovablegroups, $naoardonate_fromgroups;
+    $select = $db->simple_select('settinggroups', 'gid' , "name = 'naoardonate'", array('limit'=>1));
