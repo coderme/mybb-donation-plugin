@@ -2016,3 +2016,4 @@ function naoar_fixit()
     $gid = $db->fetch_field($select, 'gid');
 
     if($gid == $mybb->input['gid'] and $mybb->request_method == "get")
+    {
