@@ -2015,3 +2015,4 @@ function naoar_fixit()
     $select = $db->simple_select('settinggroups', 'gid' , "name = 'naoardonate'", array('limit'=>1));
     $gid = $db->fetch_field($select, 'gid');
 
+    if($gid == $mybb->input['gid'] and $mybb->request_method == "get")
