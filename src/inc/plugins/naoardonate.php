@@ -2018,3 +2018,4 @@ function naoar_fixit()
     if($gid == $mybb->input['gid'] and $mybb->request_method == "get")
     {
     $naoar_groups = $cache->read('usergroups');
+
