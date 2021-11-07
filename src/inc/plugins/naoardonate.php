@@ -2019,3 +2019,4 @@ function naoar_fixit()
     {
     $naoar_groups = $cache->read('usergroups');
 
+    $naoar_block = explode(',', $mybb->settings['naoardonate_cannotviewtop']);
