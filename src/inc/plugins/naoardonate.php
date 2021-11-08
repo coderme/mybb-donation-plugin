@@ -2022,3 +2022,4 @@ function naoar_fixit()
     $naoar_block = explode(',', $mybb->settings['naoardonate_cannotviewtop']);
     $naoar_unmovable = explode(',', $mybb->settings['naoardonate_unmovable']);
     $naoar_from = explode(',', $mybb->settings['naoardonate_from']);
+
