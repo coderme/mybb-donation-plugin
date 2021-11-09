@@ -2027,3 +2027,4 @@ function naoar_fixit()
     {
         if($mybb->settings['naoardonate_donorsgroup'] == $k)
         {
+            $naoardonate_groups .= "<option value=\"$k\" selected=\"selected\">{$naoar_groups[$k]['title']}</option>";
