@@ -2023,3 +2023,4 @@ function naoar_fixit()
     $naoar_unmovable = explode(',', $mybb->settings['naoardonate_unmovable']);
     $naoar_from = explode(',', $mybb->settings['naoardonate_from']);
 
+    foreach($naoar_groups as $k => $v)
