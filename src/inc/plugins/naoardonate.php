@@ -2024,3 +2024,4 @@ function naoar_fixit()
     $naoar_from = explode(',', $mybb->settings['naoardonate_from']);
 
     foreach($naoar_groups as $k => $v)
+    {
