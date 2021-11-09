@@ -2026,3 +2026,4 @@ function naoar_fixit()
     foreach($naoar_groups as $k => $v)
     {
         if($mybb->settings['naoardonate_donorsgroup'] == $k)
+        {
