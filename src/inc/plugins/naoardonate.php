@@ -2035,3 +2035,4 @@ function naoar_fixit()
             $naoardonate_groups .= "<option value=\"$k\">{$naoar_groups[$k]['title']}</option>";
 
         }
+
