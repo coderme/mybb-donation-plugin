@@ -2039,3 +2039,4 @@ function naoar_fixit()
         if(in_array($k, $naoar_block))
         {
             $naoardonate_blockedgroups .= "<label for=\"naoardonate_cannotviewtop_$k\"><input type=\"checkbox\" checked=\"checked\" id=\"naoardonate_cannotviewtop_$k\" name=\"upsetting[naoardonate_cannotviewtop][]\" value=\"$k\" />{$naoar_groups[$k]['title']}</label><br />";
+        }
