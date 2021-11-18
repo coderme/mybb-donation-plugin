@@ -2049,3 +2049,4 @@ function naoar_fixit()
 
         if(in_array($k, $naoar_unmovable))
         {
+            $naoardonate_unmovablegroups .= "<label for=\"naoardonate_unmovable_$k\"><input type=\"checkbox\" checked=\"checked\" id=\"naoardonate_unmovable_$k\" name=\"upsetting[naoardonate_unmovable][]\" value=\"$k\" />{$naoar_groups[$k]['title']}</label><br />";
