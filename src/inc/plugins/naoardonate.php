@@ -2055,3 +2055,4 @@ function naoar_fixit()
         {
             $naoardonate_unmovablegroups .= "<label for=\"naoardonate_unmovable_$k\"><input type=\"checkbox\" name=\"upsetting[naoardonate_unmovable][]\" id=\"naoardonate_unmovable_$k\" value=\"$k\" />{$naoar_groups[$k]['title']}</label><br />";
 
+        }
