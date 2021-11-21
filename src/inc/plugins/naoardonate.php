@@ -2061,3 +2061,4 @@ function naoar_fixit()
         if(in_array($k, $naoar_from))
         {
             $naoardonate_fromgroups .= "<label for=\"naoardonate_from_$k\"><input type=\"checkbox\" checked=\"checked\" id=\"naoardonate_from_$k\" name=\"upsetting[naoardonate_from][]\" value=\"$k\" />{$naoar_groups[$k]['title']}</label><br />";
+        }
