@@ -2058,3 +2058,4 @@ function naoar_fixit()
         }
 
 
+        if(in_array($k, $naoar_from))
