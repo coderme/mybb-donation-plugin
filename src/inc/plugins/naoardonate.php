@@ -2067,3 +2067,4 @@ function naoar_fixit()
             $naoardonate_fromgroups .= "<label for=\"naoardonate_from_$k\"><input type=\"checkbox\" name=\"upsetting[naoardonate_from][]\" id=\"naoardonate_from_$k\" value=\"$k\" />{$naoar_groups[$k]['title']}</label><br />";
 
         }
+
