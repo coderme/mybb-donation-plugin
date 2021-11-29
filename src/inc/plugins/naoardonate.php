@@ -2075,3 +2075,4 @@ function naoar_fixit()
 
     }
     if($mybb->request_method == "post" and $gid == $mybb->input['gid'])
+    {
