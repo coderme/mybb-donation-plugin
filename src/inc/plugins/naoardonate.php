@@ -2077,3 +2077,4 @@ function naoar_fixit()
     if($mybb->request_method == "post" and $gid == $mybb->input['gid'])
     {
 
+        $mybb->input['upsetting']['naoardonate_payment_method'] = @implode(',', $mybb->input['upsetting']['naoardonate_payment_method']);
