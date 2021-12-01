@@ -2079,3 +2079,4 @@ function naoar_fixit()
 
         $mybb->input['upsetting']['naoardonate_payment_method'] = @implode(',', $mybb->input['upsetting']['naoardonate_payment_method']);
 
+        $mybb->input['upsetting']['naoardonate_cannotviewtop'] = @implode(',', $mybb->input['upsetting']['naoardonate_cannotviewtop']);
