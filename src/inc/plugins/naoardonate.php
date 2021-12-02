@@ -2081,3 +2081,4 @@ function naoar_fixit()
 
         $mybb->input['upsetting']['naoardonate_cannotviewtop'] = @implode(',', $mybb->input['upsetting']['naoardonate_cannotviewtop']);
 
+        $mybb->input['upsetting']['naoardonate_unmovable'] = @implode(',', $mybb->input['upsetting']['naoardonate_unmovable']);
