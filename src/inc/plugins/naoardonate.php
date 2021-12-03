@@ -2087,3 +2087,4 @@ function naoar_fixit()
 
 
         # reset the counter
+        if($mybb->input['upsetting']['naoardonate_newgoal'] == 1){
