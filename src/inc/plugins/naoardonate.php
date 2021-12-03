@@ -2085,3 +2085,4 @@ function naoar_fixit()
 
         $mybb->input['upsetting']['naoardonate_from'] = @implode(',', $mybb->input['upsetting']['naoardonate_from']);
 
+
