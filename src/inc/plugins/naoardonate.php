@@ -2089,3 +2089,4 @@ function naoar_fixit()
         # reset the counter
         if($mybb->input['upsetting']['naoardonate_newgoal'] == 1){
             $cache->update('naoardonate_goal', 0);
+            $cache->update('naoardonate_unconfirmed', 0);
