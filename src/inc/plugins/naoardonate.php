@@ -2092,3 +2092,4 @@ function naoar_fixit()
             $cache->update('naoardonate_unconfirmed', 0);
         }
 
+        if($mybb->input['upsetting']['naoardonate_duration'] > 0)
