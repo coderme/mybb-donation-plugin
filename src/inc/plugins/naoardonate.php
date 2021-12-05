@@ -2091,3 +2091,4 @@ function naoar_fixit()
             $cache->update('naoardonate_goal', 0);
             $cache->update('naoardonate_unconfirmed', 0);
         }
+
