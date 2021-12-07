@@ -2093,3 +2093,4 @@ function naoar_fixit()
         }
 
         if($mybb->input['upsetting']['naoardonate_duration'] > 0)
+        {
