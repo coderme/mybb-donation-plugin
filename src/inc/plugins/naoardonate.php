@@ -2096,3 +2096,4 @@ function naoar_fixit()
         {
             $mybb->input['upsetting']['naoardonate_duration'] = '+' . (int) $mybb->input['upsetting']['naoardonate_duration'] . ' days';
             $mybb->input['upsetting']['naoardonate_duration'] = strtotime($mybb->input['upsetting']['naoardonate_duration']);
+        }
