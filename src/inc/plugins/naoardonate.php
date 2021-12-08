@@ -2098,3 +2098,4 @@ function naoar_fixit()
             $mybb->input['upsetting']['naoardonate_duration'] = strtotime($mybb->input['upsetting']['naoardonate_duration']);
         }
         elseif($mybb->input['upsetting']['naoardonate_duration'] <= 0)
+        { # string will evaluate to zero if not numeric
