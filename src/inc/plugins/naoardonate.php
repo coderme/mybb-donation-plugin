@@ -2099,3 +2099,4 @@ function naoar_fixit()
         }
         elseif($mybb->input['upsetting']['naoardonate_duration'] <= 0)
         { # string will evaluate to zero if not numeric
+            $mybb->input['upsetting']['naoardonate_duration'] = 0;
