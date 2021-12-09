@@ -2102,3 +2102,4 @@ function naoar_fixit()
             $mybb->input['upsetting']['naoardonate_duration'] = 0;
         }
     }
+}
