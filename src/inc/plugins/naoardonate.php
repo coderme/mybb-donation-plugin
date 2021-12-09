@@ -2101,3 +2101,4 @@ function naoar_fixit()
         { # string will evaluate to zero if not numeric
             $mybb->input['upsetting']['naoardonate_duration'] = 0;
         }
+    }
