@@ -2106,3 +2106,4 @@ function naoar_fixit()
 
 
 function naoar_alert()
+{
