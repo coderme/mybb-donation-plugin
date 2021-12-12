@@ -2109,3 +2109,4 @@ function naoar_alert()
 {
     global $mybb, $cache, $db, $lang;
 
+    if($mybb->settings['naoardonate_alert'] == 'disabled')
