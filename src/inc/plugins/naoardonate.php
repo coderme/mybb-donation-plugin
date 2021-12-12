@@ -2108,3 +2108,4 @@ function naoar_fixit()
 function naoar_alert()
 {
     global $mybb, $cache, $db, $lang;
+
