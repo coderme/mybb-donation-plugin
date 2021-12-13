@@ -2114,3 +2114,4 @@ function naoar_alert()
         # clean every thing
         if($cache->cache['naoardonate_unconfirmed'])
         {
+            if(is_object($cache->handler)) $cache->handler->delete('naoardonate_unconfirmed');
