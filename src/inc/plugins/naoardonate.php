@@ -2112,3 +2112,4 @@ function naoar_alert()
     if($mybb->settings['naoardonate_alert'] == 'disabled')
     {
         # clean every thing
+        if($cache->cache['naoardonate_unconfirmed'])
