@@ -2113,3 +2113,4 @@ function naoar_alert()
     {
         # clean every thing
         if($cache->cache['naoardonate_unconfirmed'])
+        {
