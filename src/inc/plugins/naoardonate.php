@@ -2118,3 +2118,4 @@ function naoar_alert()
             $db->delete_query("datacache", "title = 'naoardonate_unconfirmed'");
         }
 
+        return; # save some unneeded work
