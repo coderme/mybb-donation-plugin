@@ -2115,3 +2115,4 @@ function naoar_alert()
         if($cache->cache['naoardonate_unconfirmed'])
         {
             if(is_object($cache->handler)) $cache->handler->delete('naoardonate_unconfirmed');
+            $db->delete_query("datacache", "title = 'naoardonate_unconfirmed'");
