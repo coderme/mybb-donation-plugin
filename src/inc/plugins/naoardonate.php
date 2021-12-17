@@ -2121,3 +2121,4 @@ function naoar_alert()
         return; # save some unneeded work
     }
 
+    $unconfirmed = (int)$cache->read('naoardonate_unconfirmed');
