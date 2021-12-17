@@ -2120,3 +2120,4 @@ function naoar_alert()
 
         return; # save some unneeded work
     }
+
