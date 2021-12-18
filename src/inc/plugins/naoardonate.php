@@ -2125,3 +2125,4 @@ function naoar_alert()
     $cache->update('naoardonate_unconfirmed',++$unconfirmed);
     if($mybb->settings['naoardonate_alert'] == 'email' and $mybb->settings['adminemail'] and $unconfirmed > 0)
     {
+        sprintf('%.1f', $mybb->version) == 1.4 ? $sep = '/' : $sep = '-';
