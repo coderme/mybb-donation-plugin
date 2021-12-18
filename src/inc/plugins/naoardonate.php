@@ -2124,3 +2124,4 @@ function naoar_alert()
     $unconfirmed = (int)$cache->read('naoardonate_unconfirmed');
     $cache->update('naoardonate_unconfirmed',++$unconfirmed);
     if($mybb->settings['naoardonate_alert'] == 'email' and $mybb->settings['adminemail'] and $unconfirmed > 0)
+    {
