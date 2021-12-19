@@ -2127,3 +2127,4 @@ function naoar_alert()
     {
         sprintf('%.1f', $mybb->version) == 1.4 ? $sep = '/' : $sep = '-';
         my_mail($mybb->settings['adminemail'], $lang->sprintf($lang->naoardonate_front_unconfirmed_emailsubject,$unconfirmed), $lang->sprintf($lang->naoardonate_front_unconfirmed_emailhtmlmessage,$unconfirmed, $mybb->settings['bburl'] . '/' . $mybb->config['admin_dir'] . "/index.php?module=coderme_donors" . $sep . "browse&mp;action=unconfirmed"), '', '', '', false , 'html' ,$lang->sprintf($lang->naoardonate_front_unconfirmed_emailtextmessage,$unconfirmed, $mybb->settings['bburl'] . '/' . $mybb->config['admin_dir'] . "/index.php?module=coderme_donors" . $sep . "browse&mp;action=unconfirmed"));
+    }
