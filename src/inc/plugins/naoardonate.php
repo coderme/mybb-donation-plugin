@@ -2131,3 +2131,4 @@ function naoar_alert()
 }
 
 
+# get plugin settings number
