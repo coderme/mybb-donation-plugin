@@ -2132,3 +2132,4 @@ function naoar_alert()
 
 
 # get plugin settings number
+function naoardonate_getid()
