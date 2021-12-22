@@ -2134,3 +2134,4 @@ function naoar_alert()
 # get plugin settings number
 function naoardonate_getid()
 {
+    global $db, $naoardonate_id;
