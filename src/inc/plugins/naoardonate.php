@@ -2136,3 +2136,4 @@ function naoardonate_getid()
 {
     global $db, $naoardonate_id;
 
+    $select = $db->simple_select('settinggroups', 'gid' , "name = 'naoardonate'", array('limit'=>1));
