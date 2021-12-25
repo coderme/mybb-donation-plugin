@@ -2140,3 +2140,4 @@ function naoardonate_getid()
     $naoardonate_id = $db->fetch_field($select, 'gid');
     if(!$naoardonate_id) $naoardonate_id = 0;
 }
+
