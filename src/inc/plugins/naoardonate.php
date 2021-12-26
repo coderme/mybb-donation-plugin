@@ -2143,3 +2143,4 @@ function naoardonate_getid()
 
 
 function naoar_donationpage_online(&$plugin_array)
+{
