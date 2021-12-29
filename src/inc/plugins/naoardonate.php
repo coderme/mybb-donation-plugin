@@ -2150,3 +2150,4 @@ function naoar_donationpage_online(&$plugin_array)
     if (preg_match('/donate\.php/',$plugin_array['user_activity']['location']))
     {
         $plugin_array['location_name'] = $lang->sprintf($lang->naoardonate_front_online,'donate.php');
+    }
