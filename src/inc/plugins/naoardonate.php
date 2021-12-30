@@ -2152,3 +2152,4 @@ function naoar_donationpage_online(&$plugin_array)
         $plugin_array['location_name'] = $lang->sprintf($lang->naoardonate_front_online,'donate.php');
     }
 
+    return $plugin_array;
