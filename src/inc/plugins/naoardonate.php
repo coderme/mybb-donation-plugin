@@ -2154,3 +2154,4 @@ function naoar_donationpage_online(&$plugin_array)
 
     return $plugin_array;
 }
+
